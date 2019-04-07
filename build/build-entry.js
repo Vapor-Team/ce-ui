@@ -1,9 +1,9 @@
-const fs = require('fs-extra')
-const path = require('path')
-const uppercamelize = require('uppercamelcase')
+const fs = require("fs-extra")
+const path = require("path")
+const uppercamelize = require("uppercamelcase")
 // 拿到packages目录下的所以含组件的文件名字
-const Components = require('./get-components')()
-const packageJson = require('../package.json')
+const Components = require("./get-components")()
+const packageJson = require("../package.json")
 
 const version = process.env.VERSION || packageJson.version
 const tips = `/* eslint-disable */
@@ -15,17 +15,23 @@ function buildPackagesEntry() {
   const uninstallComponents = []
 
   const importList = Components.map(
-    name => `import ${uppercamelize(name)} from './${name}'`
+    name => {
+      return `import ${uppercamelize(name)} from './${name}'`
+    }
   )
-  const exportList = Components.map(name => `${uppercamelize(name)}`)
+  const exportList = Components.map(name => {
+    return `${uppercamelize(name)}`
+  })
   const intallList = exportList.filter(
-    name => !~uninstallComponents.indexOf(uppercamelize(name))
+    name => {
+      return !~uninstallComponents.indexOf(uppercamelize(name))
+    }
   )
   const content = `${tips}
-${importList.join('\n')}
+${importList.join("\n")}
 const version = '${version}'
 const components = [
-  ${intallList.join(',\n  ')}
+  ${intallList.join(",\n  ")}
 ]
 const install = Vue => {
   components.forEach(Component => {
@@ -39,7 +45,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 export {
   install,
   version,
-  ${exportList.join(',\n  ')}
+  ${exportList.join(",\n  ")}
 }
 export default {
   install,
@@ -47,8 +53,7 @@ export default {
 }
 `
 
-  fs.writeFileSync(path.join(__dirname, '../packages/index.js'), content)
+  fs.writeFileSync(path.join(__dirname, "../packages/index.js"), content)
 }
-
 
 buildPackagesEntry()

@@ -1,6 +1,6 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import navConf from '@/nav.config.json'
+import Vue from "vue"
+import Router from "vue-router"
+import navConf from "@/nav.config.json"
 
 Vue.use(Router)
 
@@ -16,18 +16,26 @@ let addComponent = router => {
       addComponent(route.items)
       routes = routes.concat(route.items)
     } else {
-      if (route.name === 'site-index') {
-        route.component = r =>
-          require.ensure([], () => r(require(`../../docs/introduce.md`)))
+      if (route.name === "site-index") {
+        route.component = r => {
+          return require.ensure([], () => {
+            return r(require("../../docs/introduce.md"))
+          })
+        }
       } else {
-        route.component = r =>
-          require.ensure([], () => r(require(`../../docs/${route.name}.md`)))
+        route.component = r => {
+          return require.ensure([], () => {
+            return r(require(`../../docs/${route.name}.md`))
+          })
+        }
       }
     }
   })
 }
 addComponent(routes)
-let availableRoutes = routes.filter(item => item.path)
+let availableRoutes = routes.filter(item => {
+  return item.path
+})
 export default new Router({
   routes: availableRoutes
 })
