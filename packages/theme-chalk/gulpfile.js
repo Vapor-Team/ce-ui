@@ -29,7 +29,7 @@ let bemConfig = {
 }
 
 function compileCssToVw(done) {
-  return src("./src/*.stylus")
+  return src("./src/*.styl")
     .pipe(stylus())
     .pipe(
       postcss([
@@ -61,7 +61,7 @@ function compileCssToVw(done) {
 }
 
 function compileCssToPx(done) {
-  return src("./src/*.stylus")
+  return src("./src/*.styl")
     .pipe(stylus())
     .pipe(
       postcss([
