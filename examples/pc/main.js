@@ -4,8 +4,7 @@ import Vue from "vue"
 import App from "./App"
 import router from "./router"
 import demoBlock from "./components/demo-block.vue"
-import VueCards from "../../packages/index"
-// import '../lib/theme-chalk/index.css'
+import CeUi from "../../packages/index"
 import "../../packages/theme-chalk/lib/index.px.css"
 
 const Demos = []
@@ -24,7 +23,7 @@ Demos.map(component => {
 
 Vue.component("demo-block", demoBlock)
 
-Vue.use(VueCards)
+Vue.use(CeUi)
 
 Vue.config.productionTip = false
 

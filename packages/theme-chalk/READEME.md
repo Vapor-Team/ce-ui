@@ -1,3 +1,3 @@
 # Theme default
 
-this is theme default of vue-cards
+this is theme default of ce-ui

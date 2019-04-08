@@ -11,10 +11,10 @@
 			        id="mobileIframe"
 			        frameborder="0"></iframe>
 		</div>
-		<vue-cards-icon name="close"
+		<ce-icon name="close"
 		                class="docs-simulator__close"
 		                :size="32"
-		                @click="$emit('update:show',false)"></vue-cards-icon>
+		                @click="$emit('update:show',false)"></ce-icon>
 	</div>
 </template>
 <script>

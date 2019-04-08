@@ -8,11 +8,11 @@
 		<mainFooter></mainFooter>
 		<div class="mobile-toggle-wrap"
 		     @click="isMobileShow=true">
-			<vue-cards-icon class="mobile-toggle-wrap__icon"
-			                :symbol="false"
-			                :size="26"
-			                name="mobile"
-			                color="#628cf5"></vue-cards-icon>开启移动端预览
+			<ce-icon class="mobile-toggle-wrap__icon"
+			         :symbol="false"
+			         :size="26"
+			         name="mobile"
+			         color="#628cf5"></ce-icon>开启移动端预览
 		</div>
 		<mobile-frame v-if="isMobileShow"
 		              :show.sync="isMobileShow"></mobile-frame>
@@ -35,9 +35,9 @@ export default {
 	},
 	watch: {
 		$route(to, from) {
-			// if (to.path === '/') {
-			//   router.push({ name: 'introduce' })
-			// }
+			if (to.path === "/") {
+				router.push({ name: "introduce" })
+			}
 		}
 	},
 	mounted() {
@@ -82,7 +82,7 @@ export default {
 	display block
 
 .mobile-toggle-wrap
-	position fixed
+	position absolute
 	right 70px
 	top 18px
 	z-index 999

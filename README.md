@@ -14,6 +14,7 @@ npm run dev:style
 - 2.构建样式使用 gulp 没安装请全局安装 gulp
 - 3.代码格式检测使用 eslint 进行代码检测
 - 4.ide 使用 vscode
+- 5.组件使用 ce-功能名称
 - vscode 插件配置，需安装 vscode eslint 插件
 
 ```javascript

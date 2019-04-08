@@ -16,7 +16,7 @@
 		"bootstrap": "npm install && cd ./packages/theme-chalk && npm install",
 		"dev": "npm run build:entry && vue-cli-service serve",
 		"lint": "vue-cli-service lint",
-		"lib": "vue-cli-service build --target lib --name vue-cards --dest lib packages/index.js",
+		"lib": "vue-cli-service build --target lib --name ce-ui --dest lib packages/index.js",
 		"clean": "rimraf lib && rimraf packages/*/lib",
 		"dev:style": "gulp --gulpfile packages/theme-chalk/gulpfile.js",
 		"build:docs": "vue-cli-service build",

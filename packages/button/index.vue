@@ -1,9 +1,9 @@
 <template>
 	<div @click="$emit('click')"
-	     class="vue-cards-button"
+	     class="ce-ui-button"
 	     :class="[
-      type ? 'vue-cards-button--' + type : '',
-      size ? 'vue-cards-button--' + size : '',
+      type ? 'ce-ui-button--' + type : '',
+      size ? 'ce-ui-button--' + size : '',
       {
         'is-disabled': disabled,
         'is-plain': plain,

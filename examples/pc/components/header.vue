@@ -5,8 +5,8 @@
 		<div class="header-container">
 			<a href="https://github.com/CE-UI/ce-ui"
 			   target="__blank">
-				<vue-cards-icon name="cards"
-				                :size="50"></vue-cards-icon>
+				<ce-icon name="cards"
+				                :size="50"></ce-icon>
 				<span class="name">Cloud Elements</span>
 			</a>
 		</div>

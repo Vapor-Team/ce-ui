@@ -1,5 +1,5 @@
 @import './common/var.styl'
-@b vue-cards-loading
+@b ce-ui-loading
 	width 36px
 	height 36px
 	// z-index: 0;
@@ -27,7 +27,7 @@
 		position relative
 		display inline-block
 		box-sizing border-box
-		animation vue-cards-rotate 0.8s linear infinite
+		animation ce-ui-rotate 0.8s linear infinite
 		@m circle
 			border-radius 100%
 			border 3px solid transparent
@@ -61,14 +61,14 @@
 			stroke currentColor
 			stroke-width 6
 			stroke-linecap round
-			animation vue-cards-circular 1.5s ease-in-out infinite
+			animation ce-ui-circular 1.5s ease-in-out infinite
 	@m white
-		.vue-cards-loading__spinner--circle
+		.ce-ui-loading__spinner--circle
 			border-color rgba(0, 0, 0, 0.1)
 			border-top-color rgba(255, 255, 255, 0.7)
-		.vue-cards-loading__spinner--gradient-circle
+		.ce-ui-loading__spinner--gradient-circle
 			background-image url('https://img.yzcdn.cn/vant/gradient-circle-white.png')
-@keyframes vue-cards-circular
+@keyframes ce-ui-circular
 	0%
 		stroke-dasharray 1, 200
 		stroke-dashoffset 0
@@ -78,12 +78,12 @@
 	100%
 		stroke-dasharray 90, 150
 		stroke-dashoffset -120
-@keyframes vue-cards-rotate
+@keyframes ce-ui-rotate
 	from
 		transform rotate(0deg)
 	to
 		transform rotate(360deg)
 for num in (1 .. 12)
-	.vue-cards-loading__spinner--spinner i:nth-of-type({num})
+	.ce-ui-loading__spinner--spinner i:nth-of-type({num})
 		opacity 'calc(1 - (0.75 / 12) * (%s - 1))' % num
 		transform rotate('calc(%s * 30deg)' % num)

@@ -7,35 +7,35 @@ Vue.use(Router)
 let routes = []
 
 Object.keys(navConf).forEach(header => {
-  routes = routes.concat(navConf[header])
+	routes = routes.concat(navConf[header])
 })
 
 let addComponent = router => {
-  router.forEach(route => {
-    if (route.items) {
-      addComponent(route.items)
-      routes = routes.concat(route.items)
-    } else {
-      if (route.name === "site-index") {
-        route.component = r => {
-          return require.ensure([], () => {
-            return r(require("../../docs/introduce.md"))
-          })
-        }
-      } else {
-        route.component = r => {
-          return require.ensure([], () => {
-            return r(require(`../../docs/${route.name}.md`))
-          })
-        }
-      }
-    }
-  })
+	router.forEach(route => {
+		if (route.items) {
+			addComponent(route.items)
+			routes = routes.concat(route.items)
+		} else {
+			if (route.name === "site-index") {
+				route.component = r => {
+					return require.ensure([], () => {
+						return r(require("../../docs/introduce.md"))
+					})
+				}
+			} else {
+				route.component = r => {
+					return require.ensure([], () => {
+						return r(require(`../../docs/${route.name}.md`))
+					})
+				}
+			}
+		}
+	})
 }
 addComponent(routes)
 let availableRoutes = routes.filter(item => {
-  return item.path
+	return item.path
 })
 export default new Router({
-  routes: availableRoutes
+	routes: availableRoutes
 })

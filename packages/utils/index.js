@@ -23,8 +23,11 @@ function get(object, path) {
 }
 
 const camelizeRE = /-(\w)/g
+
 function camelize(str) {
-	return str.replace(camelizeRE, (_, c) => {return c.toUpperCase()})
+	return str.replace(camelizeRE, (_, c) => {
+		return c.toUpperCase()
+	})
 }
 
 function isAndroid() {
@@ -36,4 +39,12 @@ function range(num, min, max) {
 	return Math.min(Math.max(num, min), max)
 }
 
-export { get, range, isObj, isDef, isServer, camelize, isAndroid }
+export {
+	get,
+	range,
+	isObj,
+	isDef,
+	isServer,
+	camelize,
+	isAndroid
+}

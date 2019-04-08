@@ -1,11 +1,11 @@
 <template>
-	<div :class="['vue-cards',cardThemeClass,cardSideClass]">
-		<div class="vue-cards__title"
+	<div :class="['ce-ui',cardThemeClass,cardSideClass]">
+		<div class="ce-ui__title"
 		     v-if="title">{{title}}</div>
-		<div class="vue-cards__content">
+		<div class="ce-ui__content">
 			<slot name="content"></slot>
 		</div>
-		<div class="vue-cards__footer">
+		<div class="ce-ui__footer">
 			<slot name="footer"></slot>
 		</div>
 	</div>
@@ -29,10 +29,10 @@ export default create({
 	},
 	computed: {
 		cardThemeClass() {
-			return "vue-cards--" + this.themeType
+			return "ce-ui--" + this.themeType
 		},
 		cardSideClass() {
-			return "vue-cards--" + this.sideType
+			return "ce-ui--" + this.sideType
 		}
 	},
 	components: {

@@ -4,8 +4,8 @@
 			<li v-for="name in icons"
 			    :key="name">
 				<div class="demo-icon-wrap">
-					<vue-cards-icon :name="name.substring(5)"
-					                :size="32"></vue-cards-icon>
+					<ce-icon :name="name.substring(5)"
+					                :size="32"></ce-icon>
 					<span class="name">{{name.substring(5)}}</span>
 				</div>
 			</li>
@@ -17,7 +17,7 @@
 const iconList = require("../icon.json")
 
 export default {
-	name: "icon-demo",
+	name: "ce-icon-demo",
 	data() {
 		return {
 			icons: iconList
@@ -55,7 +55,7 @@ export default {
 		font-family 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif
 		color #626673
 
-	.vue-cards-icon
+	.ce-ui-icon
 		display block
 		margin-bottom 15px
 
