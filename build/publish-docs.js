@@ -2,7 +2,9 @@
 
 const execSync = require("child_process").execSync
 const VERSION = require("../package.json").version
-const GIT_COMMIT = execSync("git rev-parse --short HEAD").toString().replace(/\n/, "")
+const GIT_COMMIT = execSync("git rev-parse --short HEAD")
+	.toString()
+	.replace(/\n/, "")
 // const CURRENT_BRANCH = execSync('git symbolic-ref --short -q HEAD').toString().replace(/\n/, '')
 // const PUB_BRANCH = 'publish-docs'
 // execSync(`git checkout ${PUB_BRANCH}`)
@@ -15,10 +17,10 @@ const GIT_COMMIT = execSync("git rev-parse --short HEAD").toString().replace(/\n
 const ghpages = require("gh-pages")
 execSync("npm run build:docs")
 ghpages.publish("dist", {
-  user: {
-    name: "ce-ui",
-    email: "jackblogs@163.com"
-  },
-  repo: "https://github.com/CE-UI/ce-ui.git",
-  message: `[deploy] ${GIT_COMMIT} - [release] ${VERSION}`
+	user: {
+		name: "ce-ui",
+		email: "jackblogs@163.com"
+	},
+	repo: "https://github.com/Vapor-Team/ce-ui.git",
+	message: `[deploy] ${GIT_COMMIT} - [release] ${VERSION}`
 })

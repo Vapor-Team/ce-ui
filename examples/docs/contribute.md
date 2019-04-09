@@ -8,7 +8,7 @@
 <!-- {.md} -->
 
 ```js
-git clone https://github.com/CE-UI/ce-ui.git
+git clone https://github.com/Vapor-Team/ce-ui.git
 
 cd ce-ui
 

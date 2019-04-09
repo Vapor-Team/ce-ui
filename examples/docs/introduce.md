@@ -20,4 +20,4 @@
 
 <!-- {.md} -->
 
-如果你在使用中遇到问题，或者有好的建议，欢迎提<!-- {.md} --> [Issue](https://github.com/CE-UI/ce-ui/issues)。<!-- {.md} -->
+如果你在使用中遇到问题，或者有好的建议，欢迎提<!-- {.md} --> [Issue](https://github.com/Vapor-Team/ce-ui/issues)。<!-- {.md} -->

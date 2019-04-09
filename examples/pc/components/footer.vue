@@ -1,6 +1,6 @@
 <template>
 	<div class="page-footer">
-		<a href="https://github.com/CE-UI/ce-ui"
+		<a href="https://github.com/Vapor-Team/ce-ui"
 		   target="_blank"
 		   class="page-footer__github-link">
 			<svg height="28"
