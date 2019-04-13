@@ -46,7 +46,7 @@ npm run dev:style
 	// "vetur.format.defaultFormatter.html": "prettyhtml", //格式化html
 	"vetur.format.defaultFormatter.css": "prettier",
 	"vetur.format.defaultFormatter.postcss": "prettier",
-	"vetur.format.defaultFormatter.scss": "prettier",
+	"vetur.format.defaultFormatter.": "prettier",
 	"vetur.format.defaultFormatter.less": "prettier",
 	"vetur.format.defaultFormatter.stylus": "stylus-supremacy",
 	"vetur.format.defaultFormatter.js": "prettier",
