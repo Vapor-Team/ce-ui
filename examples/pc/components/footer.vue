@@ -1,36 +1,35 @@
 <template>
   <footer class="footer">
     <div class="container">
-      <div class="footer-logo"></div>
-      <div class="footer-desc">
-        <div class="footer-copyright">© 2017 Created by<a href="//aotu.io" target="_blank"> 凹凸实验室</a></div>
+      <div class="footer-logo">
+        <img src="../assets/ce-logo.png" style="width:100%;" alt="">
       </div>
-      <div class="github-logo"><a href="https://github.com/o2team" target="_blank">Github</a></div>
+      <div class="footer-desc">
+        <div class="footer-copyright">© Power By<a href="https://github.com/Vapor-Team" target="_blank">水蒸气团队</a></div>
+      </div>
+      <div class="github-logo"><a href="https://github.com/Vapor-Team/ce-ui" target="_blank">Github</a></div>
     </div>
   </footer>
 </template>
 
-<style>
-/**
-@import '~stylesheet/src/variables/index.scss';
-@import '../assets/style/mixin';
-
-.footer {
-  padding: 30px 0 30px;
+<style lang="stylus" scoped>
+.footer
+  padding: 10px 0 10px;
   color: #6190E8;
   text-align: center;
   background-color: #fff;
 
   .container {
     position: relative;
-    width: 90%;
+    width: 90%
+    box-shadow:0 0 0 0
+    margin: 0 auto
   }
   &-logo {
     margin: 10px 0 14px;
-    width: 198px;
+    width: 40px;
     height: 40px;
-    @include image2x-background('o2logo');
-    background-size: 100% auto;
+    margin-left: 50px;
   }
   &-desc {
     text-align: left;
@@ -46,14 +45,15 @@
       text-decoration: none;
     }
   }
-  .github-logo {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    width: 42px;
-    height: 42px;
-    @include image2x-background('github');
-    transition: transform .3s;
+  .github-logo
+    position: absolute
+    right: 20px
+    top: 20px
+    width: 42px
+    height: 42px
+    background: url('../assets/github-logo.png') no-repeat
+    background-size: 100%
+    transition: transform .3s
 
     &:hover {
       transform: scale(1.1);
@@ -64,8 +64,6 @@
       height: 100%;
       text-indent: -9999px;
     }
-  }
-}
 
 @media screen and (max-width: $screen-sm-max) {
   .footer {
@@ -85,6 +83,4 @@
     }
   }
 }
-* Footer
- */
 </style>

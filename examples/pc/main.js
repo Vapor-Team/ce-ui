@@ -26,7 +26,7 @@ Vue.component("demo-block", demoBlock)
 Vue.use(CeUi)
 
 Vue.config.productionTip = false
-console.log(router)
+
 /* eslint-disable no-new */
 new Vue({
 	el: "#app",
