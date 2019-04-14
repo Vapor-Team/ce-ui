@@ -1,9 +1,9 @@
 <template>
 	<div @click="$emit('click')"
-	     class="ce-ui-button"
+	     class="ce-button"
 	     :class="[
-      type ? 'ce-ui-button--' + type : '',
-      size ? 'ce-ui-button--' + size : '',
+      type ? 'ce-button--' + type : '',
+      size ? 'ce-button--' + size : '',
       {
         'is-disabled': disabled,
         'is-plain': plain,

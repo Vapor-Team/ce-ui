@@ -1,6 +1,47 @@
-@import 'config'
+@import './config'
+@import './functions'
+@import './utils'
 
-when($state)
+/* 当条件成立输出类似代码块 */
+when_($state)
   ~/
-    &.{$namespace + $state}
+    &.{$state-prefix + $state}
+      {block}
+
+/* BEM 规则函数 */
+/* 废除了在 postcss 插件中配置的bem */
+/* https // www.w3cplus.com/css/mindbemding-getting-your-head-round-bem-syntax.html */
+b_($block)
+  $B = $namespace + '-' + $block
+
+  .{$B}
+    {block}
+
+e_($element)
+  $E = $element
+  $selector = selector()
+  $currentSelector = ''
+
+  for $unit in $element
+    $currentSelector = $currentSelector + '.' + $B + $element-separator + $unit + ','
+
+  if (hitAllSpecialNestRule($selector))
+    ~/
+      {$selector}
+        {$currentSelector}
+          {block}
+  else
+    ~/
+      {$currentSelector}
+        {block}
+
+m_($modifier)
+  $selector = selector()
+  $currentSelector = ''
+
+  for $unit in $modifier
+    $currentSelector = $currentSelector + $selector + $modifier-separator + $unit + ','
+
+  ~/
+    {$currentSelector}
       {block}

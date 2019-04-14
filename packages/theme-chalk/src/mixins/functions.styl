@@ -1,0 +1,38 @@
+@import './mixins/config'
+
+/* BEM support Func
+-------------------------- */
+get(hash, key)
+  return pair[1] if (pair[0] == key) for pair in hash
+
+selectorToString($selector)
+  $selector = inspect($selector)
+  $selector = str-slice($selector, 2, -2)
+  return $selector
+
+containsModifier($selector)
+  $selector = selectorToString($selector)
+
+  if (str-index($selector, $modifier-separator))
+    return true
+  else
+    return false
+
+containWhenFlag($selector)
+  $selector = selectorToString($selector)
+
+  if (str-index($selector, '.' + $state-prefix))
+    return true
+  else
+    return false
+
+containPseudoClass($selector)
+  $selector = selectorToString($selector)
+
+  if (str-index($selector, ':'))
+    return true
+  else
+    return false
+
+hitAllSpecialNestRule($selector)
+  return containsModifier($selector) || containWhenFlag($selector) || containPseudoClass($selector)

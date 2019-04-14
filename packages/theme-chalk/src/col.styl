@@ -1,0 +1,121 @@
+@import './common/*'
+@import './mixins/mixin'
+@import './mixins/utils'
+
+/* ce-col css 样式 */
+[class*='ce-col-']
+  float left
+  box-sizing border-box
+
+.ce-col-0
+  display none
+
+for num in (0 .. 24)
+  .ce-col-{num}
+    width (1 / 24 * num * 100) * 1%
+
+  .ce-col-offset-{num}
+    margin-left (1 / 24 * num * 100) * 1%
+
+  .ce-col-pull-{num}
+    position relative
+    right (1 / 24 * num * 100) * 1%
+
+  .ce-col-push-{num}
+    position relative
+    left (1 / 24 * num * 100) * 1%
+
++res(xs)
+  .ce-col-xs-0
+    display none
+
+  for $i in (0 .. 24)
+    .ce-col-xs-{$i}
+      width (1 / 24 * $i * 100) * 1%
+
+    .ce-col-xs-offset-{$i}
+      margin-left (1 / 24 * $i * 100) * 1%
+
+    .ce-col-xs-pull-{$i}
+      position relative
+      right (1 / 24 * $i * 100) * 1%
+
+    .ce-col-xs-push-{$i}
+      position relative
+      left (1 / 24 * $i * 100) * 1%
+
++res(sm)
+  .ce-col-sm-0
+    display none
+
+  for $i in (0 .. 24)
+    .ce-col-sm-{$i}
+      width (1 / 24 * $i * 100) * 1%
+
+    .ce-col-sm-offset-{$i}
+      margin-left (1 / 24 * $i * 100) * 1%
+
+    .ce-col-sm-pull-{$i}
+      position relative
+      right (1 / 24 * $i * 100) * 1%
+
+    .ce-col-sm-push-#{$i}
+      position relative
+      left (1 / 24 * $i * 100) * 1%
+
++res(md)
+  .ce-col-md-0
+    display none
+
+  for $i in (0 .. 24)
+    .ce-col-md-{$i}
+      width (1 / 24 * $i * 100) * 1%
+
+    .ce-col-md-offset-{$i}
+      margin-left (1 / 24 * $i * 100) * 1%
+
+    .ce-col-md-pull-{$i}
+      position relative
+      right (1 / 24 * $i * 100) * 1%
+
+    .ce-col-md-push-{$i}
+      position relative
+      left (1 / 24 * $i * 100) * 1%
+
++res(lg)
+  .ce-col-lg-0
+    display none
+
+  for $i in (0 .. 24)
+    .ce-col-lg-{$i}
+      width (1 / 24 * $i * 100) * 1%
+
+    .ce-col-lg-offset-{$i}
+      margin-left (1 / 24 * $i * 100) * 1%
+
+    .ce-col-lg-pull-{$i}
+      position relative
+      right (1 / 24 * $i * 100) * 1%
+
+    .ce-col-lg-push-{$i}
+      position relative
+      left (1 / 24 * $i * 100) * 1%
+
++res(xl)
+  .ce-col-xl-0
+    display none
+
+  for $i in (0 .. 24)
+    .ce-col-xl-{$i}
+      width (1 / 24 * $i * 100) * 1%
+
+    .ce-col-xl-offset-{$i}
+      margin-left (1 / 24 * $i * 100) * 1%
+
+    .ce-col-xl-pull-{$i}
+      position relative
+      right (1 / 24 * $i * 100) * 1%
+
+    .ce-col-xl-push-{$i}
+      position relative
+      left (1 / 24 * $i * 100) * 1%
