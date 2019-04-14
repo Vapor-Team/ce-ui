@@ -35,15 +35,15 @@
 <!-- {.md} -->
 
 方式二：<!-- {.md} -->
-使用 <!-- {.md} -->`class="ce-ui-icon__font ce-icon-iPhone"`来声明图标，具体图标的名称请 copy 相应的标签
+使用 <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"`来声明图标，具体图标的名称请 copy 相应的标签
 
 <ce-icon-demo1></ce-icon-demo1>
 ::: demo
 
 ```html
-<i class="ce-ui-icon__font ce-icon-logo"></i>
-<i class="ce-ui-icon__font ce-icon-iPhone"></i>
-<i class="ce-ui-icon__font ce-icon-delete"></i>
+<i class="ce-icon__font ce-icon-logo"></i>
+<i class="ce-icon__font ce-icon-iPhone"></i>
+<i class="ce-icon__font ce-icon-delete"></i>
 ```
 
 :::

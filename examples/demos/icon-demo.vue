@@ -73,7 +73,7 @@ export default {
 		.big
 			font-size 64px
 
-	.ce-ui-icon
+	.ce-icon
 		display block
 		margin-bottom 15px
 
