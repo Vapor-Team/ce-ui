@@ -3,11 +3,10 @@
 import Vue from "vue"
 import App from "./App"
 import router from "./router"
-import VueCards from "../../packages/index"
-// import '../lib/theme-chalk/index.css'
+import CeUi from "../../packages/index"
 import "../../packages/theme-chalk/lib/index.vw.css"
 
-Vue.use(VueCards)
+Vue.use(CeUi)
 
 Vue.config.productionTip = false
 

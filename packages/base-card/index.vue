@@ -1,19 +1,22 @@
 <template>
-	<div :class="['ce-ui',cardThemeClass,cardSideClass]">
-		<div class="ce-ui__title"
-		     v-if="title">{{title}}</div>
-		<div class="ce-ui__content">
+	<div :class="['ce-base-card',cardThemeClass,cardSideClass]">
+		<div class="ce-base-card__title"
+		     v-if="titleShow">
+			<span v-if="title">{{title}}</span>
+			<template>
+				<slot name="header"></slot>
+			</template>
+		</div>
+		<div class="ce-base-card__content">
 			<slot name="content"></slot>
 		</div>
-		<div class="ce-ui__footer">
+		<div class="ce-base-card__footer">
 			<slot name="footer"></slot>
 		</div>
 	</div>
 </template>
 <script>
 import create from "../utils/create-basic"
-import VcLoading from "../loading/index.vue"
-import VcChatIcon from "../icon/index.vue"
 export default create({
 	name: "base",
 	props: {
@@ -29,15 +32,22 @@ export default create({
 	},
 	computed: {
 		cardThemeClass() {
-			return "ce-ui--" + this.themeType
+			return "ce-base-card--" + this.themeType
 		},
 		cardSideClass() {
-			return "ce-ui--" + this.sideType
+			return "ce-base-card--" + this.sideType
+		},
+		titleShow() {
+			let flag = false
+			Object.keys(this.$slots).map(e => {
+				if (e === "title") {
+					flag = true
+				} else {
+					flag = false
+				}
+			})
+			return flag
 		}
-	},
-	components: {
-		VcLoading,
-		VcChatIcon
 	}
 })
 </script>

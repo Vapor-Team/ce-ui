@@ -1,0 +1,62 @@
+
+/* 公共函数 */
+/* 控制着用户能否选中文本 */
+utils-user-select($value)
+  -moz-user-select $value
+  -webkit-user-select $value
+  -ms-user-select $value
+
+/* 清除浮动函数 */
+utils-clearfix()
+  $selector = selector()
+
+  ~/
+    {$selector}::before, {$selector}::after
+      display table
+      content ''
+
+    {$selector}::after
+      clear both
+
+/* 居中显示 */
+utils-vertical-center()
+  $selector = selector()
+
+  ~/
+    {$selector}::after
+      display inline-block
+      content ''
+      height 100%
+      vertical-align middle
+
+/* 清除文本多余样式 */
+utils-ellipsis()
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+
+res($key, $map = $--breakpoints)
+  if ($key in $map)
+    if ($key == 'xs')
+      @media only screen and (max-width: $map[$key])
+        {block}
+    else
+      @media only screen and (min-width: $map[$key])
+        {block}
+  else
+    @media only screen and (max-width: $map['xs'])
+      {block}
+
+res-spec($key, $map = $--breakpoints-spec)
+  if ($key in $map)
+    if ($key == 'xs')
+      @media only screen and (max-width: $map[$key])
+        {block}
+    else
+      @media only screen and print{
+        {$map[$key]}
+      }
+        {block}
+  else
+    @media only screen and (max-width: $map['xs'])
+      {block}

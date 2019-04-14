@@ -44,3 +44,29 @@ $--font-line-height-primary = 24px
 /* Button
 -------------------------- */
 $--button-radius-base = 32px
+/* Break-point
+-------------------------- */
+$--sm = 768px
+$--md = 992px
+$--lg = 1200px
+$--xl = 1920px
+$--breakpoints = {
+  xs: ($--sm - 1),
+  sm: $--sm,
+  md: $--md,
+  lg: $--lg,
+  xl: $--xl
+}
+$--breakpoints-spec = {
+  xs-only: ($--sm - 1),
+  sm-and-up: $--sm,
+  sm-only: '(min-width: %s) and (max-width: %s)' % (($--sm) ($--md - 1)),
+  sm-and-down: 'max-width:%s' % ($--md - 1),
+  md-and-up: 'min-width:%s' % $--md,
+  md-only: '(min-width: {$--md}) and (max-width: {$--lg - 1})',
+  md-and-down: 'max-width:%s' % ($--lg - 1),
+  lg-and-up: 'min-width:%s' % $--lg,
+  lg-only: '(min-width: {$--lg}) and (max-width: {$--xl - 1})',
+  lg-and-down: 'max-width:%s' % ($--xl - 1),
+  xl-only: 'min-width:%s' % $--xl
+}

@@ -1,15 +1,17 @@
 <template>
 	<span class="ce-ui-icon"
 	      @click="onClick"
+	      @mouseenter="onMouseenter"
+	      @mouseleave="onMouseleave"
 	      :style="{ fontSize: size +'px'}">
 		<svg v-if="symbol"
 		     class="ce-ui-icon__symbol"
 		     aria-hidden="true">
-			<use :xlink:href="`#vc-icon-${name}`"></use>
+			<use :xlink:href="`#ce-icon-${name}`"></use>
 		</svg>
 		<i v-else
 		   class="ce-ui-icon__font"
-		   :class="'vc-icon-' + name"
+		   :class="'ce-icon-' + name"
 		   :style="{ color: color }"></i>
 	</span>
 </template>
@@ -48,6 +50,12 @@ export default create({
 	methods: {
 		onClick() {
 			this.$emit("click")
+		},
+		onMouseenter() {
+			this.$emit("mouseenter")
+		},
+		onMouseleave() {
+			this.$emit("mouseleave")
 		}
 	}
 })

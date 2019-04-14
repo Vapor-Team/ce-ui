@@ -9,9 +9,9 @@
 		<div class="mobile-toggle-wrap"
 		     @click="isMobileShow=true">
 			<ce-icon class="mobile-toggle-wrap__icon"
-			         :symbol="false"
+			         :symbol="true"
 			         :size="26"
-			         name="mobile"
+			         name="iPhone"
 			         color="#628cf5"></ce-icon>开启移动端预览
 		</div>
 		<mobile-frame v-if="isMobileShow"

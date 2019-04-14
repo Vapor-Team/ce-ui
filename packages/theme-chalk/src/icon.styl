@@ -1,7 +1,7 @@
 @import './common/var.styl'
 
-[class*=" vc-icon-"], [class^=vc-icon-]
-  font-family 'iconfont' !important // font-size: 64px;
+[class*=' ce-icon-'], [class^=ce-icon-]
+  font-family 'iconfont' !important
   font-style normal
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
@@ -9,6 +9,7 @@
 @b ce-ui-icon
   display inline-block
   line-height 1
+  transition all 0.3s ease-in
 
   @e symbol
     position relative
@@ -21,3 +22,4 @@
     transform scale(1)
 
   @e font
+    transition all 0.3s ease-in

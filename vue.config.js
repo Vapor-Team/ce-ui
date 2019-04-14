@@ -46,7 +46,7 @@ const vueMarkdown = {
 		[
 			MarkdownItCheckBox,
 			{
-				disabled: true
+				disabled: false
 			}
 		],
 		[MarkdownItDec]

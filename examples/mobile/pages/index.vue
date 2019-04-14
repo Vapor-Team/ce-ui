@@ -2,7 +2,7 @@
 	<div>
 		<div class="mobile-demo-menu">
 			<div class="mobile-demo-menu__title">
-				<p class="mobile-demo-menu__title__main">VueCards</p>
+				<p class="mobile-demo-menu__title__main">CeUi</p>
 				<p class="mobile-demo-menu__title__meta">移动端预览</p>
 			</div>
 			<div v-for="title in (Object.keys(navConf))"

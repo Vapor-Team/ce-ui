@@ -11,10 +11,10 @@
 			        id="mobileIframe"
 			        frameborder="0"></iframe>
 		</div>
-		<ce-icon name="close"
-		                class="docs-simulator__close"
-		                :size="32"
-		                @click="$emit('update:show',false)"></ce-icon>
+		<ce-icon name="delete"
+		         class="docs-simulator__close"
+		         :size="32"
+		         @click="$emit('update:show',false)"></ce-icon>
 	</div>
 </template>
 <script>

@@ -1,21 +1,17 @@
 # 更新日志
+
 <!-- {.md} -->
 
-----
+---
+
 <!-- {.md} -->
 
-## [0.1.2](https://github.com/Eamonnzhang/vue-cards/compare/v0.1.1...v0.1.2) (2019-03-19)
+## v 0.0.1
+
 <!-- {.md} -->
 
-
-
-## [0.1.1](https://github.com/Eamonnzhang/vue-cards/compare/744a43d...v0.1.1) (2019-03-18)
-<!-- {.md} -->
-
-
-### Features
-<!-- {.md} -->
-
-* init project ([744a43d](https://github.com/Eamonnzhang/vue-cards/commit/744a43d))
-<!-- {.md} -->
-
+- 2019-04-13
+  - 更新 icon 组件使用方法
+  - 更新 md 文档样式
+  - 修改 code 代码显示动画
+    <!-- {.md} -->

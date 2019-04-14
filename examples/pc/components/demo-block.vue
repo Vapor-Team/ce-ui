@@ -1,17 +1,27 @@
 <template>
 	<div class="docs-demo-wrapper">
-		<div :style="{height: isExpand ? 'auto' : '0'}"
-		     class="demo-container">
-			<div span="14">
-				<div class="docs-demo docs-demo--expand">
-					<div class="highlight-wrapper">
-						<slot name="highlight"></slot>
+		<transition name="text-slide">
+			<div class="demo-container">
+				<div span="14">
+					<div class="docs-demo docs-demo--expand">
+						<div class="highlight-wrapper">
+							<slot name="highlight"></slot>
+						</div>
 					</div>
 				</div>
 			</div>
+		</transition>
+		<div class="docs-trans docs-demo__triangle"
+		     @click="toggle">
+			<transition name="arrow-slide">
+				<ce-icon name="code2"
+				         :size="18"></ce-icon>
+			</transition>
+			<transition name="text-slide">
+				<!-- <span v-show="hovering">{{ controlText }}</span> -->
+			</transition>
 		</div>
-		<span class="docs-trans docs-demo__triangle"
-		      @click="toggle">{{isExpand ? '隐藏代码' : '显示代码'}}</span>
+
 	</div>
 </template>
 
@@ -32,9 +42,16 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
+.docs-demo-wrapper
+	width 300px
+
+	& .text-slide-enter, & .text-slide-leave-active
+		opacity 0
+		transform translateX(10px)
+
 .demo-container
-	transition max-height 0.3s ease
+	transition max-height 1s ease
 	overflow hidden
 
 .docs-demo

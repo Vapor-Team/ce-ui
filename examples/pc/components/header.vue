@@ -5,7 +5,8 @@
 		<div class="header-container">
 			<a href="https://github.com/Vapor-Team/ce-ui"
 			   target="__blank">
-				<ce-icon name="cards"
+				<ce-icon name="logo"
+				         @mouseover="onHover"
 				         :size="50"></ce-icon>
 				<span class="name">Cloud Elements</span>
 			</a>
@@ -14,8 +15,10 @@
 </template>
 <script>
 export default {
-	data() {
-		return {}
+	methods: {
+		onHover() {
+			console.log("eee")
+		}
 	}
 }
 </script>
