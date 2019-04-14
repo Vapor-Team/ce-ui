@@ -53,9 +53,7 @@ res-spec($key, $map = $--breakpoints-spec)
       @media only screen and (max-width: $map[$key])
         {block}
     else
-      @media only screen and print{
-        {$map[$key]}
-      }
+      @media only screen and ({$map[$key]}: )
         {block}
   else
     @media only screen and (max-width: $map['xs'])
