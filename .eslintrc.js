@@ -39,7 +39,7 @@ module.exports = {
     "vue/html-self-closing": "off",
     //官方文档 http://eslint.org/docs/rules/
     //参数：0 关闭，1 警告，2 错误
-    "quotes": ["error", "double"], //建议使用单引号
+    "quotes": ["error", "single"], //建议使用单引号
     // "no-inner-declarations": [0, "both"],     //不建议在{}代码块内部声明变量或函数
     "no-extra-boolean-cast": 1, //多余的感叹号转布尔型
     "no-extra-semi": 2, //多余的分号
