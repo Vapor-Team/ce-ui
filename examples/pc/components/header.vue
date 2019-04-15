@@ -158,7 +158,7 @@ export default {
 
 			span
 				margin-left 40px
-				color #3473e7
+				color rgb(2, 200, 247)
 				font-weight bold
 				font-size 16px
 
