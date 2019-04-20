@@ -4,6 +4,7 @@ const uppercamelize = require("uppercamelcase")
 // 拿到packages目录下的所以含组件的文件名字
 const Components = require("./get-components")()
 const packageJson = require("../package.json")
+const webpackBaseConf = require("./webpack.base.conf")
 
 const version = process.env.VERSION || packageJson.version
 const tips = `/* eslint-disable */
