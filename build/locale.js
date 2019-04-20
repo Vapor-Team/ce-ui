@@ -5,12 +5,10 @@ const fs = require("fs")
 const path = require("path")
 const webpack = require("webpack")
 const merge = require("webpack-merge")
-const baseWebpackConfig = require("./webpack.base.conf")
 
 const spinner = ora("building locale for dev...")
 
 spinner.start()
-baseWebpackConfig.entry = {}
 
 /**
  * Get the files of language
@@ -23,7 +21,7 @@ files.forEach(fileName => {
   localeEntry[name] = `./packages/locale/lang/${fileName}`
 })
 
-const webpackConfig = merge(baseWebpackConfig, {
+const webpackConfig = merge({
   entry: localeEntry,
   output: {
     path: path.resolve(__dirname, "../dist/locale"),
