@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="footer-desc">
-        <div class="footer-copyright">© Power By<a href="https://github.com/Vapor-Team" target="_blank">水蒸气团队</a></div>
+        <div class="footer-copyright">© 2019 Created by <a href="https://github.com/Vapor-Team" target="_blank">水蒸气团队</a></div>
       </div>
       <div class="github-logo"><a href="https://github.com/Vapor-Team/ce-ui" target="_blank">Github</a></div>
     </div>
@@ -22,11 +22,11 @@
   color #6190E8
   text-align center
   background-color #fff
-  box-shadow0 0 50px rgba(0,0,0,0.1)
+  box-shadow 0 0 50px rgba(0,0,0,0.06)
   .container
     position relative
     width 90%
-    box-shadow0 0 0 0
+    box-shadow 0 0 0 0
     margin 0 auto
 
   &-logo
@@ -57,7 +57,7 @@
   .github-logo
     position absolute
     right 20px
-    top 20px
+    top 10px
     width 42px
     height 42px
     background url('../assets/github-logo.png') no-repeat
