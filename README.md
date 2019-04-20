@@ -6,6 +6,18 @@ npm run init
 npm run dev
 // 开启本地样式服务
 npm run dev:style
+npm run init // 初始化开发环境
+npm run bootstrap // 安装所有依赖包
+npm run lint // eslint检测
+npm run lib // 构建库
+npm run clean // 清理构建库
+npm run build:docs // 构建文档页面
+npm run build:entry // 构建文件
+npm run build:lib // 构建库
+npm run build:style // 构建样式库
+npm run publish:docs // 发布文档页面
+npm run release // 发布到线上
+npm run changelog // 打印日志编写
 ```
 
 ### 本工程开发注意事项

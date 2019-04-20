@@ -8,26 +8,28 @@ const packageJson = require("../package.json")
 const version = process.env.VERSION || packageJson.version
 const tips = `/* eslint-disable */
 // This file is auto gererated by build/build-entry.js`
-// const root = path.join(__dirname, '../')
-// const join = dir => path.join(root, dir)
+// const root = path.join(__dirname, "../")
+// const join = dir => {
+// 	return path.join(root, dir)
+// }
 
 function buildPackagesEntry() {
-  const uninstallComponents = []
+	const uninstallComponents = []
 
-  const importList = Components.map(
-    name => {
-      return `import ${uppercamelize(name)} from './${name}'`
-    }
-  )
-  const exportList = Components.map(name => {
-    return `${uppercamelize(name)}`
-  })
-  const intallList = exportList.filter(
-    name => {
-      return !~uninstallComponents.indexOf(uppercamelize(name))
-    }
-  )
-  const content = `${tips}
+	const importList = Components.map(
+		name => {
+			return `import ${uppercamelize(name)} from './${name}'`
+		}
+	)
+	const exportList = Components.map(name => {
+		return `${uppercamelize(name)}`
+	})
+	const intallList = exportList.filter(
+		name => {
+			return !~uninstallComponents.indexOf(uppercamelize(name))
+		}
+	)
+	const content = `${tips}
 ${importList.join("\n")}
 const version = '${version}'
 const components = [
@@ -53,7 +55,7 @@ export default {
 }
 `
 
-  fs.writeFileSync(path.join(__dirname, "../packages/index.js"), content)
+	fs.writeFileSync(path.join(__dirname, "../packages/index.js"), content)
 }
 
 buildPackagesEntry()

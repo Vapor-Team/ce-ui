@@ -5,7 +5,7 @@ import App from "./App"
 import router from "./router"
 import demoBlock from "./components/demo-block.vue"
 import CeUi from "../../packages/index"
-import "../../packages/theme-chalk/lib/index.px.css"
+import "../../packages/theme-chalk/lib/ce-ui-index.css"
 
 const Demos = []
 

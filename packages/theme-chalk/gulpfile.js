@@ -48,7 +48,7 @@ function compileCssToVw(done) {
 				cssnano({
 					"cssnano-preset-advanced": {
 						zindex: false,
-						autoprefixer: false
+						autoprefixer: true
 					}
 				})
 			])
@@ -80,6 +80,27 @@ function compileCssToPx(done) {
 		.pipe(dest("./lib"))
 }
 
+function compileCssToRelease(done) {
+	return src("./src/*.styl")
+		.pipe(stylus())
+		.pipe(
+			postcss([
+				tobem(bemConfig),
+				presetenv(),
+				pxtounits({
+					divisor: 2,
+					targetUnits: "px"
+				})
+			])
+		)
+		.pipe(cssmin())
+		.pipe(rename({
+			prefix: "ce-ui-",
+			extname: ".css"
+		}))
+		.pipe(dest("./lib"))
+}
+
 function copyFont(done) {
 	return src("./src/fonts/**").pipe(dest("./lib/fonts"))
 }
@@ -92,10 +113,17 @@ function watchFonts(done) {
 	return watch("./src/fonts/**", copyFont)
 }
 
-exports.build = parallel(compileCssToVw, compileCssToPx, copyFont)
+exports.build = parallel(
+	// compileCssToVw,
+	// compileCssToPx,
+	compileCssToRelease,
+	copyFont
+)
+
 exports.default = series(
-	compileCssToVw,
-	compileCssToPx,
+	compileCssToVw, // 构建 vw_css
+	compileCssToPx, // 构建 px_css
+	compileCssToRelease,
 	copyFont,
 	parallel(watchCss, watchFonts)
 )

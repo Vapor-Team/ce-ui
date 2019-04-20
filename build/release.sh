@@ -1,5 +1,5 @@
 git checkout master
-git merge develop
+git merge dev
 
 #!/usr/bin/env sh
 set -e
@@ -22,9 +22,9 @@ then
   # publish
   git push origin master
   git push origin refs/tags/v$VERSION
-  git checkout develop
+  git checkout dev
   git rebase master
-  git push origin develop
+  git push origin dev
 
   npm publish
 fi

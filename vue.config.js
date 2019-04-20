@@ -61,19 +61,19 @@ module.exports = {
 			entry: "examples/pc/main.js",
 			template: "public/index.html",
 			filename: "index.html"
-		},
-		mobile: {
-			entry: "examples/mobile/main.js",
-			template: "public/mobile.html",
-			filename: "mobile.html"
 		}
+		// mobile: {
+		// 	entry: "examples/mobile/main.js",
+		// 	template: "public/mobile.html",
+		// 	filename: "mobile.html"
+		// }
 	},
 	// 扩展 webpack 配置，使 packages 加入编译
 	chainWebpack: config => {
 		config.resolve.alias
 			.set("@", resolve("examples"))
 			.set("@#", resolve("examples"))
-			.set("@mobile", resolve("examples/mobile"))
+		// .set("@mobile", resolve("examples/mobile"))
 		config.module
 			.rule("md")
 			.test(/\.md/)
@@ -92,5 +92,6 @@ module.exports = {
 				// import: path.resolve(__dirname, "./src/styles/global.styl")
 			}
 		}
-	}
+	},
+	productionSourceMap: false
 }

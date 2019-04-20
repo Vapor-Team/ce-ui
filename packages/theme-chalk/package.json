@@ -2,7 +2,7 @@
   "name": "ce-ui",
   "version": "0.0.1",
   "description": "ce-ui component default theme.",
-  "main": "lib/index.css",
+  "main": "lib/ce-ui-index.css",
   "scripts": {
     "dev": "gulp build && gulp watch",
     "build": "gulp build"
