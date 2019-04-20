@@ -8,7 +8,7 @@
 			<div class="nav-left">
 				<div class="logo">
 					<router-link :to="{ name: lang === 'en' ? 'Home-en' : 'Home' }">
-						<!-- <img class="logo-img" src="../assets/logo-at@2x.png" preload=""> -->
+						<img class="logo-img" src="../assets/ce-logo.svg" preload="">
 						<span>CE VAPOR</span>
 					</router-link>
 				</div>
