@@ -2,7 +2,11 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-logo">
-        <img src="../assets/ce-logo.png" style="width:100%" alt="">
+        <img src="../assets/ce-logo.png" style="width:40px" alt="">
+        <div class="footer-logo-word">
+          <p>CE VAPOR TEAM</p>
+          <p>水蒸气团队</p>
+        </div>
       </div>
       <div class="footer-desc">
         <div class="footer-copyright">© Power By<a href="https://github.com/Vapor-Team" target="_blank">水蒸气团队</a></div>
@@ -27,10 +31,16 @@
 
   &-logo
     margin 10px 0 14px
-    width 40px
+    width 200px
     height 40px
-    margin-left 50px
-
+    display flex
+    justify-content flex-start
+    &-word
+      margin-left 10px
+      text-align left
+    &-word > p:nth-child(2)
+      word-spacing 10px
+      letter-spacing 13px
   &-desc
     text-align left
     font-size 12px
