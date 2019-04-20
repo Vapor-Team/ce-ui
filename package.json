@@ -14,7 +14,7 @@
 	"scripts": {
 		"init": "npm install commitizen -g && commitizen init cz-conventional-changelog --save-dev --save-exact && npm run bootstrap",
 		"bootstrap": "npm install && cd ./packages/theme-chalk && npm install",
-		"dev": "npm run build:entry && vue-cli-service serve",
+		"dev": "npm run build:entry && vue-cli-service serve && npm run build:locale",
 		"lint": "vue-cli-service lint",
 		"lib": "vue-cli-service build --target lib --name ce-ui --dest lib packages/index.js",
 		"clean": "rimraf lib && rimraf packages/*/lib",
@@ -25,10 +25,13 @@
 		"build:style": "gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
 		"publish:docs": "node build/publish-docs.js",
 		"release": "sh build/release.sh",
-		"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+		"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+		"build:locale": "node build/locale"
 	},
 	"dependencies": {
-		"vue": "^2.5.22"
+		"extract-text-webpack-plugin": "^3.0.2",
+		"vue": "^2.5.22",
+		"vue-i18n": "^8.10.0"
 	},
 	"devDependencies": {
 		"@vue/cli-plugin-babel": "^3.4.0",

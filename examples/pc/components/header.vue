@@ -8,7 +8,7 @@
 			<div class="nav-left">
 				<div class="logo">
 					<router-link :to="{ name: lang === 'en' ? 'Home-en' : 'Home' }">
-						<img class="logo-img" src="../assets/ce-logo.svg" preload="">
+						<img class="logo-img" src="../assets/ce-logo.png" preload="">
 						<span>CE VAPOR</span>
 					</router-link>
 				</div>
@@ -178,7 +178,7 @@ export default {
 			margin 0
 			padding 0
 			height 80px
-			font-size 14px
+			font-size 16px
 			line-height 80px
 			list-style-type none
 
