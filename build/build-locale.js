@@ -24,8 +24,8 @@ files.forEach(fileName => {
 const webpackConfig = merge({
   entry: localeEntry,
   output: {
-    path: path.resolve(__dirname, "../dist/locale"),
-    publicPath: "/dist/locale/",
+    path: path.resolve(__dirname, "../lib/locale"),
+    publicPath: "/lib/locale/",
     filename: "[name].js",
     library: "ce/locale",
     libraryTarget: "umd"
@@ -41,11 +41,6 @@ const webpackConfig = merge({
       raw: true,
       entryOnly: true
     })
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false
-    //   }
-    // })
   ]
 })
 
