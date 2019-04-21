@@ -13,7 +13,8 @@ const tasks = [
   "clean",
   "build:entry",
   "lib",
-  "build:style"
+  "build:style",
+  "build:locale"
 ]
 
 tasks.forEach(task => {

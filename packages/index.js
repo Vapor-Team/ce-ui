@@ -8,33 +8,33 @@ import Locale from './locale'
 import TextCard from './text-card'
 const version = '0.0.1'
 const components = [
-	BaseCard,
-	Button,
-	Icon,
-	Loading,
-	Locale,
-	TextCard
+  BaseCard,
+  Button,
+  Icon,
+  Loading,
+  Locale,
+  TextCard
 ]
 const install = Vue => {
-	components.forEach(Component => {
-		Vue.use(Component)
-	})
+  components.forEach(Component => {
+    Vue.use(Component)
+  })
 };
 /* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue) {
-	install(window.Vue)
+  install(window.Vue)
 }
 export {
-	install,
-	version,
-	BaseCard,
-	Button,
-	Icon,
-	Loading,
-	Locale,
-	TextCard
+  install,
+  version,
+  BaseCard,
+  Button,
+  Icon,
+  Loading,
+  Locale,
+  TextCard
 }
 export default {
-	install,
-	version
+  install,
+  version
 }
