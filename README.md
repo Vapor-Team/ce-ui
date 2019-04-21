@@ -28,6 +28,8 @@ npm run changelog // 打印日志编写
 - 4.ide 使用 vscode
 - 5.组件使用 ce-功能名称
 - vscode 插件配置，需安装 vscode eslint 插件
+- prettier code formatter 自动格式化插件
+- language-stylus / Manta's Stylus Supremacy stylus 插件
 
 ```javascript
 // eslint config start

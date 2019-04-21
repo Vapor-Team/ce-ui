@@ -73,7 +73,7 @@ module.exports = {
 		config.resolve.alias
 			.set("@", resolve("examples"))
 			.set("@#", resolve("examples"))
-		// .set("@mobile", resolve("examples/mobile"))
+			.set("@mobile", resolve("examples/mobile"))
 		config.module
 			.rule("md")
 			.test(/\.md/)
@@ -89,7 +89,6 @@ module.exports = {
 			stylus: {
 				test: /\.styl$/,
 				loader: "style-loader!css-loader!stylus-loader"
-				// import: path.resolve(__dirname, "./src/styles/global.styl")
 			}
 		}
 	},

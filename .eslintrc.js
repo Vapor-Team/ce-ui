@@ -39,10 +39,11 @@ module.exports = {
 		"vue/html-self-closing": "off",
 		// 官方文档 http://eslint.org/docs/rules/
 		// 参数：0 关闭，1 警告，2 错误
-		"quotes": ["error", "double"], // 建议使用单引号
+		"quotes": ["error", "double"], // 建议使用双引号
 		// "no-inner-declarations": [0, "both"],     //不建议在{}代码块内部声明变量或函数
 		"no-extra-boolean-cast": 1, // 多余的感叹号转布尔型
 		"no-extra-semi": 2, // 多余的分号
+		"semi-style": ["error", "last"],
 		"no-extra-parens": 1, // 多余的括号
 		"no-empty": 2, // 空代码块
 		"no-tabs": "off",
@@ -86,7 +87,6 @@ module.exports = {
 		"constructor-super": 2, // 要求在构造函数中有 super() 的调用
 
 		// 代码风格优化 --------------------------------------
-		"semi-style": ["error", "last"], //  强制分号的位置
 		"semi": [
 			2,
 			"never",

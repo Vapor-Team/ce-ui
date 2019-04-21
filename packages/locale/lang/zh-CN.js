@@ -1,5 +1,5 @@
 export default {
-  at: {
+  ce: {
     select: {
       placeholder: "请选择",
       notFoundText: "无匹配数据"

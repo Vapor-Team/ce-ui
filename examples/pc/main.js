@@ -6,8 +6,8 @@ import router from "./router"
 import demoBlock from "./components/demo-block.vue"
 import CeUi from "../../packages/index"
 import VueI18n from "vue-i18n"
-import enLocale from "../../dist/locale/en-US"
-import zhLocale from "../../dist/locale/zh-CN"
+import enLocale from "../../packages/locale/lang/en-US"
+import zhLocale from "../../packages/locale/lang/zh-CN"
 import "../../packages/theme-chalk/lib/ce-ui-index.css"
 
 Vue.use(VueI18n)
