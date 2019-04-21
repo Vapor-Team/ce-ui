@@ -2,16 +2,21 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-logo">
-        <img src="../assets/ce-logo.png" style="width:40px" alt="">
+        <img src="../assets/ce-logo.png" style="width:40px" alt>
         <div class="footer-logo-word">
           <p>CE VAPOR TEAM</p>
           <p>水蒸气团队</p>
         </div>
       </div>
       <div class="footer-desc">
-        <div class="footer-copyright">© 2019 Created by <a href="https://github.com/Vapor-Team" target="_blank">水蒸气团队</a></div>
+        <div class="footer-copyright">
+          © 2019 Created by
+          <a href="https://github.com/Vapor-Team" target="_blank">水蒸气团队</a>
+        </div>
       </div>
-      <div class="github-logo"><a href="https://github.com/Vapor-Team/ce-ui" target="_blank">Github</a></div>
+      <div class="github-logo">
+        <a href="https://github.com/Vapor-Team/ce-ui" target="_blank">Github</a>
+      </div>
     </div>
   </footer>
 </template>
@@ -22,7 +27,8 @@
   color #6190E8
   text-align center
   background-color #fff
-  box-shadow 0 0 50px rgba(0,0,0,0.06)
+  box-shadow 0 0 50px rgba(0, 0, 0, 0.06)
+
   .container
     position relative
     width 90%
@@ -35,12 +41,15 @@
     height 40px
     display flex
     justify-content flex-start
+
     &-word
       margin-left 10px
       text-align left
+
     &-word > p:nth-child(2)
       word-spacing 10px
       letter-spacing 13px
+
   &-desc
     text-align left
     font-size 12px
@@ -62,7 +71,7 @@
     height 42px
     background url('../assets/github-logo.png') no-repeat
     background-size 100%
-    transition transform .3s
+    transition transform 0.3s
 
     &:hover
       transform scale(1.1)
@@ -88,5 +97,4 @@
     .github-logo
       top 0
       right 0
-
 </style>

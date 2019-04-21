@@ -16,15 +16,13 @@
 			         color="#628cf5"></ce-icon>开启移动端预览
 		</div>
 		<mobile-frame v-if="isMobileShow"
-		              :show.sync="isMobileShow"></mobile-frame> -->
+		:show.sync="isMobileShow"></mobile-frame>-->
 	</div>
 </template>
 
 <script>
-
 export default {
 	name: "app"
-
 }
 </script>
 
