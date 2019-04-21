@@ -1,30 +1,12 @@
 <template>
 	<div id="app">
 		<router-view></router-view>
-		<!-- <mainHeader></mainHeader>
-		<div class="container">
-			<sideNav class="nav"></sideNav>
-			<router-view class="view"></router-view>
-		</div>
-		<mainFooter></mainFooter>
-		<div class="mobile-toggle-wrap"
-		     @click="isMobileShow=true">
-			<ce-icon class="mobile-toggle-wrap__icon"
-			         :symbol="true"
-			         :size="26"
-			         name="iPhone"
-			         color="#628cf5"></ce-icon>开启移动端预览
-		</div>
-		<mobile-frame v-if="isMobileShow"
-		              :show.sync="isMobileShow"></mobile-frame> -->
 	</div>
 </template>
 
 <script>
-
 export default {
 	name: "app"
-
 }
 </script>
 

@@ -4,11 +4,11 @@ import Vue from "vue"
 import App from "./App"
 import router from "./router"
 import demoBlock from "./components/demo-block.vue"
-import CeUi from "../../packages/index"
+import CeUi from "@#/index"
 import VueI18n from "vue-i18n"
-import enLocale from "../../packages/locale/lang/en-US"
-import zhLocale from "../../packages/locale/lang/zh-CN"
-import "../../packages/theme-chalk/lib/ce-ui-index.css"
+import enLocale from "@#/locale/lang/en-US"
+import zhLocale from "@#/locale/lang/zh-CN"
+import "@#/theme-chalk/lib/ce-ui-index.css"
 
 Vue.use(VueI18n)
 const i18n = new VueI18n({

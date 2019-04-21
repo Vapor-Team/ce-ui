@@ -1,12 +1,15 @@
-@import '~@/assets/common.styl'
 @import 'md.styl'
+@import '~@#/theme-chalk/src/common/common'
+@import '~@#/theme-chalk/src/common/var'
 @import '~highlight.js/styles/color-brewer.css'
 
 .wrapper
   background-color #F8FAFF
   overflow hidden
+
 .section
   width 100%
+
   .container
     max-width 1140px
     margin 0 auto
@@ -34,13 +37,14 @@
       font-size 18px
       line-height 56px
       border-radius 28px
-      transition all .3s
+      transition all 0.3s
       cursor pointer
 
       a
         display inline-block
         width 100%
         height 100%
+
     .btn-begin
       color #fff
       background-image linear-gradient(90deg, rgb(120, 229, 255) 0%, rgb(2, 200, 247) 100%)
@@ -48,10 +52,13 @@
 
       &:hover
         box-shadow 0 4px 12px 0 rgba(51, 105, 231, 0.4)
+
         a
           color #fff
+
       a
         color #fff
+
     .btn-github
       color rgb(2, 200, 247)
       border 1px solid rgb(2, 200, 247)
@@ -68,7 +75,7 @@
       margin 0 16px
       background-color #fff
       border-radius 30px
-      box-shadow 0 4px 30px 0 rgba(223, 225, 230, .5)
+      box-shadow 0 4px 30px 0 rgba(223, 225, 230, 0.5)
 
       img
         width 100%
@@ -105,7 +112,7 @@
     height 380px
     border-radius 4px
     background-color #fff
-    box-shadow 0 4px 30px 0 rgba(223, 225, 230, .5)
+    box-shadow 0 4px 30px 0 rgba(223, 225, 230, 0.5)
 
   .navigation-panel
     margin-top 56px
@@ -139,7 +146,7 @@
       font-size 13px
       border 1px solid #ECECEC
       border-radius 2px
-      transition all .3s
+      transition all 0.3s
       cursor pointer
 
       &:hover:not(.disabled)
@@ -154,7 +161,7 @@
         padding 4px 20px
         color #6B798C
 
-@media screen and (max-width: $screen-sm-max) // 待修改的屏幕宽度变量
+@media screen and (max-width: $screen-sm-max)
   .container
     width 100%
 
@@ -219,8 +226,10 @@
         margin 0 auto
 
         img
-          margin-left -20px
+          margin-left -20px // 待修改的屏幕宽度变量
+
 .flex
   display flex
+
 .flex-around
   justify-content space-around

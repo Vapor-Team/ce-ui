@@ -3,8 +3,8 @@
 import Vue from "vue"
 import App from "./App"
 import router from "./router"
-import CeUi from "../../packages/index"
-import "../../packages/theme-chalk/lib/ce-ui-index.css"
+import CeUi from "@#/index"
+import "@#/theme-chalk/lib/ce-ui-index.css"
 
 Vue.use(CeUi)
 

@@ -1,12 +1,35 @@
+@import './var'
+
 article, aside, blockquote, body, button, code, dd, details, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul
   margin 0
   padding 0
 
-li
+li, ol
   list-style none
 
+/* Link */
 a
+  color $link-color
+  background transparent
   text-decoration none
+  outline none
+  cursor pointer
+  transition color 0.3s ease
+
+  &:hover
+    color $link-hover-color
+
+  &:active
+    color $link-active-color
+
+  &:hover, &:active
+    outline 0
+    text-decoration none
+
+  &[disabled]
+    color $link-disabled-color
+    cursor not-allowed
+    pointer-events none
 
 code, kbd, pre, samp
   font-family Consolas, Menlo, Courier, monospace

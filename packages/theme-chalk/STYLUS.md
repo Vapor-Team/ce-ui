@@ -215,4 +215,6 @@ foo()
  }
 ```
 
-被传入的块(blocks)在混合(mixins)内将作为 block 变量使用。此功能以后会加强。
+### 内置方法
+
+[文档](http://stylus-lang.com/docs/bifs.html)

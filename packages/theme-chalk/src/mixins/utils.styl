@@ -18,6 +18,12 @@ utils-clearfix()
     {$selector}::after
       clear both
 
+clearfix()
+  &::after
+    clear both
+    content ''
+    display block
+
 /* 居中显示 */
 utils-vertical-center()
   $selector = selector()
@@ -58,3 +64,21 @@ res-spec($key, $map = $--breakpoints-spec)
   else
     @media only screen and (max-width: $map['xs'])
       {block}
+
+// 转换 vw
+vw($px)
+  return $px / 750 * 100vw
+
+// 文本多余展示位三个点
+ellipsis($width = 100%, $display = inline-block)
+  display $display
+  max-width $width
+  overflow hidden
+  text-overflow ellipsis
+  white-space nowrap
+  word-wrap normal
+
+hide-text()
+  overflow hidden
+  text-indent 101%
+  white-space nowrap

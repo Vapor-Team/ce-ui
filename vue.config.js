@@ -67,7 +67,7 @@ module.exports = {
 	chainWebpack: config => {
 		config.resolve.alias
 			.set("@", resolve("examples"))
-			.set("@#", resolve("examples"))
+			.set("@#", resolve("packages"))
 			.set("@mobile", resolve("examples/mobile"))
 		config.module
 			.rule("md")
