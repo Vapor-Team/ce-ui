@@ -10,20 +10,20 @@
 .ce-col-0
   display none
 
-for num in (0 .. 24)
-  .ce-col-{num}
-    width (1 / 24 * num * 100) * 1%
+for $i in (0 .. 24)
+  .ce-col-{$i}
+    width (1 / 24 * $i * 100) * 1%
 
-  .ce-col-offset-{num}
-    margin-left (1 / 24 * num * 100) * 1%
+  .ce-col-offset-{$i}
+    margin-left (1 / 24 * $i * 100) * 1%
 
-  .ce-col-pull-{num}
+  .ce-col-pull-{$i}
     position relative
-    right (1 / 24 * num * 100) * 1%
+    right (1 / 24 * $i * 100) * 1%
 
-  .ce-col-push-{num}
+  .ce-col-push-{$i}
     position relative
-    left (1 / 24 * num * 100) * 1%
+    left (1 / 24 * $i * 100) * 1%
 
 +res(xs)
   .ce-col-xs-0
@@ -59,7 +59,7 @@ for num in (0 .. 24)
       position relative
       right (1 / 24 * $i * 100) * 1%
 
-    .ce-col-sm-push-#{$i}
+    .ce-col-sm-push-{$i}
       position relative
       left (1 / 24 * $i * 100) * 1%
 

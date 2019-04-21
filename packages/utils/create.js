@@ -2,15 +2,15 @@
  * Create a component with common options
  */
 import createBasic from "./create-basic"
-import BaseCard from "../base-card/index.vue"
-import Icon from "../icon/index.vue"
-import VcButton from "../button/index.vue"
+import BaseCard from "../components/base-card"
+import Icon from "../components/icon"
+import Button from "../components/button"
 export default function (sfc) {
 	sfc.props = Object.assign(sfc.props || {}, BaseCard.props)
 	sfc.components = Object.assign(sfc.components || {}, {
 		BaseCard,
 		Icon,
-		VcButton
+		Button
 	})
 	sfc.inheritAttrs = false
 	return createBasic(sfc)

@@ -68,7 +68,7 @@ function compileCssToPx(done) {
 				tobem(bemConfig),
 				presetenv(),
 				pxtounits({
-					divisor: 2,
+					divisor: 1,
 					targetUnits: "px"
 				})
 			])
@@ -88,7 +88,7 @@ function compileCssToRelease(done) {
 				tobem(bemConfig),
 				presetenv(),
 				pxtounits({
-					divisor: 2,
+					divisor: 1,
 					targetUnits: "px"
 				})
 			])
@@ -104,9 +104,9 @@ function compileCssToRelease(done) {
 function copyFont(done) {
 	return src("./src/fonts/**").pipe(dest("./lib/fonts"))
 }
-
+// 监视构建
 function watchCss(done) {
-	return watch("./src/*.styl", parallel(compileCssToVw, compileCssToPx))
+	return watch("./src/*.styl", parallel(compileCssToRelease))
 }
 
 function watchFonts(done) {
@@ -114,15 +114,15 @@ function watchFonts(done) {
 }
 
 exports.build = parallel(
-	// compileCssToVw,
-	// compileCssToPx,
+	// compileCssToVw, // 构建 vw_css
+	// compileCssToPx, // 构建 px_css
 	compileCssToRelease,
 	copyFont
 )
 
 exports.default = series(
-	compileCssToVw, // 构建 vw_css
-	compileCssToPx, // 构建 px_css
+	// compileCssToVw, // 构建 vw_css
+	// compileCssToPx, // 构建 px_css
 	compileCssToRelease,
 	copyFont,
 	parallel(watchCss, watchFonts)
