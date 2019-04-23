@@ -11,8 +11,8 @@ const utils = require("./build/utils")
 const vueMarkdown = {
 	raw: true,
 	preprocess: (MarkdownIt, source) => {
-		MarkdownIt.renderer.rules.table_open = function () {
-			return "<table class=\"table\">"
+		MarkdownIt.renderer.rules.table_open = function() {
+			return '<table class="table">'
 		}
 		// ```html``` 给这种样式加个class hljs
 		MarkdownIt.renderer.rules.fence = utils.wrapCustomClass(
@@ -20,7 +20,7 @@ const vueMarkdown = {
 		)
 		// ```code``` 给这种样式加个class code_inline
 		const codeInline = MarkdownIt.renderer.rules.code_inline
-		MarkdownIt.renderer.rules.code_inline = function (...args) {
+		MarkdownIt.renderer.rules.code_inline = function(...args) {
 			args[0][args[1]].attrJoin("class", "code_inline")
 			return codeInline(...args)
 		}
@@ -34,7 +34,7 @@ const vueMarkdown = {
 				validate: params => {
 					return params.trim().match(/^demo\s*(.*)$/)
 				},
-				render: function (tokens, idx) {
+				render: function(tokens, idx) {
 					if (tokens[idx].nesting === 1) {
 						return `<demo-block>
                         <div slot="highlight">`
@@ -84,6 +84,16 @@ module.exports = {
 			stylus: {
 				test: /\.styl$/,
 				loader: "style-loader!css-loader!stylus-loader"
+			},
+			postcss: {
+				plugins: [
+					require("autoprefixer")({
+						browsers: [
+							// 加这个后可以出现额外的兼容性前缀
+							"> 0.01%"
+						]
+					})
+				]
 			}
 		}
 	},

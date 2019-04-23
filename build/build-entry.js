@@ -8,53 +8,39 @@ const packageJson = require("../package.json")
 const version = process.env.VERSION || packageJson.version
 const tips = `/* eslint-disable */
 // This file is auto gererated by build/build-entry.js`
-// const root = path.join(__dirname, "../")
-// const join = dir => {
-// 	return path.join(root, dir)
-// }
-
 function buildPackagesEntry() {
 	const uninstallComponents = []
+	const importList = Components.map(name => {
+		return uppercamelize(name)
+	})
 
-	const importList = Components.map(
-		name => {
-			return `import ${uppercamelize(name)} from './${name}'`
-		}
-	)
 	const exportList = Components.map(name => {
 		return `${uppercamelize(name)}`
 	})
-	const intallList = exportList.filter(
-		name => {
-			return !~uninstallComponents.indexOf(uppercamelize(name))
-		}
-	)
+	const installList = exportList.filter(name => {
+		return !~uninstallComponents.indexOf(uppercamelize(name))
+	})
 	const content = `${tips}
-${importList.join("\n")}
-const version = '${version}'
-const components = [
-  ${intallList.join(",\n  ")}
-]
-const install = Vue => {
-  components.forEach(Component => {
-    Vue.use(Component)
-  })
-};
-/* istanbul ignore if */
-if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue)
-}
-export {
-  install,
-  version,
-  ${exportList.join(",\n  ")}
-}
-export default {
-  install,
-  version
-}
-`
-
+	import { ${importList.join(", ")} } from './components'
+	const version = '${version}'
+	const components = [ ${installList.join(", ")} ]
+	const install = Vue => {
+		components.forEach(Component => {
+			Vue.use(Component)
+		})
+	};
+	/* istanbul ignore if */
+	if (typeof window !== 'undefined' && window.Vue) {
+		install(window.Vue)
+	}
+	export {
+		install,
+		version,\n		${exportList.join(",\n		")}
+	}
+	export default {
+		install,
+		version,\n		${exportList.join(",\n		")}
+	}`
 	fs.writeFileSync(path.join(__dirname, "../packages/index.js"), content)
 }
 

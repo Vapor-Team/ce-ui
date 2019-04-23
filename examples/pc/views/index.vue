@@ -90,7 +90,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus">
-@import '../assets/css/index'
-</style>

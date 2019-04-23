@@ -63,9 +63,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus">
-@import '../assets/css/index'
-// .navigation-panel
-//   width 290px !important
-</style>
