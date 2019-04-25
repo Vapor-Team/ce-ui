@@ -12,8 +12,8 @@
 		"url": "https://github.com/Vapor-Team/ce-ui.git"
 	},
 	"scripts": {
-		"init": "npm install commitizen -g && commitizen init cz-conventional-changelog --save-dev --save-exact && npm run bootstrap",
-		"bootstrap": "npm install && cd ./packages/theme-chalk && npm install",
+		"init": "npm install commitizen -g && commitizen init cz-conventional-changelog --save-dev --save-exact && npm run style",
+		"style": "npm install && cd ./packages/theme-chalk && npm install",
 		"dev": "npm run build:entry && vue-cli-service serve",
 		"lint": "vue-cli-service lint",
 		"lib": "vue-cli-service build --target lib --name CeUi --dest lib packages/index.js",
