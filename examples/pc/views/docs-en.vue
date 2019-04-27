@@ -3,7 +3,7 @@
 		<m-header></m-header>
 		<div class="ce-container row">
 			<sidebar :list="navs"></sidebar>
-			<div class="ce-markdown col-sm-24 col-md-18 col-lg-20">
+			<div class="ce-markdown col-sm-14 col-md-16 col-lg-18">
 				<transition
 					name="fade"
 					mode="out-in"
@@ -35,12 +35,23 @@
 
 .ce-markdown
 	padding 32px 48px 48px
+	width 100%
+
+	section
+		margin 0 auto
 
 .page-header
 	position relative !important
 
 .footer
 	box-shadow 0 4px 30px 0 rgba(223, 225, 230, 0.8)
+@media screen and (max-width: 768px)
+	.wrapper
+
+		.row
+			flex-direction row
+			flex-wrap wrap
+			display flex
 </style>
 
 <script>

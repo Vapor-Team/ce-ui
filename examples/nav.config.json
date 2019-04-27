@@ -43,6 +43,14 @@
           {
             "title": "更新日志",
             "name": "Changelog"
+          },
+          {
+            "title": "色彩",
+            "name": "Color"
+          },
+          {
+            "title": "字体",
+            "name": "Typography"
           }
         ]
       },
