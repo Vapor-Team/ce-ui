@@ -2,7 +2,7 @@
 	<div class="docs-demo-wrapper">
 		<transition name="text-slide">
 			<div class="demo-container">
-				<div span="14">
+				<div>
 					<div class="docs-demo docs-demo--expand">
 						<div class="highlight-wrapper">
 							<slot name="highlight"></slot>
@@ -11,17 +11,20 @@
 				</div>
 			</div>
 		</transition>
-		<div class="docs-trans docs-demo__triangle"
-		     @click="toggle">
+		<div
+			class="docs-trans docs-demo__triangle"
+			@click="toggle"
+		>
 			<transition name="arrow-slide">
-				<ce-icon name="code2"
-				         :size="18"></ce-icon>
+				<ce-icon
+					name="code"
+					:size="16"
+				></ce-icon>
 			</transition>
 			<transition name="text-slide">
-				<!-- <span v-show="hovering">{{ controlText }}</span> -->
+				<span v-show="hovering">{{ controlText }}</span>
 			</transition>
 		</div>
-
 	</div>
 </template>
 
@@ -44,7 +47,7 @@ export default {
 
 <style lang="stylus" scoped>
 .docs-demo-wrapper
-	width 300px
+	width 100%
 
 	& .text-slide-enter, & .text-slide-leave-active
 		opacity 0
@@ -63,7 +66,7 @@ export default {
 	border 1px solid #e2ecf4
 	border-top none
 
-	pre code
+	pre, code
 		font-family Consolas, Menlo, Courier, monospace
 		line-height 22px
 		border none

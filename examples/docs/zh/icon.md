@@ -1,60 +1,70 @@
 # Icon 图标
 
-----
+<!-- {.md} -->
 
-语义化的矢量图形，`AT-UI` 使用开源的 [Feather](https://feathericons.com/) 作为图标库，并制作成了 `icon font`。`Feather` 使用的是 `24x24` 的尺寸，拥有一致的圆角，一致的笔画宽度，确保整个图标系统保持视觉上的统一性。
+---
 
-## 如何使用
-
-使用 `class="icon"` 来声明图标，具体图标的名称请 `copy` 相应的标签
-
-:::demo
-```html
-<i class="icon icon-zoom-in"></i>
-<i class="icon icon-zoom-out"></i>
-<i class="icon icon-check"></i>
-<i class="icon icon-x"></i>
-```
-:::
+<!-- {.md} -->
 
 ## 图标示例
 
-### 主要
+<!-- {.md} -->
 
-<icon-list type="core"></icon-list>
+<ce-icon-demo></ce-icon-demo>
 
-### 媒体控制
+## 如何使用
 
-<icon-list type="media"></icon-list>
+<!-- {.md} -->
 
-### 通信
+方式一：<!-- {.md} -->
+通过<!-- {.md} -->`ce-icon`标签来引用
 
-<icon-list type="communication"></icon-list>
+<ce-icon-demo1></ce-icon-demo1>
+::: demo
 
-### 照片
+```html
+<ce-icon name="iPhone" :size="16"></ce-icon>
+<ce-icon name="logo" :size="16"></ce-icon>
+<ce-icon name="delete" :size="16"></ce-icon>
+```
 
-<icon-list type="photo"></icon-list>
+:::
 
-### 地理位置
+## 如何使用
 
-<icon-list type="location"></icon-list>
+<!-- {.md} -->
 
-### 天气
+方式二：<!-- {.md} -->
+使用 <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"`来声明图标，具体图标的名称请 copy 相应的标签
 
-<icon-list type="weather"></icon-list>
+<ce-icon-demo1></ce-icon-demo1>
+::: demo
 
-### 箭头
+```html
+<i class="ce-icon__font ce-icon-logo"></i>
+<i class="ce-icon__font ce-icon-iPhone"></i>
+<i class="ce-icon__font ce-icon-delete"></i>
+```
 
-<icon-list type="arrows"></icon-list>
+:::
 
-### LOGO
+## Attributes
 
-<icon-list type="logos"></icon-list>
+<!-- {.md} -->
 
+| 参数   | 说明                                      | 类型    | 可选值         | 默认值 |
+| ------ | ----------------------------------------- | ------- | -------------- | ------ |
+| name   | 图标名称                                  | string  | -              | -      |
+| color  | 图标颜色                                  | string  | -              | -      |
+| size   | 图标大小                                  | number  | -              | -      |
+| symbol | 是否多色（开启将以`svg`标签方式引入图标） | boolean | `true`,`false` | `true` |
 
-<style  scoped>
-.icon {
-  font-size: 20px;
-  margin-right: 10px;
-}
-</style>
+## Icon Events
+
+<!-- {.md} -->
+
+| 事件名称   | 说明         | 回调参数       |
+| ---------- | ------------ | -------------- |
+| click      | 点击事件     | (event: Event) |
+| mouseenter | 鼠标进入事件 | (event: Event) |
+| mouseleave | 鼠标离开事件 | (event: Event) |

@@ -1,60 +1,70 @@
 # Icon
 
-----
+<!-- {.md} -->
 
-For semantic vector graphics, `AT-UI` use the open source [Feather](https://feathericons.com/) as the ICON library, and make `Icon Font`. `Feather` use `24x24` sizes, with rounded corners, consistent stroke widths.
+---
 
-## How To Use
+<!-- {.md} -->
 
-Use `class="icon"` to declare the icon and set the proper classname.
+## Icon sample
 
-:::demo
+<!-- {.md} -->
+
+<ce-icon-demo></ce-icon-demo>
+
+## How to use
+
+<!-- {.md} -->
+
+One way：<!-- {.md} -->
+Reference through the <!-- {.md} --> `ce-icon` tag
+
+<ce-icon-demo1></ce-icon-demo1>
+::: demo
+
 ```html
-<i class="icon icon-zoom-in"></i>
-<i class="icon icon-zoom-out"></i>
-<i class="icon icon-check"></i>
-<i class="icon icon-x"></i>
+<ce-icon name="iPhone" :size="16"></ce-icon>
+<ce-icon name="logo" :size="16"></ce-icon>
+<ce-icon name="delete" :size="16"></ce-icon>
 ```
+
 :::
 
-## List of Icons
+## How to use
 
-### Main
+<!-- {.md} -->
 
-<icon-list type="core"></icon-list>
+Mode two：<!-- {.md} -->
+Use <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"` to declare the icon. Copy the name of the icon.
+<ce-icon-demo1></ce-icon-demo1>
+::: demo
 
-### Media Control
+```html
+<i class="ce-icon__font ce-icon-logo"></i>
+<i class="ce-icon__font ce-icon-iPhone"></i>
+<i class="ce-icon__font ce-icon-delete"></i>
+```
 
-<icon-list type="media"></icon-list>
+:::
 
-### Communication
+## Attributes
 
-<icon-list type="communication"></icon-list>
+<!-- {.md} -->
 
-### Photo
+| param                                          | Instructions | type    | Optional       | Default |
+| ---------------------------------------------- | ------------ | ------- | -------------- | ------- |
+| name                                           | Icon Name    | string  | -              | -       |
+| color                                          | Icon Color   | string  | -              | -       |
+| size                                           | Icon Size    | number  | -              | -       |
+| symbol                                         |
+| Multicolor or not (Open icons with `svg` tags) | ..           | boolean | `true`,`false` | `true`  |
 
-<icon-list type="photo"></icon-list>
+## Icon Events
 
-### Location
+<!-- {.md} -->
 
-<icon-list type="location"></icon-list>
-
-### Weather
-
-<icon-list type="weather"></icon-list>
-
-### Arrows
-
-<icon-list type="arrows"></icon-list>
-
-### LOGO
-
-<icon-list type="logos"></icon-list>
-
-
-<style  scoped>
-.icon {
-  font-size: 20px;
-  margin-right: 10px;
-}
-</style>
+| event name | Instructions     | callback param |
+| ---------- | ---------------- | -------------- |
+| click      | click event      | (event: Event) |
+| mouseenter | mouseenter event | (event: Event) |
+| mouseleave | mouseleave event | (event: Event) |

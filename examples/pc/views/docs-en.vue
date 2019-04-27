@@ -2,7 +2,7 @@
 	<div class="wrapper">
 		<m-header></m-header>
 		<div class="ce-container row">
-			<sidebar :list="navs"></sidebar>
+			<sidebar :list="navLists"></sidebar>
 			<div class="ce-markdown col-sm-14 col-md-16 col-lg-18">
 				<transition
 					name="fade"
@@ -34,7 +34,7 @@
 		flex-wrap wrap
 
 .ce-markdown
-	padding 32px 48px 48px
+	padding 32px 43px 43px
 	width 100%
 
 	section
@@ -45,9 +45,21 @@
 
 .footer
 	box-shadow 0 4px 30px 0 rgba(223, 225, 230, 0.8)
+
+/**
+ * Vue transitions
+ */
+.fade-enter-active
+	transition opacity 0.3s ease-out
+
+.fade-leave-active
+	transition opacity 0.2s ease-out
+
+.fade-enter, .fade-leave-active
+	opacity 0
+
 @media screen and (max-width: 768px)
 	.wrapper
-
 		.row
 			flex-direction row
 			flex-wrap wrap
@@ -58,7 +70,7 @@
 import MHeader from "../components/header"
 import MFooter from "../components/footer"
 import Sidebar from "../components/sidebar"
-import navsConfig from "@/nav.config.json"
+import navConfig from "@/nav.config.json"
 
 export default {
 	components: {
@@ -68,7 +80,7 @@ export default {
 	},
 	data() {
 		return {
-			navs: navsConfig.en.components
+			navLists: navConfig.zh.components
 		}
 	},
 	methods: {

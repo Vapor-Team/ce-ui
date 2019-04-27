@@ -1,45 +1,48 @@
 <template>
-	<div class="at-sidebar col-sm-24 col-md-6 col-lg-4">
-		<nav class="at-nav">
+	<div class="ce-sidebar col-sm-24 col-md-6 col-lg-4">
+		<nav class="ce-nav">
 			<template v-for="(item,index) in list">
 				<h2
-					class="at-nav__title"
+					class="ce-nav__title"
 					:key="index"
 				>{{ item.title }}</h2>
-				<ul class="at-nav__items" :key="index">
+				<ul
+					class="ce-nav__items"
+					:key="index"
+				>
 					<template v-if="item.items">
 						<li
-							class="at-nav__item"
+							class="ce-nav__item"
 							v-for="(navItem,index) in item.items"
 							:key="index"
 						>
 							<router-link
-								class="at-nav__page"
+								class="ce-nav__page"
 								:to="navItem.name.toLowerCase()"
 							>{{ navItem.title }}</router-link>
 						</li>
 					</template>
 					<li
-						class="at-nav__item active"
+						class="ce-nav__item active"
 						v-for="(group,index) in item.groups"
 						:key="index"
 					>
 						<a
-							class="at-nav__group"
+							class="ce-nav__group"
 							@click="toggleMenu"
 						>
 							{{ group.title }}
 							<i class="icon icon-chevron-down"></i>
 						</a>
-						<ul class="at-nav__child-items">
+						<ul class="ce-nav__child-items">
 							<li
-								class="at-nav__child-item"
+								class="ce-nav__child-item"
 								v-for="(navItem,index) in group.items"
 								:key="index"
 							>
 								<router-link
 									v-if="lang === 'zh'"
-									class="at-nav__component"
+									class="ce-nav__component"
 									:to="navItem.name.toLowerCase()"
 								>
 									{{ navItem.name }}
@@ -47,7 +50,7 @@
 								</router-link>
 								<router-link
 									v-else
-									class="at-nav__component"
+									class="ce-nav__component"
 									:to="navItem.name.toLowerCase()"
 								>{{ navItem.title }}</router-link>
 							</li>
@@ -89,17 +92,17 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.at-sidebar
-	// display inline-block
+.ce-sidebar
 	margin 32px 0
 	padding 0
-	// max-width: 264px;
+	max-width 264px
+	min-width 264px
 	color #3F536E
 	background-color #fff
 	border-right 1px solid rgb(236, 236, 236)
 	z-index 99
 
-.at-nav
+.ce-nav
 	font-size 14px
 
 	&__title
@@ -224,7 +227,7 @@ export default {
 			opacity 0.6
 			// color: rgba(255,255,255,.6)
 
-.at-nav__arrow
+.ce-nav__arrow
 	position absolute
 	top 18px
 	right 12px
