@@ -15,7 +15,6 @@ const cssnano = require("cssnano")
 const presetenv = require("postcss-preset-env")
 const rename = require("gulp-rename")
 const tobem = require("postcss-bem-fix")
-
 let bemConfig = {
 	shortcuts: {
 		component: "b",
@@ -106,7 +105,7 @@ function copyFont(done) {
 }
 // 监视构建
 function watchCss(done) {
-	return watch("./src/*.styl", parallel(compileCssToRelease))
+	return watch("./src/**", parallel(compileCssToRelease))
 }
 
 function watchFonts(done) {
