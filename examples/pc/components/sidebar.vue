@@ -92,6 +92,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '../../../packages/theme-chalk/src/common/var';
 .ce-sidebar
 	margin 32px 0
 	padding 0
@@ -176,7 +177,7 @@ export default {
 			box-shadow 1px 0 12px 0 #6190E8
 
 		&:hover
-			color $brand-blue-400
+			// color $brand-blue-400
 			background-color rgba(236, 242, 252, 0.25)
 
 		&.active, &.router-link-active
@@ -186,7 +187,7 @@ export default {
 				display inline-block
 
 			&:hover
-				color #3F536E
+				// color #3F536E
 
 	&__component
 		display block
@@ -209,7 +210,7 @@ export default {
 			box-shadow 1px 0 12px 0 #6190E8
 
 		&:hover
-			color $brand-blue-400
+			// color $brand-blue-400
 			background-color rgba(236, 242, 252, 0.25)
 
 		&.active, &.router-link-active
@@ -219,7 +220,7 @@ export default {
 				display inline-block
 
 			&:hover
-				color #3F536E
+				// color #3F536E
 
 		span
 			padding-left 6px

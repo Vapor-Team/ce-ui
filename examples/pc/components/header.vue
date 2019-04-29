@@ -1,51 +1,85 @@
 <template>
-	<header class="page-header"
-	        :class="[
+	<header
+		class="page-header"
+		:class="[
       collapse ? 'collapse' : ''
     ]"
-	        id="J-page-header">
+		id="J-page-header"
+	>
 		<div class="nav-container">
 			<div class="nav-left">
 				<div class="logo">
 					<router-link :to="{ name: lang === 'en' ? 'Home-en' : 'Home' }">
-						<img class="logo-img" src="../assets/ce-logo.png" preload="">
+						<img
+							class="logo-img"
+							src="../assets/ce-logo.png"
+							preload
+						>
 						<span>CE VAPOR</span>
 					</router-link>
 				</div>
-				<i class="icon icon-menu nav-icon"
-				   @click="toggleMenu"></i>
+				<i
+					class="icon icon-menu nav-icon"
+					@click="toggleMenu"
+				></i>
 			</div>
-			<div v-if="lang === 'en'"
-			     class="nav-right">
+			<div
+				v-if="lang === 'en'"
+				class="nav-right"
+			>
 				<ul class="navbar">
 					<li>
-						<router-link :to="{ name: 'Guide-en' }" :class="activeFlag1 ? 'router-link-active' : ''">Guide</router-link>
+						<router-link
+							:to="{ name: 'Guide-en' }"
+							:class="activeFlag1 ? 'router-link-active' : ''"
+						>Guide</router-link>
 					</li>
 					<li>
-						<router-link :to="{ name: 'Docs-en' }" :class="activeFlag2 ? 'router-link-active' : ''">Component</router-link>
+						<router-link
+							:to="{ name: 'Docs-en' }"
+							:class="activeFlag2 ? 'router-link-active' : ''"
+						>Component</router-link>
 					</li>
 					<li>
-						<router-link :to="{ name: 'Resource-en' }" :class="activeFlag3 ? 'router-link-active' : ''">Resource</router-link>
+						<router-link
+							:to="{ name: 'Resource-en' }"
+							:class="activeFlag3 ? 'router-link-active' : ''"
+						>Resource</router-link>
 					</li>
 				</ul>
-				<div class="btn-language"
-				     @click="switchLang('zh')">中文</div>
+				<div
+					class="btn-language"
+					@click="switchLang('zh')"
+				>中文</div>
 			</div>
-			<div v-else
-			     class="nav-right">
+			<div
+				v-else
+				class="nav-right"
+			>
 				<ul class="navbar">
 					<li>
-						<router-link :to="{ name: 'Guide' }" :class="activeFlag1 ? 'router-link-active' : ''">指南</router-link>
+						<router-link
+							:to="{ name: 'Guide' }"
+							:class="activeFlag1 ? 'router-link-active' : ''"
+						>指南</router-link>
 					</li>
 					<li>
-						<router-link :to="{ name: 'Docs' }" :class="activeFlag2 ? 'router-link-active' : ''">组件</router-link>
+						<router-link
+							:to="{ name: 'Docs' }"
+							:class="activeFlag2 ? 'router-link-active' : ''"
+						>组件</router-link>
 					</li>
 					<li>
-						<router-link :to="{ name: 'Resource' }" :class="activeFlag3 ? 'router-link-active' : ''">资源</router-link>
+						<router-link
+							:to="{ name: 'Resource' }"
+							:class="activeFlag3 ? 'router-link-active' : ''"
+						>资源</router-link>
 					</li>
 				</ul>
-				<div class="btn-language"
-				     @click="switchLang('en')">EN</div>
+				<div
+					class="btn-language"
+					@click="switchLang('en')"
+				>EN</div>
 			</div>
 		</div>
 	</header>
@@ -132,6 +166,8 @@ export default {
 </script>
 
 <style lang="stylus">
+@import '../../../packages/theme-chalk/src/common/var'
+
 .page-header
 	position fixed
 	top 0
@@ -221,11 +257,8 @@ export default {
 				display inline-block
 				margin 0 24px
 				cursor pointer
+
 				transition color 0.3s
-
-				&:hover
-					color $brand-blue-500
-
 					a
 						color $brand-blue-500
 
