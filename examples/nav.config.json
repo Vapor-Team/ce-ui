@@ -249,6 +249,14 @@
           {
             "title": "Change Log",
             "name": "Changelog"
+          },
+          {
+            "title": "Color",
+            "name": "Color"
+          },
+          {
+            "title": "Typography",
+            "name": "Typography"
           }
         ]
       },

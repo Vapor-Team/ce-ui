@@ -10,9 +10,18 @@ import enLocale from "@#/locale/lang/en-US"
 import zhLocale from "@#/locale/lang/zh-CN"
 import "@#/theme-chalk/lib/ce-ui-index.css"
 
+const matchArr = window.location.href.match(/#\/(zh|en)/)
+const urlLang = matchArr && matchArr[1]
+let navigatorLang = window.navigator.language.slice(0, 2)
+
+if (['en', 'zh'].indexOf(navigatorLang) <= -1) {
+  navigatorLang = ''
+}
+const userLang = urlLang || window.localStorage.getItem('ce-ui-language') || navigatorLang || 'zh'
+
 Vue.use(VueI18n)
 const i18n = new VueI18n({
-	locale: "en",
+	locale: userLang,
 	fallbackLocale: "en",
 	messages: {
 		"en": {

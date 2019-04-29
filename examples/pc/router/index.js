@@ -63,7 +63,7 @@ if (["en", "zh"].indexOf(navigatorLang) <= -1) {
 	navigatorLang = ""
 }
 
-const userLang = localStorage.getItem("at-ui-language") || navigatorLang || "zh"
+const userLang = localStorage.getItem("ce-ui-language") || navigatorLang || "zh"
 
 routes = routes.concat([{
 	path: "/zh",
@@ -143,17 +143,18 @@ routes.forEach(page => {
 // })
 
 const router = new Router({
-	routes
+	routes,
+	linkExactActiveClass: "",
 	// root: process.env.serverConfig.portalPrefix,
-	// scrollBehavior (to, from, savedPosition) {
-	//   if (to.hash) {
-	//     return {
-	//       selector: to.hash
-	//     }
-	//   }
+	scrollBehavior (to, from, savedPosition) {
+	  if (to.hash) {
+	    return {
+	      selector: to.hash
+	    }
+	  }
 
-	//   return { x: 0, y: 0 }
-	// }
+	  return { x: 0, y: 0 }
+	}
 })
 
 export default router

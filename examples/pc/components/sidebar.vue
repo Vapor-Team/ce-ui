@@ -4,7 +4,7 @@
 			<template v-for="(item,index) in list">
 				<h2
 					class="ce-nav__title"
-					:key="index"
+					:key="index+10"
 				>{{ item.title }}</h2>
 				<ul
 					class="ce-nav__items"
@@ -74,7 +74,7 @@ export default {
 	},
 	computed: {
 		lang() {
-			console.log(this.list)
+			console.log(this.$route.path.split("/"))
 			return this.$route.path.split("/")[1] || "zh"
 		}
 	},

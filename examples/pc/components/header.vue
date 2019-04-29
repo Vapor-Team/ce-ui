@@ -19,13 +19,13 @@
 			     class="nav-right">
 				<ul class="navbar">
 					<li>
-						<router-link :to="{ name: 'Guide-en' }">Guide</router-link>
+						<router-link :to="{ name: 'Guide-en' }" :class="activeFlag1 ? 'router-link-active' : ''">Guide</router-link>
 					</li>
 					<li>
-						<router-link :to="{ name: 'Docs-en' }">Component</router-link>
+						<router-link :to="{ name: 'Docs-en' }" :class="activeFlag2 ? 'router-link-active' : ''">Component</router-link>
 					</li>
 					<li>
-						<router-link :to="{ name: 'Resource-en' }">Resource</router-link>
+						<router-link :to="{ name: 'Resource-en' }" :class="activeFlag3 ? 'router-link-active' : ''">Resource</router-link>
 					</li>
 				</ul>
 				<div class="btn-language"
@@ -35,13 +35,13 @@
 			     class="nav-right">
 				<ul class="navbar">
 					<li>
-						<router-link :to="{ name: 'Guide' }">指南</router-link>
+						<router-link :to="{ name: 'Guide' }" :class="activeFlag1 ? 'router-link-active' : ''">指南</router-link>
 					</li>
 					<li>
-						<router-link :to="{ name: 'Docs' }">组件</router-link>
+						<router-link :to="{ name: 'Docs' }" :class="activeFlag2 ? 'router-link-active' : ''">组件</router-link>
 					</li>
 					<li>
-						<router-link :to="{ name: 'Resource' }">资源</router-link>
+						<router-link :to="{ name: 'Resource' }" :class="activeFlag3 ? 'router-link-active' : ''">资源</router-link>
 					</li>
 				</ul>
 				<div class="btn-language"
@@ -61,7 +61,10 @@ export default {
 	},
 	data() {
 		return {
-			isOpen: false
+			isOpen: false,
+			activeFlag1: false,
+			activeFlag2: false,
+			activeFlag3: false
 		}
 	},
 	computed: {
@@ -74,6 +77,19 @@ export default {
 			window.addEventListener("scroll", this.headerCollapse)
 		} else {
 			window.removeEventListener("scroll", this.headerCollapse)
+		}
+		if (window.location.hash.indexOf("guide") !== -1) {
+			this.activeFlag1 = true
+			this.activeFlag2 = false
+			this.activeFlag3 = false
+		} else if (window.location.hash.indexOf("docs") !== -1) {
+			this.activeFlag2 = true
+			this.activeFlag1 = false
+			this.activeFlag3 = false
+		} else if (window.location.hash.indexOf("resource") !== -1) {
+			this.activeFlag3 = true
+			this.activeFlag1 = false
+			this.activeFlag2 = false
 		}
 	},
 	destroyed() {
@@ -103,10 +119,8 @@ export default {
 		},
 		switchLang(targetLang) {
 			if (this.lang === targetLang) return
-
 			this.$i18n.locale = targetLang
-			localStorage.setItem("at-ui-language", targetLang)
-
+			localStorage.setItem("ce-ui-language", targetLang)
 			if (this.$route.name === "Home") {
 				this.$router.push({ name: "Home-en" })
 			} else {

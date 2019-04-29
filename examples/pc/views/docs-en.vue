@@ -80,7 +80,7 @@ export default {
 	},
 	data() {
 		return {
-			navLists: navConfig.zh.components
+			navLists: navConfig.en.components
 		}
 	},
 	methods: {
