@@ -3,7 +3,7 @@
     <m-header></m-header>
     <div class="ce-container row">
       <sidebar :list="navs"></sidebar>
-      <div class="ce-markdown col-sm-24 col-md-18 col-lg-20">
+      <div class="ce-markdown col-sm-13 col-md-15 col-lg-17">
         <transition name="fade" mode="out-in" @after-leave="afterLeave">
           <router-view class="view"></router-view>
         </transition>

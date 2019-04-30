@@ -3,7 +3,7 @@
 		<m-header></m-header>
 		<div class="ce-container row">
 			<sidebar :list="navLists"></sidebar>
-			<div class="ce-markdown col-sm-14 col-md-16 col-lg-18">
+			<div class="ce-markdown col-sm-13 col-md-15 col-lg-17">
 				<transition
 					name="fade"
 					mode="out-in"
