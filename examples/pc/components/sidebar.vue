@@ -74,7 +74,7 @@ export default {
 	},
 	computed: {
 		lang() {
-			console.log(this.$route.path.split("/"))
+			// console.log(this.$route.path.split("/"))
 			return this.$route.path.split("/")[1] || "zh"
 		}
 	},

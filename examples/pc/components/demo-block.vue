@@ -34,7 +34,9 @@ import Vue from "vue"
 export default {
 	data() {
 		return {
-			isExpand: false
+			isExpand: false,
+			hovering: false,
+			controlText: ''
 		}
 	},
 	methods: {

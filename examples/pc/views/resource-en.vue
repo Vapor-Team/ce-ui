@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper">
     <m-header></m-header>
-    <div class="at-container row">
-      <sidebar :data="navs"></sidebar>
-      <div class="at-markdown col-sm-24 col-md-18 col-lg-20">
+    <div class="ce-container row">
+      <sidebar :list="navs"></sidebar>
+      <div class="ce-markdown col-sm-13 col-md-15 col-lg-17">
         <transition name="fade" mode="out-in" @after-leave="afterLeave">
-          <router-view></router-view>
+          <router-view class="view"></router-view>
         </transition>
       </div>
     </div>
@@ -13,20 +13,53 @@
   </div>
 </template>
 
-<style >
+<style lang="stylus" scoped>
+.wrapper
+	background-color #F8FAFF
 
-</style>
+	.ce-container
+		position relative
+		margin 48px auto
+		width 90%
+		background-color #ffffff
+		box-shadow 0 4px 30px 0 rgba(223, 225, 230, 0.5)
 
-<style  scoped>
-.wrapper {
-  background-color: #F8FAFF;
-}
-.page-header {
-  position: relative !important;
-}
-.footer {
-  box-shadow: 0 4px 30px 0 rgba(223, 225, 230, .8);
-}
+	.row
+		display -webkit-box
+		flex-direction row
+		flex-wrap wrap
+
+.ce-markdown
+	padding 32px 43px 43px
+	width 100%
+
+	section
+		margin 0 auto
+
+.page-header
+	position relative !important
+
+.footer
+	box-shadow 0 4px 30px 0 rgba(223, 225, 230, 0.8)
+
+/**
+ * Vue transitions
+ */
+.fade-enter-active
+	transition opacity 0.3s ease-out
+
+.fade-leave-active
+	transition opacity 0.2s ease-out
+
+.fade-enter, .fade-leave-active
+	opacity 0
+
+@media screen and (max-width: 768px)
+	.wrapper
+		.row
+			flex-direction row
+			flex-wrap wrap
+			display flex
 </style>
 
 <script>
