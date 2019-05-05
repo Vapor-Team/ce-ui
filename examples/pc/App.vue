@@ -1,6 +1,11 @@
 <template>
 	<div id="app">
-		<router-view></router-view>
+		<transition
+			name="fade"
+			mode="out-in"
+		>
+			<router-view></router-view>
+		</transition>
 	</div>
 </template>
 
@@ -12,4 +17,24 @@ export default {
 
 <style lang="stylus">
 @import './assets/css/index'
+
+#app
+	position absolute
+	left 0
+	right 0
+	top 0
+	bottom 0
+	background-color #f8faff
+
+/**
+ * Vue transitions
+ */
+.fade-enter-active
+	transition opacity 0.3s ease-out
+
+.fade-leave-active
+	transition opacity 0.2s ease-out
+
+.fade-enter, .fade-leave-active
+	opacity 0
 </style>

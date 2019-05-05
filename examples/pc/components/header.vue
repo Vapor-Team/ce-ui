@@ -1,10 +1,7 @@
 <template>
 	<header
-		class="page-header"
-		:class="[
-      collapse ? 'collapse' : ''
-    ]"
 		id="J-page-header"
+		:class="['page-header',collapse ? 'collapse' : '']"
 	>
 		<div class="nav-container">
 			<div class="nav-left">
@@ -15,7 +12,7 @@
 							src="../assets/ce-logo.png"
 							preload
 						>
-						<span>CE VAPOR</span>
+						<span>CE-UI | Vapor Team</span>
 					</router-link>
 				</div>
 				<i
@@ -60,19 +57,19 @@
 					<li>
 						<router-link
 							:to="{ name: 'Guide' }"
-							:class="activeFlag1 ? 'router-link-active' : ''"
+							:class="[activeFlag1 ? 'router-link-active' : '']"
 						>指南</router-link>
 					</li>
 					<li>
 						<router-link
 							:to="{ name: 'Docs' }"
-							:class="activeFlag2 ? 'router-link-active' : ''"
+							:class="[activeFlag2 ? 'router-link-active' : '']"
 						>组件</router-link>
 					</li>
 					<li>
 						<router-link
 							:to="{ name: 'Resource' }"
-							:class="activeFlag3 ? 'router-link-active' : ''"
+							:class="[activeFlag3 ? 'router-link-active' : '']"
 						>资源</router-link>
 					</li>
 				</ul>

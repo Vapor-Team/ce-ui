@@ -1,26 +1,33 @@
 <template>
-  <div class="wrapper">
-    <m-header></m-header>
-    <div class="ce-container row">
-      <sidebar :list="navs"></sidebar>
-      <div class="ce-markdown col-sm-13 col-md-15 col-lg-17">
-        <transition name="fade" mode="out-in" @after-leave="afterLeave">
-          <router-view class="view"></router-view>
-        </transition>
-      </div>
-    </div>
-    <m-footer></m-footer>
-  </div>
+	<div class="wrapper">
+		<m-header></m-header>
+		<div class="ce-container row">
+			<sidebar :list="nav"></sidebar>
+			<div class="ce-markdown col-sm-13 col-md-15 col-lg-17">
+				<transition
+					name="fade"
+					mode="out-in"
+					@after-leave="afterLeave"
+				>
+					<router-view class="view"></router-view>
+				</transition>
+			</div>
+		</div>
+		<m-footer></m-footer>
+	</div>
 </template>
 
 <style lang="stylus" scoped>
 .wrapper
 	background-color #F8FAFF
+	width 100%
 
 	.ce-container
 		position relative
 		margin 48px auto
 		width 90%
+		margin-top 130px
+		margin-bottom 150px
 		background-color #ffffff
 		box-shadow 0 4px 30px 0 rgba(223, 225, 230, 0.5)
 
@@ -36,11 +43,11 @@
 	section
 		margin 0 auto
 
-.page-header
-	position relative !important
-
 .footer
-	box-shadow 0 4px 30px 0 rgba(223, 225, 230, 0.8)
+	position fixed
+	left 0
+	right 0
+	bottom 0
 
 /**
  * Vue transitions
@@ -66,23 +73,23 @@
 import MHeader from "../components/header"
 import MFooter from "../components/footer"
 import Sidebar from "../components/sidebar"
-import navsConfig from "@/nav.config.json"
+import navConfig from "@/nav.config.json"
 
 export default {
-  components: {
-    Sidebar,
-    MHeader,
-    MFooter
-  },
-  data () {
-    return {
-      navs: navsConfig.en.resource
-    }
-  },
-  methods: {
-    afterLeave () {
-      window.scrollTo(0, 0)
-    }
-  }
+	components: {
+		Sidebar,
+		MHeader,
+		MFooter
+	},
+	data() {
+		return {
+			nav: navConfig.zh.resource
+		}
+	},
+	methods: {
+		afterLeave() {
+			window.scrollTo(0, 0)
+		}
+	}
 }
 </script>
