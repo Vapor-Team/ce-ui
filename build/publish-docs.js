@@ -2,27 +2,18 @@
 
 const execSync = require("child_process").execSync
 const VERSION = require("../package.json").version
+const ghpages = require("gh-pages")
 const GIT_COMMIT = execSync("git rev-parse --short HEAD")
 	.toString()
 	.replace(/\n/, "")
-// const CURRENT_BRANCH = execSync('git symbolic-ref --short -q HEAD').toString().replace(/\n/, '')
-// const PUB_BRANCH = 'publish-docs'
-// execSync(`git checkout ${PUB_BRANCH}`)
-// execSync(`git merge develop --allow-unrelated-histories `)
-// execSync('npm run build:docs')
-// execSync(`git add . && git commit -m \"[deploy] ${GIT_COMMIT} - [release] ${VERSION}\"`)
-// execSync('git subtree push --prefix dist github gh-pages')
-// execSync(`git checkout ${CURRENT_BRANCH}`)
 
-const ghpages = require("gh-pages")
 execSync("npm run build:docs")
+// 如遇提交失败使用该命令
+// execSync("./node_modules/gh-pages/bin/gh-pages-clean")
+// 将构建好 文档页面放置到 git gh-page 分支上，使用 ssh
 ghpages.publish("dist", {
-	user: {
-		name: "JS-mark",
-		email: "sunduo3195@qq.com"
-	},
 	push: true,
 	branch: "gh-pages",
-	repo: "https://github.com/Vapor-Team/ce-ui.git",
+	repo: "git@github.com:Vapor-Team/ce-ui.git",
 	message: `[deploy] ${GIT_COMMIT} - [release] ${VERSION}`
 })
