@@ -15,7 +15,7 @@ npm run build:docs // 构建文档页面
 npm run build:entry // 构建文件
 npm run build:lib // 构建库
 npm run build:style // 构建样式库
-npm run publish:docs // 发布文档页面
+npm run publish:docs // 发布文档页面到 git gh-page分支上
 npm run release // 发布到线上
 npm run changelog // 打印日志编写
 ```
