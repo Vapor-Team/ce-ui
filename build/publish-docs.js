@@ -16,14 +16,13 @@ const GIT_COMMIT = execSync("git rev-parse --short HEAD")
 
 const ghpages = require("gh-pages")
 execSync("npm run build:docs")
-ghpages.publish("./dist", {
+ghpages.publish("dist", {
 	user: {
 		name: "JS-mark",
 		email: "sunduo3195@qq.com"
 	},
-	branch: "gh-page",
+	push: true,
+	branch: "gh-pages",
 	repo: "https://github.com/Vapor-Team/ce-ui.git",
 	message: `[deploy] ${GIT_COMMIT} - [release] ${VERSION}`
-}, (e) => {
-	console.log(e)
 })
