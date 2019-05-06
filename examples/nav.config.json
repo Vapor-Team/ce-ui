@@ -34,7 +34,7 @@
           },
           {
             "title": "快速上手",
-            "name": "Quickstart"
+            "name": "QuickStart"
           },
           {
             "title": "国际化",
@@ -181,7 +181,7 @@
               },
               {
                 "title": "下拉菜单",
-                "name": "Dropdown"
+                "name": "DropDown"
               },
               {
                 "title": "导航菜单",
@@ -239,8 +239,8 @@
             "name": "Installation"
           },
           {
-            "title": "Quickstart",
-            "name": "Quickstart"
+            "title": "QuickStart",
+            "name": "QuickStart"
           },
           {
             "title": "Internationalization",
@@ -386,8 +386,8 @@
                 "name": "Breadcrumb"
               },
               {
-                "title": "Dropdown",
-                "name": "Dropdown"
+                "title": "DropDown",
+                "name": "DropDown"
               },
               {
                 "title": "Menu",

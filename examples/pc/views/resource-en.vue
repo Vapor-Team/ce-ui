@@ -83,7 +83,7 @@ export default {
 	},
 	data() {
 		return {
-			nav: navConfig.zh.resource
+			nav: navConfig.en.resource
 		}
 	},
 	methods: {

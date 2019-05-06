@@ -86,7 +86,7 @@ export default {
 	},
 	data() {
 		return {
-			nav: navConfig.zh.guide
+			nav: navConfig.en.guide
 		}
 	},
 	methods: {
