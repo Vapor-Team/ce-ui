@@ -7,7 +7,6 @@ npm run dev
 // 开启本地样式服务
 npm run dev:style
 npm run init // 初始化开发环境
-npm run bootstrap // 安装所有依赖包
 npm run lint // eslint检测
 npm run lib // 构建库
 npm run clean // 清理构建库
@@ -17,7 +16,7 @@ npm run build:lib // 构建库
 npm run build:style // 构建样式库
 npm run publish:docs // 发布文档页面到 git gh-page分支上
 npm run release // 发布到线上
-npm run changelog // 打印日志编写
+npm run changelog // 规范commit 提交信息，并自动生成 changelog.md文件，该命令需要全局安装conventional-changelog-cli
 ```
 
 ### 本工程开发注意事项
