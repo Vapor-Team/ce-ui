@@ -182,7 +182,6 @@ export default {
       padding-left 6px
       font-size 12px
       opacity 0.6
-      color rgba(255, 255, 255, 0.6)
 .ce-nav__arrow
   position absolute
   top 18px
