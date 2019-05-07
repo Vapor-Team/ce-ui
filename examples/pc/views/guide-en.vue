@@ -1,8 +1,8 @@
 <template>
 	<div class="wrapper">
-		<m-header></m-header>
+		<c-header></c-header>
 		<div class="ce-container row">
-			<sidebar :list="nav"></sidebar>
+			<c-sidebar :list="nav"></c-sidebar>
 			<div class="ce-markdown col-sm-13 col-md-15 col-lg-17">
 				<transition
 					name="fade"
@@ -13,7 +13,7 @@
 				</transition>
 			</div>
 		</div>
-		<m-footer></m-footer>
+		<c-footer></c-footer>
 	</div>
 </template>
 
@@ -73,16 +73,16 @@
 </style>
 
 <script>
-import MHeader from "../components/header"
-import MFooter from "../components/footer"
-import Sidebar from "../components/sidebar"
+import CSidebar from "../components/header"
+import CHeader from "../components/footer"
+import CFooter from "../components/sidebar"
 import navConfig from "@/nav.config.json"
 
 export default {
 	components: {
-		Sidebar,
-		MHeader,
-		MFooter
+		CSidebar,
+		CHeader,
+		CFooter
 	},
 	data() {
 		return {

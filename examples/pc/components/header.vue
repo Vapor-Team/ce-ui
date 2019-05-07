@@ -84,6 +84,7 @@
 
 <script>
 export default {
+	name: "CHeader",
 	props: {
 		collapse: {
 			type: Boolean,

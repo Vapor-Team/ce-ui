@@ -115,3 +115,9 @@
 			top 0
 			right 0
 </style>
+
+<script>
+export default {
+	name: "CFooter"
+}
+</script>

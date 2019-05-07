@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <m-header :collapse="false"></m-header>
+    <c-header :collapse="false"></c-header>
     <section class="section section-banner">
       <div class="container" style="background:#F8FAFF;box-shadow:0 0 0 0;">
         <div class="logo">
@@ -81,18 +81,18 @@
         </div>
       </div>
     </section>
-    <m-footer></m-footer>
+    <c-footer></c-footer>
   </div>
 </template>
 
 <script>
-import MHeader from "../components/header"
-import MFooter from "../components/footer"
+import CHeader from "../components/header"
+import CFooter from "../components/footer"
 
 export default {
 	components: {
-		MHeader,
-		MFooter
+		CHeader,
+		CFooter
 	}
 }
 </script>

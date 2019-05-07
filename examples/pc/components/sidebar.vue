@@ -15,7 +15,11 @@
               <i class="icon icon-chevron-down"></i>
             </a>
             <ul class="ce-nav__child-items">
-              <li v-for="(navItem,navItemKey) in group.items" :key="navItemKey" class="ce-nav__child-item">
+              <li
+                v-for="(navItem,navItemKey) in group.items"
+                :key="navItemKey"
+                class="ce-nav__child-item"
+              >
                 <router-link
                   v-if="lang === 'zh'"
                   class="ce-nav__component"
@@ -40,6 +44,7 @@
 
 <script>
 export default {
+	name: "CSidebar",
 	props: {
 		list: {
 			type: Array,
@@ -50,7 +55,6 @@ export default {
 	},
 	computed: {
 		lang() {
-			console.log(this.$route.path.split("/")[1])
 			return this.$route.path.split("/")[1] || "zh"
 		}
 	},
@@ -134,10 +138,10 @@ export default {
       left 0
       width 5px
       height 100%
-      background #6190E8
+      background rgba(109, 226, 254, 1)
       border-top-right-radius 4px
       border-bottom-right-radius 4px
-      box-shadow 1px 0 12px 0 #6190E8
+      box-shadow 1px 0 12px 0 rgb(109, 226, 254)
     &:hover
       // color $brand-blue-400
       background-color rgba(236, 242, 252, 0.25)
@@ -161,10 +165,10 @@ export default {
       left 0
       width 6px
       height 100%
-      background #6190E8
+      background rgba(109, 226, 254, 1)
       border-top-right-radius 4px
       border-bottom-right-radius 4px
-      box-shadow 1px 0 12px 0 #6190E8
+      box-shadow 1px 0 12px 0 rgb(109, 226, 254)
     &:hover
       // color $brand-blue-400
       background-color rgba(236, 242, 252, 0.25)
@@ -173,12 +177,12 @@ export default {
       &:after
         display inline-block
       &:hover
-        // color #3F536E
+        color #3F536E
     span
       padding-left 6px
       font-size 12px
       opacity 0.6
-      // color: rgba(255,255,255,.6)
+      color rgba(255, 255, 255, 0.6)
 .ce-nav__arrow
   position absolute
   top 18px
