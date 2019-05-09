@@ -1,2 +1,6 @@
 *.styl linguist-language=vue
 *.md linguist-language=vue
+*.css linguist-language=vue
+*.less linguist-language=vue
+*.js linguist-language=vue
+*.html linguist-language=vue
