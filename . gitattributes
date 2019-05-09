@@ -1,1 +1,2 @@
-*.* linguist-language=vue
+*.styl linguist-language=vue
+*.md linguist-language=vue
