@@ -44,7 +44,7 @@
           v-if="showBtn || isExpand"
           class="codepen"
           @click="goNowCode"
-        >在线运行</span>
+        >{{ codepenText }}</span>
       </transition>
     </div>
   </div>
@@ -60,7 +60,6 @@ export default {
 		return {
 			isExpand: false,
 			showBtn: false,
-			btnText: "显示代码",
 			codepen: {
 				script: "",
 				html: "",
@@ -68,7 +67,7 @@ export default {
 			}
 		}
 	},
-	mounted() {
+	created() {
 		const highlight = this.$slots.highlight
 		if (highlight && highlight[0]) {
 			let code = ""
@@ -86,10 +85,23 @@ export default {
 			}
 		}
 	},
+	computed: {
+		btnText() {
+			return this.$i18n.locale === "zh"
+				? this.isExpand
+					? "隐藏代码"
+					: "显示代码"
+				: this.isExpand
+				? "Hidden code"
+				: "Show code"
+		},
+		codepenText() {
+			return this.$i18n.locale === "zh" ? " 在线运行" : "Online runing"
+		}
+	},
 	methods: {
 		toggle() {
 			this.isExpand = !this.isExpand
-			this.btnText = this.isExpand ? "隐藏代码" : "显示代码"
 		},
 		btnEnter() {
 			this.showBtn = !this.showBtn

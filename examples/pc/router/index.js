@@ -137,11 +137,6 @@ routes.forEach(page => {
 	}
 })
 
-// routes.push({
-//   path: '*',
-//   redirect: { name: 'Home' }
-// })
-
 const router = new Router({
 	routes,
 	linkExactActiveClass: "",
