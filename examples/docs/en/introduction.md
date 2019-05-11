@@ -1,29 +1,23 @@
 # Introduction
 
-----
+<!-- {.md} -->
 
-`AT-UI` is a modular front-end UI framework for developing fast and powerful web interfaces based on Vue.js.
+---
 
-## Features
+<!-- {.md} -->
 
-- Based on `Vue`
-- A NPM + Webpack + Babel Front-End development workflow
-- Support `ES2015`
-- CSS Style independent, make consistent user interfaces (See: [AT-UI Style](https://github.com/at-ui/at-ui-style))
-- Friendly API
+Vue-based UI components adapted to multi-terminal styles
 
-## Environment Support
+<!-- {.md} -->
 
-- Modern browsers and Internet Explorer 9+
-- [Electron](http://electron.atom.io/)
-- [NW.js](http://nwjs.io)
+## Characteristic
 
-## Version
+<!-- {.md} -->
 
-`AT-UI`：[![npm version](https://badge.fury.io/js/at-ui.svg)](https://badge.fury.io/js/at-ui)
+- Supporting PC End Layout
 
-`AT-UI-Style`：[![npm version](https://badge.fury.io/js/at-ui-style.svg)](https://badge.fury.io/js/at-ui-style)
+## contribution
 
-## Contribution
+<!-- {.md} -->
 
-Finding bugs and [Issue](https://github.com/at-ui/at-ui/issues), sending [Pull Request](https://github.com/at-ui/at-ui/pulls) or improving our docs - any contribution is welcome and highly appreciated. To get started, head over to our contribution guidelines. Thanks!
+Finding bugs and [Issue](https://github.com/Vapor-Team/ce-ui/issues), sending [Pull Request](https://github.com/Vapor-Team/ce-ui/pulls) or improving our docs - any contribution is welcome and highly appreciated. To get started, head over to our contribution guidelines. Thanks!
