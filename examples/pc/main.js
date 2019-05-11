@@ -3,21 +3,16 @@
 import Vue from "vue"
 import App from "./App"
 import router from "./router"
-import demoBlock from "./components/demo-block.vue"
-import CeUi from "@#/index"
 import VueI18n from "vue-i18n"
 import enLocale from "@#/locale/lang/en-US"
 import zhLocale from "@#/locale/lang/zh-CN"
+import demoBlock from "./components/demo-block.vue"
+import CeUi from "@#/index"
 import "@#/theme-chalk/lib/ce-ui-index.css"
 
 const matchArr = window.location.href.match(/#\/(zh|en)/)
 const urlLang = matchArr && matchArr[1]
-let navigatorLang = window.navigator.language.slice(0, 2)
-
-if (['en', 'zh'].indexOf(navigatorLang) <= -1) {
-  navigatorLang = ''
-}
-const userLang = urlLang || window.localStorage.getItem('ce-ui-language') || navigatorLang || 'zh'
+const userLang = urlLang || window.localStorage.getItem("ce-ui-language")
 
 Vue.use(VueI18n)
 const i18n = new VueI18n({
@@ -32,17 +27,14 @@ const i18n = new VueI18n({
 		}
 	}
 })
-const Demos = []
 
 function importDemos(r) {
-	r.keys().forEach(key => {
-		Demos.push(r(key).default)
+	return r.keys().map(key => {
+		return r(key).default
 	})
 }
 
-importDemos(require.context("@/demos", true, /\.vue$/))
-
-Demos.map(component => {
+importDemos(require.context("@/demos", true, /\.vue$/)).map(component => {
 	return Vue.component(component.name, component)
 })
 

@@ -29,7 +29,7 @@
             "name": "Introduction"
           },
           {
-            "title": "安装",
+            "title": "开发指南",
             "name": "Installation"
           },
           {
@@ -43,14 +43,6 @@
           {
             "title": "更新日志",
             "name": "Changelog"
-          },
-          {
-            "title": "色彩",
-            "name": "Color"
-          },
-          {
-            "title": "字体",
-            "name": "Typography"
           }
         ]
       },
@@ -128,8 +120,12 @@
                 "name": "Badge"
               },
               {
-                "title": "卡片",
+                "title": "基础卡片",
                 "name": "Card"
+              },
+              {
+                "title": "文字卡片",
+                "name": "TextCard"
               },
               {
                 "title": "折叠面板",
@@ -235,7 +231,7 @@
             "name": "Introduction"
           },
           {
-            "title": "Installation",
+            "title": "DevelopGuide",
             "name": "Installation"
           },
           {
@@ -249,14 +245,6 @@
           {
             "title": "Change Log",
             "name": "Changelog"
-          },
-          {
-            "title": "Color",
-            "name": "Color"
-          },
-          {
-            "title": "Typography",
-            "name": "Typography"
           }
         ]
       },
@@ -336,6 +324,10 @@
               {
                 "title": "Card",
                 "name": "Card"
+              },
+              {
+                "title": "TextCard",
+                "name": "TextCard"
               },
               {
                 "title": "Collapse",

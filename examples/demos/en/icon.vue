@@ -20,10 +20,10 @@
 </template>
 
 <script>
-const iconList = require("../icon.json")
+const iconList = require("../../icon.json")
 
 export default {
-	name: "ce-icon-demo",
+	name: "ce-icon-demo-en",
 	data() {
 		return {
 			icons: iconList.map(e => {
@@ -67,8 +67,8 @@ export default {
 		margin-right -1px
 		margin-bottom -1px
 
-	&:nth-child(6n)
-		border-right none
+		&:nth-child(6n)
+			border-right none
 
 	.demo-icon-wrap
 		display inline-block

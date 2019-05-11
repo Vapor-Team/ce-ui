@@ -1,28 +1,23 @@
 # 介绍
 
-----
+<!-- {.md} -->
 
-`AT-UI` 是一款基于 `Vue.js 2.0` 的前端 UI 组件库，主要用于快速开发 PC 网站中后台产品
+---
+
+<!-- {.md} -->
+
+基于 Vue 的适配多端样式的 UI 组件
+
+<!-- {.md} -->
 
 ## 特性
 
-- 基于 `Vue` 开发的 UI 组件
-- 使用 npm + webpack + babel 的工作流，支持 ES2015
-- CSS 样式独立，即使使用不同的框架实现，也都能保持统一的 UI 风格（ 详见：[AT-UI Style](https://github.com/at-ui/at-ui-style) ）
-- 提供友好的 API，可灵活的使用组件
+<!-- {.md} -->
 
-## 浏览器支持
-
-- 现代浏览器和 IE9 及以上
-- [Electron](http://electron.atom.io/)
-- [NW.js](http://nwjs.io)
-
-## 版本
-
-`AT-UI`：[![npm version](https://badge.fury.io/js/at-ui.svg)](https://badge.fury.io/js/at-ui)
-
-`AT-UI-Style`：[![npm version](https://badge.fury.io/js/at-ui-style.svg)](https://badge.fury.io/js/at-ui-style)
+- 支持 PC 端布局
 
 ## 贡献
 
-如果你在使用 `AT-UI` 时遇到问题，或者有好的建议，欢迎给我们提 [Issue](https://github.com/at-ui/at-ui/issues) 或 [Pull Request](https://github.com/at-ui/at-ui/pulls)
+<!-- {.md} -->
+
+如果你在使用中遇到问题，或者有好的建议，欢迎提<!-- {.md} --> [Issue](https://github.com/Vapor-Team/ce-ui/issues)。<!-- {.md} -->

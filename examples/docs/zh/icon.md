@@ -10,7 +10,7 @@
 
 <!-- {.md} -->
 
-<ce-icon-demo></ce-icon-demo>
+<ce-icon-demo-zh></ce-icon-demo-zh>
 
 ## 如何使用
 
@@ -19,7 +19,7 @@
 方式一：<!-- {.md} -->
 通过<!-- {.md} -->`ce-icon`标签来引用
 
-<ce-icon-demo1></ce-icon-demo1>
+<ce-icon-demo1-zh></ce-icon-demo1-zh>
 ::: demo
 
 ```html
@@ -37,7 +37,7 @@
 方式二：<!-- {.md} -->
 使用 <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"`来声明图标，具体图标的名称请 copy 相应的标签
 
-<ce-icon-demo1></ce-icon-demo1>
+<ce-icon-demo1-zh></ce-icon-demo1-zh>
 ::: demo
 
 ```html

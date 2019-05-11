@@ -14,6 +14,6 @@
 
 <script>
 export default {
-	name: "ce-text-card-demo"
+	name: "ce-text-card-demo-zh"
 }
 </script>

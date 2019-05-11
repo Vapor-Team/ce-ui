@@ -10,7 +10,7 @@
 
 <!-- {.md} -->
 
-<ce-icon-demo></ce-icon-demo>
+<ce-icon-demo-en></ce-icon-demo-en>
 
 ## How to use
 
@@ -19,7 +19,7 @@
 One way：<!-- {.md} -->
 Reference through the <!-- {.md} --> `ce-icon` tag
 
-<ce-icon-demo1></ce-icon-demo1>
+<ce-icon-demo1-en></ce-icon-demo1-en>
 ::: demo
 
 ```html
@@ -36,7 +36,7 @@ Reference through the <!-- {.md} --> `ce-icon` tag
 
 Mode two：<!-- {.md} -->
 Use <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"` to declare the icon. Copy the name of the icon.
-<ce-icon-demo1></ce-icon-demo1>
+<ce-icon-demo1-en></ce-icon-demo1-en>
 ::: demo
 
 ```html

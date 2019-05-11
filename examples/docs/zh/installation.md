@@ -1,23 +1,53 @@
-# 安装
+# 开发指南
+<!-- {.md} -->
 
----
+----
+<!-- {.md} -->
 
-## 使用 npm 安装
+## 初始化项目
+<!-- {.md} -->
 
-推荐使用 `npm` 的方式进行开发，享受 `node` 生态圈和 `webpack` 工具链带来的便利。通过 `npm` 安装的模块包，我们可以轻松的使用 `import` 或者 `require` 的方式引用
+```js
+git clone https://github.com/Vapor-Team/ce-ui.git
 
-```bash
-npm install at-ui
+cd ce-ui
 
-npm install at-ui-style
+# 初始化项目、安装依赖
+npm run init
+
+# 本地开发模式
+npm run dev
+
+# 样式开发单独启动一个服务
+npm run dev:style
+
 ```
+<!-- {.md} -->
 
-## 浏览器标签引入
+浏览器访问<!-- {.md} --> [http://localhost:8080](http://localhost:8080)<!-- {.md} --> 就可以看到所有组件的示例了
 
-可以采用传统的 `<script>` 和 `<link>` 标签的方式引入资源，并且全局使用 `AT-UI`。
+## 添加新组件和样式
+<!-- {.md} -->
+请按照<!-- {.md} --> `packages` 目录下的文件夹结构添加新的组件，如需新的样式请在 `packages/theme-chalk/src` 添加。
 
-可以在 [jsDelivr](https://www.jsdelivr.com/package/npm/at-ui) 上找到最新版本的资源文件，然后在页面中直接引入
+## 添加组件示例和文档
+<!-- {.md} -->
+请在<!-- {.md} --> `examples/demos` 目录下添加新的组件示例。如需添加文档，请在 `examples/docs` 下添加新的文档，同时要在 `nav.config.json` 中添加新的路由才能预览。
 
-#### 示例：
+## 发布NPM包和文档
+<!-- {.md} -->
+```js
+# 发布npm包
+npm run release
 
-通过浏览器资源标签引入的方式，我们可以迅速用 `AT-UI` 写出一个 DEMO 页面，可复制下列代码或者直接查看 [示例页面](https://jsbin.com/dezafos/edit?html,output)
+# 发布文档
+npm run publish:docs
+```
+<!-- {.md} -->
+具体执行命令，可查看对应脚本。
+<!-- {.md} -->
+
+## 生成CHANGELOG
+<!-- {.md} -->
+Todo
+<!-- {.md} -->
