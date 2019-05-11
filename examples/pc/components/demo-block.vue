@@ -1,142 +1,212 @@
 <template>
-	<div class="docs-demo-wrapper">
-		<transition name="text-slide">
-			<div class="demo-container">
-				<div>
-					<div class="docs-demo docs-demo--expand">
-						<div class="highlight-wrapper">
-							<slot name="highlight"></slot>
-						</div>
-					</div>
-				</div>
-			</div>
-		</transition>
-		<div
-			class="docs-trans docs-demo__triangle"
-			@click="toggle"
-		>
-			<transition name="arrow-slide">
-				<ce-icon
-					name="code"
-					:size="16"
-				></ce-icon>
-			</transition>
-			<transition name="text-slide">
-				<span v-show="hovering">{{ controlText }}</span>
-			</transition>
-		</div>
-	</div>
+  <div class="docs-code-wrapper">
+    <div class="code-container">
+      <transition name="fade">
+        <div
+          v-if="isExpand"
+          class="docs-code"
+        >
+          <div class="highlight-wrapper">
+            <slot name="highlight"></slot>
+          </div>
+        </div>
+      </transition>
+    </div>
+    <div
+      class="docs-trans"
+      @mouseenter="btnEnter"
+      @mouseleave="btnLeave"
+    >
+      <div class="btn-box">
+        <ce-icon
+          v-if="!showBtn && !isExpand"
+          name="code"
+          :size="16"
+        ></ce-icon>
+      </div>
+      <transition name="arrow-text">
+        <div
+          v-if="showBtn || isExpand"
+          class="btn-box"
+        >
+          <ce-icon
+            name="code"
+            :size="16"
+          ></ce-icon>
+          <span
+            class="btn-text"
+            @click="toggle"
+          >{{ btnText }}</span>
+        </div>
+      </transition>
+      <transition name="arrow-text">
+        <span
+          v-if="showBtn || isExpand"
+          class="codepen"
+          @click="goNowCode"
+        >在线运行</span>
+      </transition>
+    </div>
+  </div>
 </template>
 
 <script>
-/* eslint-disable */
-import Vue from "vue"
+import CeUi from "@#/index"
+import { stripStyle, stripScript, stripTemplate } from "@#/utils/index"
+const { version } = CeUi
 export default {
+	name: "demo-block",
 	data() {
 		return {
 			isExpand: false,
-			hovering: false,
-			controlText: ''
+			showBtn: false,
+			btnText: "显示代码",
+			codepen: {
+				script: "",
+				html: "",
+				style: ""
+			}
+		}
+	},
+	mounted() {
+		const highlight = this.$slots.highlight
+		if (highlight && highlight[0]) {
+			let code = ""
+			let cur = highlight[0].children[0]
+			if (cur.tag === "pre" && (cur.children && cur.children[0])) {
+				cur = cur.children[0]
+				if (cur.tag === "code") {
+					code = cur.children[0].text
+				}
+			}
+			if (code) {
+				this.codepen.html = stripTemplate(code)
+				this.codepen.script = stripScript(code)
+				this.codepen.style = stripStyle(code)
+			}
 		}
 	},
 	methods: {
 		toggle() {
 			this.isExpand = !this.isExpand
+			this.btnText = this.isExpand ? "隐藏代码" : "显示代码"
+		},
+		btnEnter() {
+			this.showBtn = !this.showBtn
+		},
+		btnLeave() {
+			this.showBtn = !this.showBtn
+		},
+		goNowCode() {
+			// TODO: 去 codepen 运行代码
+
+			console.log(this.$slots.highlight)
+
+			console.log(this.codepen)
+			// since 2.6.2 use code rather than jsfiddle https://blog.codepen.io/documentation/api/prefill/
+			const { script, html, style } = this.codepen
+			const resourcesTpl =
+				"<scr" +
+				"ipt src='//unpkg.com/vue/dist/vue.js'></scr" +
+				"ipt>" +
+				"\n<scr" +
+				`ipt src="//unpkg.com/ce-ui@${version}/lib/index.js"></scr` +
+				"ipt>"
+			let jsTpl = (script || "").replace(/export default/, "var Main =").trim()
+			let htmlTpl = `${resourcesTpl}\n<div id="app">\n${html.trim()}\n</div>`
+			let cssTpl = `@import url("//unpkg.com/ce-ui@${version}/lib/theme-chalk/index.css");\n${(
+				style || ""
+			).trim()}\n`
+			jsTpl = jsTpl
+				? jsTpl + "\nvar Ctor = Vue.extend(Main)\nnew Ctor().$mount('#app')"
+				: "new Vue().$mount('#app')"
+			const data = {
+				js: jsTpl,
+				css: cssTpl,
+				html: htmlTpl
+			}
+			const form =
+				document.getElementById("fiddle-form") || document.createElement("form")
+			while (form.firstChild) {
+				form.removeChild(form.firstChild)
+			}
+			form.method = "POST"
+			form.action = "https://codepen.io/pen/define/"
+			form.target = "_blank"
+			form.style.display = "none"
+
+			const input = document.createElement("input")
+			input.setAttribute("name", "data")
+			input.setAttribute("type", "hidden")
+			input.setAttribute("value", JSON.stringify(data))
+
+			form.appendChild(input)
+			document.body.appendChild(form)
+
+			form.submit()
 		}
 	}
 }
 </script>
 
 <style lang="stylus" scoped>
-.docs-demo-wrapper
-	width 100%
+.docs-code-wrapper
+  width 100%
 
-	& .text-slide-enter, & .text-slide-leave-active
-		opacity 0
-		transform translateX(10px)
+  & .code-container
+    overflow hidden
 
-.demo-container
-	transition max-height 1s ease
-	overflow hidden
+    & .docs-code
+      width 100%
+      height auto
+      // transition all 1s linear
+      box-sizing border-box
+      font-size 14px
+      background-color #f7f7f7
+      border 1px solid #e2ecf4
+      border-top none
 
-.docs-demo
-	width 100%
-	height auto
-	box-sizing border-box
-	font-size 14px
-	background-color #f7f7f7
-	border 1px solid #e2ecf4
-	border-top none
+      & .highlight-wrapper
+        display block
+        padding 0 20px
+        overflow-y auto
 
-	pre, code
-		font-family Consolas, Menlo, Courier, monospace
-		line-height 22px
-		border none
+  & .docs-trans
+    width 100%
+    text-align center
+    display inline-block
+    color #c5d9e8
+    font-size 12px
+    padding 10px 0
+    background-color #fafbfc
+    margin-bottom 10px
+    position relative
 
-.docs-trans
-	width 100%
-	text-align center
-	display inline-block
-	color #c5d9e8
-	font-size 12px
-	padding 10px 0
-	background-color #fafbfc
-	margin-bottom 10px
+    & .btn-box
+      line-height 14px
+      display inline
 
-.docs-demo__code, .highlight-wrapper, .docs-demo__meta
-	padding 0 20px
-	overflow-y auto
+      & .btn-text
+        padding-left 10px
+        font-size 14px
+        color rgb(64, 158, 255)
+        cursor pointer
 
-.docs-demo__code
-	border-bottom 1px solid #eee
+    & .codepen
+      font-size 14px
+      color rgb(64, 158, 255)
+      position absolute
+      right 10px
+      cursor pointer
 
-.docs-demo.docs-demo--expand .docs-demo__meta
-	border-bottom 1px dashed #e9e9e9
+// code in and out style
+.arrow-text-enter
+  transition all 0.2s ease-out
 
-.docs-demo.docs-demo--expand .docs-demo__triangle
-	transform rotate(180deg)
+.arrow-text-leave-active
+  transition all 0.2s ease-out
 
-.highlight-wrapper
-	display none
-
-	p, pre
-		margin 0
-
-	.hljs
-		padding 0
-
-.docs-demo.docs-demo--expand .highlight-wrapper
-	display block
-
-.docs-demo__code__mobi
-	height 620px
-	margin 20px 0
-
-.docs-demo__code__mobi__header
-	border-radius 4px 4px 0 0
-	background -webkit-linear-gradient(rgba(55, 55, 55, 0.98), #545456)
-	background linear-gradient(rgba(55, 55, 55, 0.98), #545456)
-	text-align center
-	padding 8px
-
-	img
-		width 100%
-
-	.url-box
-		height 28px
-		line-height 28px
-		color #fff
-		padding 0 3px
-		background-color #a2a2a2
-		margin 10px auto 0
-		border-radius 4px
-		white-space nowrap
-		overflow-x auto
-
-.docs-demo__code__mobi__content
-	iframe
-		width 100%
-		border 0
-		height 548px
+.arrow-text-enter, .arrow-text-leave-active
+  margin-left 50px
+  opacity 0
 </style>
-

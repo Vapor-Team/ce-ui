@@ -1,9 +1,6 @@
 module.exports = {
 	root: true,
-	"extends": [
-		"plugin:vue/essential",
-		"@vue/standard"
-	],
+	extends: ["plugin:vue/essential", "@vue/standard"],
 	plugins: ["react", "html", "vue"],
 	env: {
 		node: true,
@@ -28,18 +25,21 @@ module.exports = {
 	rules: {
 		"no-console": process.env.NODE_ENV === "production" ? "error" : "off",
 		"no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
-		"indent": "off",
+		indent: "off",
 		"space-before-function-paren": "off",
 		"vue/html-closing-bracket-newline": "off",
 		"vue/attributes-order": "off",
-		"vue/html-indent": ["off", {
-			baseIndent: 0
-		}],
+		"vue/html-indent": [
+			"off",
+			{
+				baseIndent: 0
+			}
+		],
 		"vue/html-no-self-closing": 0,
 		"vue/html-self-closing": "off",
 		// 官方文档 http://eslint.org/docs/rules/
 		// 参数：0 关闭，1 警告，2 错误
-		"quotes": ["error", "double"], // 建议使用双引号
+		quotes: ["error", "double"], // 建议使用双引号
 		// "no-inner-declarations": [0, "both"],     //不建议在{}代码块内部声明变量或函数
 		"no-extra-boolean-cast": 1, // 多余的感叹号转布尔型
 		"no-extra-semi": 2, // 多余的分号
@@ -49,7 +49,7 @@ module.exports = {
 		"no-tabs": "off",
 		// 使用前未定义
 		"no-use-before-define": [1, "nofunc"],
-		"complexity": [0, 10], // 圈复杂度大于*
+		complexity: [0, 10], // 圈复杂度大于*
 		// 定义数组或对象最后多余的逗号
 		"comma-dangle": [2, "never"],
 
@@ -87,7 +87,7 @@ module.exports = {
 		"constructor-super": 2, // 要求在构造函数中有 super() 的调用
 
 		// 代码风格优化 --------------------------------------
-		"semi": [
+		semi: [
 			2,
 			"never",
 			{
@@ -108,7 +108,7 @@ module.exports = {
 				includeExports: true
 			}
 		], // 禁止重复导入
-		"eqeqeq": [
+		eqeqeq: [
 			2,
 			"always",
 			{
@@ -179,13 +179,13 @@ module.exports = {
 
 		// 标记未写注释
 		"no-warning-comments": [
-			1,
+			0,
 			{
 				terms: ["todo", "fixme", "any other term"],
 				location: "anywhere"
 			}
 		],
-		"curly": 0, // if、else、while、for代码块用{}包围
+		curly: 0, // if、else、while、for代码块用{}包围
 		"vue/no-parsing-error": [
 			2,
 			{

@@ -1,21 +1,24 @@
-const path = require("path")
-
-function resolve(dir) {
-	return path.join(__dirname, dir)
-}
-const MarkdownItContainer = require("markdown-it-container")
-const MarkdownItCheckBox = require("markdown-it-task-checkbox")
-const MarkdownItDec = require("markdown-it-decorate")
-const utils = require("./build/utils")
-
+const { wrapCustomClass, resolve } = require("./build/utils")
+const mdLoader = require("./build/md-loader/index")
 const vueMarkdown = {
 	raw: true,
 	preprocess: (MarkdownIt, source) => {
+		// 该处调用 mardownIt 方法
 		MarkdownIt.renderer.rules.table_open = function() {
-			return '<table class="table">'
+			return "<table class=\"table\">"
+		}
+		MarkdownIt.renderer.rules.table_close = function() {
+			return "</table>"
+		}
+		// 遍历粗体标签转换成 b 标签
+		MarkdownIt.renderer.rules.strong_open = function() {
+			return "<b>"
+		}
+		MarkdownIt.renderer.rules.strong_close = function() {
+			return "</b>"
 		}
 		// ```html``` 给这种样式加个class hljs
-		MarkdownIt.renderer.rules.fence = utils.wrapCustomClass(
+		MarkdownIt.renderer.rules.fence = wrapCustomClass(
 			MarkdownIt.renderer.rules.fence
 		)
 		// ```code``` 给这种样式加个class code_inline
@@ -26,32 +29,9 @@ const vueMarkdown = {
 		}
 		return source
 	},
-	use: [
-		[
-			MarkdownItContainer,
-			"demo",
-			{
-				validate: params => {
-					return params.trim().match(/^demo\s*(.*)$/)
-				},
-				render: function(tokens, idx) {
-					if (tokens[idx].nesting === 1) {
-						return `<demo-block>
-                        <div slot="highlight">`
-					}
-					return "</div></demo-block>\n"
-				}
-			}
-		],
-		[
-			MarkdownItCheckBox,
-			{
-				disabled: false
-			}
-		],
-		[MarkdownItDec]
-	]
+	use: mdLoader
 }
+
 module.exports = {
 	lintOnSave: false,
 	publicPath: "./",
