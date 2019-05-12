@@ -26,6 +26,7 @@ npm run changelog // 规范commit 提交信息，并自动生成 changelog.md文
 - 3.代码格式检测使用 eslint 进行代码检测
 - 4.ide 使用 vscode
 - 5.组件使用 ce-功能名称
+- 6.在编写 md 文档时，注意示例代码中必须按照 vue 单文件写法去编写文档
 - vscode 插件配置，需安装 vscode eslint 插件
 - prettier code formatter 自动格式化插件
 - language-stylus / Manta's Stylus Supremacy stylus 插件

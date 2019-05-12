@@ -1,5 +1,5 @@
 const { wrapCustomClass, resolve } = require("./build/utils")
-const mdLoader = require("./build/md-loader/index")
+const { mdLoaderConfig } = require("./build/md-loader")
 const vueMarkdown = {
 	raw: true,
 	preprocess: (MarkdownIt, source) => {
@@ -29,7 +29,7 @@ const vueMarkdown = {
 		}
 		return source
 	},
-	use: mdLoader
+	use: mdLoaderConfig
 }
 
 module.exports = {

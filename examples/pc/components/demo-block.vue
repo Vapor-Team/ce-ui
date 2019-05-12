@@ -1,11 +1,29 @@
 <template>
   <div class="docs-code-wrapper">
+    <!-- TODO: 组件 demo 待优化 -->
+    <transition name="fade">
+      <div
+        class="description"
+        v-show="$slots.code"
+      >
+        <slot name="code"></slot>
+      </div>
+    </transition>
     <div class="code-container">
       <transition name="fade">
         <div
-          v-if="isExpand"
+          v-show="isExpand"
           class="docs-code"
         >
+          <div
+            class="description"
+            v-show="$slots.description"
+          >
+            <div class="source">
+              <slot name="highlight"></slot>
+            </div>
+            <slot name="description"></slot>
+          </div>
           <div class="highlight-wrapper">
             <slot name="highlight"></slot>
           </div>
@@ -17,16 +35,18 @@
       @mouseenter="btnEnter"
       @mouseleave="btnLeave"
     >
-      <div class="btn-box">
-        <ce-icon
-          v-if="!showBtn && !isExpand"
-          name="code"
-          :size="16"
-        ></ce-icon>
-      </div>
+      <transition name="arrow-text">
+        <div class="btn-box">
+          <ce-icon
+            v-show="!showBtn && !isExpand"
+            name="code"
+            :size="16"
+          ></ce-icon>
+        </div>
+      </transition>
       <transition name="arrow-text">
         <div
-          v-if="showBtn || isExpand"
+          v-show="showBtn || isExpand"
           class="btn-box"
         >
           <ce-icon
@@ -41,9 +61,9 @@
       </transition>
       <transition name="arrow-text">
         <span
-          v-if="showBtn || isExpand"
+          v-show="showBtn && isExpand"
           class="codepen"
-          @click="goNowCode"
+          @click="goCodepen"
         >{{ codepenText }}</span>
       </transition>
     </div>
@@ -64,24 +84,6 @@ export default {
 				script: "",
 				html: "",
 				style: ""
-			}
-		}
-	},
-	created() {
-		const highlight = this.$slots.highlight
-		if (highlight && highlight[0]) {
-			let code = ""
-			let cur = highlight[0].children[0]
-			if (cur.tag === "pre" && (cur.children && cur.children[0])) {
-				cur = cur.children[0]
-				if (cur.tag === "code") {
-					code = cur.children[0].text
-				}
-			}
-			if (code) {
-				this.codepen.html = stripTemplate(code)
-				this.codepen.script = stripScript(code)
-				this.codepen.style = stripStyle(code)
 			}
 		}
 	},
@@ -109,12 +111,21 @@ export default {
 		btnLeave() {
 			this.showBtn = !this.showBtn
 		},
-		goNowCode() {
+		goCodepen() {
 			// TODO: 去 codepen 运行代码
-
-			console.log(this.$slots.highlight)
-
-			console.log(this.codepen)
+			const highlight = this.$slots.highlight
+			if (highlight && highlight[0]) {
+				let code = ""
+				let cur = highlight[0]
+				if (cur.elm && cur.elm.innerText) {
+					code = cur.elm.innerText
+				}
+				if (code) {
+					this.codepen.html = stripTemplate(code)
+					this.codepen.script = stripScript(code)
+					this.codepen.style = stripStyle(code)
+				}
+			}
 			// since 2.6.2 use code rather than jsfiddle https://blog.codepen.io/documentation/api/prefill/
 			const { script, html, style } = this.codepen
 			const resourcesTpl =
@@ -146,15 +157,15 @@ export default {
 			form.action = "https://codepen.io/pen/define/"
 			form.target = "_blank"
 			form.style.display = "none"
-
+			// 创建表单
 			const input = document.createElement("input")
 			input.setAttribute("name", "data")
 			input.setAttribute("type", "hidden")
 			input.setAttribute("value", JSON.stringify(data))
-
+			// 添加到 body 中
 			form.appendChild(input)
 			document.body.appendChild(form)
-
+			// 提交到codepen
 			form.submit()
 		}
 	}
@@ -171,12 +182,28 @@ export default {
     & .docs-code
       width 100%
       height auto
-      // transition all 1s linear
       box-sizing border-box
       font-size 14px
       background-color #f7f7f7
       border 1px solid #e2ecf4
       border-top none
+      overflow-y auto
+
+      & .description
+        padding 20px
+        box-sizing border-box
+        border 1px solid #ebebeb
+        border-radius 3px
+        font-size 14px
+        line-height 22px
+        color #666
+        word-break break-word
+        margin 10px
+        margin-bottom 0
+        background-color #fff
+
+        & .source
+          display none
 
       & .highlight-wrapper
         display block
@@ -213,12 +240,21 @@ export default {
 
 // code in and out style
 .arrow-text-enter
-  transition all 0.2s ease-out
+  transition all 0.5s ease-out
 
 .arrow-text-leave-active
-  transition all 0.2s ease-out
+  transition all 0.3s ease-out
 
 .arrow-text-enter, .arrow-text-leave-active
   margin-left 50px
+  opacity 0
+
+.fade-enter-active
+  transition opacity 0.3s ease-out
+
+.fade-leave-active
+  transition opacity 0.2s ease-out
+
+.fade-enter, .fade-leave-active
   opacity 0
 </style>

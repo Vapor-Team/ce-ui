@@ -18,14 +18,34 @@
 
 方式一：<!-- {.md} -->
 通过<!-- {.md} -->`ce-icon`标签来引用
-
 <ce-icon-demo1-zh></ce-icon-demo1-zh>
-::: demo
+:::demo 基础的下拉菜单，使用方式是用 `AtDropdown`，`AtDropdownMenu` 和 `AtDropdownItem` 的组合
 
-```html
-<ce-icon name="iPhone" :size="16"></ce-icon>
-<ce-icon name="logo" :size="16"></ce-icon>
-<ce-icon name="delete" :size="16"></ce-icon>
+```vue
+<template>
+	<div class="demo">
+		<ce-icon name="iPhone" :size="size"></ce-icon>
+		<ce-icon name="logo" :size="size"></ce-icon>
+		<ce-icon name="delete" :size="size"></ce-icon>
+	</div>
+</template>
+
+<style>
+.demo
+  display block
+  width 100%
+  height 200%
+</style>
+
+<script>
+export default {
+	data() {
+		return {
+			size: 16
+		}
+	}
+}
+</script>
 ```
 
 :::
@@ -38,7 +58,7 @@
 使用 <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"`来声明图标，具体图标的名称请 copy 相应的标签
 
 <ce-icon-demo1-zh></ce-icon-demo1-zh>
-::: demo
+:::demo
 
 ```html
 <i class="ce-icon__font ce-icon-logo"></i>

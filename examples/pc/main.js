@@ -4,7 +4,7 @@ import Vue from "vue"
 import App from "./App"
 import router from "./router"
 import i18n from "./i18n"
-import demoBlock from "./components/demo-block.vue"
+import demoBlock from "./components/demo-block"
 import CeUi from "@#/index"
 import "@#/theme-chalk/lib/ce-ui-index.css"
 
