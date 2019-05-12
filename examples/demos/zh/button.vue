@@ -1,6 +1,11 @@
 <template>
   <div class="button-demo">
-    <ce-button :type="type" :size="size" :disabled="disabled">
+    <ce-button
+      :type="type"
+      :size="size"
+      :disabled="disabled"
+      :round="round"
+      :circle="circle">
       <slot></slot>
     </ce-button>
   </div>
@@ -14,10 +19,16 @@ export default {
       type: String
     },
     disabled: {
-      type: String
+      type: Boolean
     },
     size: {
       type: String
+    },
+    round: {
+      type: Boolean
+    },
+    circle: {
+      type: Boolean
     }
   },
   data () {
@@ -33,6 +44,5 @@ export default {
 
 <style lang="stylus">
 .button-demo
-  display flex
   margin 10px 5px
 </style>

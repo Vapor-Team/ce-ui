@@ -6,10 +6,10 @@
 
 ## 基础按钮
 
-基础按钮分三种：`主按钮（实心）` 、 `次按钮（空心）` 、 `文字按钮`
+基础按钮分三种：`主要按钮（实心）` 、 `次要按钮（空心）` 、 `文字按钮`
 
-<div class="button-demo">
-  <ce-button-zh type="primary" size="medium">主要按钮</ce-button-zh>
+<div class="button-md">
+  <ce-button-zh type="primary" size="medium" round>主要按钮</ce-button-zh>
   <ce-button-zh size="small">次要按钮</ce-button-zh>
   <ce-button-zh type="text" size="mini">文字按钮</ce-button-zh>
 </div>
@@ -28,10 +28,10 @@
 
 添加属性 `disabled` 禁用按钮
 
-<div class="button-demo">
-  <ce-button-zh type="primary" disabled>主要按钮</ce-button-zh>
-  <ce-button-zh disabled>次要按钮</ce-button-zh>
-  <ce-button-zh type="text" disabled>文字按钮</ce-button-zh>
+<div class="button-md">
+  <ce-button-zh type="primary" size="medium" disabled>主要按钮</ce-button-zh>
+  <ce-button-zh disabled size="small">次要按钮</ce-button-zh>
+  <ce-button-zh type="text" size="mini" disabled>文字按钮</ce-button-zh>
 </div>
 
 :::demo
@@ -202,18 +202,23 @@
 | size | 按钮的大小 | String | `large`, `small` | 正常大小 |
 | gap | 按钮间隔 | Number | - | -1 |
 
-<style lang="stylus" scoped>
-  .row 
-    .ce-btn + .ce-btn 
+<style scoped>
+  .button-md {
+    display: flex;
+  }
+  .row {
+    .ce-btn + .ce-btn {
       margin-left: 8px;
-
-    & + .row 
+    }
+    & + .row {
       margin-top: 8px;
-    
-    .ce-btn-group .ce-btn 
+    }
+    .ce-btn-group .ce-btn {
       margin-left: 0;
-  
-  .ce-btn-group 
+    }
+  }
+  .ce-btn-group {
     margin-left: 8px;
     margin-top: 16px;
+  }
 </style>

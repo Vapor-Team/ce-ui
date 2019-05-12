@@ -9,7 +9,9 @@
         'is-plain': plain,
         'is-square': square,
         'is-shadow':shadow,
-        'is-opacity':opacity
+        'is-opacity':opacity,
+				'is-round':round,
+				'is-circle':circle
       }
     ]">
 		<slot></slot>
@@ -29,7 +31,9 @@ export default create({
 		disabled: Boolean,
 		square: Boolean,
 		plain: Boolean,
-		opacity: Boolean
+		opacity: Boolean,
+		round: Boolean,
+		circle: Boolean
 	}
 })
 </script>

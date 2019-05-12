@@ -4,7 +4,7 @@
 	display inline-flex
 	box-sizing border-box
 	font-size $--font-size-base
-	border-radius $--button-radius-base
+	// border-radius $--button-radius-base
 	padding 12px 20px
 	align-items center
 	justify-content center
@@ -12,10 +12,15 @@
 
 	@m default
 		font-size $--button-size-medium
-		border-radius 36px
 		background-color #fff
 		padding 12px 20px
 		border 1px solid $color-normal
+
+		@m round
+			border-radius 36px
+		
+		@when circle
+			border-radius $--button-radius-circle
 
 		@when disabled
 			background-color #fff
@@ -28,6 +33,12 @@
 		color $--color-white
 		border 1px solid $--color-primary
 
+		@m round
+			border-radius 36px
+
+		@when circle
+			border-radius $--button-radius-circle
+
 		@when disabled
 			background-color $--color-disabled
 			color $--color-white
@@ -36,18 +47,36 @@
 
 	@m medium
 		font-size $--button-size-medium
-		border-radius 32px
+		// border-radius 32px
 		padding 12px 20px
+
+		@when round
+			border-radius 36px
+		
+		@when circle
+			border-radius $--button-radius-circle
 
 	@m small
 		font-size $--button-size-small
-		border-radius 32px
+		// border-radius 32px
 		padding 9px 15px
+
+		@when round
+			border-radius 36px
+		
+		@when circle
+			border-radius $--button-radius-circle
 
 	@m mini
 		font-size $--button-size-mini
-		border-radius 36px
+		// border-radius 36px
 		padding 7px 15px
+
+		@when round
+			border-radius 36px
+		
+		@when circle
+			border-radius $--button-radius-circle
 
 	@m info
 		background-color $--color-primary-light-2
