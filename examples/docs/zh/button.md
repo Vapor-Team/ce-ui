@@ -8,11 +8,17 @@
 
 基础按钮分三种：`主按钮（实心）` 、 `次按钮（空心）` 、 `文字按钮`
 
+<div class="button-demo">
+  <ce-button-zh type="primary">主要按钮</ce-button-zh>
+  <ce-button-zh>次要按钮</ce-button-zh>
+  <ce-button-zh type="text">文字按钮</ce-button-zh>
+</div>
+
 :::demo
 ```html
-<at-button type="primary">主要按钮</at-button>
-<at-button>次要按钮</at-button>
-<at-button type="text">文字按钮</at-button>
+<ce-button type="primary">主要按钮</ce-button>
+<ce-button>次要按钮</ce-button>
+<ce-button type="text">文字按钮</ce-button>
 ```
 :::
 
@@ -20,11 +26,17 @@
 
 添加属性 `disabled` 禁用按钮
 
+<div class="button-demo">
+  <ce-button-zh type="primary" disabled>主要按钮</ce-button-zh>
+  <ce-button-zh disabled>次要按钮</ce-button-zh>
+  <ce-button-zh type="text" disabled>文字按钮</ce-button-zh>
+</div>
+
 :::demo
 ```html
-<at-button type="primary" disabled>主要按钮</at-button>
-<at-button hollow disabled>次要按钮</at-button>
-<at-button type="text" disabled>文字按钮</at-button>
+<ce-button type="primary" disabled>主要按钮</ce-button>
+<ce-button hollow disabled>次要按钮</ce-button>
+<ce-button type="text" disabled>文字按钮</ce-button>
 ```
 :::
 
@@ -35,20 +47,20 @@
 :::demo
 ```html
 <div class="row">
-  <at-button hollow>默认按钮</at-button>
-  <at-button type="primary" hollow>主要按钮</at-button>
-  <at-button type="success" hollow>成功按钮</at-button>
-  <at-button type="error" hollow>危险按钮</at-button>
-  <at-button type="warning" hollow>警告按钮</at-button>
-  <at-button type="info" hollow>信息按钮</at-button>
+  <ce-button hollow>默认按钮</ce-button>
+  <ce-button type="primary" hollow>主要按钮</ce-button>
+  <ce-button type="success" hollow>成功按钮</ce-button>
+  <ce-button type="error" hollow>危险按钮</ce-button>
+  <ce-button type="warning" hollow>警告按钮</ce-button>
+  <ce-button type="info" hollow>信息按钮</ce-button>
 </div>
 <div class="row">
-  <at-button>默认按钮</at-button>
-  <at-button type="primary">主要按钮</at-button>
-  <at-button type="success">成功按钮</at-button>
-  <at-button type="error">危险按钮</at-button>
-  <at-button type="warning">警告按钮</at-button>
-  <at-button type="info">信息按钮</at-button>
+  <ce-button>默认按钮</ce-button>
+  <ce-button type="primary">主要按钮</ce-button>
+  <ce-button type="success">成功按钮</ce-button>
+  <ce-button type="error">危险按钮</ce-button>
+  <ce-button type="warning">警告按钮</ce-button>
+  <ce-button type="info">信息按钮</ce-button>
 </div>
 ```
 :::
@@ -60,14 +72,14 @@
 :::demo
 ```html
 <div class="row">
-  <at-button icon="icon-download">下载资源</at-button>
-  <at-button icon="icon-user-plus">添加用户</at-button>
-  <at-button icon="icon-edit"></at-button>
-  <at-button type="primary" icon="icon-search"></at-button>
+  <ce-button icon="icon-download">下载资源</ce-button>
+  <ce-button icon="icon-user-plus">添加用户</ce-button>
+  <ce-button icon="icon-edit"></ce-button>
+  <ce-button type="primary" icon="icon-search"></ce-button>
 </div>
 <div class="row">
-  <at-button icon="icon-edit" circle></at-button>
-  <at-button type="primary" icon="icon-search" circle></at-button>
+  <ce-button icon="icon-edit" circle></ce-button>
+  <ce-button type="primary" icon="icon-search" circle></ce-button>
 </div>
 ```
 :::
@@ -78,34 +90,34 @@
 
 :::demo
 ```html
-<at-button loading>加载中</at-button>
-<at-button loading></at-button>
-<at-button loading circle></at-button>
+<ce-button loading>加载中</ce-button>
+<ce-button loading></ce-button>
+<ce-button loading circle></ce-button>
 ```
 :::
 
 ## 组合按钮
 
-可以将多个按钮放进 `AtButtonGroup` 中形成一个组合按钮
+可以将多个按钮放进 `ceButtonGroup` 中形成一个组合按钮
 
 :::demo
 ```html
-<at-button-group>
-  <at-button>左</at-button>
-  <at-button>中</at-button>
-  <at-button>右</at-button>
-</at-button-group>
+<ce-button-group>
+  <ce-button>左</ce-button>
+  <ce-button>中</ce-button>
+  <ce-button>右</ce-button>
+</ce-button-group>
 <br>
-<at-button-group>
-  <at-button icon="icon-edit" title="编辑"></at-button>
-  <at-button icon="icon-copy" title="复制"></at-button>
-  <at-button icon="icon-download" title="下载"></at-button>
-</at-button-group>
+<ce-button-group>
+  <ce-button icon="icon-edit" title="编辑"></ce-button>
+  <ce-button icon="icon-copy" title="复制"></ce-button>
+  <ce-button icon="icon-download" title="下载"></ce-button>
+</ce-button-group>
 <br>
-<at-button-group>
-  <at-button><i class="icon icon-chevron-left"></i>后退</at-button>
-  <at-button>往前<i class="icon icon-chevron-right"></i></at-button>
-</at-button-group>
+<ce-button-group>
+  <ce-button><i class="icon icon-chevron-left"></i>后退</ce-button>
+  <ce-button>往前<i class="icon icon-chevron-right"></i></ce-button>
+</ce-button-group>
 ```
 :::
 
@@ -118,33 +130,33 @@
 :::demo
 ```html
 <div>
-  <at-button type="primary" size="large">变大按钮</at-button>
-  <at-button type="primary">正常按钮</at-button>
-  <at-button type="primary" size="small">变小按钮</at-button>
-  <at-button type="primary" size="smaller">超小按钮</at-button>
+  <ce-button type="primary" size="large">变大按钮</ce-button>
+  <ce-button type="primary">正常按钮</ce-button>
+  <ce-button type="primary" size="small">变小按钮</ce-button>
+  <ce-button type="primary" size="smaller">超小按钮</ce-button>
 </div>
 <div style="margin-top: 8px;">
-  <at-button type="primary" size="large" icon="icon-search" circle></at-button>
-  <at-button type="primary" icon="icon-search" circle></at-button>
-  <at-button type="primary" size="small" icon="icon-search" circle></at-button>
-  <at-button type="primary" size="smaller" icon="icon-search" circle></at-button>
+  <ce-button type="primary" size="large" icon="icon-search" circle></ce-button>
+  <ce-button type="primary" icon="icon-search" circle></ce-button>
+  <ce-button type="primary" size="small" icon="icon-search" circle></ce-button>
+  <ce-button type="primary" size="smaller" icon="icon-search" circle></ce-button>
 </div>
 <div style="margin-top: 8px;">
-  <at-button-group size="large">
-    <at-button>左</at-button>
-    <at-button>中</at-button>
-    <at-button>右</at-button>
-  </at-button-group>
-  <at-button-group>
-    <at-button>左</at-button>
-    <at-button>中</at-button>
-    <at-button>右</at-button>
-  </at-button-group>
-  <at-button-group size="small">
-    <at-button>左</at-button>
-    <at-button>中</at-button>
-    <at-button>右</at-button>
-  </at-button-group>
+  <ce-button-group size="large">
+    <ce-button>左</ce-button>
+    <ce-button>中</ce-button>
+    <ce-button>右</ce-button>
+  </ce-button-group>
+  <ce-button-group>
+    <ce-button>左</ce-button>
+    <ce-button>中</ce-button>
+    <ce-button>右</ce-button>
+  </ce-button-group>
+  <ce-button-group size="small">
+    <ce-button>左</ce-button>
+    <ce-button>中</ce-button>
+    <ce-button>右</ce-button>
+  </ce-button-group>
 </div>
 ```
 :::
@@ -154,7 +166,7 @@
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | type | 按钮的类型 | String | `default`, `primary`, `success`, `error`, `warning`, `info`, `text` | - |
-| nativeType | 原生按钮的类型 | String | - | `button` |
+| nceiveType | 原生按钮的类型 | String | - | `button` |
 | size | 按钮的大小 | String | `large`, `small`, `smaller` | - |
 | hollow | 是否为空心按钮 | Boolean | - | false |
 | icon | 按钮的图标类名，填入图标的 `classname` | String | 见文档 `Icon 图标` | - |
@@ -168,21 +180,18 @@
 | size | 按钮的大小 | String | `large`, `small` | 正常大小 |
 | gap | 按钮间隔 | Number | - | -1 |
 
-<style  scoped>
-  .row {
-    .at-btn + .at-btn {
+<style lang="stylus" scoped>
+  .row 
+    .ce-btn + .ce-btn 
       margin-left: 8px;
-    }
 
-    & + .row {
+    & + .row 
       margin-top: 8px;
-    }
-    .at-btn-group .at-btn {
+    
+    .ce-btn-group .ce-btn 
       margin-left: 0;
-    }
-  }
-  .at-btn-group {
+  
+  .ce-btn-group 
     margin-left: 8px;
     margin-top: 16px;
-  }
 </style>

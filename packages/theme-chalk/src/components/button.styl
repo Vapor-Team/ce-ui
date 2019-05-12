@@ -30,19 +30,35 @@
 		font-size $--font-size-base
 		border-radius 36px
 		padding 16px 40px
-		color #000
+		background-color #fff
+		border 1px solid $color-normal
+
+		@when disabled
+			background-color #fff
+			color $--color-disabled
+			border 1px solid $--color-disabled
+			cursor no-drop
 
 	@m primary
 		background-color $--color-primary
 		color $--color-white
+		border 1px solid $--color-primary
+
+		@when disabled
+			background-color $--color-disabled
+			color $--color-white
+			border 1px solid $--color-disabled
+			cursor no-drop
 
 	@m info
 		background-color $--color-primary-light-2
 		color $--color-primary
+		border 1px solid $--color-primary-light-2
 
 	@m danger
 		background-color $--color-danger
 		color $--color-white
+		border 1px solid $--color-danger
 
 	@when plain
 		color $--color-old-primary
@@ -53,8 +69,8 @@
 		opacity 0.6
 
 	@when disabled
-		background-color $--color-disabled
-		color $--color-white
+		color $--color-disabled
+		cursor no-drop
 
 	@when shadow
 		box-shadow 0px 4px 12px 0px rgba(53, 86, 189, 0.3)

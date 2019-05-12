@@ -15,7 +15,7 @@
 
 <ce-base-demo-zh></ce-base-demo-zh>
 
-::: demo
+:::demo
 
 ```html
 <ce-base class="demo-card">
