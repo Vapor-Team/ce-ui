@@ -1,11 +1,5 @@
 "use strict"
-const {
-	watch,
-	series,
-	src,
-	dest,
-	parallel
-} = require("gulp")
+const { watch, series, src, dest, parallel } = require("gulp")
 const postcss = require("gulp-postcss")
 const stylus = require("gulp-stylus")
 const cssmin = require("gulp-cssmin")
@@ -53,9 +47,11 @@ function compileCssToVw(done) {
 			])
 		)
 		.pipe(cssmin())
-		.pipe(rename({
-			suffix: ".vw"
-		}))
+		.pipe(
+			rename({
+				suffix: ".vw"
+			})
+		)
 		.pipe(dest("./lib"))
 }
 
@@ -73,9 +69,11 @@ function compileCssToPx(done) {
 			])
 		)
 		.pipe(cssmin())
-		.pipe(rename({
-			suffix: ".px"
-		}))
+		.pipe(
+			rename({
+				suffix: ".px"
+			})
+		)
 		.pipe(dest("./lib"))
 }
 
@@ -93,13 +91,37 @@ function compileCssToRelease(done) {
 			])
 		)
 		.pipe(cssmin())
-		.pipe(rename({
-			prefix: "ce-ui-",
-			extname: ".css"
-		}))
+		.pipe(
+			rename({
+				prefix: "ce-ui-",
+				extname: ".css"
+			})
+		)
 		.pipe(dest("./lib"))
 }
 
+function compileCssToDev(done) {
+	return src("./src/**/*.styl")
+		.pipe(stylus())
+		.pipe(
+			postcss([
+				tobem(bemConfig),
+				presetenv(),
+				pxtounits({
+					divisor: 1,
+					targetUnits: "px"
+				})
+			])
+		)
+		.pipe(cssmin())
+		.pipe(
+			rename({
+				prefix: "ce-ui-",
+				extname: ".css"
+			})
+		)
+		.pipe(dest("./lib"))
+}
 function copyFont(done) {
 	return src("./src/fonts/**").pipe(dest("./lib/fonts"))
 }
@@ -122,7 +144,7 @@ exports.build = parallel(
 exports.default = series(
 	// compileCssToVw, // 构建 vw_css
 	// compileCssToPx, // 构建 px_css
-	compileCssToRelease,
+	compileCssToDev,
 	copyFont,
 	parallel(watchCss, watchFonts)
 )
