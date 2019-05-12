@@ -9,16 +9,18 @@
 基础按钮分三种：`主按钮（实心）` 、 `次按钮（空心）` 、 `文字按钮`
 
 <div class="button-demo">
-  <ce-button-zh type="primary">主要按钮</ce-button-zh>
-  <ce-button-zh>次要按钮</ce-button-zh>
-  <ce-button-zh type="text">文字按钮</ce-button-zh>
+  <ce-button-zh type="primary" size="medium">主要按钮</ce-button-zh>
+  <ce-button-zh size="small">次要按钮</ce-button-zh>
+  <ce-button-zh type="text" size="mini">文字按钮</ce-button-zh>
 </div>
 
 :::demo
 ```html
-<ce-button type="primary">主要按钮</ce-button>
-<ce-button>次要按钮</ce-button>
-<ce-button type="text">文字按钮</ce-button>
+<template>
+  <ce-button type="primary">主要按钮</ce-button>
+  <ce-button>次要按钮</ce-button>
+  <ce-button type="text">文字按钮</ce-button>
+</template>
 ```
 :::
 
@@ -34,9 +36,11 @@
 
 :::demo
 ```html
-<ce-button type="primary" disabled>主要按钮</ce-button>
-<ce-button hollow disabled>次要按钮</ce-button>
-<ce-button type="text" disabled>文字按钮</ce-button>
+<template>
+  <ce-button type="primary" disabled>主要按钮</ce-button>
+  <ce-button disabled>次要按钮</ce-button>
+  <ce-button type="text" disabled>文字按钮</ce-button>
+</template>
 ```
 :::
 
@@ -46,22 +50,26 @@
 
 :::demo
 ```html
-<div class="row">
-  <ce-button hollow>默认按钮</ce-button>
-  <ce-button type="primary" hollow>主要按钮</ce-button>
-  <ce-button type="success" hollow>成功按钮</ce-button>
-  <ce-button type="error" hollow>危险按钮</ce-button>
-  <ce-button type="warning" hollow>警告按钮</ce-button>
-  <ce-button type="info" hollow>信息按钮</ce-button>
-</div>
-<div class="row">
-  <ce-button>默认按钮</ce-button>
-  <ce-button type="primary">主要按钮</ce-button>
-  <ce-button type="success">成功按钮</ce-button>
-  <ce-button type="error">危险按钮</ce-button>
-  <ce-button type="warning">警告按钮</ce-button>
-  <ce-button type="info">信息按钮</ce-button>
-</div>
+<template>
+  <div>
+    <div class="row">
+      <ce-button>默认按钮</ce-button>
+      <ce-button type="primary">主要按钮</ce-button>
+      <ce-button type="success">成功按钮</ce-button>
+      <ce-button type="error">危险按钮</ce-button>
+      <ce-button type="warning">警告按钮</ce-button>
+      <ce-button type="info">信息按钮</ce-button>
+    </div>
+    <div class="row">
+      <ce-button>默认按钮</ce-button>
+      <ce-button type="primary">主要按钮</ce-button>
+      <ce-button type="success">成功按钮</ce-button>
+      <ce-button type="error">危险按钮</ce-button>
+      <ce-button type="warning">警告按钮</ce-button>
+      <ce-button type="info">信息按钮</ce-button>
+    </div>
+  </div>
+</template>
 ```
 :::
 
@@ -71,16 +79,20 @@
 
 :::demo
 ```html
-<div class="row">
-  <ce-button icon="icon-download">下载资源</ce-button>
-  <ce-button icon="icon-user-plus">添加用户</ce-button>
-  <ce-button icon="icon-edit"></ce-button>
-  <ce-button type="primary" icon="icon-search"></ce-button>
-</div>
-<div class="row">
-  <ce-button icon="icon-edit" circle></ce-button>
-  <ce-button type="primary" icon="icon-search" circle></ce-button>
-</div>
+<template>
+  <div>
+    <div class="row">
+      <ce-button icon="icon-download">下载资源</ce-button>
+      <ce-button icon="icon-user-plus">添加用户</ce-button>
+      <ce-button icon="icon-edit"></ce-button>
+      <ce-button type="primary" icon="icon-search"></ce-button>
+    </div>
+    <div class="row">
+      <ce-button icon="icon-edit" circle></ce-button>
+      <ce-button type="primary" icon="icon-search" circle></ce-button>
+    </div>
+  </div>
+</template>
 ```
 :::
 
@@ -90,9 +102,11 @@
 
 :::demo
 ```html
-<ce-button loading>加载中</ce-button>
-<ce-button loading></ce-button>
-<ce-button loading circle></ce-button>
+<template>
+  <ce-button loading>加载中</ce-button>
+  <ce-button loading></ce-button>
+  <ce-button loading circle></ce-button>
+</template>
 ```
 :::
 
@@ -102,22 +116,26 @@
 
 :::demo
 ```html
-<ce-button-group>
-  <ce-button>左</ce-button>
-  <ce-button>中</ce-button>
-  <ce-button>右</ce-button>
-</ce-button-group>
-<br>
-<ce-button-group>
-  <ce-button icon="icon-edit" title="编辑"></ce-button>
-  <ce-button icon="icon-copy" title="复制"></ce-button>
-  <ce-button icon="icon-download" title="下载"></ce-button>
-</ce-button-group>
-<br>
-<ce-button-group>
-  <ce-button><i class="icon icon-chevron-left"></i>后退</ce-button>
-  <ce-button>往前<i class="icon icon-chevron-right"></i></ce-button>
-</ce-button-group>
+<template>
+  <div>
+    <ce-button-group>
+      <ce-button>左</ce-button>
+      <ce-button>中</ce-button>
+      <ce-button>右</ce-button>
+    </ce-button-group>
+    <br>
+    <ce-button-group>
+      <ce-button icon="icon-edit" title="编辑"></ce-button>
+      <ce-button icon="icon-copy" title="复制"></ce-button>
+      <ce-button icon="icon-download" title="下载"></ce-button>
+    </ce-button-group>
+    <br>
+    <ce-button-group>
+      <ce-button><i class="icon icon-chevron-left"></i>后退</ce-button>
+      <ce-button>往前<i class="icon icon-chevron-right"></i></ce-button>
+    </ce-button-group>
+  </div>
+</template>
 ```
 :::
 
@@ -129,35 +147,39 @@
 
 :::demo
 ```html
-<div>
-  <ce-button type="primary" size="large">变大按钮</ce-button>
-  <ce-button type="primary">正常按钮</ce-button>
-  <ce-button type="primary" size="small">变小按钮</ce-button>
-  <ce-button type="primary" size="smaller">超小按钮</ce-button>
-</div>
-<div style="margin-top: 8px;">
-  <ce-button type="primary" size="large" icon="icon-search" circle></ce-button>
-  <ce-button type="primary" icon="icon-search" circle></ce-button>
-  <ce-button type="primary" size="small" icon="icon-search" circle></ce-button>
-  <ce-button type="primary" size="smaller" icon="icon-search" circle></ce-button>
-</div>
-<div style="margin-top: 8px;">
-  <ce-button-group size="large">
-    <ce-button>左</ce-button>
-    <ce-button>中</ce-button>
-    <ce-button>右</ce-button>
-  </ce-button-group>
-  <ce-button-group>
-    <ce-button>左</ce-button>
-    <ce-button>中</ce-button>
-    <ce-button>右</ce-button>
-  </ce-button-group>
-  <ce-button-group size="small">
-    <ce-button>左</ce-button>
-    <ce-button>中</ce-button>
-    <ce-button>右</ce-button>
-  </ce-button-group>
-</div>
+<template>
+  <div>
+    <div>
+      <ce-button type="primary" size="large">变大按钮</ce-button>
+      <ce-button type="primary">正常按钮</ce-button>
+      <ce-button type="primary" size="small">变小按钮</ce-button>
+      <ce-button type="primary" size="smaller">超小按钮</ce-button>
+    </div>
+    <div style="margin-top: 8px;">
+      <ce-button type="primary" size="large" icon="icon-search" circle></ce-button>
+      <ce-button type="primary" icon="icon-search" circle></ce-button>
+      <ce-button type="primary" size="small" icon="icon-search" circle></ce-button>
+      <ce-button type="primary" size="smaller" icon="icon-search" circle></ce-button>
+    </div>
+    <div style="margin-top: 8px;">
+      <ce-button-group size="large">
+        <ce-button>左</ce-button>
+        <ce-button>中</ce-button>
+        <ce-button>右</ce-button>
+      </ce-button-group>
+      <ce-button-group>
+        <ce-button>左</ce-button>
+        <ce-button>中</ce-button>
+        <ce-button>右</ce-button>
+      </ce-button-group>
+      <ce-button-group size="small">
+        <ce-button>左</ce-button>
+        <ce-button>中</ce-button>
+        <ce-button>右</ce-button>
+      </ce-button-group>
+    </div>
+  </div>
+</template>
 ```
 :::
 
