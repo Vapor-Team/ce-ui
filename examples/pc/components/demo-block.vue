@@ -1,71 +1,68 @@
 <template>
-  <div class="docs-code-wrapper">
-    <!-- TODO: 组件 demo 待优化 -->
-    <transition name="fade">
-      <div
-        class="description"
-        v-show="$slots.code"
-      >
-        <slot name="code"></slot>
-      </div>
-    </transition>
-    <div class="code-container">
-      <transition name="fade">
-        <div
-          v-show="isExpand"
-          class="docs-code"
-        >
+  <div class="demo-block">
+    <div
+      class="code-demo"
+      v-if="$slots.demoContent"
+    >
+      <slot name="demoContent"></slot>
+    </div>
+    <div class="docs-code-wrapper">
+      <!-- TODO: 组件 demo 待优化 -->
+      <div class="code-container">
+        <transition name="fade">
           <div
-            class="description"
-            v-show="$slots.description"
+            v-show="isExpand"
+            class="docs-code"
           >
-            <div class="source">
+            <div
+              class="description"
+              v-show="$slots.description"
+            >
+              <slot name="description"></slot>
+            </div>
+            <div class="highlight-wrapper">
               <slot name="highlight"></slot>
             </div>
-            <slot name="description"></slot>
           </div>
-          <div class="highlight-wrapper">
-            <slot name="highlight"></slot>
+        </transition>
+      </div>
+      <div
+        class="docs-trans"
+        @mouseenter="btnEnter"
+        @mouseleave="btnLeave"
+      >
+        <transition name="arrow-text">
+          <div class="btn-box">
+            <ce-icon
+              v-show="!showBtn && !isExpand"
+              name="code"
+              :size="16"
+            ></ce-icon>
           </div>
-        </div>
-      </transition>
-    </div>
-    <div
-      class="docs-trans"
-      @mouseenter="btnEnter"
-      @mouseleave="btnLeave"
-    >
-      <transition name="arrow-text">
-        <div class="btn-box">
-          <ce-icon
-            v-show="!showBtn && !isExpand"
-            name="code"
-            :size="16"
-          ></ce-icon>
-        </div>
-      </transition>
-      <transition name="arrow-text">
-        <div
-          v-show="showBtn || isExpand"
-          class="btn-box"
-        >
-          <ce-icon
-            name="code"
-            :size="16"
-          ></ce-icon>
+        </transition>
+        <transition name="arrow-text">
+          <div
+            v-show="showBtn || isExpand"
+            class="btn-box"
+          >
+            <ce-icon
+              name="code"
+              :size="16"
+            ></ce-icon>
+            <span
+              class="btn-text"
+              @click="toggle"
+            >{{ btnText }}</span>
+          </div>
+        </transition>
+        <transition name="arrow-text">
           <span
-            class="btn-text"
-            @click="toggle"
-          >{{ btnText }}</span>
-        </div>
-      </transition>
-      <transition name="arrow-text">
-        <span
-          v-show="showBtn && isExpand"
-          class="codepen"
-          @click="goCodepen"
-        >{{ codepenText }}</span>
-      </transition>
+            v-show="showBtn && isExpand"
+            class="codepen"
+            @click="goCodepen"
+          >{{ codepenText }}</span>
+        </transition>
+      </div>
     </div>
   </div>
 </template>
@@ -173,6 +170,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.code-demo
+  padding 32px
+
 .docs-code-wrapper
   width 100%
 
@@ -185,8 +185,7 @@ export default {
       box-sizing border-box
       font-size 14px
       background-color #f7f7f7
-      border 1px solid #e2ecf4
-      border-top none
+      border-top 1px solid #e2ecf4
       overflow-y auto
 
       & .description
@@ -210,15 +209,18 @@ export default {
         padding 0 20px
         overflow-y auto
 
+        div
+          display none
+
   & .docs-trans
     width 100%
     text-align center
     display inline-block
+    border-top 1px solid #e2ecf4
     color #c5d9e8
     font-size 12px
     padding 10px 0
     background-color #fafbfc
-    margin-bottom 10px
     position relative
 
     & .btn-box

@@ -3,6 +3,7 @@ const { mdLoaderConfig } = require("./build/md-loader")
 const vueMarkdown = {
 	raw: true,
 	preprocess: (MarkdownIt, source) => {
+		// TODO: 此处待优化，对 type 为 fence 的重新处理，以及 inline-html 重新处理
 		// 该处调用 mardownIt 方法
 		MarkdownIt.renderer.rules.table_open = function() {
 			return "<table class=\"table\">"
@@ -35,6 +36,9 @@ const vueMarkdown = {
 module.exports = {
 	lintOnSave: false,
 	publicPath: "./",
+	devServer: {
+		port: 8080
+	},
 	// 修改 src 目录 为 examples 目录
 	pages: {
 		index: {

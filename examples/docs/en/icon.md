@@ -19,13 +19,38 @@
 One way：<!-- {.md} -->
 Reference through the <!-- {.md} --> `ce-icon` tag
 
-<ce-icon-demo1-en></ce-icon-demo1-en>
-::: demo
+:::demo
 
 ```html
-<ce-icon name="iPhone" :size="16"></ce-icon>
-<ce-icon name="logo" :size="16"></ce-icon>
-<ce-icon name="delete" :size="16"></ce-icon>
+<ce-icon-demo1-zh></ce-icon-demo1-zh>
+```
+
+```html
+<template>
+  <div class="demo">
+    <ce-icon name="iPhone" :size="size"></ce-icon>
+    <ce-icon name="logo" :size="size"></ce-icon>
+    <ce-icon name="delete" :size="size"></ce-icon>
+  </div>
+</template>
+
+<style>
+  .demo {
+    display: block;
+    width: 100%;
+    height: 200%;
+  }
+</style>
+
+<script>
+  export default {
+    data() {
+      return {
+        size: 16
+      }
+    }
+  }
+</script>
 ```
 
 :::
@@ -36,13 +61,28 @@ Reference through the <!-- {.md} --> `ce-icon` tag
 
 Mode two：<!-- {.md} -->
 Use <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"` to declare the icon. Copy the name of the icon.
-<ce-icon-demo1-en></ce-icon-demo1-en>
-::: demo
+:::demo
 
 ```html
-<i class="ce-icon__font ce-icon-logo"></i>
-<i class="ce-icon__font ce-icon-iPhone"></i>
-<i class="ce-icon__font ce-icon-delete"></i>
+<ce-icon-demo1-zh></ce-icon-demo1-zh>
+```
+
+```html
+<template>
+  <div class="demo">
+    <i class="ce-icon__font ce-icon-logo"></i>
+    <i class="ce-icon__font ce-icon-iPhone"></i>
+    <i class="ce-icon__font ce-icon-delete"></i>
+    </div>
+</template>
+
+<style>
+  .demo {
+    display: block;
+    width: 100%;
+    height: 200%;
+  }
+</style>
 ```
 
 :::

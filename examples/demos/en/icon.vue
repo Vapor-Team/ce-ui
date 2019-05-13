@@ -1,5 +1,5 @@
 <template>
-	<div class="demo-block">
+	<div>
 		<ul class="icon-list">
 			<li
 				v-for="(item,key) in icons"

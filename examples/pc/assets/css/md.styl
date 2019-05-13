@@ -10,6 +10,10 @@ section.view
 	font-size 14px
 	color #3f536e
 
+	div /* 隐藏多余代码 */
+		& pre:first-child
+			display none
+
 	hr
 		border 0
 		margin 1.2em 0
@@ -22,7 +26,6 @@ section.view
 		font-size 14px
 
 	ul
-		margin 16px 0
 		padding-left 24px
 		list-style disc
 
@@ -61,10 +64,12 @@ section.view
 		color #515561
 
 	.demo-block
-		padding 32px
 		border 1px solid #e2ecf4
 		border-radius 4px 4px 0 0
-		margin-top 16px
+		margin 16px 0
+
+		&:hover
+			box-shadow 0 0 30px rgba(0, 0, 0, 0.08)
 
 		.demo-card
 			margin-right 50px
