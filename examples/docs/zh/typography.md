@@ -1,15 +1,21 @@
 # Typography 字体
 
-----
+---
 
 统一字体规范，力求在各个操作系统上都有最佳的展示效果
 
 ## 字体家族
 
+<!-- {.md} -->
+
 css 代码如下：
 
+<!-- {.md} -->
+
 ```css
-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
+	"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial,
+	sans-serif;
 ```
 
 ## 中文字体

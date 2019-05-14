@@ -1,6 +1,6 @@
 # Typography
 
-----
+---
 
 Unified the specification of font, and strive to have the best presentation across all operating system.
 
@@ -8,8 +8,12 @@ Unified the specification of font, and strive to have the best presentation acro
 
 CSS snippet：
 
+<!-- {.md} -->
+
 ```css
-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
+	"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial,
+	sans-serif;
 ```
 
 ## Chinese Font

@@ -73,9 +73,9 @@
 </style>
 
 <script>
-import CSidebar from "../components/header"
-import CHeader from "../components/footer"
-import CFooter from "../components/sidebar"
+import CHeader from "../components/header"
+import CFooter from "../components/footer"
+import CSidebar from "../components/sidebar"
 import navConfig from "@/nav.config.json"
 
 export default {

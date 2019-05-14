@@ -29,8 +29,7 @@ import CeUi from "ce-ui"; // 引入组件库
 引入<!-- {.md} -->`px`或者`vw`布局样式
 
 ```js
-import "ce-ui/lib/theme-chalk/index.px.css"; // px单位，适用于pc端布局
-import "ce-ui/lib/theme-chalk/index.vw.css"; // vw单位，适用于移动端布局
+import "ce-ui/lib/theme-chalk/index.css"; // px单位，适用于pc端布局
 ```
 
 最后，全局使用组件库<!-- {.md} -->
