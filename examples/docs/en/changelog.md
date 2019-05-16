@@ -10,6 +10,9 @@
 
 <!-- {.md} -->
 
+- 2019-05-16
+  - bug repairing ...
+    <!-- {.md} -->
 - 2019-04-13
   - update icon component usage method
   - update md document style

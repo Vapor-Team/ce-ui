@@ -12,7 +12,7 @@
             <router-link :to="{ name: 'Introduction-en' }">GET STARTED</router-link>
           </div>
           <div class="btn btn-github">
-            <a href="https://github.com/at-ui/at-ui" style="color:rgb(2, 200, 247);">GITHUB</a>
+            <a href="https://github.com/Vapor-Team/ce-ui" style="color:rgb(2, 200, 247);">GITHUB</a>
           </div>
         </div>
       </div>

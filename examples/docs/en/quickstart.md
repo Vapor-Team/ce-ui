@@ -29,8 +29,7 @@ import CeUi from "ce-ui"; // Introducing Component Library
 Introduce<!-- {.md} -->`px` or `vw` Layout style
 
 ```js
-import "ce-ui/lib/theme-chalk/index.px.css"; // PX unit, suitable for PC terminal layout
-import "ce-ui/lib/theme-chalk/index.vw.css"; // VW unit, suitable for mobile terminal layout
+import "ce-ui/lib/theme-chalk/index.css"; // PX unit, suitable for PC terminal layout
 ```
 
 Last,Global component usage<!-- {.md} -->

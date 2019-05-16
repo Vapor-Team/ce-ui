@@ -6,7 +6,7 @@
 
 <!-- {.md} -->
 
-Vue-based UI components adapted to multi-terminal styles
+CE-UI components adapted to multi-terminal styles
 
 <!-- {.md} -->
 
