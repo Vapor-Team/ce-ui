@@ -3,7 +3,6 @@
 @import '../mixins/config'
 
 @b ce-base-card
-	padding 32px
 	display inline-block
 	box-sizing border-box
 	position relative
@@ -12,9 +11,8 @@
 		width 504px
 
 	@e header
-		border-bottom 1px dashed $--border-color-base
-		height 32px
-		margin-bottom 16px
+		padding 15px 10px
+		border-bottom 1px solid $--border-color-base
 
 		@e label
 			font-size $--font-size-small
@@ -35,8 +33,6 @@
 		left -56px
 		z-index 2
 
-		@m loading
-			@m icon
 	@e read-status
 		position absolute !important
 		right 0px
@@ -81,54 +77,35 @@
 		background $--color-card-grey
 		color $--color-text-regular
 
-	@m right
-		border-radius $--border-radius-big
+	@m radius
+		border-radius $card-border-radius
 
-	@m left
-		border-radius $--border-radius-big
+	@when always
+		box-shadow $card-box-shadow
 
-	@e title
-		font-size $--font-size-large
-		font-weight $--font-weight-bold
-		line-height 48px
-		color $--color-text-primary
-		margin-bottom 24px
+	@when never
+		box-shadow none
 
-	@e content
+	@when hover:hover
+		box-shadow $card-box-shadow
+
+	@e body
+		padding 15px 10px
 		font-size $--font-size-base
-
-		@e footer
-			font-size $--font-size-base
-
-	@e bg-image
-		width 100%
-		height 328px
-		background-size cover
-		position relative
-
-		@e button
-			position absolute
-			bottom 20px
-			right 20px
 
 	@e footer
-		font-size $--font-size-base
-
-	@e footer-content
-		margin-top 24px
-		padding-top 24px
-		border-top 1px solid $--border-color-base
 		display flex
-		font-size $--font-size-base
+		padding 10px
 
 		@when center
 			text-align center
 			justify-content space-between
+			align-items center
 
 		@when reverse
 			justify-content flex-end
 
-	@e scroll-part
+	@e scroll--part
 		width 100%
 		padding-bottom 8px
 		overflow scroll

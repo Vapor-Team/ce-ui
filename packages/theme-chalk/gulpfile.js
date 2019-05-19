@@ -127,7 +127,7 @@ function copyFont(done) {
 }
 // 监视构建
 function watchCss(done) {
-	return watch("./src/**", parallel(compileCssToRelease))
+	return watch("./src/**", parallel(compileCssToDev))
 }
 
 function watchFonts(done) {

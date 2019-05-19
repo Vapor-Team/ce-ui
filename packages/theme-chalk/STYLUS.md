@@ -58,19 +58,19 @@ table
 
 ```css
 table tr:nth-child(1) {
-  height: 10px;
+	height: 10px;
 }
 table tr:nth-child(2) {
-  height: 20px;
+	height: 20px;
 }
 table tr:nth-child(3) {
-  height: 30px;
+	height: 30px;
 }
 table tr:nth-child(4) {
-  height: 40px;
+	height: 40px;
 }
 table tr:nth-child(5) {
-  height: 50px;
+	height: 50px;
 }
 ```
 
@@ -89,7 +89,7 @@ mySelectors = '#foo,#bar,.baz'
 #foo,
 #bar,
 .baz {
-  background: #000;
+	background: #000;
 }
 ```
 
@@ -115,9 +115,9 @@ form input[type=button]
 
 ```css
 form input[type="button"] {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 }
 ```
 
