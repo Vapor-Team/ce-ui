@@ -8,10 +8,7 @@
         @mouseleave="onMouseleave(key)"
       >
         <div class="demo-icon-wrap">
-          <ce-icon
-            :name="item.name.substring(8)"
-            :size="item.size"
-          ></ce-icon>
+          <ce-icon :name="item.name.substring(8)" :size="item.size"></ce-icon>
           <span class="name">{{item.name.substring(8)}}</span>
         </div>
       </li>

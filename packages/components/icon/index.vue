@@ -1,19 +1,16 @@
 <template>
-	<span class="ce-icon"
-	      @click="onClick"
-	      @mouseenter="onMouseenter"
-	      @mouseleave="onMouseleave"
-	      :style="{ fontSize: size +'px'}">
-		<svg v-if="symbol"
-		     class="ce-icon__symbol"
-		     aria-hidden="true">
-			<use :xlink:href="`#ce-icon-${name}`"></use>
-		</svg>
-		<i v-else
-		   class="ce-icon__font"
-		   :class="'ce-icon-' + name"
-		   :style="{ color: color }"></i>
-	</span>
+  <span
+    class="ce-icon"
+    :style="{ fontSize: size +'px'}"
+    @click="onClick"
+    @mouseenter="onMouseenter"
+    @mouseleave="onMouseleave"
+  >
+    <svg v-if="symbol" class="ce-icon__symbol" aria-hidden="true">
+      <use :xlink:href="`#ce-icon-${name}`"></use>
+    </svg>
+    <i v-else class="ce-icon__font" :class="'ce-icon-' + name" :style="{ color: color }"></i>
+  </span>
 </template>
 <script>
 import "./iconfont.js"

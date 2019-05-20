@@ -19,10 +19,51 @@
 方式一：<!-- {.md} -->
 通过<!-- {.md} -->`ce-icon`标签来引用
 
-:::demo 基础的下拉菜单，使用方式是用 `AtDropdown`，`AtDropdownMenu` 和 `AtDropdownItem` 的组合
+:::demo
 
 ```html
-<ce-icon-demo1-zh></ce-icon-demo1-zh>
+<template>
+	<div>
+		<ul class="icon-list">
+			<li
+				v-for="(item,key) in icons"
+				:key="key"
+				@mouseenter="onMouseenter(key)"
+				@mouseleave="onMouseleave(key)"
+			>
+				<div class="demo-icon-wrap">
+					<ce-icon :name="item.name.substring(8)" :size="item.size"></ce-icon>
+					<span class="name">{{ item.name.substring(8) }}</span>
+				</div>
+			</li>
+		</ul>
+	</div>
+</template>
+
+<script>
+const iconList = require("../../icon-demo.json")
+
+export default {
+	data() {
+		return {
+			icons: iconList.map(e => {
+				return {
+					name: e,
+					size: 32
+				}
+			})
+		}
+	},
+	methods: {
+		onMouseenter(key) {
+			this.icons[key].size = 64
+		},
+		onMouseleave(key) {
+			this.icons[key].size = 32
+		}
+	}
+}
+</script>
 ```
 
 ```html
@@ -62,10 +103,25 @@
 方式二：<!-- {.md} -->
 使用 <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"`来声明图标，具体图标的名称请 copy 相应的标签
 
-:::demo
+:::demo 文字大小使用`font-size`处理
 
 ```html
-<ce-icon-demo1-zh></ce-icon-demo1-zh>
+<template>
+  <div class="demo">
+    <i class="ce-icon__font size ce-icon-logo"></i>
+    <i class="ce-icon__font size ce-icon-iPhone"></i>
+    <i class="ce-icon__font size ce-icon-delete"></i>
+  </div>
+</template>
+
+<style lang='stylus' scoped>
+  .demo
+    display block
+    width 100%
+    height: 200%
+  .size
+    font-size 36px
+</style>
 ```
 
 ```html
@@ -77,12 +133,13 @@
   </div>
 </template>
 
-<style>
-  .demo {
-    display: block;
-    width: 100%;
-    height: 200%;
-  }
+<style lang='stylus' scoped>
+  .demo
+    display block
+    width 100%
+    height: 200%
+  .size
+    font-size 36px
 </style>
 ```
 
