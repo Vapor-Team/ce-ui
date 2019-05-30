@@ -9,7 +9,7 @@
 				>
 				<div class="footer-logo-word">
 					<p>Vapor-Team</p>
-					<p>水蒸气团队</p>
+					<p>水蒸汽团队</p>
 				</div>
 			</div>
 			<div class="footer-desc">
