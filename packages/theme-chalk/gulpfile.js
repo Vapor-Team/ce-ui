@@ -1,8 +1,8 @@
 "use strict"
-const { watch, series, src, dest, parallel } = require("gulp")
+const gulp = require("gulp")
+const cleanCSS = require("gulp-clean-css")
 const postcss = require("gulp-postcss")
 const stylus = require("gulp-stylus")
-const cssmin = require("gulp-cssmin")
 const pxtounits = require("postcss-px2units")
 const pxtoviewport = require("postcss-px-to-viewport")
 const cssnano = require("cssnano")
@@ -22,7 +22,8 @@ let bemConfig = {
 }
 
 function compileCssToVw(done) {
-	return src("./src/*.styl")
+	return gulp
+		.src("./src/*.styl")
 		.pipe(stylus())
 		.pipe(
 			postcss([
@@ -46,17 +47,18 @@ function compileCssToVw(done) {
 				})
 			])
 		)
-		.pipe(cssmin())
+		.pipe(cleanCSS())
 		.pipe(
 			rename({
 				suffix: ".vw"
 			})
 		)
-		.pipe(dest("./lib"))
+		.pipe(gulp.dest("./lib"))
 }
 
 function compileCssToPx(done) {
-	return src("./src/*.styl")
+	return gulp
+		.src("./src/*.styl")
 		.pipe(stylus())
 		.pipe(
 			postcss([
@@ -68,17 +70,18 @@ function compileCssToPx(done) {
 				})
 			])
 		)
-		.pipe(cssmin())
+		.pipe(cleanCSS())
 		.pipe(
 			rename({
 				suffix: ".px"
 			})
 		)
-		.pipe(dest("./lib"))
+		.pipe(gulp.dest("./lib"))
 }
 
 function compileCssToRelease(done) {
-	return src("./src/*.styl")
+	return gulp
+		.src("./src/*.styl")
 		.pipe(stylus())
 		.pipe(
 			postcss([
@@ -90,18 +93,19 @@ function compileCssToRelease(done) {
 				})
 			])
 		)
-		.pipe(cssmin())
+		.pipe(cleanCSS())
 		.pipe(
 			rename({
 				prefix: "ce-ui-",
 				extname: ".css"
 			})
 		)
-		.pipe(dest("./lib"))
+		.pipe(gulp.dest("./lib"))
 }
 
 function compileCssToDev(done) {
-	return src("./src/**/*.styl")
+	return gulp
+		.src("./src/**/*.styl")
 		.pipe(stylus())
 		.pipe(
 			postcss([
@@ -113,38 +117,38 @@ function compileCssToDev(done) {
 				})
 			])
 		)
-		.pipe(cssmin())
+		.pipe(cleanCSS())
 		.pipe(
 			rename({
 				prefix: "ce-ui-",
 				extname: ".css"
 			})
 		)
-		.pipe(dest("./lib"))
+		.pipe(gulp.dest("./lib"))
 }
 function copyFont(done) {
-	return src("./src/fonts/**").pipe(dest("./lib/fonts"))
+	return gulp.src("./src/fonts/**").pipe(gulp.dest("./lib/fonts"))
 }
 // 监视构建
 function watchCss(done) {
-	return watch("./src/**", parallel(compileCssToDev))
+	return gulp.watch("./src/**", gulp.parallel(compileCssToDev))
 }
 
 function watchFonts(done) {
-	return watch("./src/fonts/**", copyFont)
+	return gulp.watch("./src/fonts/**", copyFont)
 }
 
-exports.build = parallel(
+exports.build = gulp.parallel(
 	// compileCssToVw, // 构建 vw_css
 	// compileCssToPx, // 构建 px_css
 	compileCssToRelease,
 	copyFont
 )
 
-exports.default = series(
+exports.default = gulp.series(
 	// compileCssToVw, // 构建 vw_css
 	// compileCssToPx, // 构建 px_css
 	compileCssToDev,
 	copyFont,
-	parallel(watchCss, watchFonts)
+	gulp.parallel(watchCss, watchFonts)
 )

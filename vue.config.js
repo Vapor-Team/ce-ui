@@ -72,9 +72,13 @@ module.exports = {
 			postcss: {
 				plugins: [
 					require("autoprefixer")({
-						browsers: [
+						overrideBrowserList: [
 							// 加这个后可以出现额外的兼容性前缀
-							"> 0.01%"
+							"> 0.01%",
+							"last 7 versions",
+							"not ie <= 8",
+							"ios >= 8",
+							"android >= 4.0"
 						]
 					})
 				]
