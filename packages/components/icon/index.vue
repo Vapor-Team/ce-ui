@@ -9,7 +9,7 @@
     <svg v-if="symbol" class="ce-icon__symbol" aria-hidden="true">
       <use :xlink:href="`#ce-icon-${name}`"></use>
     </svg>
-    <i v-else class="ce-icon__font" :class="'ce-icon-' + name" :style="{ color: color }"></i>
+    <i v-else :class="['ce-icon__font','ce-icon-' + name]" :style="{ color: color }"></i>
   </span>
 </template>
 <script>

@@ -79,7 +79,7 @@ export default {
   .demo {
     display: block;
     width: 100%;
-    height: 200%;
+    height: 100%;
   }
 </style>
 
@@ -108,9 +108,9 @@ export default {
 ```html
 <template>
   <div class="demo">
-    <i class="ce-icon__font size ce-icon-logo"></i>
-    <i class="ce-icon__font size ce-icon-iPhone"></i>
-    <i class="ce-icon__font size ce-icon-delete"></i>
+    <i class="ce-icon ce-icon__font size ce-icon-logo"></i>
+    <i class="ce-icon ce-icon__font size ce-icon-iPhone"></i>
+    <i class="ce-icon ce-icon__font size ce-icon-delete"></i>
   </div>
 </template>
 
@@ -118,7 +118,7 @@ export default {
   .demo
     display block
     width 100%
-    height: 200%
+    height 100%
   .size
     font-size 36px
 </style>
@@ -127,9 +127,9 @@ export default {
 ```html
 <template>
   <div class="demo">
-    <i class="ce-icon__font ce-icon-logo"></i>
-    <i class="ce-icon__font ce-icon-iPhone"></i>
-    <i class="ce-icon__font ce-icon-delete"></i>
+    <i class="ce-icon ce-icon__font ce-icon-logo"></i>
+    <i class="ce-icon ce-icon__font ce-icon-iPhone"></i>
+    <i class="ce-icon ce-icon__font ce-icon-delete"></i>
   </div>
 </template>
 
@@ -137,7 +137,7 @@ export default {
   .demo
     display block
     width 100%
-    height: 200%
+    height 100%
   .size
     font-size 36px
 </style>

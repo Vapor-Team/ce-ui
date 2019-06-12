@@ -79,7 +79,7 @@ export default {
   .demo {
     display: block;
     width: 100%;
-    height: 200%;
+    height: 100%;
   }
 </style>
 
@@ -117,7 +117,7 @@ Use <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"` to declare the icon. Co
   .demo
     display block
     width 100%
-    height: 200%
+    height 100%
   .size
     font-size 36px
 </style>
@@ -136,7 +136,7 @@ Use <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"` to declare the icon. Co
   .demo
     display block
     width 100%
-    height: 200%
+    height 100%
   .size
     font-size 36px
 </style>
