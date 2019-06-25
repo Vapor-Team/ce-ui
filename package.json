@@ -19,7 +19,7 @@
 		"clean": "rimraf lib && rimraf packages/*/lib",
 		"dev:style": "gulp --gulpfile packages/theme-chalk/gulpfile.js",
 		"build:docs": "vue-cli-service build",
-		"build:locale": "node build/build-locale",
+		"build:locale": "node build/build-locale.js",
 		"build:entry": "node build/build-entry.js ",
 		"build:lib": "node build/build-lib.js",
 		"build:style": "gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
@@ -55,7 +55,7 @@
 		"markdown-it-container": "^2.0.0",
 		"markdown-it-decorate": "^1.2.2",
 		"markdown-it-task-checkbox": "^1.0.6",
-		"shelljs": "^0.8.3",
+		"shelljs.exec": "^1.1.8",
 		"signale": "^1.4.0",
 		"stylus": "^0.54.5",
 		"stylus-loader": "^3.0.2",
@@ -68,11 +68,8 @@
 		"pre-commit": "lint-staged"
 	},
 	"lint-staged": {
-		"*.js,!build/*": [
-			"vue-cli-service lint",
-			"git add"
-		],
-		"*.vue": [
+		"*.{js,vue},!build/*": [
+			"eslint --fix",
 			"vue-cli-service lint",
 			"git add"
 		]

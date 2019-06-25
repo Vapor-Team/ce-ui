@@ -1,29 +1,27 @@
 /**
  * Build npm lib
  */
-const shell = require("shelljs")
+const exec = require("shelljs.exec")
 const signale = require("signale")
 
-const {
-  Signale
-} = signale
+const { Signale } = signale
 const tasks = [
-  "bootstrap",
-  "lint",
-  "clean",
-  "build:entry",
-  "lib",
-  "build:style",
-  "build:locale"
+	"bootstrap",
+	"lint",
+	"clean",
+	"build:entry",
+	"lib",
+	"build:style",
+	"build:locale"
 ]
 
 tasks.forEach(task => {
-  signale.start(task)
+	signale.start(task)
 
-  const interactive = new Signale({
-    interactive: true
-  })
-  interactive.pending(task)
-  shell.exec(`npm run ${task} --silent`)
-  interactive.success(task)
+	const interactive = new Signale({
+		interactive: true
+	})
+	interactive.pending(task)
+	exec(`npm run ${task} --silent`, { silent: true })
+	interactive.success(task)
 })
