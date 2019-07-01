@@ -65,8 +65,13 @@ module.exports = {
 	},
 	css: {
 		loaderOptions: {
+			css: {
+				localIdentName: "[local]_[hash:base64:8]",
+				// localIdentName: "[name]-[hash]",
+				camelCase: "only"
+			},
 			stylus: {
-				test: /\.styl$/,
+				test: /\.styl(us)?$/,
 				loader: "style-loader!css-loader!stylus-loader"
 			},
 			postcss: {
