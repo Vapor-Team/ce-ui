@@ -37,7 +37,7 @@
 .row
 	display -webkit-box
 	flex-direction row
-	flex-wrap wrap
+	flex-wrap nowrap
 
 .ce-markdown
 	padding 32px 43px 43px

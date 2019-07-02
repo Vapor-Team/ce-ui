@@ -38,6 +38,7 @@
 	text-align center
 	background-color #fff
 	box-shadow 0 0 50px rgba(0, 0, 0, 0.06)
+	z-index 9999
 
 	.container
 		position relative

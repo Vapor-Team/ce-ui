@@ -65,7 +65,7 @@
 	.wrapper
 		.row
 			flex-direction row
-			flex-wrap wrap
+			flex-wrap nowrap
 			display flex
 </style>
 
