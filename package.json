@@ -33,11 +33,11 @@
 		"vue-i18n": "^8.11.2"
 	},
 	"devDependencies": {
-		"@vue/cli-plugin-babel": "^3.8.0",
-		"@vue/cli-plugin-eslint": "^3.8.0",
-		"@vue/cli-service": "^3.8.0",
+		"@vue/cli-plugin-babel": "^3.9.2",
+		"@vue/cli-plugin-eslint": "^3.9.2",
+		"@vue/cli-service": "^3.9.2",
 		"@vue/eslint-config-standard": "^4.0.0",
-		"autoprefixer": "^9.6.0",
+		"autoprefixer": "^9.6.1",
 		"babel-eslint": "^10.0.1",
 		"cp-cli": "^2.0.0",
 		"cssnano": "^4.1.10",
@@ -61,7 +61,7 @@
 		"stylus-loader": "^3.0.2",
 		"uppercamelcase": "^3.0.0",
 		"vue-markdown-loader": "^2.4.1",
-		"vue-router": "^3.0.1",
+		"vue-router": "^3.0.7",
 		"vue-template-compiler": "^2.5.21"
 	},
 	"gitHooks": {
