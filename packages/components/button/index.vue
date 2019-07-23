@@ -1,7 +1,8 @@
 <template>
-	<div @click="$emit('click')"
-	     class="ce-button"
-	     :class="[
+  <div
+    @click="$emit('click')"
+    class="ce-button"
+    :class="[
       type ? 'ce-button--' + type : '',
       size ? 'ce-button--' + size : '',
       {
@@ -13,9 +14,10 @@
 				'is-round':round,
 				'is-circle':circle
       }
-    ]">
-		<slot></slot>
-	</div>
+    ]"
+  >
+    <slot></slot>
+  </div>
 </template>
 <script>
 import create from "../../utils/create-basic"

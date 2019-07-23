@@ -6,7 +6,6 @@ const signale = require("signale")
 
 const { Signale } = signale
 const tasks = [
-	"bootstrap",
 	"lint",
 	"clean",
 	"build:entry",
@@ -17,7 +16,6 @@ const tasks = [
 
 tasks.forEach(task => {
 	signale.start(task)
-
 	const interactive = new Signale({
 		interactive: true
 	})

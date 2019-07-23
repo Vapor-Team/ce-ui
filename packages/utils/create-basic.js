@@ -15,16 +15,14 @@ function install(Vue) {
 	Vue.component(camelize(`-${name}`), this)
 }
 
-function returnArray() {
-	return []
-}
-
 function defaultProps(props) {
 	Object.keys(props).forEach(key => {
 		if (props[key] === Array) {
 			props[key] = {
 				type: Array,
-				default: returnArray
+				default: () => {
+					return []
+				}
 			}
 		} else if (props[key] === Number) {
 			props[key] = {
