@@ -21,7 +21,7 @@ section.view
 
 	p
 		padding 0
-		line-height 1.7
+		line-height 1.7em
 		color #3f536e
 		font-size 14px
 
@@ -35,7 +35,7 @@ section.view
 		list-style disc
 
 	ul li
-		line-height 1.8
+		line-height 1.8em
 
 	a
 		color #6190e8
@@ -49,12 +49,12 @@ section.view
 		margin-top 0px
 		font-size 24px
 		margin 16px 0
-		line-height 1.5
+		line-height 1.5em
 
 	h2
 		margin 16px 0
 		font-size 18px
-		line-height 1.5
+		line-height 1.5em
 		color #2c405a
 
 	a.md
@@ -86,12 +86,12 @@ section.view
 			color #3f536e
 
 			li
-				line-height 1.8
+				line-height 1.8em
 				padding-left 24px
 
 	p.md
 		padding 0
-		line-height 1.7
+		line-height 1.7em
 		color #3f536e
 		font-size 14px
 
@@ -100,7 +100,7 @@ section.view
 
 	h1.md, h2.md, h3.md, h4.md, h5.md
 		margin 16px 0
-		line-height 1.5
+		line-height 1.5em
 
 		&+ul
 			margin 16px 0
@@ -109,7 +109,7 @@ section.view
 			color #3f536e
 
 			li
-				line-height 1.8
+				line-height 1.8em
 
 	h2.md
 		font-size 18px
@@ -121,7 +121,7 @@ section.view
 		color #3f536e
 
 		li
-			line-height 1.8
+			line-height 1.8em
 
 	ul.md
 		margin 16px 0
@@ -130,7 +130,7 @@ section.view
 		color #3f536e
 
 		li
-			line-height 1.8
+			line-height 1.8em
 			padding 20px 50px
 
 	pre
@@ -147,6 +147,8 @@ section.view
 
 	code
 		padding 0.3em 0.5em
+		margin 0 0.3em
+		line-height 2.2em
 		font-size 0.9em
 		vertical-align middle
 		border 1px solid #ECECEC
@@ -154,7 +156,8 @@ section.view
 		background-color #F7F7F7
 
 	code.code_inline
-		padding 0 0.5em
+		padding 0.3em 0.5em
+		margin 0 0.3em
 
 	table.table
 		display block
@@ -166,16 +169,22 @@ section.view
 		overflow auto
 		margin-bottom 50px
 
+		tr
+			& td:last-child
+				border-right 1px solid transparent
+
 		th
 			border-top 1px solid #f3f7fa
-			background-color #FAFBFC
 			border-bottom 1px solid #f3f7fa
+			background-color #FAFBFC
 			padding 10px 8px
 
 		td
 			border-top 1px solid #f3f7fa
 			border-bottom 1px solid #f3f7fa
+			border-right 1px solid #f3f7fa
 			padding 10px 8px
+			line-height 2.4em
 
 	.ce-resource
 		margin 24px 0

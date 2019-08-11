@@ -1,3 +1,10 @@
+/*
+ * @Author: Mark
+ * @Date: 2019-06-26 00:30:25
+ * @LastEditors: Mark
+ * @LastEditTime: 2019-08-11 18:18:46
+ * @Description: demo 路由
+ */
 import Vue from "vue"
 import Router from "vue-router"
 import NavConfig from "@/nav.config.json"
@@ -142,13 +149,12 @@ const router = new Router({
 	linkExactActiveClass: "",
 	// root: process.env.serverConfig.portalPrefix,
 	scrollBehavior (to, from, savedPosition) {
-	  if (to.hash) {
-	    return {
-	      selector: to.hash
-	    }
-	  }
-
-	  return { x: 0, y: 0 }
+		if (to.hash) {
+			return {
+				selector: to.hash
+			}
+		}
+		return { x: 0, y: 0 }
 	}
 })
 

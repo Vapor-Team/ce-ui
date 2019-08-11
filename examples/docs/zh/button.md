@@ -1,3 +1,10 @@
+<!--
+ * @Author: Mark
+ * @Date: 2019-06-26 00:30:24
+ * @LastEditors: Mark
+ * @LastEditTime: 2019-08-11 18:04:13
+ * @Description: Button 组件
+ -->
 # Button 按钮
 
 ---
@@ -338,20 +345,20 @@
 
 ## Button 参数
 
-| 参数       | 说明                                   | 类型    | 可选值                                                              | 默认值   |
-| ---------- | -------------------------------------- | ------- | ------------------------------------------------------------------- | -------- |
-| type       | 按钮的类型                             | String  | `default`, `primary`, `success`, `error`, `warning`, `info`, `text` | -        |
-| nceiveType | 原生按钮的类型                         | String  | -                                                                   | `button` |
-| size       | 按钮的大小                             | String  | `large`, `small`, `smaller`                                         | -        |
-| hollow     | 是否为空心按钮                         | Boolean | -                                                                   | false    |
+| 参数       | 说明                                  | 类型    | 可选值                                                              | 默认值   |
+|------------|-------------------------------------|---------|---------------------------------------------------------------------|----------|
+| type       | 按钮的类型                            | String  | `default`, `primary`, `success`, `error`, `warning`, `info`, `text` | -        |
+| nceiveType | 原生按钮的类型                        | String  | -                                                                   | `button` |
+| size       | 按钮的大小                            | String  | `large`, `small`, `smaller`                                         | -        |
+| hollow     | 是否为空心按钮                        | Boolean | -                                                                   | false    |
 | icon       | 按钮的图标类名，填入图标的 `classname` | String  | 见文档 `Icon 图标`                                                  | -        |
-| loading    | 设置按钮的载入状态                     | Boolean | -                                                                   | false    |
-| circle     | 设置圆形图标按钮                       | Boolean | -                                                                   | false    |
+| loading    | 设置按钮的载入状态                    | Boolean | -                                                                   | false    |
+| circle     | 设置圆形图标按钮                      | Boolean | -                                                                   | false    |
 
 ## Button Group 参数
 
 | 参数 | 说明       | 类型   | 可选值           | 默认值   |
-| ---- | ---------- | ------ | ---------------- | -------- |
+|------|----------|--------|------------------|----------|
 | size | 按钮的大小 | String | `large`, `small` | 正常大小 |
 | gap  | 按钮间隔   | Number | -                | -1       |
 
