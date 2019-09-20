@@ -2,27 +2,24 @@
  * @Author: Mark
  * @Date: 2019-06-26 00:30:25
  * @LastEditors: Mark
- * @LastEditTime: 2019-08-11 18:18:46
+ * @LastEditTime: 2019-09-20 12:27:29
  * @Description: demo 路由
  */
 import Vue from "vue"
 import Router from "vue-router"
 import NavConfig from "@/nav.config.json"
-
 Vue.use(Router)
-
-function regeisterRoute(navConfig) {
+function registeredRoute(navConfig) {
 	const routes = []
 	const parentRoutes = {}
-
 	Object.keys(NavConfig).forEach((lang, idx) => {
-		const pageNavs = NavConfig[lang]
-
-		for (const pageName in pageNavs) {
-			pageNavs[pageName].forEach(nav => {
+		const pageNav = NavConfig[lang]
+		for (const pageName in pageNav) {
+			pageNav[pageName].forEach(nav => {
 				const parentName = nav.name
-				parentRoutes[`${parentName}-${lang}`] = parentRoutes[`${parentName}-${lang}`] || addParentRoute(parentName, lang)
-
+				parentRoutes[`${parentName}-${lang}`] =
+					parentRoutes[`${parentName}-${lang}`] ||
+					addParentRoute(parentName, lang)
 				if (nav.groups) {
 					nav.groups.forEach(group => {
 						group.items.forEach(item => {
@@ -41,7 +38,9 @@ function regeisterRoute(navConfig) {
 	function addParentRoute(parentName, lang) {
 		return {
 			path: `/${lang}/${parentName.toLowerCase()}`,
-			components: require(`../views/${parentName.toLowerCase()}${lang === "zh" ? "" : `-${lang}`}.vue`),
+			components: require(`../views/${parentName.toLowerCase()}${
+				lang === "zh" ? "" : `-${lang}`
+			}.vue`),
 			children: []
 		}
 	}
@@ -63,34 +62,35 @@ function regeisterRoute(navConfig) {
 	return routes
 }
 
-let routes = regeisterRoute(NavConfig)
+let routes = registeredRoute(NavConfig)
 let navigatorLang = window.navigator.language.slice(0, 2)
-
-if (["en", "zh"].indexOf(navigatorLang) <= -1) {
-	navigatorLang = ""
-}
 
 const userLang = localStorage.getItem("ce-ui-language") || navigatorLang || "zh"
 
-routes = routes.concat([{
-	path: "/zh",
-	name: "Home",
-	components: require("../views/index.vue")
-}, {
-	path: "/en",
-	name: "Home-en",
-	components: require("../views/index-en.vue")
-}, {
-	path: "/",
-	redirect: {
-		name: userLang === "zh" ? "Home" : `Home-${userLang}`
+routes = routes.concat([
+	{
+		path: "/zh",
+		name: "Home",
+		components: require("../views/index.vue")
+	},
+	{
+		path: "/en",
+		name: "Home-en",
+		components: require("../views/index-en.vue")
+	},
+	{
+		path: "/",
+		redirect: {
+			name: userLang === "zh" ? "Home" : `Home-${userLang}`
+		}
+	},
+	{
+		path: "*",
+		redirect: {
+			name: "Home"
+		}
 	}
-}, {
-	path: "*",
-	redirect: {
-		name: "Home"
-	}
-}])
+])
 
 routes.forEach(page => {
 	if (page.path === "/zh/guide") {
@@ -148,7 +148,7 @@ const router = new Router({
 	routes,
 	linkExactActiveClass: "",
 	// root: process.env.serverConfig.portalPrefix,
-	scrollBehavior (to, from, savedPosition) {
+	scrollBehavior(to, from, savedPosition) {
 		if (to.hash) {
 			return {
 				selector: to.hash
