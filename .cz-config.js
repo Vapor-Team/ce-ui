@@ -1,7 +1,8 @@
 "use strict"
 
 module.exports = {
-	types: [{
+	types: [
+		{
 			value: "💪WIP",
 			name: "💪  WIP:      Work in progress"
 		},
@@ -38,9 +39,7 @@ module.exports = {
 			name: "⏪  revert:   Revert to a commit"
 		}
 	],
-
 	scopes: [],
-
 	allowCustomScopes: true,
-	allowBreakingChanges: ["feat", "fix"]
+	allowBreakingChanges: [ "feat", "fix" ]
 }
