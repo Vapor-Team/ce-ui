@@ -1,87 +1,101 @@
 {
-	"name": "ce-ui",
-	"version": "0.0.1",
-	"description": "基于Vue 2.x 的UI组件库",
-	"main": "lib/ce-ui.common.js",
-	"style": "lib/theme-chalk/ce-ui-index.css",
-	"homepage": "https://github.com/Vapor-Team/ce-ui",
-	"author": "ce-ui <jackblogs@163.com>",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Vapor-Team/ce-ui.git"
-	},
-	"scripts": {
-		"init": "npm install && cd ./packages/theme-chalk && npm install",
-		"dev": "npm run build:entry && vue-cli-service serve",
-		"lint": "vue-cli-service lint",
-		"lib": "vue-cli-service build --target lib --name CeUi --dest lib packages/index.js",
-		"clean": "rimraf lib && rimraf packages/*/lib",
-		"dev:style": "gulp --gulpfile packages/theme-chalk/gulpfile.js",
-		"build:docs": "vue-cli-service build",
-		"build:locale": "node build/build-locale.js",
-		"build:entry": "node build/build-entry.js ",
-		"build:lib": "node build/build-lib.js",
-		"build:style": "gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
-		"publish:docs": "node build/publish-docs.js",
-		"release": "sh build/release.sh",
-		"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-		"commit:msg": "validate-commit-msg"
-	},
-	"dependencies": {
-		"markdown-it": "^10.0.0",
-		"vue": "^2.6.11",
-		"vue-i18n": "^8.15.3"
-	},
-	"devDependencies": {
-		"@vue/cli-plugin-babel": "^3.12.1",
-		"@vue/cli-plugin-eslint": "^3.12.1",
-		"@vue/cli-service": "^3.12.1",
-		"@vue/eslint-config-standard": "^4.0.0",
-		"autoprefixer": "^9.7.4",
-		"babel-eslint": "^10.0.3",
-		"cp-cli": "^2.0.0",
-		"cssnano": "^4.1.10",
-		"cz-conventional-changelog": "^3.0.2",
-		"cz-customizable": "^6.2.0",
-		"eslint": "^6.8.0",
-		"eslint-plugin-html": "^6.0.0",
-		"eslint-plugin-react": "^7.18.0",
-		"eslint-plugin-vue": "^5.2.2",
-		"extract-text-webpack-plugin": "^3.0.2",
-		"fs-extra": "^8.1.0",
-		"gh-pages": "^2.2.0",
-		"highlight.js": "^9.18.0",
-		"lint-staged": "^9.5.0",
-		"markdown-it-container": "^2.0.0",
-		"markdown-it-decorate": "^1.2.2",
-		"markdown-it-task-checkbox": "^1.0.6",
-		"shelljs.exec": "^1.1.8",
-		"signale": "^1.4.0",
-		"stylus": "^0.54.7",
-		"stylus-loader": "^3.0.2",
-		"uppercamelcase": "^3.0.0",
-		"validate-commit-msg": "^2.14.0",
-		"vue-markdown-loader": "^2.4.1",
-		"vue-router": "^3.1.5",
-		"vue-template-compiler": "^2.6.11"
-	},
-	"gitHooks": {
-		"pre-commit": "lint-staged"
-	},
-	"lint-staged": {
-		"*.{js,vue},!build/*": [
-			"eslint --fix",
-			"vue-cli-service lint",
-			"git add"
-		]
-	},
-	"config": {
-		"commitizen": {
-			"path": "./node_modules/cz-customizable"
-		},
-		"cz-customizable": {
-			"config": "./.cz-config.js"
-		}
-	}
+  "name": "ce-ui",
+  "version": "0.0.1",
+  "description": "基于Vue 2.x 的UI组件库",
+  "author": "ce-ui <jackblogs@163.com>",
+  "scripts": {
+    "lint": "vue-cli-service lint",
+    "build:docs": "vue-cli-service build",
+    "build:entry": "node build/build-entry.js ",
+    "build:lib": "node build/build-lib.js",
+    "build:locale": "node build/build-locale.js",
+    "build:style": "gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
+    "clean": "rimraf lib && rimraf packages/*/lib",
+    "cz:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "dev": "npm run build:entry && vue-cli-service serve",
+    "dev:style": "gulp --gulpfile packages/theme-chalk/gulpfile.js",
+    "init": "npm install && cd ./packages/theme-chalk && npm install",
+    "lib": "vue-cli-service build --target lib --name CeUi --dest lib packages/index.js",
+    "publish:docs": "node build/publish-docs.js",
+    "release": "sh build/release.sh"
+  },
+  "main": "lib/ce-ui.common.js",
+  "dependencies": {
+    "markdown-it": "^10.0.0",
+    "vue": "^2.6.11",
+    "vue-i18n": "^8.15.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.2.0",
+    "@commitlint/config-conventional": "^7.5.0",
+    "@vue/cli-plugin-babel": "^3.12.1",
+    "@vue/cli-plugin-eslint": "^3.12.1",
+    "@vue/cli-service": "^3.12.1",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "@ziyi2/vue-cli-plugin-ui-cz": "^1.0.0",
+    "autoprefixer": "^9.7.4",
+    "babel-eslint": "^10.0.3",
+    "commitizen": "^3.0.5",
+    "conventional-changelog": "^3.0.5",
+    "cp-cli": "^2.0.0",
+    "cssnano": "^4.1.10",
+    "cz-conventional-changelog": "^3.0.2",
+    "cz-customizable": "^6.2.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "fs-extra": "^8.1.0",
+    "gh-pages": "^2.2.0",
+    "highlight.js": "^9.18.0",
+    "husky": "^1.1.1",
+    "lint-staged": "^9.5.0",
+    "markdown-it-container": "^2.0.0",
+    "markdown-it-decorate": "^1.2.2",
+    "markdown-it-task-checkbox": "^1.0.6",
+    "shelljs.exec": "^1.1.8",
+    "signale": "^1.4.0",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "uppercamelcase": "^3.0.0",
+    "vue-markdown-loader": "^2.4.1",
+    "vue-router": "^3.1.5",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "./.cz-config.js"
+    }
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "homepage": "https://github.com/Vapor-Team/ce-ui",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "license": "MIT",
+  "lint-staged": {
+    "*.{js,vue},!build/*": [
+      "eslint --fix",
+      "vue-cli-service lint",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vapor-Team/ce-ui.git"
+  },
+  "style": "lib/theme-chalk/ce-ui-index.css"
 }
