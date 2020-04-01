@@ -1,4 +1,4 @@
-import Vue from "vue"
+import Vue from 'vue'
 
 const isServer = Vue.prototype.$isServer
 const hasOwnProperty = Object.prototype.hasOwnProperty
@@ -33,15 +33,15 @@ export function isDef(value) {
 
 export function isObj(x) {
 	const type = typeof x
-	return x !== null && (type === "object" || type === "function")
+	return x !== null && (type === 'object' || type === 'function')
 }
 
 export function get(object, path) {
-	const keys = path.split(".")
+	const keys = path.split('.')
 	let result = object
 
 	keys.forEach(key => {
-		result = isDef(result[key]) ? result[key] : ""
+		result = isDef(result[key]) ? result[key] : ''
 	})
 
 	return result
@@ -64,12 +64,12 @@ export function range(num, min, max) {
 
 export function stripScript(content) {
 	const result = content.match(/<(script)>([\s\S]+)<\/\1>/)
-	return result && result[2] ? result[2].trim() : ""
+	return result && result[2] ? result[2].trim() : ''
 }
 
 export function stripStyle(content) {
 	const result = content.match(/<(style)\s*>([\s\S]+)<\/\1>/)
-	return result && result[2] ? result[2].trim() : ""
+	return result && result[2] ? result[2].trim() : ''
 }
 
 export function stripTemplate(content) {
@@ -77,7 +77,7 @@ export function stripTemplate(content) {
 	if (!content) {
 		return content
 	}
-	return content.replace(/<(script|style)[\s\S]+<\/\1>/g, "").trim()
+	return content.replace(/<(script|style)[\s\S]+<\/\1>/g, '').trim()
 }
 
 export default {

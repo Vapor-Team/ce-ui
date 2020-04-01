@@ -35,15 +35,15 @@
   </div>
 </template>
 <script>
-import create from "../../utils/create-basic"
-const DEFAULT_COLOR = "#2150D8"
+import create from '../../utils/create-basic'
+const DEFAULT_COLOR = '#2150D8'
 export default create({
-	name: "loading",
+	name: 'loading',
 	props: {
 		size: String,
 		type: {
 			type: String,
-			default: "circular"
+			default: 'circular'
 		},
 		color: {
 			type: String,
@@ -53,11 +53,11 @@ export default create({
 	computed: {
 		colorType() {
 			const { color } = this
-			return color === "white" || color === "black" ? color : ""
+			return color === 'white' || color === 'black' ? color : ''
 		},
 		style() {
 			return {
-				color: this.color === "black" ? DEFAULT_COLOR : this.color,
+				color: this.color === 'black' ? DEFAULT_COLOR : this.color,
 				width: this.size,
 				height: this.size
 			}

@@ -12,20 +12,20 @@
 
 <script>
 export default {
-	name: "mobile-app",
-	data() {
-		return {
-			showNav: false
-		}
-	},
-	watch: {
-		$route(to, from) {
-			this.showNav = to.name !== "index"
-			if (to.name !== "index") {
-				window.parent.location.hash = to.name
-			}
-		}
-	}
+  name: 'mobile-app',
+  data() {
+    return {
+      showNav: false
+    }
+  },
+  watch: {
+    $route(to, from) {
+      this.showNav = to.name !== 'index'
+      if (to.name !== 'index') {
+        window.parent.location.hash = to.name
+      }
+    }
+  }
 }
 </script>
 

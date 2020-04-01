@@ -17,10 +17,10 @@
 </template>
 
 <script>
-const iconList = require("../../icon-demo.json")
+const iconList = require('../../icon-demo.json')
 
 export default {
-	name: "ce-icon-demo1-en",
+	name: 'ce-icon-demo1-en',
 	data() {
 		return {
 			icons: iconList.map(e => {

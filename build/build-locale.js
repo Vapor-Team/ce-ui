@@ -1,11 +1,11 @@
-const ora = require("ora")
-const fs = require("fs")
-const path = require("path")
-const webpack = require("webpack")
-const merge = require("webpack-merge")
-const TerserPlugin = require("terser-webpack-plugin")
-const spinner = ora("building locale for production...")
-const files = fs.readdirSync("./packages/locale/lang")
+const ora = require('ora')
+const fs = require('fs')
+const path = require('path')
+const webpack = require('webpack')
+const merge = require('webpack-merge')
+const TerserPlugin = require('terser-webpack-plugin')
+const spinner = ora('building locale for production...')
+const files = fs.readdirSync('./packages/locale/lang')
 const localeEntry = {}
 
 spinner.start()
@@ -14,19 +14,19 @@ spinner.start()
  */
 
 files.forEach(fileName => {
-	const name = fileName.split(".")[0]
+	const name = fileName.split('.')[0]
 	localeEntry[name] = `./packages/locale/lang/${fileName}`
 })
 
 const webpackConfig = merge({
 	entry: localeEntry,
-	mode: "production",
+	mode: 'production',
 	output: {
-		path: path.resolve(__dirname, "../lib/locale"),
-		publicPath: "/lib/locale/",
-		filename: "[name].js",
-		library: "ce/locale",
-		libraryTarget: "umd"
+		path: path.resolve(__dirname, '../lib/locale'),
+		publicPath: '/lib/locale/',
+		filename: '[name].js',
+		library: 'ce/locale',
+		libraryTarget: 'umd'
 	},
 
 	optimization: {
@@ -49,8 +49,8 @@ const webpackConfig = merge({
 		}),
 		new webpack.BannerPlugin({
 			banner: `/*! CE-UI i18n v${
-				require("../package.json").version
-			} | https://github.com/Vapor-Team/ce-ui | (c) 2019 VaporTeam | MIT License */`,
+				require('../package.json').version
+				} | https://github.com/Vapor-Team/ce-ui | (c) 2019 VaporTeam | MIT License */`,
 			raw: true,
 			entryOnly: true
 		})
@@ -67,6 +67,6 @@ webpack(webpackConfig, (err, stats) => {
 			children: false,
 			chunks: false,
 			chunkModules: false
-		}) + "\n"
+		}) + '\n'
 	)
 })

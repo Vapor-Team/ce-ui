@@ -7,15 +7,15 @@
  * b(['disabled', 'primary']) // 'button button--disabled button--primary'
  */
 
-const ELEMENT = "__"
-const MODS = "--"
+const ELEMENT = '__'
+const MODS = '--'
 
 const join = (name, el, symbol) => {
-	return (el ? name + symbol + el : name)
+	return el ? name + symbol + el : name
 }
 
 const prefix = (name, mods) => {
-	if (typeof mods === "string") {
+	if (typeof mods === 'string') {
 		return join(name, mods, MODS)
 	}
 
@@ -39,9 +39,9 @@ export default {
 				name
 			} = this.$options
 
-			if (el && typeof el !== "string") {
+			if (el && typeof el !== 'string') {
 				mods = el
-				el = ""
+				el = ''
 			}
 			el = join(name, el, ELEMENT)
 

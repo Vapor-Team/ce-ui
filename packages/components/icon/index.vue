@@ -6,17 +6,25 @@
     @mouseenter="onMouseenter"
     @mouseleave="onMouseleave"
   >
-    <svg v-if="symbol" class="ce-icon__symbol" aria-hidden="true">
-      <use :xlink:href="`#ce-icon-${name}`"></use>
+    <svg
+      v-if="symbol"
+      class="ce-icon__symbol"
+      aria-hidden="true"
+    >
+      <use :xlink:href="`#ce-icon-${name}`" />
     </svg>
-    <i v-else :class="['ce-icon__font','ce-icon-' + name]" :style="{ color: color }"></i>
+    <i
+      v-else
+      :class="['ce-icon__font','ce-icon-' + name]"
+      :style="{ color: color }"
+    ></i>
   </span>
 </template>
 <script>
-import "./iconfont.js"
-import create from "../../utils/create-basic"
+import './iconfont.js'
+import create from '../../utils/create-basic'
 export default create({
-	name: "icon",
+	name: 'icon',
 	props: {
 		// 是否为多色字体图标symbol模式
 		symbol: {
@@ -46,13 +54,13 @@ export default create({
 	},
 	methods: {
 		onClick() {
-			this.$emit("click")
+			this.$emit('click')
 		},
 		onMouseenter() {
-			this.$emit("mouseenter")
+			this.$emit('mouseenter')
 		},
 		onMouseleave() {
-			this.$emit("mouseleave")
+			this.$emit('mouseleave')
 		}
 	}
 })

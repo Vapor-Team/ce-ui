@@ -6,9 +6,9 @@
 	</base-card>
 </template>
 <script>
-import create from "../../utils/create"
+import create from '../../utils/create'
 export default create({
-	name: "text",
+	name: 'text',
 	props: {
 		message: String
 	}

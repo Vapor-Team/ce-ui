@@ -2,16 +2,16 @@
  * Simplified version
  * https://github.com/ElemeFE/element/blob/dev/src/locale/index.js
  */
-import Vue from "vue"
-import deepmerge from "deepmerge"
-import defaultLang from "./lang/en-US"
+import Vue from 'vue'
+import deepmerge from 'deepmerge'
+import defaultLang from './lang/en-US'
 
 let lang = defaultLang
 let merged = false
 let i18nHandler = function (...args) {
-	const vuei18n = Object.getPrototypeOf(this || Vue).$t
+	const vueI18n = Object.getPrototypeOf(this || Vue).$t
 
-	if (typeof vuei18n === "function" && !!Vue.locale) {
+	if (typeof vueI18n === 'function' && !!Vue.locale) {
 		if (!merged) {
 			merged = true
 			Vue.locale(
@@ -21,17 +21,17 @@ let i18nHandler = function (...args) {
 				})
 			)
 		}
-		return vuei18n.apply(this, args)
+		return vueI18n.apply(this, args)
 	}
 }
 
 export const t = function (...args) {
 	let value = i18nHandler.apply(this, args)
-	if (value !== null && typeof value !== "undefined") {
+	if (value !== null && typeof value !== 'undefined') {
 		return value
 	}
 
-	const array = args[0].split(".")
+	const array = args[0].split('.')
 	let current = lang
 
 	for (let i = 0, len = array.length; i < len; i++) {
@@ -41,13 +41,12 @@ export const t = function (...args) {
 		if (i === len - 1) {
 			return value
 		} else if (!value) {
-			return ""
+			return ''
 		}
-
 		current = value
 	}
 
-	return ""
+	return ''
 }
 
 export const use = function (l) {

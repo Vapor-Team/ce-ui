@@ -68,104 +68,105 @@
 </template>
 
 <script>
-import CeUi from "@#/index"
-import { stripStyle, stripScript, stripTemplate } from "@#/utils/index"
+import CeUi from '@lib/index'
+import { stripStyle, stripScript, stripTemplate } from '@lib/utils/index'
 const { version } = CeUi
 export default {
-	name: "demo-block",
-	data() {
-		return {
-			isExpand: false,
-			showBtn: false,
-			codepen: {
-				script: "",
-				html: "",
-				style: ""
-			}
-		}
-	},
-	computed: {
-		btnText() {
-			return this.$i18n.locale === "zh"
-				? this.isExpand
-					? "隐藏代码"
-					: "显示代码"
-				: this.isExpand
-				? "Hidden code"
-				: "Show code"
-		},
-		codepenText() {
-			return this.$i18n.locale === "zh" ? " 在线运行" : "Online runing"
-		}
-	},
-	methods: {
-		toggle() {
-			this.isExpand = !this.isExpand
-		},
-		btnEnter() {
-			this.showBtn = !this.showBtn
-		},
-		btnLeave() {
-			this.showBtn = !this.showBtn
-		},
-		goCodepen() {
-			// TODO: 去 codepen 运行代码
-			const highlight = this.$slots.highlight
-			if (highlight && highlight[0]) {
-				let code = ""
-				let cur = highlight[0]
-				if (cur.elm && cur.elm.innerText) {
-					code = cur.elm.innerText
-				}
-				if (code) {
-					this.codepen.html = stripTemplate(code)
-					this.codepen.script = stripScript(code)
-					this.codepen.style = stripStyle(code)
-				}
-			}
-			// since 2.6.2 use code rather than jsfiddle https://blog.codepen.io/documentation/api/prefill/
-			const { script, html, style } = this.codepen
-			const resourcesTpl =
-				"<scr" +
-				"ipt src='//unpkg.com/vue/dist/vue.js'></scr" +
-				"ipt>" +
-				"\n<scr" +
-				`ipt src="//unpkg.com/ce-ui@${version}/lib/index.js"></scr` +
-				"ipt>"
-			let jsTpl = (script || "").replace(/export default/, "var Main =").trim()
-			let htmlTpl = `${resourcesTpl}\n<div id="app">\n${html.trim()}\n</div>`
-			let cssTpl = `@import url("//unpkg.com/ce-ui@${version}/lib/theme-chalk/index.css");\n${(
-				style || ""
-			).trim()}\n`
-			jsTpl = jsTpl
-				? jsTpl + "\nvar Ctor = Vue.extend(Main)\nnew Ctor().$mount('#app')"
-				: "new Vue().$mount('#app')"
-			const data = {
-				js: jsTpl,
-				css: cssTpl,
-				html: htmlTpl
-			}
-			const form =
-				document.getElementById("fiddle-form") || document.createElement("form")
-			while (form.firstChild) {
-				form.removeChild(form.firstChild)
-			}
-			form.method = "POST"
-			form.action = "https://codepen.io/pen/define/"
-			form.target = "_blank"
-			form.style.display = "none"
-			// 创建表单
-			const input = document.createElement("input")
-			input.setAttribute("name", "data")
-			input.setAttribute("type", "hidden")
-			input.setAttribute("value", JSON.stringify(data))
-			// 添加到 body 中
-			form.appendChild(input)
-			document.body.appendChild(form)
-			// 提交到codepen
-			form.submit()
-		}
-	}
+  name: 'demo-block',
+  data() {
+    return {
+      isExpand: false,
+      showBtn: false,
+      codepen: {
+        script: '',
+        html: '',
+        style: ''
+      }
+    }
+  },
+  computed: {
+    btnText() {
+      console.log(this.$i18n)
+      return this.$i18n.locale === 'zh'
+        ? this.isExpand
+          ? '隐藏代码'
+          : '显示代码'
+        : this.isExpand
+        ? 'Hidden code'
+        : 'Show code'
+    },
+    codepenText() {
+      return this.$i18n.locale === 'zh' ? ' 在线运行' : 'Online runing'
+    }
+  },
+  methods: {
+    toggle() {
+      this.isExpand = !this.isExpand
+    },
+    btnEnter() {
+      this.showBtn = !this.showBtn
+    },
+    btnLeave() {
+      this.showBtn = !this.showBtn
+    },
+    goCodepen() {
+      // TODO: 去 codepen 运行代码
+      const highlight = this.$slots.highlight
+      if (highlight && highlight[0]) {
+        let code = ''
+        let cur = highlight[0]
+        if (cur.elm && cur.elm.innerText) {
+          code = cur.elm.innerText
+        }
+        if (code) {
+          this.codepen.html = stripTemplate(code)
+          this.codepen.script = stripScript(code)
+          this.codepen.style = stripStyle(code)
+        }
+      }
+      // since 2.6.2 use code rather than jsfiddle https://blog.codepen.io/documentation/api/prefill/
+      const { script, html, style } = this.codepen
+      const resourcesTpl =
+        '<scr' +
+        "ipt src='//unpkg.com/vue/dist/vue.js'></scr" +
+        'ipt>' +
+        '\n<scr' +
+        `ipt src="//unpkg.com/ce-ui@${version}/lib/index.js"></scr` +
+        'ipt>'
+      let jsTpl = (script || '').replace(/export default/, 'var Main =').trim()
+      let htmlTpl = `${resourcesTpl}\n<div id="app">\n${html.trim()}\n</div>`
+      let cssTpl = `@import url("//unpkg.com/ce-ui@${version}/lib/theme-chalk/index.css");\n${(
+        style || ''
+      ).trim()}\n`
+      jsTpl = jsTpl
+        ? jsTpl + "\nvar Ctor = Vue.extend(Main)\nnew Ctor().$mount('#app')"
+        : "new Vue().$mount('#app')"
+      const data = {
+        js: jsTpl,
+        css: cssTpl,
+        html: htmlTpl
+      }
+      const form =
+        document.getElementById('fiddle-form') || document.createElement('form')
+      while (form.firstChild) {
+        form.removeChild(form.firstChild)
+      }
+      form.method = 'POST'
+      form.action = 'https://codepen.io/pen/define/'
+      form.target = '_blank'
+      form.style.display = 'none'
+      // 创建表单
+      const input = document.createElement('input')
+      input.setAttribute('name', 'data')
+      input.setAttribute('type', 'hidden')
+      input.setAttribute('value', JSON.stringify(data))
+      // 添加到 body 中
+      form.appendChild(input)
+      document.body.appendChild(form)
+      // 提交到codepen
+      form.submit()
+    }
+  }
 }
 </script>
 

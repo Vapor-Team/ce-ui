@@ -1,11 +1,11 @@
 /**
  * Create a basic component with common options
  */
-import bem from "../mixins/bem"
+import bem from '../mixins/bem'
 import {
 	isDef,
 	camelize
-} from "./index"
+} from './index'
 
 function install(Vue) {
 	const {
@@ -34,7 +34,7 @@ function defaultProps(props) {
 }
 
 export default function (sfc) {
-	sfc.name = "ce-" + sfc.name
+	sfc.name = 'ce-' + sfc.name
 	sfc.install = sfc.install || install
 	sfc.mixins = sfc.mixins || []
 	sfc.mixins.push(bem)

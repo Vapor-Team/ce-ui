@@ -20,13 +20,13 @@
   </div>
 </template>
 <script>
-import create from "../../utils/create-basic"
+import create from '../../utils/create-basic'
 export default create({
-	name: "button",
+	name: 'button',
 	props: {
 		type: {
 			type: String,
-			default: "default"
+			default: 'default'
 		},
 		size: String,
 		shadow: Boolean,

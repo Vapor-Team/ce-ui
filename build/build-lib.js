@@ -1,17 +1,17 @@
 /**
  * Build npm lib
  */
-const exec = require("shelljs.exec")
-const signale = require("signale")
+const exec = require('shelljs.exec')
+const signale = require('signale')
 
 const { Signale } = signale
 const tasks = [
-	"lint",
-	"clean",
-	"build:entry",
-	"lib",
-	"build:style",
-	"build:locale"
+	'lint',
+	'clean',
+	'build:entry',
+	'lib',
+	'build:style',
+	'build:locale'
 ]
 
 tasks.forEach(task => {

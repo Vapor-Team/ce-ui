@@ -1,7 +1,7 @@
 module.exports = {
 	root: true,
-	extends: ["plugin:vue/essential", "@vue/standard"],
-	plugins: ["react", "html", "vue"],
+	extends: [ "plugin:vue/essential" ],
+	plugins: [ "react", "html", "vue" ],
 	env: {
 		node: true,
 		jquery: true,
@@ -39,19 +39,19 @@ module.exports = {
 		"vue/html-self-closing": "off",
 		// 官方文档 http://eslint.org/docs/rules/
 		// 参数：0 关闭，1 警告，2 错误
-		quotes: ["error", "double"], // 建议使用双引号
+		quotes: [ "error", "single", { "avoidEscape": true } ], // 建议使用双引号
 		// "no-inner-declarations": [0, "both"],     //不建议在{}代码块内部声明变量或函数
 		"no-extra-boolean-cast": 1, // 多余的感叹号转布尔型
 		"no-extra-semi": 2, // 多余的分号
-		"semi-style": ["error", "last"],
+		"semi-style": [ "error", "last" ],
 		"no-extra-parens": 1, // 多余的括号
 		"no-empty": 2, // 空代码块
 		"no-tabs": "off",
 		// 使用前未定义
-		"no-use-before-define": [1, "nofunc"],
-		complexity: [0, 10], // 圈复杂度大于*
+		"no-use-before-define": [ 1, "nofunc" ],
+		complexity: [ 0, 10 ], // 圈复杂度大于*
 		// 定义数组或对象最后多余的逗号
-		"comma-dangle": [2, "never"],
+		"comma-dangle": [ 2, "never" ],
 
 		// 不允许对全局变量赋值,如 window = 'abc'
 		"no-global-assign": [
@@ -94,7 +94,7 @@ module.exports = {
 				beforeStatementContinuationChars: "never"
 			}
 		], // 要求或禁止使用分号代替 ASI (semi)
-		"arrow-body-style": [1, "always"], //   要求箭头函数体使用大括号
+		"arrow-body-style": [ 1, "always" ], //   要求箭头函数体使用大括号
 		"arrow-parens": [
 			0,
 			"as-needed",
@@ -132,7 +132,7 @@ module.exports = {
 		"accessor-pairs": 1, // object getter/setter方法需要成对出现
 
 		// 换行调用对象方法  点操作符应写在行首
-		"dot-location": [1, "property"],
+		"dot-location": [ 1, "property" ],
 		"no-lone-blocks": 1, // 多余的{}嵌套
 		"no-labels": 1, // 无用的标记
 		"no-extend-native": 1, // 禁止扩展原生对象
@@ -144,7 +144,7 @@ module.exports = {
 		"no-throw-literal": 1, // 禁止抛出一个直接量 应是Error对象
 
 		// 不允return时有赋值操作
-		"no-return-assign": [1, "always"],
+		"no-return-assign": [ 1, "always" ],
 
 		// 不允许重复声明
 		"no-redeclare": [
@@ -181,7 +181,7 @@ module.exports = {
 		"no-warning-comments": [
 			0,
 			{
-				terms: ["todo", "fixme", "any other term"],
+				terms: [ "todo", "fixme", "any other term" ],
 				location: "anywhere"
 			}
 		],
@@ -228,4 +228,4 @@ module.exports = {
 			}
 		]
 	}
-}
+};

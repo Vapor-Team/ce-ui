@@ -2,12 +2,12 @@
  * @Author: Mark
  * @Date: 2019-06-26 00:30:25
  * @LastEditors: Mark
- * @LastEditTime: 2019-09-20 12:27:29
+ * @LastEditTime: 2020-04-01 23:39:19
  * @Description: demo 路由
  */
-import Vue from "vue"
-import Router from "vue-router"
-import NavConfig from "@/nav.config.json"
+import Vue from 'vue'
+import Router from 'vue-router'
+import NavConfig from '@/nav.config.json'
 Vue.use(Router)
 function registeredRoute(navConfig) {
 	const routes = []
@@ -39,8 +39,8 @@ function registeredRoute(navConfig) {
 		return {
 			path: `/${lang}/${parentName.toLowerCase()}`,
 			components: require(`../views/${parentName.toLowerCase()}${
-				lang === "zh" ? "" : `-${lang}`
-			}.vue`),
+				lang === 'zh' ? '' : `-${lang}`
+				}.vue`),
 			children: []
 		}
 	}
@@ -65,78 +65,78 @@ function registeredRoute(navConfig) {
 let routes = registeredRoute(NavConfig)
 let navigatorLang = window.navigator.language.slice(0, 2)
 
-const userLang = localStorage.getItem("ce-ui-language") || navigatorLang || "zh"
+const userLang = localStorage.getItem('ce-ui-language') || navigatorLang || 'zh'
 
 routes = routes.concat([
 	{
-		path: "/zh",
-		name: "Home",
-		components: require("../views/index.vue")
+		path: '/zh',
+		name: 'Home',
+		components: require('../views/index.vue')
 	},
 	{
-		path: "/en",
-		name: "Home-en",
-		components: require("../views/index-en.vue")
+		path: '/en',
+		name: 'Home-en',
+		components: require('../views/index-en.vue')
 	},
 	{
-		path: "/",
+		path: '/',
 		redirect: {
-			name: userLang === "zh" ? "Home" : `Home-${userLang}`
+			name: userLang === 'zh' ? 'Home' : `Home-${userLang}`
 		}
 	},
 	{
-		path: "*",
+		path: '*',
 		redirect: {
-			name: "Home"
+			name: 'Home'
 		}
 	}
 ])
 
 routes.forEach(page => {
-	if (page.path === "/zh/guide") {
+	if (page.path === '/zh/guide') {
 		page.children.push({
-			path: "",
-			name: "Guide",
+			path: '',
+			name: 'Guide',
 			redirect: {
 				name: page.children[0].name
 			}
 		})
-	} else if (page.path === "/en/guide") {
+	} else if (page.path === '/en/guide') {
 		page.children.push({
-			path: "",
-			name: "Guide-en",
+			path: '',
+			name: 'Guide-en',
 			redirect: {
 				name: page.children[0].name
 			}
 		})
-	} else if (page.path === "/zh/docs") {
+	} else if (page.path === '/zh/docs') {
 		page.children.push({
-			path: "",
-			name: "Docs",
+			path: '',
+			name: 'Docs',
 			redirect: {
 				name: page.children[0].name
 			}
 		})
-	} else if (page.path === "/en/docs") {
+	} else if (page.path === '/en/docs') {
 		page.children.push({
-			path: "",
-			name: "Docs-en",
+			path: '',
+			name: 'Docs-en',
 			redirect: {
 				name: page.children[0].name
 			}
 		})
-	} else if (page.path === "/zh/resource") {
+	} else if (page.path === '/zh/resource') {
 		page.children.push({
-			path: "",
-			name: "Resource",
+			path: '',
+			name: 'Resource',
 			redirect: {
 				name: page.children[0].name
 			}
 		})
-	} else if (page.path === "/en/resource") {
+	} else if (page.path === '/en/resource') {
 		page.children.push({
-			path: "",
-			name: "Resource-en",
+			path: '',
+			name: 'Resource-en',
 			redirect: {
 				name: page.children[0].name
 			}
@@ -146,7 +146,7 @@ routes.forEach(page => {
 
 const router = new Router({
 	routes,
-	linkExactActiveClass: "",
+	linkExactActiveClass: '',
 	// root: process.env.serverConfig.portalPrefix,
 	scrollBehavior(to, from, savedPosition) {
 		if (to.hash) {
