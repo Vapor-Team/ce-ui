@@ -5,17 +5,17 @@ const vueMarkdown = {
   preprocess: (MarkdownIt, source) => {
     // TODO: 此处待优化，对 type 为 fence 的重新处理，以及 inline-html 重新处理
     // 该处调用 mardownIt 方法
-    MarkdownIt.renderer.rules.table_open = function() {
+    MarkdownIt.renderer.rules.table_open = function () {
       return '<table class="table">'
     }
-    MarkdownIt.renderer.rules.table_close = function() {
+    MarkdownIt.renderer.rules.table_close = function () {
       return '</table>'
     }
     // 遍历粗体标签转换成 b 标签
-    MarkdownIt.renderer.rules.strong_open = function() {
+    MarkdownIt.renderer.rules.strong_open = function () {
       return '<b>'
     }
-    MarkdownIt.renderer.rules.strong_close = function() {
+    MarkdownIt.renderer.rules.strong_close = function () {
       return '</b>'
     }
     // ```html``` 给这种样式加个class hljs
@@ -24,7 +24,7 @@ const vueMarkdown = {
     )
     // ```code``` 给这种样式加个class code_inline
     const codeInline = MarkdownIt.renderer.rules.code_inline
-    MarkdownIt.renderer.rules.code_inline = function(...args) {
+    MarkdownIt.renderer.rules.code_inline = function (...args) {
       args[0][args[1]].attrJoin('class', 'code_inline')
       return codeInline(...args)
     }
@@ -44,7 +44,8 @@ module.exports = {
     index: {
       entry: 'examples/pc/main.js',
       template: 'public/index.html',
-      filename: 'index.html'
+      filename: 'index.html',
+      chunks: ['chunk-vendors', 'chunk-common', 'index']
     }
   },
   // 扩展 webpack 配置，使 packages 加入编译
@@ -70,6 +71,24 @@ module.exports = {
       args[0].terserOptions.sourceMap = true
       return args
     })
+    config
+      .optimization.splitChunks({
+        cacheGroups: {
+          vendors: {
+            name: 'chunk-vendors',
+            test: /[\\/]node_modules[\\/]/,
+            priority: -10,
+            chunks: 'initial'
+          },
+          common: {
+            name: 'chunk-common',
+            minChunks: 2,
+            priority: -20,
+            chunks: 'initial',
+            reuseExistingChunk: true
+          }
+        }
+      })
   },
   css: {
     loaderOptions: {

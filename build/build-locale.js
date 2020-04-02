@@ -48,7 +48,7 @@ const webpackConfig = merge({
     new webpack.BannerPlugin({
       banner: `/*! CE-UI i18n v${
         require('../package.json').version
-      } | https://github.com/Vapor-Team/ce-ui | (c) 2019 VaporTeam | MIT License */`,
+      } | https://github.com/Vapor-Team/ce-ui | (c) 2020 VaporTeam | MIT License */`,
       raw: true,
       entryOnly: true
     })
