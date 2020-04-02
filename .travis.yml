@@ -23,7 +23,7 @@ after_script:
   - git config user.email "${U_EMAIL}"
   - git add .
   - git commit -m "docs update"
-  - git push --force --quiet "https://${Travis_Token}@${GH_REF}" ${D_BRANCH}:${D_BRANCH}
+  - git push --force --quiet "https://${Travis_Token}@${GH_REF}" gh-pages:gh-pages
 # E: Build LifeCycle
 
 # 只有指定的分支提交时才会运行脚本
@@ -33,6 +33,5 @@ branches:
 env:
   global:
     - GH_REF: github.com/Vapor-Team/ce-ui.git
-    - D_BRANCH: gh-pages
     - U_EMAIL: sunduo3195@qq.com
     - U_NAME: JS-mark
