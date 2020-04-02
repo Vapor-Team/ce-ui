@@ -86,7 +86,6 @@ export default {
   },
   computed: {
     btnText() {
-      console.log(this.$i18n)
       return this.$i18n.locale === 'zh'
         ? this.isExpand
           ? '隐藏代码'
