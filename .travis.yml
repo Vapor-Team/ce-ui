@@ -9,6 +9,7 @@ cache:
 # S: Build Lifecycle
 install:
   - npm run init
+  - npm run build:style
 
 script:
   - npm run build:docs
