@@ -9,6 +9,7 @@ cache:
 # S: Build Lifecycle
 install:
   - npm run init
+  - npm install gulp -g
   - npm run build:style
 
 script:
