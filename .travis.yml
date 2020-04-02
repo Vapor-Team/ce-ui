@@ -9,8 +9,6 @@ cache:
 # S: Build Lifecycle
 install:
   - npm run init
-  - npm
-  - npm install
 
 script:
   - npm run build:docs
@@ -23,10 +21,16 @@ after_script:
   - git config user.email "${U_EMAIL}"
   - git add .
   - git commit -m "docs update"
-  - git push --force --quiet "https://${Travis_Token}@${GH_REF}" gh-pages:gh-pages
+  - git push --force --quiet "https://${Travis_Token}@${GH_REF}" ${D_BRANCH}:${D_BRANCH}
 # E: Build LifeCycle
 
 # 只有指定的分支提交时才会运行脚本
 branches:
   only:
     - master
+env:
+  global:
+    - GH_REF: github.com/Vapor-Team/ce-ui.git
+    - D_BRANCH: gh-pages
+    - U_EMAIL: sunduo3195@qq.com
+    - U_NAME: JS-mark
