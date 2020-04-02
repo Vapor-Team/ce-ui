@@ -82,12 +82,12 @@
   "homepage": "https://github.com/Vapor-Team/ce-ui",
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "pre-commit": "npm run lint"
     }
   },
   "license": "MIT",
   "lint-staged": {
-    "*.{js,vue},!build/*": [
+    "*.{js,vue,ts},!build/*": [
       "eslint --fix",
       "vue-cli-service lint",
       "git add"
