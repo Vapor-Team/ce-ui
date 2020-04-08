@@ -23,7 +23,6 @@ after_script:
   - cd ../
   - mv .temp/.git dist
   - cd dist
-  - git init -y
   - git config user.name "${U_NAME}"
   - git config user.email "${U_EMAIL}"
   - git add .
