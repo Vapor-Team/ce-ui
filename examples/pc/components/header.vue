@@ -164,7 +164,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../../../packages/theme-chalk/src/common/var'
+@import '~@theme/src/common/var'
 
 .page-header
   position fixed

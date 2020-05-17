@@ -8,14 +8,14 @@ import Icon from "../components/icon"
 import Loading from "../components/loading"
 import TextCard from "../components/text-card"
 export default function (sfc) {
-	sfc.props = Object.assign(sfc.props || {}, BaseCard.props)
-	sfc.components = Object.assign(sfc.components || {}, {
-		BaseCard,
-		Button,
-		Icon,
-		Loading,
-		TextCard
-	})
-	sfc.inheritAttrs = false
-	return createBasic(sfc)
+  sfc.props = Object.assign(sfc.props || {}, BaseCard.props)
+  sfc.components = Object.assign(sfc.components || {}, {
+    BaseCard,
+    Button,
+    Icon,
+    Loading,
+    TextCard
+  })
+  sfc.inheritAttrs = false
+  return createBasic(sfc)
 }
