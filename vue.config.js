@@ -51,9 +51,10 @@ module.exports = {
   // 扩展 webpack 配置，使 packages 加入编译
   chainWebpack: (config) => {
     config.resolve.alias
-      .set('@', resolve('examples'))
+      .set('@examples', resolve('examples'))
       .set('@lib', resolve('packages'))
       .set('@theme', resolve('packages/theme-chalk'))
+      .set('@pc', resolve('examples/pc'))
       .set('@mobile', resolve('examples/mobile'))
     config.module
       .rule('md')

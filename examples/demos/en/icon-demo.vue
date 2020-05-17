@@ -17,7 +17,7 @@
 </template>
 
 <script>
-const iconList = require('../../icon-demo.json')
+const iconList = require('@examples/icon-demo.json')
 
 export default {
 	name: 'ce-icon-demo1-en',

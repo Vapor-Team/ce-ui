@@ -53,7 +53,7 @@
   </div>
 </template>
 <script>
-import navConf from '@/nav.config.json'
+import navConf from '@examples/nav.config.json'
 export default {
   data() {
     return {

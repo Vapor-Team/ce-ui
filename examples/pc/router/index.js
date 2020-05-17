@@ -2,12 +2,12 @@
  * @Author: Mark
  * @Date: 2019-06-26 00:30:25
  * @LastEditors: Mark
- * @LastEditTime: 2020-04-01 23:39:19
+ * @LastEditTime: 2020-05-16 19:21:59
  * @Description: demo 路由
  */
 import Vue from 'vue'
 import Router from 'vue-router'
-import NavConfig from '@/nav.config.json'
+import NavConfig from '@examples/nav.config.json'
 Vue.use(Router)
 function registeredRoute(navConfig) {
 	const routes = []
