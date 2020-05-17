@@ -20,7 +20,7 @@
 </template>
 
 <script>
-const iconList = require('../../icon.json')
+const iconList = require('@examples/icon.json')
 
 export default {
   name: 'ce-icon-demo-zh',

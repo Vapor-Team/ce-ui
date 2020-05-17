@@ -73,7 +73,7 @@
 import CHeader from '../components/header'
 import CFooter from '../components/footer'
 import CSidebar from '../components/sidebar'
-import navConfig from '@/nav.config.json'
+import navConfig from '@examples/nav.config.json'
 
 export default {
   components: {

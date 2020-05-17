@@ -21,7 +21,7 @@ function importDemos(r) {
 	]
 }
 
-importDemos(require.context('@/demos', true, /\.vue$/)).map(component => {
+importDemos(require.context('@examples/demos', true, /\.vue$/)).map(component => {
 	return Vue.component(component.name, component)
 })
 

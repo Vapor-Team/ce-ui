@@ -92,7 +92,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../../packages/theme-chalk/src/common/var'
+@import '~@theme/src/common/var'
 
 .ce-sidebar
   margin 32px 0
