@@ -38,30 +38,30 @@
 import create from '../../utils/create-basic'
 const DEFAULT_COLOR = '#2150D8'
 export default create({
-	name: 'loading',
-	props: {
-		size: String,
-		type: {
-			type: String,
-			default: 'circular'
-		},
-		color: {
-			type: String,
-			default: DEFAULT_COLOR
-		}
-	},
-	computed: {
-		colorType() {
-			const { color } = this
-			return color === 'white' || color === 'black' ? color : ''
-		},
-		style() {
-			return {
-				color: this.color === 'black' ? DEFAULT_COLOR : this.color,
-				width: this.size,
-				height: this.size
-			}
-		}
-	}
+  name: 'loading',
+  props: {
+    size: String,
+    type: {
+      type: String,
+      default: 'circular'
+    },
+    color: {
+      type: String,
+      default: DEFAULT_COLOR
+    }
+  },
+  computed: {
+    colorType() {
+      const { color } = this
+      return color === 'white' || color === 'black' ? color : ''
+    },
+    style() {
+      return {
+        color: this.color === 'black' ? DEFAULT_COLOR : this.color,
+        width: this.size,
+        height: this.size
+      }
+    }
+  }
 })
 </script>

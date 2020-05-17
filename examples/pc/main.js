@@ -6,29 +6,29 @@ import router from './router'
 import i18n from './i18n'
 import demoBlock from './components/demo-block'
 import CeUi from '@lib/index'
-import '@theme/lib/ce-ui-index.css'
+import '@theme/lib/index.css'
 
 Vue.config.productionTip = false
 Vue.use(CeUi)
 
 function importDemos(r) {
-	// 在遍历的时候多注册一个 demoBlock组件
-	return [
-		demoBlock,
-		...r.keys().map(key => {
-			return r(key).default
-		})
-	]
+  // 在遍历的时候多注册一个 demoBlock组件
+  return [
+    demoBlock,
+    ...r.keys().map(key => {
+      return r(key).default
+    })
+  ]
 }
 
 importDemos(require.context('@examples/demos', true, /\.vue$/)).map(component => {
-	return Vue.component(component.name, component)
+  return Vue.component(component.name, component)
 })
 
 /* eslint-disable no-new */
 new Vue({
-	el: '#app',
-	router,
-	i18n,
-	...App
+  el: '#app',
+  router,
+  i18n,
+  ...App
 })

@@ -23,46 +23,46 @@
 <script>
 import create from '../../utils/create-basic'
 export default create({
-	name: 'base-card',
-	props: {
-		themeType: {
-			type: String,
-			default: 'default'
-		},
-		bodyStyle: {
-			type: Object,
-			default: () => {
-				return {}
-			}
-		},
-		shadow: {
-			type: String,
-			default: 'always'
-		}
-	},
-	computed: {
-		cardThemeClass() {
-			return 'ce-base-card--' + this.themeType
-		},
-		bodyStyles() {
-			let defaultStyle = {}
-			return { ...defaultStyle, ...this.bodyStyle }
-		},
-		boxShadow() {
-			if (this.shadow) {
-				if (this.shadow === 'always') {
-					return ['is-always']
-				} else if (this.shadow === 'never') {
-					return ['is-never']
-				} else if (this.shadow === 'hover') {
-					return ['is-hover']
-				} else {
-					return ['is-always']
-				}
-			} else {
-				return ['is-always']
-			}
-		}
-	}
+  name: 'base-card',
+  props: {
+    themeType: {
+      type: String,
+      default: 'default'
+    },
+    bodyStyle: {
+      type: Object,
+      default: () => {
+        return {}
+      }
+    },
+    shadow: {
+      type: String,
+      default: 'always'
+    }
+  },
+  computed: {
+    cardThemeClass() {
+      return 'ce-base-card--' + this.themeType
+    },
+    bodyStyles() {
+      let defaultStyle = {}
+      return { ...defaultStyle, ...this.bodyStyle }
+    },
+    boxShadow() {
+      if (this.shadow) {
+        if (this.shadow === 'always') {
+          return ['is-always']
+        } else if (this.shadow === 'never') {
+          return ['is-never']
+        } else if (this.shadow === 'hover') {
+          return ['is-hover']
+        } else {
+          return ['is-always']
+        }
+      } else {
+        return ['is-always']
+      }
+    }
+  }
 })
 </script>

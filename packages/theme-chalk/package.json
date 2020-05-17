@@ -2,7 +2,7 @@
   "name": "ce-ui",
   "version": "0.0.1",
   "description": "ce-ui component default theme.",
-  "main": "lib/ce-ui-index.css",
+  "main": "lib/index.css",
   "keywords": [
     "ce-ui-theme"
   ],
