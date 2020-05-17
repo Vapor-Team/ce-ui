@@ -1,8 +1,31 @@
 {
   "name": "ce-ui",
   "version": "0.0.1",
-  "description": "基于Vue 2.x 的UI组件库",
-  "author": "ce-ui <jackblogs@163.com>",
+  "description": "UI component library based on Vue 2.x",
+  "author": "Mark <jackblogs@163.com>",
+  "homepage": "https://github.com/Vapor-Team/ce-ui",
+  "license": "MIT",
+  "main": "lib/ce-ui.common.js",
+  "files": [
+    "lib",
+    "packages",
+    "types"
+  ],
+  "typings": "types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Vapor-Team/ce-ui.git"
+  },
+  "style": "lib/theme-chalk/index.css",
+  "keywords": [
+    "ce-ui",
+    "vue",
+    "components"
+  ],
+  "bugs": {
+    "url": "https://github.com/Vapor-Team/ce-ui/issues"
+  },
+  "unpkg": "lib/index.js",
   "scripts": {
     "lint": "vue-cli-service lint",
     "build:docs": "vue-cli-service build",
@@ -10,47 +33,50 @@
     "build:lib": "node build/build-lib.js",
     "build:locale": "node build/build-locale.js",
     "build:style": "gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "clean": "rimraf lib && rimraf packages/*/lib",
-    "cz:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "start": "npm run build:entry && vue-cli-service serve",
-    "dev:style": "gulp --gulpfile packages/theme-chalk/gulpfile.js",
     "init": "npm install && cd ./packages/theme-chalk && npm install",
     "lib": "vue-cli-service build --target lib --name CeUi --dest lib packages/index.js",
     "publish:docs": "node build/publish-docs.js",
-    "release": "sh build/release.sh"
+    "release": "sh build/release.sh",
+    "start": "npm run build:entry && vue-cli-service serve",
+    "style": "gulp --gulpfile packages/theme-chalk/gulpfile.js",
+    "commit": "git-cz"
   },
-  "main": "lib/ce-ui.common.js",
   "dependencies": {
-    "core-js": "^3.6.4",
+    "core-js": "^3.6.5",
     "markdown-it": "^10.0.0",
     "vue": "^2.6.11",
-    "vue-i18n": "^8.16.0"
+    "vue-i18n": "^8.17.6"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@vue/cli-plugin-babel": "~4.2.3",
-    "@vue/cli-plugin-eslint": "~4.2.3",
-    "@vue/cli-service": "~4.2.3",
+    "@vue/cli-plugin-babel": "^4.3.1",
+    "@vue/cli-plugin-eslint": "^4.3.1",
+    "@vue/cli-service": "^4.3.1",
     "@ziyi2/vue-cli-plugin-ui-cz": "^1.0.0",
-    "autoprefixer": "^9.7.5",
+    "autoprefixer": "^9.7.6",
     "babel-eslint": "^10.1.0",
-    "commitizen": "^4.0.3",
-    "conventional-changelog": "^3.0.5",
+    "commitizen": "^4.1.2",
+    "conventional-changelog": "^3.1.21",
     "cp-cli": "^2.0.0",
     "cssnano": "^4.1.10",
-    "cz-conventional-changelog": "^3.1.0",
+    "cz-conventional-changelog": "^3.2.0",
     "cz-customizable": "^6.2.0",
     "eslint": "^6.8.0",
-    "eslint-plugin-html": "^6.0.0",
-    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-html": "^6.0.2",
+    "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-vue": "^6.2.2",
     "extract-text-webpack-plugin": "^3.0.2",
-    "fs-extra": "^8.1.0",
+    "fs-extra": "^9.0.0",
     "gh-pages": "^2.2.0",
     "highlight.js": "^9.18.1",
-    "husky": "^4.2.3",
-    "lint-staged": "^10.1.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
     "markdown-it-container": "^2.0.0",
     "markdown-it-decorate": "^1.2.2",
     "markdown-it-task-checkbox": "^1.0.6",
@@ -79,23 +105,16 @@
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
-  "homepage": "https://github.com/Vapor-Team/ce-ui",
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
     }
   },
-  "license": "MIT",
   "lint-staged": {
     "*.{js,vue,ts},!build/*": [
       "eslint --fix",
       "vue-cli-service lint",
       "git add"
     ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Vapor-Team/ce-ui.git"
-  },
-  "style": "lib/theme-chalk/ce-ui-index.css"
+  }
 }
