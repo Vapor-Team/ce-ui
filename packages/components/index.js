@@ -8,15 +8,15 @@ import Loading from "./loading"
 import TextCard from "./text-card"
 export {
   BaseCard,
-  Button,
-  Icon,
-  Loading,
-  TextCard
+	Button,
+	Icon,
+	Loading,
+	TextCard
 }
 export default {
   BaseCard,
-  Button,
-  Icon,
-  Loading,
-  TextCard
+	Button,
+	Icon,
+	Loading,
+	TextCard
 }

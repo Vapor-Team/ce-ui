@@ -30,22 +30,57 @@ npm run changelog      // 规范commit 提交信息，并自动生成 changelog.
 
 ## 项目结构
 
+- 生成项目结构
+
+```bash
+tree ./ -L 8 -I '*svn|*node_module*' -d
+```
+
 ```text
+
 ├── build                  // 打包配置
 │   └── md-loader          // md-loader配置
 ├── examples               // 示例demo
 │   ├── demos              // demo代码
+│   │   ├── en
+│   │   └── zh
 │   ├── docs               // md格式文档
+│   │   ├── en
+│   │   └── zh
 │   ├── mobile             // 移动端页面
-│   └── pc
-├── packages               // 组件库包管理
-│   ├── components         // 组件
-│   ├── locale             // 语言包
-│   ├── mixins             // 混合方法（弃用）
-│   ├── theme-chalk        // 组件库样式
-│   └── utils              // 公共函数
-├── public                 // 静态资源文件
-└── types                  // TS类型文件夹
+│   │   ├── assets         // 资源目录
+│   │   │   └── css        // CSS资源目录
+│   │   ├── pages          // 页面
+│   │   └── router         // 路由
+│   └── pc                 // pc端页面
+│       ├── assets         // 资源目录
+│       │   └── css        // CSS资源目录
+│       ├── components     // 组件目录
+│       ├── i18n           // 国际化
+│       ├── router         // 路由
+│       └── views          // 页面
+├── packages               // 组件库
+│   ├── components         // 组件库源码
+│   │   ├── base-card
+│   │   ├── button
+│   │   ├── icon
+│   │   ├── loading
+│   │   └── text-card
+│   ├── locale             // 国际化
+│   │   └── lang
+│   ├── mixins             // 混合方法
+│   ├── theme-chalk        // 样式
+│   │   └── src            // 样式源码
+│   │       ├── common     // 变量
+│   │       ├── components
+│   │       │   ├── icon
+│   │       │   └── layout
+│   │       ├── fonts
+│   │       └── mixins
+│   ├── ts-utils            // ts工具函数
+│   └── utils               // 工具类函数
+├── public                  // 静态资源文件
+└── types                   // 类型目录
 ```
 
 ## 本工程开发注意事项
@@ -61,6 +96,7 @@ npm run changelog      // 规范commit 提交信息，并自动生成 changelog.
 - language-stylus / Manta's Stylus Supremacy stylus 插件
 
 ## vscode 设置
+
 ```json
 // eslint 配置
   "eslint.alwaysShowStatus": true,
@@ -132,4 +168,5 @@ npm run changelog      // 规范commit 提交信息，并自动生成 changelog.
 ```
 
 ## LICENSE
+
 [MIT](LICENSE)
