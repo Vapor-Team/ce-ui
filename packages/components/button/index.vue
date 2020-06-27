@@ -9,33 +9,33 @@
         'is-disabled': disabled,
         'is-plain': plain,
         'is-square': square,
-        'is-shadow':shadow,
-        'is-opacity':opacity,
-        'is-round':round,
-        'is-circle':circle
+        'is-shadow': shadow,
+        'is-opacity': opacity,
+        'is-round': round,
+        'is-circle': circle
       }
     ]"
   >
     <slot></slot>
   </div>
 </template>
-<script>
-import create from '../../utils/create-basic'
-export default create({
-  name: 'button',
-  props: {
-    type: {
-      type: String,
-      default: 'default'
-    },
-    size: String,
-    shadow: Boolean,
-    disabled: Boolean,
-    square: Boolean,
-    plain: Boolean,
-    opacity: Boolean,
-    round: Boolean,
-    circle: Boolean
-  }
+<script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { Emit, Prop } from 'vue-property-decorator'
+
+@Component({
+  name: 'ce-button'
 })
+export default class Button extends Vue {
+  @Prop({ required: false, default: 'default', type: String }) private type?: string
+  @Prop({ required: false, default: 'default', type: String }) private size?: string
+  @Prop({ required: false, default: true, type: Boolean }) private shadow?: boolean
+  @Prop({ required: false, default: false, type: Boolean }) private disabled?: boolean
+  @Prop({ required: false, default: false, type: Boolean }) private plain?: boolean
+  @Prop({ required: false, default: false, type: Boolean }) private square?: boolean
+  @Prop({ required: false, default: false, type: Boolean }) private opacity?: boolean
+  @Prop({ required: false, default: true, type: Boolean }) private round?: boolean
+  @Prop({ required: false, default: false, type: Boolean }) private circle?: boolean
+}
 </script>

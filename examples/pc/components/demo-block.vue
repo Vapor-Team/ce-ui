@@ -69,7 +69,7 @@
 
 <script>
 import CeUi from '@lib/index'
-import { stripStyle, stripScript, stripTemplate } from '@lib/utils/index'
+import { stripStyle, stripScript, stripTemplate } from '@lib/ts-utils/index'
 const { version } = CeUi
 export default {
   name: 'demo-block',

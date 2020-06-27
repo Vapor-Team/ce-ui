@@ -7,8 +7,9 @@
       <slot name="header"></slot>
     </div>
     <div
+      v-if="$slots.body"
       class="ce-base-card__body"
-      :style="bodyStyles"
+      :style="{...bodyStyles}"
     >
       <slot name="body"></slot>
     </div>
@@ -20,49 +21,39 @@
     </div>
   </div>
 </template>
-<script>
-import create from '../../utils/create-basic'
-export default create({
-  name: 'base-card',
-  props: {
-    themeType: {
-      type: String,
-      default: 'default'
-    },
-    bodyStyle: {
-      type: Object,
-      default: () => {
-        return {}
-      }
-    },
-    shadow: {
-      type: String,
-      default: 'always'
-    }
-  },
-  computed: {
-    cardThemeClass() {
-      return 'ce-base-card--' + this.themeType
-    },
-    bodyStyles() {
-      let defaultStyle = {}
-      return { ...defaultStyle, ...this.bodyStyle }
-    },
-    boxShadow() {
-      if (this.shadow) {
-        if (this.shadow === 'always') {
-          return ['is-always']
-        } else if (this.shadow === 'never') {
-          return ['is-never']
-        } else if (this.shadow === 'hover') {
-          return ['is-hover']
-        } else {
-          return ['is-always']
-        }
+<script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { Emit, Prop } from 'vue-property-decorator'
+import { CSSStyle } from './type'
+@Component({
+  name: 'ce-base-card'
+})
+export default class BaseCard extends Vue {
+  @Prop({ required: false, default: 'default', type: String }) private type?: string
+  @Prop({ required: false, default: () => {}, type: Object }) private styles?: CSSStyle
+  @Prop({ required: false, default: 'always', type: String }) private shadow?: string
+  private get cardThemeClass() {
+    return 'ce-base-card--' + this.type
+  }
+  private get bodyStyles(): CSSStyle {
+    let defaultStyles = {}
+    return { ...defaultStyles, ...this.styles }
+  }
+  private get boxShadow(): Array<string> {
+    if (this.shadow) {
+      if (this.shadow === 'always') {
+        return ['is-always']
+      } else if (this.shadow === 'never') {
+        return ['is-never']
+      } else if (this.shadow === 'hover') {
+        return ['is-hover']
       } else {
         return ['is-always']
       }
+    } else {
+      return ['is-always']
     }
   }
-})
+}
 </script>

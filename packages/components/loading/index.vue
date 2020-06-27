@@ -34,34 +34,30 @@
     </svg>
   </div>
 </template>
-<script>
-import create from '@lib/utils/create-basic'
+<script lang="ts">
 const DEFAULT_COLOR = '#2150D8'
-export default create({
-  name: 'loading',
-  props: {
-    size: String,
-    type: {
-      type: String,
-      default: 'circular'
-    },
-    color: {
-      type: String,
-      default: DEFAULT_COLOR
-    }
-  },
-  computed: {
-    colorType() {
-      const { color } = this
-      return color === 'white' || color === 'black' ? color : ''
-    },
-    style() {
-      return {
-        color: this.color === 'black' ? DEFAULT_COLOR : this.color,
-        width: this.size,
-        height: this.size
-      }
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { Emit, Prop } from 'vue-property-decorator'
+
+@Component({
+  name: 'ce-loading'
+})
+export default class Loading extends Vue {
+  @Prop({ required: false, default: '#222', type: String }) private size?: string
+  @Prop({ required: false, default: 'circular', type: String }) private color?: string
+  @Prop({ required: false, default: DEFAULT_COLOR, type: String })
+  private type?: string
+  get colorType(): string {
+    const { color } = this
+    return color === 'white' || color === 'black' ? color : ''
+  }
+  style(): any {
+    return {
+      color: this.color === 'black' ? DEFAULT_COLOR : this.color,
+      width: this.size,
+      height: this.size
     }
   }
-})
+}
 </script>

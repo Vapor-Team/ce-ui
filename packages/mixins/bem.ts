@@ -10,41 +10,40 @@
 const ELEMENT = '__'
 const MODS = '--'
 
-const join = (name, el, symbol) => {
+const join = (name: string, el: string, symbol: string): string => {
   return el ? name + symbol + el : name
 }
 
-const prefix = (name, mods) => {
+const prefix = (name: string, mods: any): any => {
   if (typeof mods === 'string') {
     return join(name, mods, MODS)
   }
 
   if (Array.isArray(mods)) {
-    return mods.map(item => {
+    return mods.map((item) => {
       return prefix(name, item)
     })
   }
 
-  const ret = {}
-  mods && Object.keys(mods).forEach(key => {
-    ret[name + MODS + key] = mods[key]
-  })
+  const ret: {
+    [key: string]: any
+  } = {}
+  mods &&
+    Object.keys(mods).forEach((key) => {
+      ret[name + MODS + key] = mods[key]
+    })
   return ret
 }
 
 export default {
   methods: {
-    b(el, mods) {
-      const {
-        name
-      } = this.$options
-
+    b(this: Vue, el: string, mods: any) {
+      const { name } = this.$options
       if (el && typeof el !== 'string') {
         mods = el
         el = ''
       }
-      el = join(name, el, ELEMENT)
-
+      el = join(name ? name : '', el, ELEMENT)
       return mods ? [el, prefix(el, mods)] : el
     }
   }
