@@ -10,7 +10,7 @@
 
 <!-- {.md} -->
 
-```
+```bash
 npm install ce-ui --save
 ```
 
@@ -20,7 +20,7 @@ npm install ce-ui --save
 
 <!-- {.md} -->
 
-```js
+```javascript
 import CeUi from "ce-ui"; // 引入组件库
 ```
 
@@ -28,13 +28,13 @@ import CeUi from "ce-ui"; // 引入组件库
 
 引入<!-- {.md} -->`px`或者`vw`布局样式
 
-```js
+```javascript
 import "ce-ui/lib/theme-chalk/index.css"; // px单位，适用于pc端布局
 ```
 
 最后，全局使用组件库<!-- {.md} -->
 
-```js
+```javascript
 Vue.use(CeUi);
 ```
 
@@ -48,9 +48,8 @@ Vue.use(CeUi);
 
 <!-- {.md} -->
 
-```js
+```javascript
 import { CeBase } from "CeUi";
-
 Vue.use(CeBase);
 ```
 

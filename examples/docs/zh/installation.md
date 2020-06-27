@@ -10,21 +10,17 @@
 
 <!-- {.md} -->
 
-```js
-
+```bash
+# 克隆项目
 git clone https://github.com/Vapor-Team/ce-ui.git
-
+# 打开目录
 cd ce-ui
-
 # 初始化项目、安装依赖
 npm run init
-
 # 本地开发模式
 npm run dev
-
 # 样式开发单独启动一个服务
 npm run dev:style
-
 ```
 
 <!-- {.md} -->
@@ -47,10 +43,9 @@ npm run dev:style
 
 <!-- {.md} -->
 
-```js
+```bash
 # 发布npm包
 npm run release
-
 # 发布文档
 npm run publish:docs
 ```

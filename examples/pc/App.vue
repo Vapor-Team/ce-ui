@@ -15,8 +15,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-@import './assets/css/index'
+<style lang="stylus" scoped>
 
 #app
   position absolute

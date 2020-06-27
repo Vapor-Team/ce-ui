@@ -35,7 +35,7 @@
   </div>
 </template>
 <script>
-import create from '../../utils/create-basic'
+import create from '@lib/utils/create-basic'
 const DEFAULT_COLOR = '#2150D8'
 export default create({
   name: 'loading',

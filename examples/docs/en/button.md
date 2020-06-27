@@ -46,20 +46,20 @@ Button with color tendency gives user an operating hint.
 
 ```html
 <div class="row">
-	<at-button hollow>Default</at-button>
-	<at-button type="primary" hollow>Primary</at-button>
-	<at-button type="success" hollow>Success</at-button>
-	<at-button type="error" hollow>Error</at-button>
-	<at-button type="warning" hollow>Warning</at-button>
-	<at-button type="info" hollow>Info</at-button>
+  <at-button hollow>Default</at-button>
+  <at-button type="primary" hollow>Primary</at-button>
+  <at-button type="success" hollow>Success</at-button>
+  <at-button type="error" hollow>Error</at-button>
+  <at-button type="warning" hollow>Warning</at-button>
+  <at-button type="info" hollow>Info</at-button>
 </div>
 <div class="row">
-	<at-button>Default</at-button>
-	<at-button type="primary">Primary</at-button>
-	<at-button type="success">Success</at-button>
-	<at-button type="error">Error</at-button>
-	<at-button type="warning">Warning</at-button>
-	<at-button type="info">Info</at-button>
+  <at-button>Default</at-button>
+  <at-button type="primary">Primary</at-button>
+  <at-button type="success">Success</at-button>
+  <at-button type="error">Error</at-button>
+  <at-button type="warning">Warning</at-button>
+  <at-button type="info">Info</at-button>
 </div>
 ```
 
@@ -73,14 +73,14 @@ Button with color tendency gives user an operating hint.
 
 ```html
 <div class="row">
-	<at-button icon="icon-download">Download</at-button>
-	<at-button icon="icon-user-plus">Add User</at-button>
-	<at-button icon="icon-edit"></at-button>
-	<at-button type="primary" icon="icon-search"></at-button>
+  <at-button icon="icon-download">Download</at-button>
+  <at-button icon="icon-user-plus">Add User</at-button>
+  <at-button icon="icon-edit"></at-button>
+  <at-button type="primary" icon="icon-search"></at-button>
 </div>
 <div class="row">
-	<at-button icon="icon-edit" circle></at-button>
-	<at-button type="primary" icon="icon-search" circle></at-button>
+  <at-button icon="icon-edit" circle></at-button>
+  <at-button type="primary" icon="icon-search" circle></at-button>
 </div>
 ```
 
@@ -108,20 +108,20 @@ Buttons can be grouped by placing multiple `Button` components into a `ButtonGro
 
 ```html
 <at-button-group>
-	<at-button>Left</at-button>
-	<at-button>Center</at-button>
-	<at-button>Right</at-button>
+  <at-button>Left</at-button>
+  <at-button>Center</at-button>
+  <at-button>Right</at-button>
 </at-button-group>
 <br />
 <at-button-group>
-	<at-button icon="icon-edit" title="Edit"></at-button>
-	<at-button icon="icon-copy" title="Copy"></at-button>
-	<at-button icon="icon-download" title="Download"></at-button>
+  <at-button icon="icon-edit" title="Edit"></at-button>
+  <at-button icon="icon-copy" title="Copy"></at-button>
+  <at-button icon="icon-download" title="Download"></at-button>
 </at-button-group>
 <br />
 <at-button-group>
-	<at-button><i class="icon icon-chevron-left"></i>Go back</at-button>
-	<at-button>Go forward<i class="icon icon-chevron-right"></i></at-button>
+  <at-button><i class="icon icon-chevron-left"></i>Go back</at-button>
+  <at-button>Go forward<i class="icon icon-chevron-right"></i></at-button>
 </at-button-group>
 ```
 
@@ -137,38 +137,38 @@ Set the `size` property to use different size of button, it's `normal` size by d
 
 ```html
 <div>
-	<at-button type="primary" size="large">Large Button</at-button>
-	<at-button type="primary">Normal Button</at-button>
-	<at-button type="primary" size="small">Small Button</at-button>
-	<at-button type="primary" size="smaller">Smaller Button</at-button>
+  <at-button type="primary" size="large">Large Button</at-button>
+  <at-button type="primary">Normal Button</at-button>
+  <at-button type="primary" size="small">Small Button</at-button>
+  <at-button type="primary" size="smaller">Smaller Button</at-button>
 </div>
 <div style="margin-top: 8px;">
-	<at-button type="primary" size="large" icon="icon-search" circle></at-button>
-	<at-button type="primary" icon="icon-search" circle></at-button>
-	<at-button type="primary" size="small" icon="icon-search" circle></at-button>
-	<at-button
-		type="primary"
-		size="smaller"
-		icon="icon-search"
-		circle
-	></at-button>
+  <at-button type="primary" size="large" icon="icon-search" circle></at-button>
+  <at-button type="primary" icon="icon-search" circle></at-button>
+  <at-button type="primary" size="small" icon="icon-search" circle></at-button>
+  <at-button
+    type="primary"
+    size="smaller"
+    icon="icon-search"
+    circle
+  ></at-button>
 </div>
 <div style="margin-top: 8px;">
-	<at-button-group size="large">
-		<at-button>Left</at-button>
-		<at-button>Center</at-button>
-		<at-button>Right</at-button>
-	</at-button-group>
-	<at-button-group>
-		<at-button>Left</at-button>
-		<at-button>Center</at-button>
-		<at-button>Right</at-button>
-	</at-button-group>
-	<at-button-group size="small">
-		<at-button>Left</at-button>
-		<at-button>Center</at-button>
-		<at-button>Right</at-button>
-	</at-button-group>
+  <at-button-group size="large">
+    <at-button>Left</at-button>
+    <at-button>Center</at-button>
+    <at-button>Right</at-button>
+  </at-button-group>
+  <at-button-group>
+    <at-button>Left</at-button>
+    <at-button>Center</at-button>
+    <at-button>Right</at-button>
+  </at-button-group>
+  <at-button-group size="small">
+    <at-button>Left</at-button>
+    <at-button>Center</at-button>
+    <at-button>Right</at-button>
+  </at-button-group>
 </div>
 ```
 

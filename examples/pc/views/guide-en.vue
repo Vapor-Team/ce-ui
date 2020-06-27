@@ -17,9 +17,6 @@
   </div>
 </template>
 
-<style >
-</style>
-
 <style lang="stylus" scoped>
 .wrapper
   background-color #F8FAFF
