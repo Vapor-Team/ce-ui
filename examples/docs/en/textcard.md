@@ -19,13 +19,13 @@ Use `message` Attribute Customize the top content of the card.
 ::: demo
 
 ```html
-<ce-text class="demo-card" message="this id card content"></ce-text>
+<ce-text-card class="demo-card" message="this id card content"></ce-text-card>
 
-<ce-text
+<ce-text-card
   class="demo-card"
   theme-type="primary"
   message="this id card content"
-></ce-text>
+></ce-text-card>
 ```
 
 :::

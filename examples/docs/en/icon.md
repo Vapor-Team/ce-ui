@@ -96,7 +96,7 @@ export default {
 
 :::
 
-## How to use
+## code demo
 
 <!-- {.md} -->
 
@@ -148,11 +148,11 @@ Use <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"` to declare the icon. Co
 
 <!-- {.md} -->
 
-| param                                          | Instructions | type    | Optional       | Default |
-| ---------------------------------------------- | ------------ | ------- | -------------- | ------- |
-| name                                           | Icon Name    | string  | -              | -       |
-| color                                          | Icon Color   | string  | -              | -       |
-| size                                           | Icon Size    | number  | -              | -       |
+| param | Instructions | type   | Optional | Default |
+|-------|--------------|--------|----------|---------|
+| name  | Icon Name    | string | -        | -       |
+| color | Icon Color   | string | -        | -       |
+| size  | Icon Size    | number | -        | -       |
 | symbol                                         |
 | Multicolor or not (Open icons with `svg` tags) | ..           | boolean | `true`,`false` | `true`  |
 
@@ -161,7 +161,7 @@ Use <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"` to declare the icon. Co
 <!-- {.md} -->
 
 | event name | Instructions     | callback param |
-| ---------- | ---------------- | -------------- |
+|------------|------------------|----------------|
 | click      | click event      | (event: Event) |
 | mouseenter | mouseenter event | (event: Event) |
 | mouseleave | mouseleave event | (event: Event) |

@@ -72,24 +72,9 @@ module.exports = {
       args[0].terserOptions.sourceMap = true
       return args
     })
-    config
-      .optimization.splitChunks({
-        cacheGroups: {
-          vendors: {
-            name: 'chunk-vendors',
-            test: /[\\/]node_modules[\\/]/,
-            priority: -10,
-            chunks: 'initial'
-          },
-          common: {
-            name: 'chunk-common',
-            minChunks: 2,
-            priority: -20,
-            chunks: 'initial',
-            reuseExistingChunk: true
-          }
-        }
-      })
+  },
+  configureWebpack: (config) => {
+    config.resolve.extensions = ['.ts', '.js', '.vue', '.styl', '.json', '.css']
   },
   css: {
     loaderOptions: {

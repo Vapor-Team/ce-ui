@@ -1,0 +1,64 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext", // 指定使用模块: 'commonjs', 'amd', 'system', 'umd' or 'es2015'
+    "strict": true, // 启用所有严格类型检查选项
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node", // 选择模块解析策略
+    "experimentalDecorators": true, // 启用实验性的ES装饰器
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true, // 允许从没有设置默认导出的模块中默认导入。
+    "sourceMap": true,
+    "baseUrl": "./",
+    "types": [
+      "webpack-env",
+      "node"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "noImplicitAny": true, // 在表达式和声明上有隐含的 any类型时报错
+    "alwaysStrict": true, // 以严格模式检查模块，并在每个文件里加入 'use strict'
+    "declaration": true, // 生成相应的.d.ts文件
+    "removeComments": true, // 删除编译后的所有的注释
+    "paths": {
+      "@type": ["./types"],
+      "@type/*": ["./types/*"],
+      "@lib": ["./packages"],
+      "@lib/*": ["./packages/*"],
+      "@theme": ["./packages/theme-chalk"],
+      "@theme/*": ["./packages/theme-chalk/*"],
+      "@examples": ["./examples"],
+      "@examples/*": ["./examples/*"],
+      "@pc": ["./examples/pc"],
+      "@pc/*": ["./examples/pc/*"],
+      "@mobile": ["./examples/mobile"],
+      "@mobile/*": ["./examples/mobile/*"]
+    },
+    "lib": [
+      "ESNext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+  },
+  "include": [
+    "packages/components/**/*.ts",
+    "packages/components/**/*.vue",
+    "packages/ts-utils/*.ts",
+    "types/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "packages/components/*.js",
+    "packages/utils/*.js",
+    "examples/*",
+    "examples/**/*",
+    "**/*.test.ts",
+    "build/**/*.js",
+    "lib"
+  ]
+}

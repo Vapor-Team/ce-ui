@@ -3,29 +3,6 @@
   "version": "0.0.1",
   "description": "UI component library based on Vue 2.x",
   "author": "Mark <jackblogs@163.com>",
-  "homepage": "https://github.com/Vapor-Team/ce-ui",
-  "license": "MIT",
-  "main": "lib/ce-ui.common.js",
-  "files": [
-    "lib",
-    "packages",
-    "types"
-  ],
-  "typings": "types/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:Vapor-Team/ce-ui.git"
-  },
-  "style": "lib/theme-chalk/index.css",
-  "keywords": [
-    "ce-ui",
-    "vue",
-    "components"
-  ],
-  "bugs": {
-    "url": "https://github.com/Vapor-Team/ce-ui/issues"
-  },
-  "unpkg": "lib/index.js",
   "scripts": {
     "lint": "vue-cli-service lint",
     "build:docs": "vue-cli-service build",
@@ -35,36 +12,53 @@
     "build:style": "gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "clean": "rimraf lib && rimraf packages/*/lib",
+    "commit": "git-cz",
     "init": "npm install && cd ./packages/theme-chalk && npm install",
     "lib": "vue-cli-service build --target lib --name CeUi --dest lib packages/index.js",
     "publish:docs": "node build/publish-docs.js",
     "release": "sh build/release.sh",
     "start": "npm run build:entry && vue-cli-service serve",
-    "style": "gulp --gulpfile packages/theme-chalk/gulpfile.js",
-    "commit": "git-cz"
+    "style": "gulp --gulpfile packages/theme-chalk/gulpfile.js"
   },
+  "main": "lib/ce-ui.common.js",
+  "unpkg": "lib/index.js",
+  "typings": "types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Vapor-Team/ce-ui.git"
+  },
+  "style": "lib/theme-chalk/index.css",
+  "files": [
+    "lib",
+    "packages",
+    "types"
+  ],
   "dependencies": {
     "core-js": "^3.6.5",
     "markdown-it": "^10.0.0",
     "vue": "^2.6.11",
-    "vue-i18n": "^8.17.6"
-  },
-  "peerDependencies": {
-    "vue": "^2.6.11"
+    "vue-class-component": "^7.2.3",
+    "vue-i18n": "^8.18.2",
+    "vue-property-decorator": "^8.5.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "@vue/cli-plugin-babel": "^4.3.1",
-    "@vue/cli-plugin-eslint": "^4.3.1",
-    "@vue/cli-service": "^4.3.1",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "@vue/cli-plugin-babel": "^4.4.6",
+    "@vue/cli-plugin-eslint": "^4.4.6",
+    "@vue/cli-plugin-typescript": "^4.4.6",
+    "@vue/cli-service": "^4.4.6",
+    "@vue/eslint-config-typescript": "^5.0.2",
     "@ziyi2/vue-cli-plugin-ui-cz": "^1.0.0",
-    "autoprefixer": "^9.7.6",
+    "autoprefixer": "^9.8.4",
     "babel-eslint": "^10.1.0",
     "commitizen": "^4.1.2",
     "conventional-changelog": "^3.1.21",
     "cp-cli": "^2.0.0",
     "cssnano": "^4.1.10",
+    "csstype": "^2.6.10",
     "cz-conventional-changelog": "^3.2.0",
     "cz-customizable": "^6.2.0",
     "eslint": "^6.8.0",
@@ -72,11 +66,11 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-vue": "^6.2.2",
     "extract-text-webpack-plugin": "^3.0.2",
-    "fs-extra": "^9.0.0",
+    "fs-extra": "^9.0.1",
     "gh-pages": "^2.2.0",
     "highlight.js": "^9.18.1",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.2",
+    "lint-staged": "^10.2.11",
     "markdown-it-container": "^2.0.0",
     "markdown-it-decorate": "^1.2.2",
     "markdown-it-task-checkbox": "^1.0.6",
@@ -84,10 +78,17 @@
     "signale": "^1.4.0",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
+    "typescript": "~3.8.3",
     "uppercamelcase": "^3.0.0",
     "vue-markdown-loader": "^2.4.1",
-    "vue-router": "^3.1.6",
+    "vue-router": "^3.3.4",
     "vue-template-compiler": "^2.6.11"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.11"
+  },
+  "bugs": {
+    "url": "https://github.com/Vapor-Team/ce-ui/issues"
   },
   "commitlint": {
     "extends": [
@@ -105,11 +106,18 @@
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
+  "homepage": "https://github.com/Vapor-Team/ce-ui",
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
     }
   },
+  "keywords": [
+    "ce-ui",
+    "vue",
+    "components"
+  ],
+  "license": "MIT",
   "lint-staged": {
     "*.{js,vue,ts},!build/*": [
       "eslint --fix",

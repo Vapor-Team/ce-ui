@@ -7,6 +7,7 @@ import i18n from './i18n'
 import demoBlock from './components/demo-block'
 import CeUi from '@lib/index'
 import '@theme/lib/index.css'
+import '@pc/assets/css/index.styl'
 
 Vue.config.productionTip = false
 Vue.use(CeUi)

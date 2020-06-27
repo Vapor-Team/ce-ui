@@ -10,7 +10,7 @@
 
 <!-- {.md} -->
 
-```
+```bash
 npm install ce-ui --save
 ```
 
@@ -20,7 +20,7 @@ npm install ce-ui --save
 
 <!-- {.md} -->
 
-```js
+```javascript
 import CeUi from "ce-ui"; // Introducing Component Library
 ```
 
@@ -28,13 +28,13 @@ import CeUi from "ce-ui"; // Introducing Component Library
 
 Introduce<!-- {.md} -->`px` or `vw` Layout style
 
-```js
+```javascript
 import "ce-ui/lib/theme-chalk/index.css"; // PX unit, suitable for PC terminal layout
 ```
 
 Last,Global component usage<!-- {.md} -->
 
-```js
+```javascript
 Vue.use(CeUi);
 ```
 
@@ -48,9 +48,8 @@ Components that can be registered locally,Scenarios suitable for use in combinat
 
 <!-- {.md} -->
 
-```js
+```javascript
 import { CeBase } from "CeUi";
-
 Vue.use(CeBase);
 ```
 

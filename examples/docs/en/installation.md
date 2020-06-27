@@ -7,20 +7,17 @@
 ## Initialization project
 <!-- {.md} -->
 
-```js
+```bash
+# clone project
 git clone https://github.com/Vapor-Team/ce-ui.git
-
+# open file
 cd ce-ui
-
 # Initialize project installation dependencies
 npm run init
-
 # Local Development Model
 npm run dev
-
 # Style development starts a service separately
 npm run dev:style
-
 ```
 <!-- {.md} -->
 
@@ -36,10 +33,9 @@ please<!-- {.md} --> `examples/demos` Add new component examples to the director
 
 ## Publish NPM packages and documents
 <!-- {.md} -->
-```js
+```bash
 # Publish NPM Package
 npm run release
-
 # Publishing documents
 npm run publish:docs
 ```
