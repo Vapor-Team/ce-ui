@@ -1,5 +1,25 @@
 const { wrapCustomClass, resolve } = require('./build/utils')
 const { mdLoaderConfig } = require('./build/md-loader')
+const isProduction = process.env.NODE_ENV === 'production'
+// cdn链接
+const cdn = {
+  // cdn：模块名称和模块作用域命名（对应window里面挂载的变量名称）
+  externals: {
+    vue: 'Vue',
+    'vue-router': 'VueRouter',
+    'highlight.js': 'hljs',
+    'markdown-it': 'markdown-it'
+  },
+  // cdn的css链接
+  css: [],
+  // cdn的js链接
+  js: [
+    '//unpkg.com/vue@2.6.11/dist/vue.min.js', // 访问https://unpkg.com/vue/dist/vue.min.js获取最新版本
+    '//unpkg.com/vue-router@3.3.4/dist/vue-router.min.js',
+    '//unpkg.com/markdown-it@10.0.0/dist/markdown-it.min.js',
+    '//unpkg.com/highlight.js@9.18.1/lib/highlight.js'
+  ]
+}
 const vueMarkdown = {
   raw: true,
   preprocess: (MarkdownIt, source) => {
@@ -50,6 +70,15 @@ module.exports = {
   },
   // 扩展 webpack 配置，使 packages 加入编译
   chainWebpack: (config) => {
+    /**
+     * 因为是多页面所以设置时，为html-页面命名
+     */
+    config.plugin('html-index').tap(args => {
+      // 生产环境或本地需要cdn时，才注入cdn
+      if (isProduction) args[0].cdn = cdn
+      return args
+    })
+
     config.resolve.alias
       .set('@examples', resolve('examples'))
       .set('@lib', resolve('packages'))
@@ -75,6 +104,8 @@ module.exports = {
   },
   configureWebpack: (config) => {
     config.resolve.extensions = ['.ts', '.js', '.vue', '.styl', '.json', '.css']
+    // 用cdn方式引入，则构建时要忽略相关资源
+    if (isProduction) config.externals = cdn.externals
   },
   css: {
     loaderOptions: {
