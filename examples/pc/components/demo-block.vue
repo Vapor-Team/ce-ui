@@ -30,37 +30,31 @@
         class="docs-trans"
         @mouseenter="btnEnter"
         @mouseleave="btnLeave"
+        @click="toggle"
       >
-        <transition name="arrow-text">
-          <div class="btn-box">
-            <ce-icon
-              v-show="!showBtn && !isExpand"
-              name="code"
-              :size="16"
-            ></ce-icon>
-          </div>
-        </transition>
-        <transition name="arrow-text">
-          <div
-            v-show="showBtn || isExpand"
-            class="btn-box"
-          >
+        <div class="btn-box">
+          <transition name="arrow-text">
             <ce-icon
               name="code"
               :size="16"
             ></ce-icon>
+          </transition>
+          <transition name="arrow-text">
             <span
+              v-show="showBtn"
               class="btn-text"
-              @click="toggle"
             >{{ btnText }}</span>
-          </div>
-        </transition>
-        <transition name="arrow-text">
-          <span
-            v-show="showBtn && isExpand"
+          </transition>
+        </div>
+        <transition name="fade">
+          <ce-icon
+            v-show="isExpand"
             class="codepen"
+            name="code-2"
+            :size="16"
             @click="goCodepen"
-          >{{ codepenText }}</span>
+            v-tips="codepenText"
+          ></ce-icon>
         </transition>
       </div>
     </div>
@@ -95,7 +89,7 @@ export default {
         : 'Show code'
     },
     codepenText() {
-      return this.$i18n.locale === 'zh' ? ' 在线运行' : 'Online runing'
+      return this.$i18n.locale === 'zh' ? '在线运行' : 'Online runing'
     }
   },
   methods: {
@@ -125,13 +119,7 @@ export default {
       }
       // since 2.6.2 use code rather than jsfiddle https://blog.codepen.io/documentation/api/prefill/
       const { script, html, style } = this.codepen
-      const resourcesTpl =
-        '<scr' +
-        "ipt src='//unpkg.com/vue/dist/vue.js'></scr" +
-        'ipt>' +
-        '\n<scr' +
-        `ipt src="//unpkg.com/ce-ui@${version}/lib/index.js"></scr` +
-        'ipt>'
+      const resourcesTpl = `<script src="//unpkg.com/vue/dist/vue.js"><\/script>\n<script src="//unpkg.com/ce-ui@${version}/lib/index.js"><\/script>`
       let jsTpl = (script || '').replace(/export default/, 'var Main =').trim()
       let htmlTpl = `${resourcesTpl}\n<div id="app">\n${html.trim()}\n</div>`
       let cssTpl = `@import url("//unpkg.com/ce-ui@${version}/lib/theme-chalk/index.css");\n${(
@@ -145,8 +133,7 @@ export default {
         css: cssTpl,
         html: htmlTpl
       }
-      const form =
-        document.getElementById('fiddle-form') || document.createElement('form')
+      const form = document.getElementById('fiddle-form') || document.createElement('form')
       while (form.firstChild) {
         form.removeChild(form.firstChild)
       }
@@ -215,7 +202,7 @@ export default {
   & .docs-trans
     width 100%
     text-align center
-    display inline-block
+    display block
     border-top 1px solid #e2ecf4
     color #c5d9e8
     font-size 12px
@@ -225,7 +212,7 @@ export default {
 
     & .btn-box
       line-height 14px
-      display inline
+      display inline-block
 
       & .btn-text
         padding-left 10px
@@ -242,20 +229,22 @@ export default {
 
 // code in and out style
 .arrow-text-enter
-  transition all 0.5s ease-out
+  transition all 0.5s linear
+  transform translateX(0)
 
 .arrow-text-leave-active
-  transition all 0.3s ease-out
+  transition all 0.3s linear
+  transform translateX(-30px)
 
 .arrow-text-enter, .arrow-text-leave-active
-  margin-left 50px
   opacity 0
+  transform translateX(30px)
 
 .fade-enter-active
-  transition opacity 0.3s ease-out
+  transition all 0.3s linear
 
 .fade-leave-active
-  transition opacity 0.2s ease-out
+  transition all 0.2s linear
 
 .fade-enter, .fade-leave-active
   opacity 0
