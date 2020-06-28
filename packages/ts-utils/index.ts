@@ -1,7 +1,14 @@
 import Vue from 'vue'
-
+/**
+ * isServer
+ */
 const isServer = Vue.prototype.$isServer
 const hasOwnProperty = Object.prototype.hasOwnProperty
+/**
+ * 驼峰命名转换
+ * @param string
+ * @param options
+ */
 export const nameConvert = (string: string, options: { separator?: string; split?: string }) => {
   options = options || {}
   const separator = options.separator || '_'
@@ -11,17 +18,29 @@ export const nameConvert = (string: string, options: { separator?: string; split
     .join(separator)
     .toLowerCase()
 }
+/**
+ * 对象中是否含有某些属性
+ * @param obj
+ * @param key
+ */
 export const hasOwn = (obj: any, key: string): boolean => {
   return hasOwnProperty.call(obj, key)
 }
-
+/**
+ * 扩展属性
+ * @param to
+ * @param _from
+ */
 export const extend = (to: any, _from: any): any => {
   for (let key in _from) {
     to[key] = _from[key]
   }
   return to
 }
-
+/**
+ * 转换成对象
+ * @param arr
+ */
 export const toObject = (arr: any[]): any => {
   let res = {}
   for (let i = 0; i < arr.length; i++) {
@@ -32,40 +51,65 @@ export const toObject = (arr: any[]): any => {
   return res
 }
 
+/**
+ * isDef
+ * @param value
+ */
 export const isDef = (value: any): boolean => {
   return value !== undefined && value !== null
 }
-
+/**
+ * 是否是一个对象
+ * @param x
+ */
 export const isObj = (x: any): boolean => {
   const type = typeof x
   return x !== null && (type === 'object' || type === 'function')
 }
-
+/**
+ * 获取对象值
+ * @param object
+ * @param path
+ */
 export const get = (object: any, path: string) => {
   const keys = path.split('.')
   let result = object
-
   keys.forEach((key) => {
     result = isDef(result[key]) ? result[key] : ''
   })
-
   return result
 }
 
+/**
+ * 驼峰转换
+ * @param str
+ */
 export const camelize = (str: string): string => {
   return str.replace(/-(\w)/g, (_, c) => {
     return c.toUpperCase()
   })
 }
-
+/**
+ * 是否是android
+ */
 export const isAndroid = (): boolean => {
   return isServer ? false : /android/.test(navigator.userAgent.toLowerCase())
 }
-
+/**
+ * 计算
+ * @param num
+ * @param min
+ * @param max
+ */
 export const range = (num: number, min: number, max: number): number => {
   return Math.min(Math.max(num, min), max)
 }
 
+/**
+ * 过滤对象
+ * @param data
+ * @param cb
+ */
 export const filterData = (
   data: { [key: string]: any },
   cb: (key: string) => boolean

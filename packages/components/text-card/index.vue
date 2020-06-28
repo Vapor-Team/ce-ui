@@ -14,7 +14,7 @@ import Component from 'vue-class-component'
 import { Emit, Prop } from 'vue-property-decorator'
 
 @Component({
-  name: 'ce-text-card'
+  name: 'TextCard'
 })
 export default class TextCard extends Vue {
   @Prop({ required: false, default: '', type: String }) private message?: string

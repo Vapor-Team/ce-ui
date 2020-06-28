@@ -27,7 +27,7 @@ import Component from 'vue-class-component'
 import { Emit, Prop } from 'vue-property-decorator'
 import { CSSStyle } from './type'
 @Component({
-  name: 'ce-base-card'
+  name: 'BaseCard'
 })
 export default class BaseCard extends Vue {
   @Prop({ required: false, default: 'default', type: String }) private type?: string
