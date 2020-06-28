@@ -1,26 +1,18 @@
 const fs = require('fs-extra')
 const path = require('path')
+const { handlerArr } = require('./utils')
+const packageJson = require('../package.json')
 const humpConversion = require('uppercamelcase')
 // 拿到packages目录下的所以含组件的文件名字
 const Components = require('./get-packages')['getComponents']()
 const Directives = require('./get-packages')['getDirectives']()
-const packageJson = require('../package.json')
 const version = process.env.VERSION || packageJson.version
 const TIPS = `/* eslint-disable */
 // This file is auto gererated by build/build-entry.js`
-function handlerArr(data, callback, newEle = null) {
-  let arr = []
-  if (Array.isArray(data)) {
-    arr = data.map(e => {
-      return callback && callback(e)
-    })
-    if (newEle) {
-      arr.unshift(newEle)
-    }
-  }
-  return arr
-}
-function buildPackagesEntry() {
+/**
+ * 写入文件
+ */
+const buildPackagesEntry = () => {
   /**
    * 卸载的组件
    */
@@ -32,67 +24,43 @@ function buildPackagesEntry() {
   const Directives_ = Directives.filter(name => {
     if (!uninstallDirectives.includes(name)) return name
   })
-  const componentsIndexContent = `
-${TIPS}
-import { CreateComponents } from '@lib/ts-utils/create-basic'
-${
+  const componentsIndexContent = `${TIPS}\nimport { CreateComponents } from '@lib/ts-utils/create-basic'\n${
     handlerArr(Components_, (name) => {
       return `import ${humpConversion(name)}_ from "./${name}"`
     }).join('\n')
-    }
-${
+    }\n${
     Components_.map(name => {
       return `export const ${humpConversion(name)} = CreateComponents(${humpConversion(name)}_)`
     }).join('\n')
-    }
-export default {
-  ${Components_.map(name => {
+    }\nexport default {\n  ${Components_.map(name => {
       return humpConversion(name)
-    }).join(',\n  ')}
-}`
-  const content = `
-${TIPS}
-import { ${Components_.map(name => {
+    }).join(',\n  ')}\n}`
+  const content = `${TIPS}\nimport { ${Components_.map(name => {
     return humpConversion(name)
-  }).join(', ')} } from './components'
-import { ${Directives_.map(name => {
+  }).join(', ')} } from './components'\nimport { ${Directives_.map(name => {
     return humpConversion(name)
-  }).join(', ')} } from './directives'
-const version = '${version}'
-const components = [ ${Components_.map(name => {
+  }).join(', ')} } from './directives'\nconst version = '${version}'\nconst components = [ ${Components_.map(name => {
     return humpConversion(name)
-  }).join(', ')} ]
-const directives = [ ${Directives_.map(name => {
+  }).join(', ')} ]\nconst directives = [ ${Directives_.map(name => {
     return humpConversion(name)
-  }).join(', ')} ]
-const install = Vue => {
-  components.forEach(Component => {
+  }).join(', ')} ]\nconst install = Vue => {\n  components.forEach(Component => {
     Vue.use(Component)
-  })
-  directives.forEach(Directive => {
+  })\n  directives.forEach(Directive => {
     Vue.use(Directive)
-  })
-};
-/* istanbul ignore if */
-if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue)
-}
-export {
+  })\n}\n/* istanbul ignore if */\nif (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)\n}\nexport {
   install,
   version,\n  ${Components_.map(name => {
     return humpConversion(name)
   }).join(',\n  ')}${',\n  '}${Directives_.map(name => {
     return humpConversion(name)
-  }).join(',\n  ')}
-}
-export default {
+  }).join(',\n  ')}\n}\nexport default {
   install,
   version,\n  ${Components_.map(name => {
     return humpConversion(name)
   }).join(',\n  ')}${',\n  '}${Directives_.map(name => {
     return humpConversion(name)
-  }).join(',\n  ')}
-}`
+  }).join(',\n  ')}\n}`
   fs.writeFileSync(path.join(__dirname, '../packages/components/index.ts'), componentsIndexContent)
   fs.writeFileSync(path.join(__dirname, '../packages/index.js'), content)
 }

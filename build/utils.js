@@ -30,9 +30,22 @@ const convertHtml = function (str) {
 const resolve = function (dir) {
   return path.join(__dirname, '../', dir)
 }
+const handlerArr = function (data, callback, newEle = null) {
+  let arr = []
+  if (Array.isArray(data)) {
+    arr = data.map(e => {
+      return callback && callback(e)
+    })
+    if (newEle) {
+      arr.unshift(newEle)
+    }
+  }
+  return arr
+}
 
 module.exports = {
   resolve,
+  handlerArr,
   convertHtml,
   wrapCustomClass
 }
