@@ -13,13 +13,8 @@
     "allowSyntheticDefaultImports": true, // 允许从没有设置默认导出的模块中默认导入。
     "sourceMap": true,
     "baseUrl": "./",
-    "types": [
-      "webpack-env",
-      "node"
-    ],
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "types": ["webpack-env", "node"],
+    "typeRoots": ["node_modules/@types"],
     "noImplicitAny": true, // 在表达式和声明上有隐含的 any类型时报错
     "alwaysStrict": true, // 以严格模式检查模块，并在每个文件里加入 'use strict'
     "declaration": true, // 生成相应的.d.ts文件
@@ -38,18 +33,14 @@
       "@mobile": ["./examples/mobile"],
       "@mobile/*": ["./examples/mobile/*"]
     },
-    "lib": [
-      "ESNext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    "lib": ["ESNext", "dom", "dom.iterable", "scripthost"]
   },
+  "files": ["types/index.d.ts"],
   "include": [
-    "packages/components/**/*.ts",
-    "packages/components/**/*.vue",
-    "packages/ts-utils/*.ts",
-    "types/*"
+    "./packages/components/**/*.ts",
+    "./packages/components/**/*.vue",
+    "./packages/ts-utils/*.ts",
+    "./types/*.ts"
   ],
   "exclude": [
     "node_modules",
