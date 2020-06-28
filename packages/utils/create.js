@@ -11,10 +11,10 @@ export default function (sfc) {
   sfc.props = Object.assign(sfc.props || {}, BaseCard.props)
   sfc.components = Object.assign(sfc.components || {}, {
     BaseCard,
-		Button,
-		Icon,
-		Loading,
-		TextCard
+    Button,
+    Icon,
+    Loading,
+    TextCard
   })
   sfc.inheritAttrs = false
   return createBasic(sfc)
