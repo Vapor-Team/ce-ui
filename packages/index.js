@@ -1,4 +1,3 @@
-
 /* eslint-disable */
 // This file is auto gererated by build/build-entry.js
 import { BaseCard, Button, Icon, Loading, TextCard } from './components'
@@ -13,7 +12,7 @@ const install = Vue => {
   directives.forEach(Directive => {
     Vue.use(Directive)
   })
-};
+}
 /* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
