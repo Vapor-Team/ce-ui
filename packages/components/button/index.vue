@@ -25,7 +25,7 @@ import Component from 'vue-class-component'
 import { Emit, Prop } from 'vue-property-decorator'
 
 @Component({
-  name: 'ce-button'
+  name: 'Button'
 })
 export default class Button extends Vue {
   @Prop({ required: false, default: 'default', type: String }) private type?: string

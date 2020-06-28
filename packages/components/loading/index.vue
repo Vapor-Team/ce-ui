@@ -41,7 +41,7 @@ import Component from 'vue-class-component'
 import { Emit, Prop } from 'vue-property-decorator'
 
 @Component({
-  name: 'ce-loading'
+  name: 'Loading'
 })
 export default class Loading extends Vue {
   @Prop({ required: false, default: '#222', type: String }) private size?: string

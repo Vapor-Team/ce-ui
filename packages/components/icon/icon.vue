@@ -27,7 +27,7 @@ import Component from 'vue-class-component'
 import { Emit, Prop } from 'vue-property-decorator'
 
 @Component({
-  name: 'ce-icon'
+  name: 'Icon'
 })
 export default class Icon extends Vue {
   @Prop({ required: false, default: true, type: Boolean }) private symbol?: boolean
