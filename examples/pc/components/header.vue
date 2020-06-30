@@ -1,7 +1,7 @@
 <template>
   <header
     id="J-page-header"
-    :class="['page-header',collapse ? 'collapse' : '']"
+    :class="['page-header', 'collapse']"
   >
     <div class="nav-container">
       <div class="nav-left">
@@ -85,12 +85,6 @@
 <script>
 export default {
   name: 'CHeader',
-  props: {
-    collapse: {
-      type: Boolean,
-      default: true
-    }
-  },
   data() {
     return {
       isOpen: false,
@@ -105,48 +99,31 @@ export default {
     }
   },
   mounted() {
-    if (!this.collapse) {
-      window.addEventListener('scroll', this.headerCollapse)
-    } else {
-      window.removeEventListener('scroll', this.headerCollapse)
-    }
-    if (window.location.hash.indexOf('guide') !== -1) {
+    console.log(this.$route)
+    const path = this.$route.path
+    if (path.indexOf('guide') !== -1) {
       this.activeFlag1 = true
       this.activeFlag2 = false
       this.activeFlag3 = false
-    } else if (window.location.hash.indexOf('docs') !== -1) {
+    } else if (path.indexOf('docs') !== -1) {
       this.activeFlag2 = true
       this.activeFlag1 = false
       this.activeFlag3 = false
-    } else if (window.location.hash.indexOf('resource') !== -1) {
+    } else if (path.indexOf('resource') !== -1) {
       this.activeFlag3 = true
       this.activeFlag1 = false
       this.activeFlag2 = false
     }
   },
-  destroyed() {
-    window.removeEventListener('scroll', this.headerCollapse)
-  },
   methods: {
     toggleMenu() {
       const header = document.getElementById('J-page-header')
-
       if (this.isOpen) {
         this.isOpen = false
         header.classList.remove('open')
       } else {
         this.isOpen = true
         header.classList.add('open')
-      }
-    },
-    headerCollapse() {
-      const header = document.getElementById('J-page-header')
-      const offsetTop = window.scrollY || 0
-
-      if (offsetTop > 50) {
-        header.classList.add('collapse')
-      } else {
-        header.classList.remove('collapse')
       }
     },
     switchLang(targetLang) {
@@ -173,7 +150,6 @@ export default {
   width 100%
   height 80px
   background-color transparent
-  transition all 0.3s
   z-index 100
 
   &.collapse
