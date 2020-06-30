@@ -9,6 +9,7 @@
       >
         <div class="demo-icon-wrap">
           <ce-icon
+            class="icon"
             :name="item.name.substring(8)"
             :size="item.size"
           ></ce-icon>
@@ -26,7 +27,7 @@ export default {
   name: 'ce-icon-demo-zh',
   data() {
     return {
-      icons: iconList.map(e => {
+      icons: iconList.map((e) => {
         return {
           name: e,
           size: 32
@@ -77,13 +78,23 @@ export default {
     font-family 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif
     color #626673
 
+    .icon
+      transition font-size 0.3s linear
+
     .big
       font-size 64px
+
+    .name
+      font-size 14px
 
   .ce-icon
     display block
     margin-bottom 15px
 
     &:hover
+      cursor pointer
       color rgb(92, 182, 255)
+
+      & + .name
+        color rgb(92, 182, 255)
 </style>

@@ -1,7 +1,7 @@
 <template>
   <ce-base-card v-bind="propsData">
     <span
-      v-if="$slots.content"
+      v-if="$slots.content || message"
       slot="body"
     >{{ message }}</span>
     <slot name="content"></slot>

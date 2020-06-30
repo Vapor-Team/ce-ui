@@ -2,7 +2,7 @@
  * @Author: Mark
  * @Date: 2019-06-26 00:30:25
  * @LastEditors: Mark
- * @LastEditTime: 2020-05-16 19:21:59
+ * @LastEditTime: 2020-07-01 00:10:15
  * @Description: demo 路由
  */
 import Vue from 'vue'
@@ -12,8 +12,8 @@ Vue.use(Router)
 function registeredRoute(navConfig) {
   const routes = []
   const parentRoutes = {}
-  Object.keys(NavConfig).forEach((lang, idx) => {
-    const pageNav = NavConfig[lang]
+  for (let lang of Object.keys(navConfig)) {
+    const pageNav = navConfig[lang]
     for (const pageName in pageNav) {
       pageNav[pageName].forEach(nav => {
         const parentName = nav.name
@@ -33,18 +33,19 @@ function registeredRoute(navConfig) {
         }
       })
     }
-  })
-
+  }
+  for (const key in parentRoutes) {
+    if (parentRoutes.hasOwnProperty(key)) {
+      routes.push(parentRoutes[key])
+    }
+  }
   function addParentRoute(parentName, lang) {
     return {
       path: `/${lang}/${parentName.toLowerCase()}`,
-      components: require(`../views/${parentName.toLowerCase()}${
-        lang === 'zh' ? '' : `-${lang}`
-        }.vue`),
+      components: require(`../views/${parentName.toLowerCase()}${lang === 'zh' ? '' : `-${lang}`}.vue`),
       children: []
     }
   }
-
   function addRoute(parentName, item, lang) {
     parentRoutes[`${parentName}-${lang}`].children.push({
       path: `${item.name.toLowerCase()}`,
@@ -52,31 +53,22 @@ function registeredRoute(navConfig) {
       components: require(`../../docs/${lang}/${item.name.toLowerCase()}.md`)
     })
   }
-
-  for (const key in parentRoutes) {
-    if (parentRoutes.hasOwnProperty(key)) {
-      routes.push(parentRoutes[key])
-    }
-  }
-
   return routes
 }
 
 let routes = registeredRoute(NavConfig)
-let navigatorLang = window.navigator.language.slice(0, 2)
-
+const navigatorLang = window.navigator.language.slice(0, 2)
 const userLang = localStorage.getItem('ce-ui-language') || navigatorLang || 'zh'
-
-routes = routes.concat([
+const navExtendsConfig = [
   {
     path: '/zh',
     name: 'Home',
-    components: require('../views/index.vue')
+    components: require('@pc/views/index.vue')
   },
   {
     path: '/en',
     name: 'Home-en',
-    components: require('../views/index-en.vue')
+    components: require('@pc/views/index-en.vue')
   },
   {
     path: '/',
@@ -87,12 +79,15 @@ routes = routes.concat([
   {
     path: '*',
     redirect: {
-      name: 'Home'
+      name: userLang === 'zh' ? 'Home' : `Home-${userLang}`
     }
   }
-])
-
-routes.forEach(page => {
+]
+routes = routes.concat(navExtendsConfig)
+/**
+ * 路由注册
+ */
+for (let page of routes) {
   if (page.path === '/zh/guide') {
     page.children.push({
       path: '',
@@ -142,9 +137,11 @@ routes.forEach(page => {
       }
     })
   }
-})
+}
 
-const router = new Router({
+export default new Router({
+  mode: 'hash', // hash模式
+  base: process.env.BASE_URL,
   routes,
   linkExactActiveClass: '',
   // root: process.env.serverConfig.portalPrefix,
@@ -157,5 +154,3 @@ const router = new Router({
     return { x: 0, y: 0 }
   }
 })
-
-export default router

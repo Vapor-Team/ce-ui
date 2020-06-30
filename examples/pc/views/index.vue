@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <c-header :collapse="false"></c-header>
+    <c-header></c-header>
     <section class="section section-banner">
       <div
         class="container"
