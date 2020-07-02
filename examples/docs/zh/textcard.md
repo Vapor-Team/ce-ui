@@ -22,11 +22,11 @@
 <ce-text-card
   class="demo-card"
   message="这是卡片内容"
+  :shadow="'never'"
   ></ce-text-card>
 
 <ce-text-card
   class="demo-card"
-  theme-type="primary"
   message="这是卡片内容"
   ></ce-text-card>
 ```
@@ -36,7 +36,6 @@
 
 <ce-text-card
   class="demo-card"
-  theme-type="primary"
   message="这是卡片内容"
 ></ce-text-card>
 ```
@@ -49,5 +48,4 @@
 
 | 参数      | 说明       | 类型   | 可选值          | 默认值  |
 |-----------|----------|--------|-----------------|---------|
-| themeType | 卡片主题色 | String | default/primary | default |
 | message   | 文本内容   | String | -               | -       |

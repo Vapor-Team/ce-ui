@@ -10,8 +10,16 @@
     width 504px
 
   @e header
-    padding 15px 10px
-    border-bottom 1px solid $--border-color-base
+    padding 0 10px
+    line-height 60px
+    border-bottom 1px solid $card-border-color
+
+    @e title
+      display inline-block
+
+    @e extra
+      display inline-block
+      float right
 
     @e label
       font-size $--font-size-small
@@ -53,14 +61,14 @@
   @when overflow
     padding-right 0
 
-    .ce-base-card__footer
+    .{$namespace}-base-card__footer
       padding-right 32px
 
-    .ce-base-card__content__footer
+    .{$namespace}-base-card__content__footer
       padding-right 32px
 
   @when image
-    .ce-base-card__msg-status--loading
+    .{$namespace}-base-card__msg-status--loading
       position absolute !important
       top 50%
       margin-top -14px
@@ -72,24 +80,27 @@
     color $--color-white
 
   @m default
+    width 500px
     color $--color-text-regular
-    background $--color-card-grey
-    color $--color-text-regular
+    background $card-bg-color
 
   @m radius
     border-radius $card-border-radius
 
-  @when always
+  @m border
+    border 1px solid $card-border-color
+
+  @when shadow-always
     box-shadow $card-box-shadow
 
-  @when never
+  @when shadow-never
     box-shadow none
 
-  @when hover:hover
+  @when shadow-hover:hover
     box-shadow $card-box-shadow
 
   @e body
-    padding 15px 10px
+    padding 16px 10px
     font-size $--font-size-base
 
   @e footer
