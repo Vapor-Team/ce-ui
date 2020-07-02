@@ -4,6 +4,7 @@
 import createBasic from './create-basic'
 import BaseCard from "../components/base-card"
 import Button from "../components/button"
+import Buttongroup from "../components/button-group"
 import Icon from "../components/icon"
 import Loading from "../components/loading"
 import TextCard from "../components/text-card"
@@ -12,6 +13,7 @@ export default function (sfc) {
   sfc.components = Object.assign(sfc.components || {}, {
     BaseCard,
     Button,
+    Buttongroup,
     Icon,
     Loading,
     TextCard

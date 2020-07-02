@@ -1,7 +1,10 @@
 <template>
-  <div
-    @click="$emit('click')"
+  <button
+    @click="onClick"
     class="ce-button"
+    :disabled="buttonDisabled || loading"
+    :autofocus="autofocus"
+    :type="nativeType"
     :class="[
       type ? 'ce-button--' + type : '',
       size ? 'ce-button--' + size : '',
@@ -12,17 +15,21 @@
         'is-shadow': shadow,
         'is-opacity': opacity,
         'is-round': round,
-        'is-circle': circle
+        'is-circle': circle,
+        'is-hollow': hollow
       }
-    ]"
-  >
-    <slot></slot>
-  </div>
+    ]">
+    <i class="ce-icon-loading" v-if="loading"></i>
+    <i class="ce-button__icon icon" :class="icon" v-if="icon && !loading"></i>
+    <span class="ce-button__text" v-if="$slots.default">
+      <slot></slot>
+    </span>
+  </button>
 </template>
 <script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component'
-import { Emit, Prop } from 'vue-property-decorator'
+// import Vue from 'vue'
+// import Component from 'vue-class-component'
+import { Component, Vue, Emit, Prop } from 'vue-property-decorator'
 
 @Component({
   name: 'Button'

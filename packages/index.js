@@ -1,9 +1,9 @@
 /* eslint-disable */
 // This file is auto gererated by build/build-entry.js
-import { BaseCard, Button, Icon, Loading, TextCard } from './components'
+import { BaseCard, Button, ButtonGroup, Icon, Loading, TextCard } from './components'
 import { VTips } from './directives'
 const version = '0.0.1'
-const components = [ BaseCard, Button, Icon, Loading, TextCard ]
+const components = [ BaseCard, Button, ButtonGroup, Icon, Loading, TextCard ]
 const directives = [ VTips ]
 const install = Vue => {
   components.forEach(Component => {
@@ -22,6 +22,7 @@ export {
   version,
   BaseCard,
   Button,
+  ButtonGroup,
   Icon,
   Loading,
   TextCard,
@@ -32,6 +33,7 @@ export default {
   version,
   BaseCard,
   Button,
+  ButtonGroup,
   Icon,
   Loading,
   TextCard,

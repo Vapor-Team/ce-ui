@@ -2,7 +2,7 @@
  * @Author: Mark
  * @Date: 2019-06-26 00:30:24
  * @LastEditors: Mark
- * @LastEditTime: 2020-07-09 16:17:54
+ * @LastEditTime: 2020-07-10 16:18:37
  * @Description: Button 组件
  -->
 
@@ -28,9 +28,9 @@
 
 ```html
 <template>
-  <ce-button type="primary">主要按钮</ce-button>
-  <ce-button>次要按钮</ce-button>
-  <ce-button type="text">文字按钮</ce-button>
+  <ce-button type="primary" size="medium" round>主要按钮</ce-button>
+  <ce-button size="small">次要按钮</ce-button>
+  <ce-button type="text" size="mini">文字按钮</ce-button>
 </template>
 ```
 
@@ -52,9 +52,9 @@
 
 ```html
 <template>
-  <ce-button type="primary" disabled>主要按钮</ce-button>
-  <ce-button disabled>次要按钮</ce-button>
-  <ce-button type="text" disabled>文字按钮</ce-button>
+  <ce-button type="primary" size="medium" disabled>主要按钮</ce-button>
+  <ce-button disabled size="small">次要按钮</ce-button>
+  <ce-button type="text" size="mini" disabled>文字按钮</ce-button>
 </template>
 ```
 
@@ -69,20 +69,20 @@
 ```html
 <div>
   <div class="row">
-    <ce-button>默认按钮</ce-button>
-    <ce-button type="primary">主要按钮</ce-button>
-    <ce-button type="success">成功按钮</ce-button>
-    <ce-button type="error">危险按钮</ce-button>
-    <ce-button type="warning">警告按钮</ce-button>
-    <ce-button type="info">信息按钮</ce-button>
+    <ce-button-zh class="btn-margin" hollow>默认按钮</ce-button-zh>
+    <ce-button-zh class="btn-margin" type="primary" hollow>主要按钮</ce-button-zh>
+    <ce-button-zh class="btn-margin" type="success" hollow>成功按钮</ce-button-zh>
+    <ce-button-zh class="btn-margin" type="error" hollow>危险按钮</ce-button-zh>
+    <ce-button-zh class="btn-margin" type="warning" hollow>警告按钮</ce-button-zh>
+    <ce-button-zh class="btn-margin" type="info" hollow>信息按钮</ce-button-zh>
   </div>
   <div class="row">
-    <ce-button>默认按钮</ce-button>
-    <ce-button type="primary">主要按钮</ce-button>
-    <ce-button type="success">成功按钮</ce-button>
-    <ce-button type="error">危险按钮</ce-button>
-    <ce-button type="warning">警告按钮</ce-button>
-    <ce-button type="info">信息按钮</ce-button>
+    <ce-button-zh class="btn-margin">默认按钮</ce-button-zh>
+    <ce-button-zh class="btn-margin" type="primary">主要按钮</ce-button-zh>
+    <ce-button-zh class="btn-margin" type="success">成功按钮</ce-button-zh>
+    <ce-button-zh class="btn-margin" type="error">危险按钮</ce-button-zh>
+    <ce-button-zh class="btn-margin" type="warning">警告按钮</ce-button-zh>
+    <ce-button-zh class="btn-margin" type="info">信息按钮</ce-button-zh>
   </div>
 </div>
 ```
@@ -92,11 +92,11 @@
   <div>
     <div class="row">
       <ce-button>默认按钮</ce-button>
-      <ce-button type="primary">主要按钮</ce-button>
-      <ce-button type="success">成功按钮</ce-button>
-      <ce-button type="error">危险按钮</ce-button>
-      <ce-button type="warning">警告按钮</ce-button>
-      <ce-button type="info">信息按钮</ce-button>
+      <ce-button type="primary" hollow>主要按钮</ce-button>
+      <ce-button type="success" hollow>成功按钮</ce-button>
+      <ce-button type="error" hollow>危险按钮</ce-button>
+      <ce-button type="warning" hollow>警告按钮</ce-button>
+      <ce-button type="info" hollow>信息按钮</ce-button>
     </div>
     <div class="row">
       <ce-button>默认按钮</ce-button>
@@ -122,14 +122,14 @@
 <template>
   <div>
     <div class="row">
-      <ce-button icon="icon-download">下载资源</ce-button>
-      <ce-button icon="icon-user-plus">添加用户</ce-button>
-      <ce-button icon="icon-edit"></ce-button>
-      <ce-button type="primary" icon="icon-search"></ce-button>
+      <ce-button-zh class="btn-margin" icon="ce-icon-download">下载资源</ce-button-zh>
+      <ce-button-zh class="btn-margin" icon="ce-icon-plus">添加用户</ce-button-zh>
+      <ce-button-zh class="btn-margin" icon="ce-icon-address"></ce-button-zh>
+      <ce-button-zh type="primary" class="btn-margin" icon="ce-icon-search"></ce-button-zh>
     </div>
     <div class="row">
-      <ce-button icon="icon-edit" circle></ce-button>
-      <ce-button type="primary" icon="icon-search" circle></ce-button>
+      <ce-button-zh class="btn-margin" icon="ce-icon-address" circle></ce-button-zh>
+      <ce-button-zh class="btn-margin" type="primary" icon="ce-icon-search" circle></ce-button-zh>
     </div>
   </div>
 </template>
@@ -139,14 +139,14 @@
 <template>
   <div>
     <div class="row">
-      <ce-button icon="icon-download">下载资源</ce-button>
-      <ce-button icon="icon-user-plus">添加用户</ce-button>
-      <ce-button icon="icon-edit"></ce-button>
-      <ce-button type="primary" icon="icon-search"></ce-button>
+      <ce-button icon="ce-icon-download">下载资源</ce-button>
+      <ce-button icon="ce-icon-plus">添加用户</ce-button>
+      <ce-button icon="ce-icon-address"></ce-button>
+      <ce-button type="primary" icon="ce-icon-search"></ce-button>
     </div>
     <div class="row">
-      <ce-button icon="icon-edit" circle></ce-button>
-      <ce-button type="primary" icon="icon-search" circle></ce-button>
+      <ce-button icon="ce-icon-address" circle></ce-button>
+      <ce-button type="primary" icon="ce-icon-search" circle></ce-button>
     </div>
   </div>
 </template>
@@ -161,11 +161,11 @@
 :::demo
 
 ```html
-<template>
-  <ce-button loading>加载中</ce-button>
-  <ce-button loading></ce-button>
-  <ce-button loading circle></ce-button>
-</template>
+<div class="button-md">
+  <ce-button-zh class="btn-margin" loading>加载中</ce-button-zh>
+  <ce-button-zh class="btn-margin" loading></ce-button-zh>
+  <ce-button-zh class="btn-margin" loading circle></ce-button-zh>
+</div>
 ```
 
 ```html
@@ -187,22 +187,20 @@
 ```html
 <template>
   <div>
-    <ce-button-group>
-      <ce-button>左</ce-button>
-      <ce-button>中</ce-button>
-      <ce-button>右</ce-button>
-    </ce-button-group>
-    <br />
-    <ce-button-group>
-      <ce-button icon="icon-edit" title="编辑"></ce-button>
-      <ce-button icon="icon-copy" title="复制"></ce-button>
-      <ce-button icon="icon-download" title="下载"></ce-button>
-    </ce-button-group>
-    <br />
-    <ce-button-group>
-      <ce-button><i class="icon icon-chevron-left"></i>后退</ce-button>
-      <ce-button>往前<i class="icon icon-chevron-right"></i></ce-button>
-    </ce-button-group>
+    <ce-button-group-zh>
+      <ce-button-zh class="ce-btn-demo">左</ce-button-zh>
+      <ce-button-zh class="ce-btn-demo">中</ce-button-zh>
+      <ce-button-zh class="ce-btn-demo">右</ce-button-zh>
+    </ce-button-group-zh>
+    <ce-button-group-zh>
+      <ce-button-zh class="ce-btn-demo" icon="ce-icon-address" title="编辑"></ce-button-zh>
+      <ce-button-zh class="ce-btn-demo" icon="ce-icon-copy-2" title="复制"></ce-button-zh>
+      <ce-button-zh class="ce-btn-demo" icon="ce-icon-download" title="下载"></ce-button-zh>
+    </ce-button-group-zh>
+    <ce-button-group-zh>
+      <ce-button-zh class="ce-btn-demo"><i class="icon ce-icon-back-3"></i>后退</ce-button-zh>
+      <ce-button-zh class="ce-btn-demo">往前<i class="icon ce-icon-qianjin"></i></ce-button-zh>
+    </ce-button-group-zh>
   </div>
 </template>
 ```
@@ -215,16 +213,14 @@
       <ce-button>中</ce-button>
       <ce-button>右</ce-button>
     </ce-button-group>
-    <br />
     <ce-button-group>
-      <ce-button icon="icon-edit" title="编辑"></ce-button>
-      <ce-button icon="icon-copy" title="复制"></ce-button>
-      <ce-button icon="icon-download" title="下载"></ce-button>
+      <ce-button icon="ce-icon-address" title="编辑"></ce-button>
+      <ce-button icon="ce-icon-copy-2" title="复制"></ce-button>
+      <ce-button icon="ce-icon-download" title="下载"></ce-button>
     </ce-button-group>
-    <br />
     <ce-button-group>
-      <ce-button><i class="icon icon-chevron-left"></i>后退</ce-button>
-      <ce-button>往前<i class="icon icon-chevron-right"></i></ce-button>
+      <ce-button><i class="icon ce-icon-back-3"></i>后退</ce-button>
+      <ce-button>往前<i class="icon ce-icon-qianjin"></i></ce-button>
     </ce-button-group>
   </div>
 </template>
@@ -234,7 +230,7 @@
 
 ## 按钮尺寸
 
-按钮提供四种尺寸：大、中、小、超小，可通过 `size` 属性配置；<br>
+按钮提供三种尺寸：大、中、小，可通过 `size` 属性配置；<br>
 组合按钮提供三种尺寸：大、中、小<br>
 若不设置 `size` 属性，则默认为中等大小
 
@@ -243,49 +239,44 @@
 ```html
 <template>
   <div>
-    <div>
-      <ce-button type="primary" size="large">变大按钮</ce-button>
-      <ce-button type="primary">正常按钮</ce-button>
-      <ce-button type="primary" size="small">变小按钮</ce-button>
-      <ce-button type="primary" size="smaller">超小按钮</ce-button>
+    <div class="button-md">
+      <ce-button-zh class="btn-margin" type="primary">正常按钮</ce-button-zh>
+      <ce-button-zh class="btn-margin" type="primary" size="small">中等按钮</ce-button-zh>
+      <ce-button-zh class="btn-margin" type="primary" size="mini">小按钮</ce-button-zh>
     </div>
-    <div style="margin-top: 8px;">
-      <ce-button
-        type="primary"
-        size="large"
-        icon="icon-search"
-        circle
-      ></ce-button>
-      <ce-button type="primary" icon="icon-search" circle></ce-button>
-      <ce-button
+    <div style="margin-top: 8px;" class="button-md">
+      <ce-button-zh class="btn-margin" type="primary" icon="ce-icon-search" circle></ce-button-zh>
+      <ce-button-zh
+        class="btn-margin"
         type="primary"
         size="small"
-        icon="icon-search"
+        icon="ce-icon-search"
         circle
-      ></ce-button>
-      <ce-button
+      ></ce-button-zh>
+      <ce-button-zh
+        class="btn-margin"
         type="primary"
-        size="smaller"
-        icon="icon-search"
+        size="mini"
+        icon="ce-icon-search"
         circle
-      ></ce-button>
+      ></ce-button-zh>
     </div>
     <div style="margin-top: 8px;">
-      <ce-button-group size="large">
-        <ce-button>左</ce-button>
-        <ce-button>中</ce-button>
-        <ce-button>右</ce-button>
-      </ce-button-group>
-      <ce-button-group>
-        <ce-button>左</ce-button>
-        <ce-button>中</ce-button>
-        <ce-button>右</ce-button>
-      </ce-button-group>
-      <ce-button-group size="small">
-        <ce-button>左</ce-button>
-        <ce-button>中</ce-button>
-        <ce-button>右</ce-button>
-      </ce-button-group>
+      <ce-button-group-zh>
+        <ce-button-zh class="ce-btn-demo">左</ce-button-zh>
+        <ce-button-zh class="ce-btn-demo">中</ce-button-zh>
+        <ce-button-zh class="ce-btn-demo">右</ce-button-zh>
+      </ce-button-group-zh>
+      <ce-button-group-zh size="small">
+        <ce-button-zh class="ce-btn-demo">左</ce-button-zh>
+        <ce-button-zh class="ce-btn-demo">中</ce-button-zh>
+        <ce-button-zh class="ce-btn-demo">右</ce-button-zh>
+      </ce-button-group-zh>
+      <ce-button-group-zh size="mini">
+        <ce-button-zh class="ce-btn-demo">左</ce-button-zh>
+        <ce-button-zh class="ce-btn-demo">中</ce-button-zh>
+        <ce-button-zh class="ce-btn-demo">右</ce-button-zh>
+      </ce-button-group-zh>
     </div>
   </div>
 </template>
@@ -295,29 +286,22 @@
 <template>
   <div>
     <div>
-      <ce-button type="primary" size="large">变大按钮</ce-button>
       <ce-button type="primary">正常按钮</ce-button>
       <ce-button type="primary" size="small">变小按钮</ce-button>
       <ce-button type="primary" size="smaller">超小按钮</ce-button>
     </div>
     <div style="margin-top: 8px;">
-      <ce-button
-        type="primary"
-        size="large"
-        icon="icon-search"
-        circle
-      ></ce-button>
-      <ce-button type="primary" icon="icon-search" circle></ce-button>
+      <ce-button type="primary" icon="ce-icon-search" circle></ce-button>
       <ce-button
         type="primary"
         size="small"
-        icon="icon-search"
+        icon="ce-icon-search"
         circle
       ></ce-button>
       <ce-button
         type="primary"
-        size="smaller"
-        icon="icon-search"
+        size="mini"
+        icon="ce-icon-search"
         circle
       ></ce-button>
     </div>
@@ -366,6 +350,7 @@
 <style scoped>
   .button-md {
     display: flex;
+    align-items: center;
   }
   .row {
     .ce-btn + .ce-btn {
@@ -374,12 +359,11 @@
     & + .row {
       margin-top: 8px;
     }
-    .ce-btn-group .ce-btn {
-      margin-left: 0;
-    }
   }
-  .ce-btn-group {
-    margin-left: 8px;
-    margin-top: 16px;
+  .btn-margin {
+    margin: 5px;
+  }
+  .ce-btn-demo {
+    margin: 0;
   }
 </style>
