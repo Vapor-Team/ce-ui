@@ -1,0 +1,25 @@
+@import '../common/var'
+
+.{$namespace}-button-group
+  display flex
+
+  .ce-button
+    border-radius 0
+
+    &:not(:last-child) 
+      margin-right: -1px
+    
+    &:first-child 
+      border-radius $border-radius-base 0 0 $border-radius-base
+    
+    &:last-child 
+      border-radius 0 $border-radius-base $border-radius-base 0
+
+@b button-group
+
+  @m default
+    color red
+
+  @m small
+
+  @m mini

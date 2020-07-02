@@ -4,11 +4,13 @@
   display inline-flex
   box-sizing border-box
   font-size $--font-size-base
-  // border-radius $--button-radius-base
+  border-radius $--button-radius-base
   padding 12px 20px
   align-items center
   justify-content center
   cursor pointer
+  outline none
+  line-height 1
 
   @m default
     font-size $--button-size-medium
@@ -21,12 +23,17 @@
 
     @when circle
       border-radius $--button-radius-circle
+      padding 10px
 
     @when disabled
       background-color #fff
       color $--color-disabled
       border 1px solid $--color-disabled
       cursor no-drop
+      // pointer-events none
+
+    @when hollow
+      background-color #fff
 
   @m primary
     background-color $--color-primary
@@ -38,12 +45,17 @@
 
     @when circle
       border-radius $--button-radius-circle
+      padding 10px
 
     @when disabled
       background-color $--color-disabled
       color $--color-white
       border 1px solid $--color-disabled
       cursor no-drop
+
+    @when hollow
+      background-color #fff
+      color $--color-primary
 
   @m medium
     font-size $--button-size-medium
@@ -55,6 +67,7 @@
 
     @when circle
       border-radius $--button-radius-circle
+      padding 10px
 
   @m small
     font-size $--button-size-small
@@ -66,6 +79,7 @@
 
     @when circle
       border-radius $--button-radius-circle
+      padding 8px
 
   @m mini
     font-size $--button-size-mini
@@ -77,16 +91,47 @@
 
     @when circle
       border-radius $--button-radius-circle
+      padding 6px
+
+  @m text
+    background none
+    border none
 
   @m info
     background-color $--color-primary-light-2
     color $--color-primary
     border 1px solid $--color-primary-light-2
 
-  @m danger
+    @when hollow
+      background-color #fff
+      color $--color-primary-light-2
+
+  @m error
     background-color $--color-danger
     color $--color-white
     border 1px solid $--color-danger
+
+    @when hollow
+      background-color #fff
+      color $--color-danger
+
+  @m success
+    background-color $--color-success
+    color $--color-white
+    border 1px solid $--color-success
+
+    @when hollow
+      background-color #fff
+      color $--color-success
+
+  @m warning
+    background-color $--color-warning
+    color $--color-white
+    border 1px solid $--color-warning
+
+    @when hollow
+      background-color #fff
+      color $--color-warning
 
   @when plain
     color $--color-old-primary
