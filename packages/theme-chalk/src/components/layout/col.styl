@@ -2,120 +2,122 @@
 @import '../../mixins/mixin'
 @import '../../mixins/utils'
 
+$col = $namespace + '-col'
+
 /* ce-col css 样式 */
-[class*='ce-col-']
+[class*={$col}]
   float left
   box-sizing border-box
 
-.ce-col-0
+.{$col}-0
   display none
 
-for $i in (0 .. 24)
-  .ce-col-{$i}
+for $i in 0 .. 24
+  .{$col}-{$i}
     width (1 / 24 * $i * 100) * 1%
 
-  .ce-col-offset-{$i}
+  .{$col}-offset-{$i}
     margin-left (1 / 24 * $i * 100) * 1%
 
-  .ce-col-pull-{$i}
+  .{$col}-pull-{$i}
     position relative
     right (1 / 24 * $i * 100) * 1%
 
-  .ce-col-push-{$i}
+  .{$col}-push-{$i}
     position relative
     left (1 / 24 * $i * 100) * 1%
 
 +res(xs)
-  .ce-col-xs-0
+  .{$col}-xs-0
     display none
 
-  for $i in (0 .. 24)
-    .ce-col-xs-{$i}
+  for $i in 0 .. 24
+    .{$col}-xs-{$i}
       width (1 / 24 * $i * 100) * 1%
 
-    .ce-col-xs-offset-{$i}
+    .{$col}-xs-offset-{$i}
       margin-left (1 / 24 * $i * 100) * 1%
 
-    .ce-col-xs-pull-{$i}
+    .{$col}-xs-pull-{$i}
       position relative
       right (1 / 24 * $i * 100) * 1%
 
-    .ce-col-xs-push-{$i}
+    .{$col}-xs-push-{$i}
       position relative
       left (1 / 24 * $i * 100) * 1%
 
 +res(sm)
-  .ce-col-sm-0
+  .{$col}-sm-0
     display none
 
-  for $i in (0 .. 24)
-    .ce-col-sm-{$i}
+  for $i in 0 .. 24
+    .{$col}-sm-{$i}
       width (1 / 24 * $i * 100) * 1%
 
-    .ce-col-sm-offset-{$i}
+    .{$col}-sm-offset-{$i}
       margin-left (1 / 24 * $i * 100) * 1%
 
-    .ce-col-sm-pull-{$i}
+    .{$col}-sm-pull-{$i}
       position relative
       right (1 / 24 * $i * 100) * 1%
 
-    .ce-col-sm-push-{$i}
+    .{$col}-sm-push-{$i}
       position relative
       left (1 / 24 * $i * 100) * 1%
 
 +res(md)
-  .ce-col-md-0
+  .{$col}-md-0
     display none
 
-  for $i in (0 .. 24)
-    .ce-col-md-{$i}
+  for $i in 0 .. 24
+    .{$col}-md-{$i}
       width (1 / 24 * $i * 100) * 1%
 
-    .ce-col-md-offset-{$i}
+    .{$col}-md-offset-{$i}
       margin-left (1 / 24 * $i * 100) * 1%
 
-    .ce-col-md-pull-{$i}
+    .{$col}-md-pull-{$i}
       position relative
       right (1 / 24 * $i * 100) * 1%
 
-    .ce-col-md-push-{$i}
+    .{$col}-md-push-{$i}
       position relative
       left (1 / 24 * $i * 100) * 1%
 
 +res(lg)
-  .ce-col-lg-0
+  .{$col}-lg-0
     display none
 
-  for $i in (0 .. 24)
-    .ce-col-lg-{$i}
+  for $i in 0 .. 24
+    .{$col}-lg-{$i}
       width (1 / 24 * $i * 100) * 1%
 
-    .ce-col-lg-offset-{$i}
+    .{$col}-lg-offset-{$i}
       margin-left (1 / 24 * $i * 100) * 1%
 
-    .ce-col-lg-pull-{$i}
+    .{$col}-lg-pull-{$i}
       position relative
       right (1 / 24 * $i * 100) * 1%
 
-    .ce-col-lg-push-{$i}
+    .{$col}-lg-push-{$i}
       position relative
       left (1 / 24 * $i * 100) * 1%
 
 +res(xl)
-  .ce-col-xl-0
+  .{$col}-xl-0
     display none
 
-  for $i in (0 .. 24)
-    .ce-col-xl-{$i}
+  for $i in 0 .. 24
+    .{$col}-xl-{$i}
       width (1 / 24 * $i * 100) * 1%
 
-    .ce-col-xl-offset-{$i}
+    .{$col}-xl-offset-{$i}
       margin-left (1 / 24 * $i * 100) * 1%
 
-    .ce-col-xl-pull-{$i}
+    .{$col}-xl-pull-{$i}
       position relative
       right (1 / 24 * $i * 100) * 1%
 
-    .ce-col-xl-push-{$i}
+    .{$col}-xl-push-{$i}
       position relative
       left (1 / 24 * $i * 100) * 1%
