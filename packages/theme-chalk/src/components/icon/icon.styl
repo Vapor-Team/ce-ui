@@ -1,12 +1,12 @@
 @import '../../common/var'
 
-[class*='ce-icon-'], [class^=ce-icon-]
-  font-family 'ce-icon-font' !important
+[class*={$namespace}], [class^={$icon + '-font'}]
+  font-family $icon + '-font' !important
   font-style normal
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
 
-@b ce-icon
+@b icon
   display inline-block
   line-height 1
 

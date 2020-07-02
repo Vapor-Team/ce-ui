@@ -10,6 +10,8 @@ const presetenv = require('postcss-preset-env')
 const rename = require('gulp-rename')
 const toBem = require('postcss-bem-fix')
 let bemConfig = {
+  defaultNamespace: 'ce', // default namespace to use, none by default
+  style: 'bem', // suit or bem, suit by default,
   shortcuts: {
     component: 'b',
     modifier: 'm',
