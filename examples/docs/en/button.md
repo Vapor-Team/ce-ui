@@ -11,15 +11,15 @@ There are three basic buttons: `Primary` 、 `Default` 、 `Text`.
 :::demo
 
 ```html
-<at-button type="primary">Primary Button</at-button>
-<at-button>Default Button</at-button>
-<at-button type="text">Text Button</at-button>
+<ce-button type="primary">Primary Button</ce-button>
+<ce-button>Default Button</ce-button>
+<ce-button type="text">Text Button</ce-button>
 ```
 
 ```html
-<at-button type="primary">Primary Button</at-button>
-<at-button>Default Button</at-button>
-<at-button type="text">Text Button</at-button>
+<ce-button type="primary">Primary Button</ce-button>
+<ce-button>Default Button</ce-button>
+<ce-button type="text">Text Button</ce-button>
 ```
 
 :::
@@ -31,9 +31,9 @@ To make a button as disabled, add `disabled` property to the `Button`.
 :::demo
 
 ```html
-<at-button type="primary" disabled>Primary Button</at-button>
-<at-button hollow disabled>Default Button</at-button>
-<at-button type="text" disabled>Text Button</at-button>
+<ce-button type="primary" disabled>Primary Button</ce-button>
+<ce-button hollow disabled>Default Button</ce-button>
+<ce-button type="text" disabled>Text Button</ce-button>
 ```
 
 :::
@@ -46,20 +46,20 @@ Button with color tendency gives user an operating hint.
 
 ```html
 <div class="row">
-  <at-button hollow>Default</at-button>
-  <at-button type="primary" hollow>Primary</at-button>
-  <at-button type="success" hollow>Success</at-button>
-  <at-button type="error" hollow>Error</at-button>
-  <at-button type="warning" hollow>Warning</at-button>
-  <at-button type="info" hollow>Info</at-button>
+  <ce-button hollow>Default</ce-button>
+  <ce-button type="primary" hollow>Primary</ce-button>
+  <ce-button type="success" hollow>Success</ce-button>
+  <ce-button type="error" hollow>Error</ce-button>
+  <ce-button type="warning" hollow>Warning</ce-button>
+  <ce-button type="info" hollow>Info</ce-button>
 </div>
 <div class="row">
-  <at-button>Default</at-button>
-  <at-button type="primary">Primary</at-button>
-  <at-button type="success">Success</at-button>
-  <at-button type="error">Error</at-button>
-  <at-button type="warning">Warning</at-button>
-  <at-button type="info">Info</at-button>
+  <ce-button>Default</ce-button>
+  <ce-button type="primary">Primary</ce-button>
+  <ce-button type="success">Success</ce-button>
+  <ce-button type="error">Error</ce-button>
+  <ce-button type="warning">Warning</ce-button>
+  <ce-button type="info">Info</ce-button>
 </div>
 ```
 
@@ -73,14 +73,14 @@ Button with color tendency gives user an operating hint.
 
 ```html
 <div class="row">
-  <at-button icon="icon-download">Download</at-button>
-  <at-button icon="icon-user-plus">Add User</at-button>
-  <at-button icon="icon-edit"></at-button>
-  <at-button type="primary" icon="icon-search"></at-button>
+  <ce-button icon="icon-download">Download</ce-button>
+  <ce-button icon="icon-user-plus">Add User</ce-button>
+  <ce-button icon="icon-edit"></ce-button>
+  <ce-button type="primary" icon="icon-search"></ce-button>
 </div>
 <div class="row">
-  <at-button icon="icon-edit" circle></at-button>
-  <at-button type="primary" icon="icon-search" circle></at-button>
+  <ce-button icon="icon-edit" circle></ce-button>
+  <ce-button type="primary" icon="icon-search" circle></ce-button>
 </div>
 ```
 
@@ -93,9 +93,9 @@ A loading indicator can be added to button by setting the `loading` property.
 :::demo
 
 ```html
-<at-button loading>Loading</at-button>
-<at-button loading></at-button>
-<at-button loading circle></at-button>
+<ce-button loading>Loading</ce-button>
+<ce-button loading></ce-button>
+<ce-button loading circle></ce-button>
 ```
 
 :::
@@ -107,22 +107,22 @@ Buttons can be grouped by placing multiple `Button` components into a `ButtonGro
 :::demo
 
 ```html
-<at-button-group>
-  <at-button>Left</at-button>
-  <at-button>Center</at-button>
-  <at-button>Right</at-button>
-</at-button-group>
+<ce-button-group>
+  <ce-button>Left</ce-button>
+  <ce-button>Center</ce-button>
+  <ce-button>Right</ce-button>
+</ce-button-group>
 <br />
-<at-button-group>
-  <at-button icon="icon-edit" title="Edit"></at-button>
-  <at-button icon="icon-copy" title="Copy"></at-button>
-  <at-button icon="icon-download" title="Download"></at-button>
-</at-button-group>
+<ce-button-group>
+  <ce-button icon="icon-edit" title="Edit"></ce-button>
+  <ce-button icon="icon-copy" title="Copy"></ce-button>
+  <ce-button icon="icon-download" title="Download"></ce-button>
+</ce-button-group>
 <br />
-<at-button-group>
-  <at-button><i class="icon icon-chevron-left"></i>Go back</at-button>
-  <at-button>Go forward<i class="icon icon-chevron-right"></i></at-button>
-</at-button-group>
+<ce-button-group>
+  <ce-button><i class="icon icon-chevron-left"></i>Go back</ce-button>
+  <ce-button>Go forward<i class="icon icon-chevron-right"></i></ce-button>
+</ce-button-group>
 ```
 
 :::
@@ -137,38 +137,38 @@ Set the `size` property to use different size of button, it's `normal` size by d
 
 ```html
 <div>
-  <at-button type="primary" size="large">Large Button</at-button>
-  <at-button type="primary">Normal Button</at-button>
-  <at-button type="primary" size="small">Small Button</at-button>
-  <at-button type="primary" size="smaller">Smaller Button</at-button>
+  <ce-button type="primary" size="large">Large Button</ce-button>
+  <ce-button type="primary">Normal Button</ce-button>
+  <ce-button type="primary" size="small">Small Button</ce-button>
+  <ce-button type="primary" size="smaller">Smaller Button</ce-button>
 </div>
 <div style="margin-top: 8px;">
-  <at-button type="primary" size="large" icon="icon-search" circle></at-button>
-  <at-button type="primary" icon="icon-search" circle></at-button>
-  <at-button type="primary" size="small" icon="icon-search" circle></at-button>
-  <at-button
+  <ce-button type="primary" size="large" icon="icon-search" circle></ce-button>
+  <ce-button type="primary" icon="icon-search" circle></ce-button>
+  <ce-button type="primary" size="small" icon="icon-search" circle></ce-button>
+  <ce-button
     type="primary"
     size="smaller"
     icon="icon-search"
     circle
-  ></at-button>
+  ></ce-button>
 </div>
 <div style="margin-top: 8px;">
-  <at-button-group size="large">
-    <at-button>Left</at-button>
-    <at-button>Center</at-button>
-    <at-button>Right</at-button>
-  </at-button-group>
-  <at-button-group>
-    <at-button>Left</at-button>
-    <at-button>Center</at-button>
-    <at-button>Right</at-button>
-  </at-button-group>
-  <at-button-group size="small">
-    <at-button>Left</at-button>
-    <at-button>Center</at-button>
-    <at-button>Right</at-button>
-  </at-button-group>
+  <ce-button-group size="large">
+    <ce-button>Left</ce-button>
+    <ce-button>Center</ce-button>
+    <ce-button>Right</ce-button>
+  </ce-button-group>
+  <ce-button-group>
+    <ce-button>Left</ce-button>
+    <ce-button>Center</ce-button>
+    <ce-button>Right</ce-button>
+  </ce-button-group>
+  <ce-button-group size="small">
+    <ce-button>Left</ce-button>
+    <ce-button>Center</ce-button>
+    <ce-button>Right</ce-button>
+  </ce-button-group>
 </div>
 ```
 
@@ -195,18 +195,18 @@ Set the `size` property to use different size of button, it's `normal` size by d
 
 <style  scoped>
   .row {
-    .at-btn + .at-btn {
+    .ce-btn + .ce-btn {
       margin-left: 8px;
     }
 
     & + .row {
       margin-top: 8px;
     }
-    .at-btn-group .at-btn {
+    .ce-btn-group .ce-btn {
       margin-left: 0;
     }
   }
-  .at-btn-group {
+  .ce-btn-group {
     margin-left: 8px;
     margin-top: 16px;
   }

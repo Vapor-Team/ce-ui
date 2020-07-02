@@ -42,14 +42,14 @@ export default class Icon extends Vue {
       reslove(event)
     })
   }
-  @Emit('mouseenter')
+  @Emit('enter')
   onMouseenter(event: MouseEvent): Promise<any> {
     if (event instanceof MouseEvent) event.preventDefault()
     return new Promise((reslove) => {
       reslove(event)
     })
   }
-  @Emit('mouseleave')
+  @Emit('leave')
   onMouseleave(event: MouseEvent): Promise<any> {
     if (event instanceof MouseEvent) event.preventDefault()
     return new Promise((reslove) => {
