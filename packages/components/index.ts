@@ -3,7 +3,7 @@
 import { CreateComponents } from '@lib/ts-utils/create-basic'
 import BaseCard_ from "./base-card"
 import Button_ from "./button"
-import ButtonGroup_ from './button-group'
+import ButtonGroup_ from "./button-group"
 import Icon_ from "./icon"
 import Loading_ from "./loading"
 import TextCard_ from "./text-card"
