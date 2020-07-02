@@ -1,23 +1,21 @@
 <template>
-  <div>
-    <ul class="icon-list">
-      <li
-        v-for="(item,key) in icons"
-        :key="key"
-        @mouseenter="onMouseenter(key)"
-        @mouseleave="onMouseleave(key)"
-      >
-        <div class="demo-icon-wrap">
-          <ce-icon
-            class="icon"
-            :name="item.name.substring(8)"
-            :size="item.size"
-          ></ce-icon>
-          <span class="name">{{item.name.substring(8)}}</span>
-        </div>
-      </li>
-    </ul>
-  </div>
+  <ul class="icon-list">
+    <li
+      v-for="(item,key) in icons"
+      :key="key"
+      @mouseenter="onMouseenter(key)"
+      @mouseleave="onMouseleave(key)"
+    >
+      <div class="demo-icon-wrap">
+        <ce-icon
+          class="icon"
+          :name="item.name.substring(8)"
+          :size="item.size"
+        ></ce-icon>
+        <span class="name">{{item.name.substring(8)}}</span>
+      </div>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -50,9 +48,7 @@ export default {
 .icon-list
   overflow hidden
   list-style none !important
-  padding 0 !important
-  border solid 1px #eaeefb
-  border-radius 4px
+  padding 10px !important
 
   & li
     float left
@@ -63,13 +59,14 @@ export default {
     color #666
     font-size 13px
     transition color 0.15s linear
-    border-right 1px solid #eee
-    border-bottom 1px solid #eee
     margin-right -1px
     margin-bottom -1px
 
-    &:nth-child(6n)
-      border-right none
+    &:hover
+      cursor pointer
+      border-radius 6px
+      box-shadow 2px 2px 12px rgba(0, 0, 0, 0.085)
+      background-color rgb(255, 255, 255, 1)
 
   .demo-icon-wrap
     display inline-block
@@ -90,11 +87,4 @@ export default {
   .ce-icon
     display block
     margin-bottom 15px
-
-    &:hover
-      cursor pointer
-      color rgb(92, 182, 255)
-
-      & + .name
-        color rgb(92, 182, 255)
 </style>

@@ -241,10 +241,10 @@ export default {
   transform translateX(30px)
 
 .fade-enter-active
-  transition all 0.3s linear
+  transition all 0.5s linear
 
 .fade-leave-active
-  transition all 0.2s linear
+  transition all 0.3s linear
 
 .fade-enter, .fade-leave-active
   opacity 0

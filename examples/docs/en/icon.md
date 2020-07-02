@@ -28,8 +28,8 @@ Reference through the <!-- {.md} --> `ce-icon` tag
 			<li
 				v-for="(item,key) in icons"
 				:key="key"
-				@mouseenter="onMouseenter(key)"
-				@mouseleave="onMouseleave(key)"
+				@enter="onMouseenter(key)"
+				@leave="onMouseleave(key)"
 			>
 				<div class="demo-icon-wrap">
 					<ce-icon :name="item.name.substring(8)" :size="item.size"></ce-icon>
@@ -163,5 +163,5 @@ Use <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"` to declare the icon. Co
 | event name | Instructions     | callback param |
 |------------|------------------|----------------|
 | click      | click event      | (event: Event) |
-| mouseenter | mouseenter event | (event: Event) |
-| mouseleave | mouseleave event | (event: Event) |
+| enter | mouseenter event | (event: Event) |
+| leave | mouseleave event | (event: Event) |
