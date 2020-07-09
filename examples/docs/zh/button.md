@@ -162,17 +162,41 @@
 
 ```html
 <div class="button-md">
-  <ce-button-zh class="btn-margin" loading>加载中</ce-button-zh>
-  <ce-button-zh class="btn-margin" loading></ce-button-zh>
-  <ce-button-zh class="btn-margin" loading circle></ce-button-zh>
+  <ce-button-zh :loadingscale="0.4" loadingbgc="#000" class="btn-margin" loading>加载中</ce-button-zh>
+  <ce-button-zh class="btn-margin" loadingbgc="blue" :loadingscale="0.3" loading></ce-button-zh>
+  <ce-button-zh class="btn-margin" :loadingscale="0.2" loadingbgc="pink" loading circle></ce-button-zh>
 </div>
 ```
 
 ```html
 <template>
-  <ce-button loading>加载中</ce-button>
-  <ce-button loading></ce-button>
-  <ce-button loading circle></ce-button>
+  <ce-button :loadingscale="0.4" loadingbgc="#000" loading>加载中</ce-button>
+  <ce-button loadingbgc="blue" :loadingscale="0.3" loading></ce-button>
+  <ce-button :loadingscale="0.2" loadingbgc="pink" loading circle></ce-button>
+</template>
+```
+
+:::
+
+## 加载中按钮--icon
+
+可通过添加 `iconloading` 属性，使按钮处于icon的加载中状态
+
+:::demo
+
+```html
+<div class="button-md">
+  <ce-button-zh class="btn-margin" iconloading>加载中</ce-button-zh>
+  <ce-button-zh class="btn-margin" iconloading></ce-button-zh>
+  <ce-button-zh class="btn-margin" iconloading circle></ce-button-zh>
+</div>
+```
+
+```html
+<template>
+  <ce-button iconloading>加载中</ce-button>
+  <ce-button iconloading></ce-button>
+  <ce-button iconloading circle></ce-button>
 </template>
 ```
 
@@ -306,17 +330,17 @@
       ></ce-button>
     </div>
     <div style="margin-top: 8px;">
-      <ce-button-group size="large">
-        <ce-button>左</ce-button>
-        <ce-button>中</ce-button>
-        <ce-button>右</ce-button>
-      </ce-button-group>
       <ce-button-group>
         <ce-button>左</ce-button>
         <ce-button>中</ce-button>
         <ce-button>右</ce-button>
       </ce-button-group>
       <ce-button-group size="small">
+        <ce-button>左</ce-button>
+        <ce-button>中</ce-button>
+        <ce-button>右</ce-button>
+      </ce-button-group>
+      <ce-button-group size="mini">
         <ce-button>左</ce-button>
         <ce-button>中</ce-button>
         <ce-button>右</ce-button>

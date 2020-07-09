@@ -1,25 +1,37 @@
 @import '../common/var'
 
-.{$namespace}-button-group
-  display flex
-
-  .{$namespace}-button
-    border-radius 0
-
-    &:not(:last-child) 
-      margin-right: -1px
-    
-    &:first-child 
-      border-radius $border-radius-base 0 0 $border-radius-base
-    
-    &:last-child 
-      border-radius 0 $border-radius-base $border-radius-base 0
-
 @b button-group
 
   @m default
-    color red
+    font-size 14px
 
   @m small
+    font-size 12px
 
   @m mini
+    font-size 11px
+
+.{$namespace}-button-group
+  display flex
+  
+  .{$namespace}-button
+    border-radius 0
+
+    &:not(:last-child)
+      margin-right: -1px
+    
+    &:first-child
+      border-radius $border-radius-base 0 0 $border-radius-base
+    
+    &:last-child
+      border-radius 0 $border-radius-base $border-radius-base 0
+
+.{$namespace}-button-group--small
+  .{$namespace}-button
+      font-size 12px
+      padding 6px 14px
+
+.{$namespace}-button-group--mini
+  .{$namespace}-button
+      font-size 11px
+      padding 4px 12px

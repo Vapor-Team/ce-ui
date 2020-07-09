@@ -15,6 +15,9 @@
       :hollow="hollow"
       :autofocus="autofocus"
       :nativeType="nativeType"
+      :loadingscale="loadingscale"
+      :loadingbgc="loadingbgc"
+      :iconloading="iconloading"
     >
       <slot></slot>
     </ce-button>
@@ -29,7 +32,8 @@ export default {
       type: String
     },
     disabled: {
-      type: Boolean
+      type: Boolean,
+      default: false
     },
     size: {
       type: String
@@ -63,6 +67,10 @@ export default {
       type: Boolean,
       default: false
     },
+    iconloading: {
+      type: Boolean,
+      default: false
+    },
     autofocus: {
       type: Boolean,
       default: false
@@ -74,6 +82,13 @@ export default {
     hollow: {
       type: Boolean,
       default: false
+    },
+    loadingscale: {
+      type: Number,
+      default: 0.5
+    },
+    loadingbgc: {
+      type: String
     }
   },
   data() {
