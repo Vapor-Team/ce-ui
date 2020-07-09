@@ -21,8 +21,14 @@
         'is-hollow': hollow,
         'is-loading': loading
       }
-    ]">
-    <div v-if="loading" :id="loadersCss" :style="loadingStyle" class="ball-spin-fade-loader">
+    ]"
+  >
+    <div
+      v-if="loading"
+      :id="loadersCss"
+      :style="loadingStyle"
+      class="ball-spin-fade-loader"
+    >
       <div></div>
       <div></div>
       <div></div>
@@ -48,26 +54,42 @@ import { Emit, Prop } from 'vue-property-decorator'
   name: 'Button'
 })
 export default class Button extends Vue {
-  loadingStyle: Object = {}
+  loadingStyle: object = {}
   loadersCss: string = new Date().getTime().toString()
 
-  @Prop({ required: false, default: 'default', type: String }) private type?: string
-  @Prop({ required: false, default: 'default', type: String }) private size?: string
-  @Prop({ required: false, default: true, type: Boolean }) private shadow?: boolean
-  @Prop({ required: false, default: false, type: Boolean }) private disabled!: boolean
-  @Prop({ required: false, default: false, type: Boolean }) private plain?: boolean
-  @Prop({ required: false, default: false, type: Boolean }) private square?: boolean
-  @Prop({ required: false, default: false, type: Boolean }) private opacity?: boolean
-  @Prop({ required: false, default: true, type: Boolean }) private round?: boolean
-  @Prop({ required: false, default: false, type: Boolean }) private circle?: boolean
-  @Prop({ required: false, default: false, type: Boolean }) private iconloading?: boolean
-  @Prop({ required: false, default: false, type: Boolean }) private loading?: boolean
+  @Prop({ required: false, default: 'default', type: String })
+  private type?: string
+  @Prop({ required: false, default: 'default', type: String })
+  private size?: string
+  @Prop({ required: false, default: true, type: Boolean })
+  private shadow?: boolean
+  @Prop({ required: false, default: false, type: Boolean })
+  private disabled!: boolean
+  @Prop({ required: false, default: false, type: Boolean })
+  private plain?: boolean
+  @Prop({ required: false, default: false, type: Boolean })
+  private square?: boolean
+  @Prop({ required: false, default: false, type: Boolean })
+  private opacity?: boolean
+  @Prop({ required: false, default: true, type: Boolean })
+  private round?: boolean
+  @Prop({ required: false, default: false, type: Boolean })
+  private circle?: boolean
+  @Prop({ required: false, default: false, type: Boolean })
+  private iconloading?: boolean
+  @Prop({ required: false, default: false, type: Boolean })
+  private loading?: boolean
   @Prop({ required: false, default: '', type: String }) private icon?: string
-  @Prop({ required: false, default: false, type: Boolean }) private autofocus?: boolean
-  @Prop({ required: false, default: 'button', type: String }) private nativeType?: string
-  @Prop({ required: false, default: false, type: Boolean }) private hollow?: boolean
-  @Prop({ required: false, default: 0.5, type: Number }) private loadingscale?: number
-  @Prop({ required: false, default: '#fff', type: String }) private loadingbgc?: string
+  @Prop({ required: false, default: false, type: Boolean })
+  private autofocus?: boolean
+  @Prop({ required: false, default: 'button', type: String })
+  private nativeType?: string
+  @Prop({ required: false, default: false, type: Boolean })
+  private hollow?: boolean
+  @Prop({ required: false, default: 0.5, type: Number })
+  private loadingscale?: number
+  @Prop({ required: false, default: '#fff', type: String })
+  private loadingbgc?: string
 
   @Emit('click')
   onClick(event: MouseEvent): Promise<MouseEvent> {
@@ -88,11 +110,13 @@ export default class Button extends Vue {
     }
     if (this.loading) {
       // console.log(this.loading)
-      const loadersCssChildren: HTMLElement | null = document.getElementById(this.loadersCss)
+      const loadersCssChildren: HTMLElement | null = document.getElementById(
+        this.loadersCss
+      )
       if (loadersCssChildren) {
         const list = loadersCssChildren.children
         for (let i = 0; i < list.length; i++) {
-          let a = list[i] as HTMLElement
+          const a = list[i] as HTMLElement
           // console.log(a, this.loadingbgc)
           if (this.loadingbgc) {
             a.style.background = this.loadingbgc

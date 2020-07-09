@@ -1,9 +1,6 @@
 <template>
   <div class="demo-block">
-    <ce-text-card
-      class="demo-card"
-      message="这是卡片内容"
-    ></ce-text-card>
+    <ce-text-card class="demo-card" message="这是卡片内容"></ce-text-card>
     <ce-text-card
       class="demo-card"
       theme-type="primary"
@@ -18,6 +15,6 @@
 
 <script>
 export default {
-  name: 'ce-text-card-demo-zh'
+  name: 'ce-text-card-demo'
 }
 </script>

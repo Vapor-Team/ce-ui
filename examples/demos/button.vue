@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: 'ce-button-zh',
+  name: 'ce-button',
   props: {
     type: {
       type: String
@@ -90,11 +90,7 @@ export default {
     loadingbgc: {
       type: String
     }
-  },
-  data() {
-    return {}
-  },
-  created() {}
+  }
 }
 </script>
 
