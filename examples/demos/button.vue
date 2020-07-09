@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'ce-button-zh',
+  name: 'ce-button',
   props: {
     type: {
       type: String
@@ -31,11 +31,7 @@ export default {
     circle: {
       type: Boolean
     }
-  },
-  data() {
-    return {}
-  },
-  created() {}
+  }
 }
 </script>
 

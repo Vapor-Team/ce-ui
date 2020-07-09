@@ -10,7 +10,7 @@
 
 <!-- {.md} -->
 
-<ce-icon-demo-en></ce-icon-demo-en>
+<ce-icon-demo></ce-icon-demo>
 
 ## How to use
 
@@ -23,21 +23,7 @@ Reference through the <!-- {.md} --> `ce-icon` tag
 
 ```html
 <template>
-	<div>
-		<ul class="icon-list">
-			<li
-				v-for="(item,key) in icons"
-				:key="key"
-				@enter="onMouseenter(key)"
-				@leave="onMouseleave(key)"
-			>
-				<div class="demo-icon-wrap">
-					<ce-icon :name="item.name.substring(8)" :size="item.size"></ce-icon>
-					<span class="name">{{ item.name.substring(8) }}</span>
-				</div>
-			</li>
-		</ul>
-	</div>
+	<ce-icon-demo :icons="icons"></ce-icon-demo>
 </template>
 
 <script>
@@ -46,20 +32,12 @@ const iconList = require("../../icon-demo.json")
 export default {
 	data() {
 		return {
-			icons: iconList.map(e => {
-				return {
-					name: e,
-					size: 32
-				}
-			})
-		}
-	},
-	methods: {
-		onMouseenter(key) {
-			this.icons[key].size = 64
-		},
-		onMouseleave(key) {
-			this.icons[key].size = 32
+			icons: iconList.map((e) => {
+        return {
+          name: e,
+          size: 32
+        }
+      })
 		}
 	}
 }
@@ -163,5 +141,5 @@ Use <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"` to declare the icon. Co
 | event name | Instructions     | callback param |
 |------------|------------------|----------------|
 | click      | click event      | (event: Event) |
-| enter | mouseenter event | (event: Event) |
-| leave | mouseleave event | (event: Event) |
+| enter      | mouseenter event | (event: Event) |
+| leave      | mouseleave event | (event: Event) |

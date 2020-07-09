@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 const { wrapCustomClass, resolve } = require('./build/utils')
 const { mdLoaderConfig } = require('./build/md-loader')
 const isProduction = process.env.NODE_ENV === 'production'
@@ -25,17 +26,17 @@ const vueMarkdown = {
   preprocess: (MarkdownIt, source) => {
     // TODO: 此处待优化，对 type 为 fence 的重新处理，以及 inline-html 重新处理
     // 该处调用 mardownIt 方法
-    MarkdownIt.renderer.rules.table_open = function () {
+    MarkdownIt.renderer.rules.table_open = function() {
       return '<table class="table">'
     }
-    MarkdownIt.renderer.rules.table_close = function () {
+    MarkdownIt.renderer.rules.table_close = function() {
       return '</table>'
     }
     // 遍历粗体标签转换成 b 标签
-    MarkdownIt.renderer.rules.strong_open = function () {
+    MarkdownIt.renderer.rules.strong_open = function() {
       return '<b>'
     }
-    MarkdownIt.renderer.rules.strong_close = function () {
+    MarkdownIt.renderer.rules.strong_close = function() {
       return '</b>'
     }
     // ```html``` 给这种样式加个class hljs
@@ -44,7 +45,7 @@ const vueMarkdown = {
     )
     // ```code``` 给这种样式加个class code_inline
     const codeInline = MarkdownIt.renderer.rules.code_inline
-    MarkdownIt.renderer.rules.code_inline = function (...args) {
+    MarkdownIt.renderer.rules.code_inline = function(...args) {
       args[0][args[1]].attrJoin('class', 'code_inline')
       return codeInline(...args)
     }
@@ -73,7 +74,7 @@ module.exports = {
     /**
      * 因为是多页面所以设置时，为html-页面命名
      */
-    config.plugin('html-index').tap(args => {
+    config.plugin('html-index').tap((args) => {
       // 生产环境或本地需要cdn时，才注入cdn
       if (isProduction) args[0].cdn = cdn
       return args

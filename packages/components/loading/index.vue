@@ -1,36 +1,17 @@
 <template>
-  <div
-    :class="b([type, colorType])"
-    :style="style"
-  >
+  <div :class="b([type, colorType])" :style="style">
     <span :class="b('spinner', type)">
-      <i
-        v-for="(item, index) in (type === 'spinner' ? 12 : 0)"
-        :key="index"
-      />
+      <i v-for="(item, index) in type === 'spinner' ? 12 : 0" :key="index" />
       <svg
         v-if="type === 'circular'"
         :class="b('circular')"
         viewBox="25 25 50 50"
       >
-        <circle
-          cx="50"
-          cy="50"
-          r="20"
-          fill="none"
-        />
+        <circle cx="50" cy="50" r="20" fill="none" />
       </svg>
     </span>
-    <svg
-      class="disk"
-      viewBox="25 25 50 50"
-    >
-      <circle
-        cx="50"
-        cy="50"
-        r="20"
-        fill="none"
-      />
+    <svg class="disk" viewBox="25 25 50 50">
+      <circle cx="50" cy="50" r="20" fill="none" />
     </svg>
   </div>
 </template>
@@ -44,8 +25,10 @@ import { Emit, Prop } from 'vue-property-decorator'
   name: 'Loading'
 })
 export default class Loading extends Vue {
-  @Prop({ required: false, default: '#222', type: String }) private size?: string
-  @Prop({ required: false, default: 'circular', type: String }) private color?: string
+  @Prop({ required: false, default: '#222', type: String })
+  private size?: string
+  @Prop({ required: false, default: 'circular', type: String })
+  private color?: string
   @Prop({ required: false, default: DEFAULT_COLOR, type: String })
   private type?: string
   get colorType(): string {
