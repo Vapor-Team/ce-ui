@@ -3,64 +3,26 @@
     <div class="nav-container">
       <div class="nav-left">
         <div class="logo">
-          <router-link :to="{ name: lang === 'en' ? 'Home-en' : 'Home' }">
+          <router-link :to="{ name: `Home-${lang}` }">
             <img class="logo-img" src="../assets/ce-logo.png" preload />
             <span>CE-UI | Vapor Team</span>
           </router-link>
         </div>
         <i class="icon icon-menu nav-icon" @click="toggleMenu"></i>
       </div>
-      <div v-if="lang === 'en'" class="nav-right">
+      <div class="nav-right">
         <ul class="navbar">
-          <li>
+          <li v-for="(item, index) in menus" :key="index">
             <router-link
-              :to="{ name: 'Guide-en' }"
-              :class="activeFlag1 ? 'router-link-active' : ''"
-              >Guide</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              :to="{ name: 'Docs-en' }"
-              :class="activeFlag2 ? 'router-link-active' : ''"
-              >Component</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              :to="{ name: 'Resource-en' }"
-              :class="activeFlag3 ? 'router-link-active' : ''"
-              >Resource</router-link
+              :to="{ path: item.path }"
+              :class="{ 'router-link-active': item.active }"
+              >{{ $t(item.link) }}</router-link
             >
           </li>
         </ul>
-        <div class="btn-language" @click="switchLang('zh')">中文</div>
-      </div>
-      <div v-else class="nav-right">
-        <ul class="navbar">
-          <li>
-            <router-link
-              :to="{ name: 'Guide' }"
-              :class="[activeFlag1 ? 'router-link-active' : '']"
-              >指南</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              :to="{ name: 'Docs' }"
-              :class="[activeFlag2 ? 'router-link-active' : '']"
-              >组件</router-link
-            >
-          </li>
-          <li>
-            <router-link
-              :to="{ name: 'Resource' }"
-              :class="[activeFlag3 ? 'router-link-active' : '']"
-              >资源</router-link
-            >
-          </li>
-        </ul>
-        <div class="btn-language" @click="switchLang('en')">EN</div>
+        <div class="btn-language" @click="switchLang()">
+          {{ lang === 'EN' ? 'EN' : '中文' }}
+        </div>
       </div>
     </div>
   </header>
@@ -71,31 +33,35 @@ export default {
   name: 'CHeader',
   data() {
     return {
-      isOpen: false,
-      activeFlag1: false,
-      activeFlag2: false,
-      activeFlag3: false
+      isOpen: false
     }
   },
   computed: {
     lang() {
-      return this.$route.path.split('/')[1] || 'zh'
-    }
-  },
-  mounted() {
-    const path = this.$route.path
-    if (path.indexOf('guide') !== -1) {
-      this.activeFlag1 = true
-      this.activeFlag2 = false
-      this.activeFlag3 = false
-    } else if (path.indexOf('docs') !== -1) {
-      this.activeFlag2 = true
-      this.activeFlag1 = false
-      this.activeFlag3 = false
-    } else if (path.indexOf('resource') !== -1) {
-      this.activeFlag3 = true
-      this.activeFlag1 = false
-      this.activeFlag2 = false
+      return this.$i18n.locale || 'zh'
+    },
+    isZh() {
+      return this.$i18n.locale === 'zh' || this.$route.meta.lang === 'zh'
+    },
+    menus() {
+      const path = this.$route.path
+      return [
+        {
+          path: `/${this.lang}/guide/color`,
+          link: 'docs.guide',
+          active: path.includes('guide')
+        },
+        {
+          path: `/${this.lang}/docs/introduction`,
+          link: 'docs.component',
+          active: path.includes('docs')
+        },
+        {
+          path: `/${this.lang}/resource/design`,
+          link: 'docs.resources',
+          active: path.includes('resource')
+        }
+      ]
     }
   },
   methods: {
@@ -109,14 +75,17 @@ export default {
         header.classList.add('open')
       }
     },
-    switchLang(targetLang) {
-      if (this.lang === targetLang) return
-      this.$i18n.locale = targetLang
-      localStorage.setItem('ce-ui-language', targetLang)
-      if (this.$route.name === 'Home') {
-        this.$router.push({ name: 'Home-en' })
+    switchLang() {
+      const lang = this.isZh ? 'en' : 'zh'
+      if (lang === this.lang) return
+      this.$i18n.locale = lang
+      localStorage.setItem('ce-ui-language', lang)
+      if (this.$route.name === `Home-${lang}`) {
+        this.$router.replace({ name: `Home-${lang}` })
       } else {
-        this.$router.push(this.$route.path.replace(this.lang, targetLang))
+        this.$router.replace({
+          name: `${this.$route.name.split('-')[0]}-${lang}`
+        })
       }
     }
   }

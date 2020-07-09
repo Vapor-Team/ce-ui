@@ -2,7 +2,7 @@
  * @Author: Mark
  * @Date: 2019-06-26 00:30:24
  * @LastEditors: Mark
- * @LastEditTime: 2020-06-28 22:05:02
+ * @LastEditTime: 2020-07-09 16:17:54
  * @Description: Button 组件
  -->
 
@@ -20,9 +20,9 @@
 
 ```html
 <div class="button-md">
-  <ce-button-zh type="primary" size="medium" round>主要按钮</ce-button-zh>
-  <ce-button-zh size="small">次要按钮</ce-button-zh>
-  <ce-button-zh type="text" size="mini">文字按钮</ce-button-zh>
+  <ce-button type="primary" size="medium" round>主要按钮</ce-button>
+  <ce-button size="small">次要按钮</ce-button>
+  <ce-button type="text" size="mini">文字按钮</ce-button>
 </div>
 ```
 
@@ -44,9 +44,9 @@
 
 ```html
 <div class="button-md">
-  <ce-button-zh type="primary" size="medium" disabled>主要按钮</ce-button-zh>
-  <ce-button-zh disabled size="small">次要按钮</ce-button-zh>
-  <ce-button-zh type="text" size="mini" disabled>文字按钮</ce-button-zh>
+  <ce-button type="primary" size="medium" disabled>主要按钮</ce-button>
+  <ce-button disabled size="small">次要按钮</ce-button>
+  <ce-button type="text" size="mini" disabled>文字按钮</ce-button>
 </div>
 ```
 
