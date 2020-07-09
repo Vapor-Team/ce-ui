@@ -2,7 +2,7 @@
  * @Author: Mark
  * @Date: 2020-06-28 00:53:25
  * @LastEditors: Mark
- * @LastEditTime: 2020-06-28 21:49:08
+ * @LastEditTime: 2020-07-10 00:00:17
  * @Description: v-tips
  * TODO: 待完善
  */
@@ -16,8 +16,8 @@ export default {
         const tooltip = document.createElement('div')
         const tooltipArrow = document.createElement('div')
         tooltip.innerHTML = binding.value
-        tooltip.className = 'tooltip'
-        tooltipArrow.className = 'arrow'
+        tooltip.className = 'v-tooltip'
+        tooltipArrow.className = 'v-arrow'
         tooltip.appendChild(tooltipArrow)
         el.appendChild(tooltip)
         function create() {

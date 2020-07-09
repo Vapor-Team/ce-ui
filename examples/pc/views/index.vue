@@ -6,12 +6,12 @@
         <div class="logo">
           <img src="../assets/ce-logo.png" alt />
         </div>
-        <h1>一款轻量级、模块化的前端 UI 组件库</h1>
+        <h1>{{ $t('docs.welcome') }}</h1>
         <div class="btn-container">
           <div class="btn btn-begin">
-            <router-link :to="{ name: 'Introduction-zh' }"
-              >开始使用</router-link
-            >
+            <router-link :to="{ name: `Introduction-${lang}` }">{{
+              $t('docs.GET_STARTED')
+            }}</router-link>
           </div>
           <div class="btn btn-github">
             <a
@@ -44,13 +44,13 @@
           <div class="icon-cnt">
             <img src="../assets/icon-navigation-1.png" alt />
           </div>
-          <div class="title">指南</div>
+          <div class="title">{{ $t('docs.guide') }}</div>
           <div class="desc">
-            了解设计指南，利用统一的规范进行设计赋能，帮助产品设计师，前端工程师，后台工程师迅速搭建中后台产品。
+            {{ $t('docs.guideDesc') }}
           </div>
           <div class="btn-readmore">
             <router-link :to="{ name: 'Guide' }">
-              查看详情
+              {{ $t('docs.view') }}
               <i class="icon icon-chevron-right"></i>
             </router-link>
           </div>
@@ -59,14 +59,13 @@
           <div class="icon-cnt">
             <img src="../assets/icon-navigation-2.png" alt />
           </div>
-          <div class="title">组件</div>
+          <div class="title">{{ $t('docs.component') }}</div>
           <div class="desc">
-            基于 Vue 的 UI 组件化，可以通过组件的 Demo
-            体验交互细节，开发中既可以根据需要单独引用，也可以使用全局方式引入所有组件。
+            {{ $t('docs.componentDesc') }}
           </div>
           <div class="btn-readmore">
-            <router-link :to="{ name: 'Docs' }">
-              查看详情
+            <router-link :to="{ name: `Docs-${lang}` }">
+              {{ $t('docs.view') }}
               <i class="icon icon-chevron-right"></i>
             </router-link>
           </div>
@@ -75,14 +74,13 @@
           <div class="icon-cnt">
             <img src="../assets/icon-navigation-3.png" alt />
           </div>
-          <div class="title">资源</div>
+          <div class="title">{{ $t('docs.resources') }}</div>
           <div class="desc">
-            提供视觉稿原稿下载，产品可直接用 Sketch
-            工具快速搭建高保真的产品原型稿，减少沟通成本，提升工作效率。
+            {{ $t('docs.resourcesDesc') }}
           </div>
           <div class="btn-readmore">
-            <router-link :to="{ name: 'Resource' }">
-              查看详情
+            <router-link :to="{ name: `Resource-${lang}` }">
+              {{ $t('docs.view') }}
               <i class="icon icon-chevron-right"></i>
             </router-link>
           </div>
@@ -101,6 +99,11 @@ export default {
   components: {
     CHeader,
     CFooter
+  },
+  computed: {
+    lang() {
+      return this.$i18n.locale || 'zh'
+    }
   }
 }
 </script>

@@ -79,10 +79,16 @@ export default {
   },
   data() {
     return {
-      nav: navConfig.zh.guide
+      nav: navConfig[this.$route.meta.lang].guide
     }
   },
+  watch: {
+    $route: 'setNav'
+  },
   methods: {
+    setNav() {
+      this.nav = navConfig[this.$route.meta.lang].guide
+    },
     afterLeave() {
       window.scrollTo(0, 0)
     }
