@@ -101,7 +101,6 @@ export default class Button extends Vue {
 
   created() {
     this.loadersCss = new Date().getTime().toString()
-    console.log(this.loadersCss)
   }
 
   mounted() {

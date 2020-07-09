@@ -1,8 +1,6 @@
 <template>
   <div class="btn-group-demo">
-    <ce-button-group
-      :size="size"
-      :gap="gap">
+    <ce-button-group :size="size" :gap="gap">
       <slot></slot>
     </ce-button-group>
   </div>
@@ -12,7 +10,7 @@
 export default {
   name: 'ce-button-group-zh',
   props: {
-    size: { 
+    size: {
       type: String
     },
     gap: {
@@ -20,10 +18,10 @@ export default {
       default: -1
     }
   },
-  data () {
+  data() {
     return {}
   },
-  created () {}
+  created() {}
 }
 </script>
 

@@ -1,32 +1,32 @@
 <template>
   <!-- <div class="button-demo"> -->
-    <ce-button
-      :type="type"
-      :size="size"
-      :disabled="disabled"
-      :round="round"
-      :circle="circle"
-      :icon="icon"
-      :shadow="shadow"
-      :plain="plain"
-      :square="square"
-      :opacity="opacity"
-      :loading="loading"
-      :hollow="hollow"
-      :autofocus="autofocus"
-      :nativeType="nativeType"
-      :loadingscale="loadingscale"
-      :loadingbgc="loadingbgc"
-      :iconloading="iconloading"
-    >
-      <slot></slot>
-    </ce-button>
+  <ce-button
+    :type="type"
+    :size="size"
+    :disabled="disabled"
+    :round="round"
+    :circle="circle"
+    :icon="icon"
+    :shadow="shadow"
+    :plain="plain"
+    :square="square"
+    :opacity="opacity"
+    :loading="loading"
+    :hollow="hollow"
+    :autofocus="autofocus"
+    :nativeType="nativeType"
+    :loadingscale="loadingscale"
+    :loadingbgc="loadingbgc"
+    :iconloading="iconloading"
+  >
+    <slot></slot>
+  </ce-button>
   <!-- </div> -->
 </template>
 
 <script>
 export default {
-  name: 'ce-button',
+  name: 'ce-button-zh',
   props: {
     type: {
       type: String
