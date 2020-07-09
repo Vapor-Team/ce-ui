@@ -16,15 +16,17 @@ function importDemos(r) {
   // 在遍历的时候多注册一个 demoBlock组件
   return [
     demoBlock,
-    ...r.keys().map(key => {
+    ...r.keys().map((key) => {
       return r(key).default
     })
   ]
 }
 
-importDemos(require.context('@examples/demos', true, /\.vue$/)).map(component => {
-  return Vue.component(component.name, component)
-})
+importDemos(require.context('@examples/demos', true, /\.vue$/)).map(
+  (component) => {
+    return Vue.component(component.name, component)
+  }
+)
 
 /* eslint-disable no-new */
 new Vue({

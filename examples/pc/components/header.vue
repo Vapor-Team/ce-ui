@@ -1,82 +1,66 @@
 <template>
-  <header
-    id="J-page-header"
-    :class="['page-header', 'collapse']"
-  >
+  <header id="J-page-header" :class="['page-header', 'collapse']">
     <div class="nav-container">
       <div class="nav-left">
         <div class="logo">
           <router-link :to="{ name: lang === 'en' ? 'Home-en' : 'Home' }">
-            <img
-              class="logo-img"
-              src="../assets/ce-logo.png"
-              preload
-            />
+            <img class="logo-img" src="../assets/ce-logo.png" preload />
             <span>CE-UI | Vapor Team</span>
           </router-link>
         </div>
-        <i
-          class="icon icon-menu nav-icon"
-          @click="toggleMenu"
-        ></i>
+        <i class="icon icon-menu nav-icon" @click="toggleMenu"></i>
       </div>
-      <div
-        v-if="lang === 'en'"
-        class="nav-right"
-      >
+      <div v-if="lang === 'en'" class="nav-right">
         <ul class="navbar">
           <li>
             <router-link
               :to="{ name: 'Guide-en' }"
               :class="activeFlag1 ? 'router-link-active' : ''"
-            >Guide</router-link>
+              >Guide</router-link
+            >
           </li>
           <li>
             <router-link
               :to="{ name: 'Docs-en' }"
               :class="activeFlag2 ? 'router-link-active' : ''"
-            >Component</router-link>
+              >Component</router-link
+            >
           </li>
           <li>
             <router-link
               :to="{ name: 'Resource-en' }"
               :class="activeFlag3 ? 'router-link-active' : ''"
-            >Resource</router-link>
+              >Resource</router-link
+            >
           </li>
         </ul>
-        <div
-          class="btn-language"
-          @click="switchLang('zh')"
-        >中文</div>
+        <div class="btn-language" @click="switchLang('zh')">中文</div>
       </div>
-      <div
-        v-else
-        class="nav-right"
-      >
+      <div v-else class="nav-right">
         <ul class="navbar">
           <li>
             <router-link
               :to="{ name: 'Guide' }"
               :class="[activeFlag1 ? 'router-link-active' : '']"
-            >指南</router-link>
+              >指南</router-link
+            >
           </li>
           <li>
             <router-link
               :to="{ name: 'Docs' }"
               :class="[activeFlag2 ? 'router-link-active' : '']"
-            >组件</router-link>
+              >组件</router-link
+            >
           </li>
           <li>
             <router-link
               :to="{ name: 'Resource' }"
               :class="[activeFlag3 ? 'router-link-active' : '']"
-            >资源</router-link>
+              >资源</router-link
+            >
           </li>
         </ul>
-        <div
-          class="btn-language"
-          @click="switchLang('en')"
-        >EN</div>
+        <div class="btn-language" @click="switchLang('en')">EN</div>
       </div>
     </div>
   </header>
