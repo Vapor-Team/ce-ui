@@ -5,13 +5,12 @@
  * @LastEditTime: 2020-07-09 23:43:23
  * @Description: demo 路由
  */
+import NavConfig from '@examples/nav.config.json'
 import Vue from 'vue'
 import Router from 'vue-router'
-import NavConfig from '@examples/nav.config.json'
 const navigatorLang = window.navigator.language.slice(0, 2)
 const userLang = localStorage.getItem('ce-ui-language') || navigatorLang || 'zh'
-const navExtendsConfig = [
-  {
+const navExtendsConfig = [{
     path: '/zh',
     name: 'Home-zh',
     meta: {

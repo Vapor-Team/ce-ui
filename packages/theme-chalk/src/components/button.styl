@@ -18,12 +18,15 @@
     padding 12px 20px
     border 1px solid $color-normal
 
-    @m round
+    @when round
       border-radius 36px
 
     @when circle
       border-radius $--button-radius-circle
       padding 10px
+
+      @when loading
+        padding 16px
 
     @when disabled
       background-color #fff
@@ -40,7 +43,7 @@
     color $--color-white
     border 1px solid $--color-primary
 
-    @m round
+    @when round
       border-radius 36px
 
     @when circle
@@ -150,3 +153,13 @@
 
   @when square
     border-radius 0px
+
+.{$namespace}-button
+  .ball-spin-fade-loader
+    position relative
+    top -2px
+    left -2px
+
+  .ce-button__text
+    display inline-block
+    margin-left 20px

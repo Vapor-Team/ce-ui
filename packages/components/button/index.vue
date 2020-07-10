@@ -3,9 +3,11 @@
     :style="noTextLoadingBtnStyle"
     @click="onClick"
     class="ce-button"
-    :disabled="buttonDisabled || loading"
+    :disabled="disabled || loading || iconloading"
     :autofocus="autofocus"
     :type="nativeType"
+    :loadingscale="loading ? loadingscale : ''"
+    :loadingbgc="loading ? loadingbgc : ''"
     :class="[
       type ? 'ce-button--' + type : '',
       size ? 'ce-button--' + size : '',
@@ -17,20 +19,37 @@
         'is-opacity': opacity,
         'is-round': round,
         'is-circle': circle,
-        'is-hollow': hollow
+        'is-hollow': hollow,
+        'is-loading': loading
       }
-    ]">
-    <i class="ce-icon-loading" v-if="loading"></i>
+    ]"
+  >
+    <div
+      v-if="loading"
+      :id="loadersCss"
+      :style="loadingStyle"
+      class="ball-spin-fade-loader"
+    >
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <i class="ce-icon-loading" v-if="iconloading"></i>
     <i class="ce-button__icon icon" :class="icon" v-if="icon && !loading"></i>
-    <span class="ce-button__text" v-if="$slots.default">
+    <span :class="loading ? 'ce-button__text' : ''" v-if="$slots.default">
       <slot></slot>
     </span>
   </button>
 </template>
 <script lang="ts">
-// import Vue from 'vue'
-// import Component from 'vue-class-component'
-import { Component, Vue, Emit, Prop } from 'vue-property-decorator'
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { Emit, Prop } from 'vue-property-decorator'
 
 @Component({
   name: 'Button'
@@ -47,7 +66,7 @@ export default class Button extends Vue {
   @Prop({ required: false, default: true, type: Boolean })
   private shadow?: boolean
   @Prop({ required: false, default: false, type: Boolean })
-  private disabled?: boolean
+  private disabled!: boolean
   @Prop({ required: false, default: false, type: Boolean })
   private plain?: boolean
   @Prop({ required: false, default: false, type: Boolean })
@@ -117,3 +136,21 @@ export default class Button extends Vue {
   }
 }
 </script>
+
+<style lang="stylus">
+.ce-icon-loading
+  display inline-block
+  line-height 1
+  -webkit-animation loadingCircle 1s linear infinite
+  animation loadingCircle 1s linear infinite
+
+@keyframes loadingCircle
+  0%
+    transform rotate(0)
+
+  100%
+    transform rotate(1turn)
+
+.padding-box
+  padding 16px 25px
+</style>
