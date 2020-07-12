@@ -93,7 +93,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '~@theme/src/common/var'
+@import '~@theme/src/mixins/var'
 
 .page-header
   position fixed
