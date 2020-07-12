@@ -1,4 +1,4 @@
-@import './var'
+@import '../mixins/var'
 
 article, aside, blockquote, body, button, code, dd, details, div, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul
   margin 0
@@ -23,7 +23,7 @@ a
     color $link-active-color
 
   &:hover, &:active
-    outline 0
+    outline none
     text-decoration none
 
   &[disabled]
@@ -65,11 +65,11 @@ input::-ms-clear, input::-ms-reveal
 .text-right
   text-align right
 
-for $i in (12 .. 24)
+for $i in 12 .. 24
   .fs-{$i}
     font-size $i * 1px
 
-for $i in (1 .. 5)
+for $i in 1 .. 5
   .mt-{$i * 10}
     margin-top $i * 10px
 

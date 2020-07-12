@@ -18,6 +18,7 @@
     "publish:docs": "node build/publish-docs.js",
     "release": "sh build/release.sh",
     "start": "npm run build:entry && vue-cli-service serve",
+    "build:iconfont": "gulp --gulpfile packages/theme-chalk/gulp-iconfont.js",
     "style": "gulp --gulpfile packages/theme-chalk/gulpfile.js",
     "test": "vue-cli-service test:unit"
   },
@@ -37,6 +38,7 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "markdown-it": "^10.0.0",
+    "v-clipboard": "^2.2.3",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-i18n": "^8.18.2",
