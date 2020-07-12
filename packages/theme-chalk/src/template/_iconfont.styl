@@ -1,0 +1,44 @@
+/* iconfont.css template  */
+@import '../../mixins/var'
+
+@font-face {
+  font-family: "<%= fontName %>";
+  src: url('<%= fontPath %><%= fontName %>.eot<%= cacheBusterQueryString %>');
+  src: url('<%= fontPath %><%= fontName %>.eot?<%= cacheBuster %>#iefix') format('eot'),
+    url('<%= fontPath %><%= fontName %>.woff2<%= cacheBusterQueryString %>') format('woff2'),
+    url('<%= fontPath %><%= fontName %>.woff<%= cacheBusterQueryString %>') format('woff'),
+    url('<%= fontPath %><%= fontName %>.ttf<%= cacheBusterQueryString %>') format('truetype'),
+    url('<%= fontPath %><%= fontName %>.svg<%= cacheBusterQueryString %>#<%= fontName %>') format('svg');
+}
+
+[class*={$icon}-], [class^={$icon}-] {
+  font-family: "<%= fontName %>" !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+  text-decoration: none;
+  text-transform: none;
+}
+
+@b icon
+  display inline-block
+  line-height 1
+
+  @e symbol
+    position relative
+    width 1em
+    height 1em
+    vertical-align -0.15em
+    fill currentColor
+    overflow hidden
+    -webkit-transform scale(1)
+    transform scale(1)
+
+<% _.each(glyphs, function(glyph) { %>
+.<%= cssClass %><%= glyph.fileName %>:before {
+  content: "\<%= glyph.codePoint %>";
+}
+<% }); %>

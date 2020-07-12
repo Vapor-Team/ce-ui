@@ -1,5 +1,5 @@
 @import 'md.styl'
-@import '~@theme/src/common/var'
+@import '~@theme/src/mixins/var'
 @import '~highlight.js/styles/color-brewer.css'
 
 .wrapper
@@ -160,7 +160,7 @@
         padding 4px 20px
         color #6B798C
 
-@media screen and (max-width: $screen-sm-max)
+@media screen and (max-width $screen-sm-max)
   .container
     width 100%
 
