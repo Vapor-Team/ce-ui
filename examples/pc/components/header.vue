@@ -99,6 +99,7 @@ export default {
     }
   },
   mounted() {
+    console.log(this.$route)
     const path = this.$route.path
     if (path.indexOf('guide') !== -1) {
       this.activeFlag1 = true

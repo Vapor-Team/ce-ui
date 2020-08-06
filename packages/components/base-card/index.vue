@@ -1,37 +1,10 @@
 <template>
-  <div
-    :class="cardCSS"
-    @mouseenter="onMouseenter"
-    @mouseleave="onMouseleave"
-  >
+  <div :class="[ 'ce-base-card', 'ce-base-card--radius', cardThemeClass, ...boxShadow ]">
     <div
-      v-if="$slots.header || $slots.title || title || extra || $slots.extra"
+      v-if="$slots.header"
       class="ce-base-card__header"
     >
-      <slot
-        v-if="$slots.header"
-        name="header"
-      ></slot>
-      <div
-        v-if="!$slots.header && ($slots.title || title)"
-        class="ce-base-card__header__title"
-      >
-        <slot
-          v-if="$slots.title"
-          name="title"
-        ></slot>
-        <h4>{{ title }}</h4>
-      </div>
-      <div
-        v-if="!$slots.header && ($slots.extra || extra)"
-        class="ce-base-card__header__extra"
-      >
-        <slot
-          v-if="$slots.extra"
-          name="extra"
-        ></slot>
-        <span class="ce-base-card__header__extra--text">{{ extra }}</span>
-      </div>
+      <slot name="header"></slot>
     </div>
     <div
       v-if="$slots.body"
@@ -58,12 +31,8 @@ import { CSSStyle } from './type'
 })
 export default class BaseCard extends Vue {
   @Prop({ required: false, default: 'default', type: String }) private type?: string
-  @Prop({ required: false, default: () => {}, type: Object }) private styles!: CSSStyle
+  @Prop({ required: false, default: () => {}, type: Object }) private styles?: CSSStyle
   @Prop({ required: false, default: 'always', type: String }) private shadow?: string
-  @Prop({ required: false, default: '', type: String }) private extra?: string
-  @Prop({ required: false, default: '', type: String }) private title?: string
-  @Prop({ required: false, default: true, type: Boolean }) private border!: boolean
-  @Prop({ required: false, default: true, type: Boolean }) private radius!: boolean
   private get cardThemeClass() {
     return 'ce-base-card--' + this.type
   }
@@ -71,46 +40,20 @@ export default class BaseCard extends Vue {
     let defaultStyles = {}
     return { ...defaultStyles, ...this.styles }
   }
-  private get boxShadow(): string {
-    let css = ''
-    switch (this.shadow) {
-      case 'always':
-        css = 'is-shadow-always'
-        break
-      case 'never':
-        css = 'is-shadow-never'
-        break
-      case 'hover':
-        css = 'is-shadow-hover'
-        break
-      default:
-        css = 'is-shadow-always'
-        break
+  private get boxShadow(): Array<string> {
+    if (this.shadow) {
+      if (this.shadow === 'always') {
+        return ['is-always']
+      } else if (this.shadow === 'never') {
+        return ['is-never']
+      } else if (this.shadow === 'hover') {
+        return ['is-hover']
+      } else {
+        return ['is-always']
+      }
+    } else {
+      return ['is-always']
     }
-    return css
-  }
-  private get cardCSS(): { [key: string]: Boolean } {
-    return {
-      'ce-base-card': true,
-      'ce-base-card--border': this.border,
-      'ce-base-card--radius': this.radius,
-      [this.cardThemeClass]: true,
-      [this.boxShadow]: true
-    }
-  }
-  @Emit('enter')
-  private onMouseenter(event: MouseEvent): Promise<any> {
-    if (event instanceof MouseEvent) event.preventDefault()
-    return new Promise((reslove) => {
-      reslove(event)
-    })
-  }
-  @Emit('leave')
-  private onMouseleave(event: MouseEvent): Promise<any> {
-    if (event instanceof MouseEvent) event.preventDefault()
-    return new Promise((reslove) => {
-      reslove(event)
-    })
   }
 }
 </script>
