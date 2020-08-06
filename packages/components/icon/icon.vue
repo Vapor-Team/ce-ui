@@ -6,12 +6,16 @@
     @mouseenter="onMouseenter($event)"
     @mouseleave="onMouseleave($event)"
   >
-    <svg v-if="symbol" class="ce-icon__symbol" aria-hidden="true">
+    <svg
+      v-if="symbol"
+      class="ce-icon__symbol"
+      aria-hidden="true"
+    >
       <use :xlink:href="`#ce-icon-${name}`" />
     </svg>
     <i
       v-else
-      :class="['ce-icon__font', 'ce-icon-' + name]"
+      :class="['ce-icon__font','ce-icon-' + name]"
       :style="{ color }"
     ></i>
   </span>
@@ -26,29 +30,27 @@ import { Emit, Prop } from 'vue-property-decorator'
   name: 'Icon'
 })
 export default class Icon extends Vue {
-  @Prop({ required: false, default: true, type: Boolean })
-  private symbol?: boolean
+  @Prop({ required: false, default: true, type: Boolean }) private symbol?: boolean
   @Prop({ required: true, type: String }) private name!: string
   @Prop({ required: false, default: 16, type: Number }) private size?: number
-  @Prop({ required: false, default: '#222', type: String })
-  private color?: string
+  @Prop({ required: false, default: '#222', type: String }) private color?: string
 
   @Emit('click')
-  onClick(event: MouseEvent): Promise<MouseEvent> {
+  onClick(event: MouseEvent): Promise<any> {
     if (event instanceof MouseEvent) event.preventDefault()
     return new Promise((reslove) => {
       reslove(event)
     })
   }
   @Emit('enter')
-  onMouseenter(event: MouseEvent): Promise<MouseEvent> {
+  onMouseenter(event: MouseEvent): Promise<any> {
     if (event instanceof MouseEvent) event.preventDefault()
     return new Promise((reslove) => {
       reslove(event)
     })
   }
   @Emit('leave')
-  onMouseleave(event: MouseEvent): Promise<MouseEvent> {
+  onMouseleave(event: MouseEvent): Promise<any> {
     if (event instanceof MouseEvent) event.preventDefault()
     return new Promise((reslove) => {
       reslove(event)

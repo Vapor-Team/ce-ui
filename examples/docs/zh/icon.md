@@ -10,7 +10,7 @@
 
 <!-- {.md} -->
 
-<ce-icon-demo></ce-icon-demo>
+<ce-icon-demo-zh></ce-icon-demo-zh>
 
 ## 如何使用
 
@@ -23,7 +23,21 @@
 
 ```html
 <template>
-	<ce-icon-demo :icons="icons"></ce-icon-demo>
+	<div>
+		<ul class="icon-list">
+			<li
+				v-for="(item,key) in icons"
+				:key="key"
+				@enter="onMouseenter(key)"
+				@leave="onMouseleave(key)"
+			>
+				<div class="demo-icon-wrap">
+					<ce-icon :name="item.name.substring(8)" :size="item.size"></ce-icon>
+					<span class="name">{{ item.name.substring(8) }}</span>
+				</div>
+			</li>
+		</ul>
+	</div>
 </template>
 
 <script>
@@ -32,12 +46,20 @@ const iconList = require("../../icon-demo.json")
 export default {
 	data() {
 		return {
-			icons: iconList.map((e) => {
-        return {
-          name: e,
-          size: 32
-        }
-      })
+			icons: iconList.map(e => {
+				return {
+					name: e,
+					size: 32
+				}
+			})
+		}
+	},
+	methods: {
+		onMouseenter(key) {
+			this.icons[key].size = 64
+		},
+		onMouseleave(key) {
+			this.icons[key].size = 32
 		}
 	}
 }
@@ -127,19 +149,19 @@ export default {
 
 <!-- {.md} -->
 
-| 参数   | 说明                                    | 类型    | 可选值         | 默认值 |
-|--------|---------------------------------------|---------|----------------|--------|
-| name   | 图标名称                                | string  | -              | -      |
-| color  | 图标颜色                                | string  | -              | -      |
-| size   | 图标大小                                | number  | -              | -      |
+| 参数   | 说明                                      | 类型    | 可选值         | 默认值 |
+| ------ | ----------------------------------------- | ------- | -------------- | ------ |
+| name   | 图标名称                                  | string  | -              | -      |
+| color  | 图标颜色                                  | string  | -              | -      |
+| size   | 图标大小                                  | number  | -              | -      |
 | symbol | 是否多色（开启将以`svg`标签方式引入图标） | boolean | `true`,`false` | `true` |
 
 ## Icon Events
 
 <!-- {.md} -->
 
-| 事件名称 | 说明         | 回调参数       |
-|----------|------------|----------------|
-| click    | 点击事件     | (event: Event) |
-| enter    | 鼠标进入事件 | (event: Event) |
-| leave    | 鼠标离开事件 | (event: Event) |
+| 事件名称   | 说明         | 回调参数       |
+| ---------- | ------------ | -------------- |
+| click      | 点击事件     | (event: Event) |
+| enter | 鼠标进入事件 | (event: Event) |
+| leave | 鼠标离开事件 | (event: Event) |

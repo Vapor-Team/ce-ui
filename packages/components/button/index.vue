@@ -28,23 +28,14 @@ import { Emit, Prop } from 'vue-property-decorator'
   name: 'Button'
 })
 export default class Button extends Vue {
-  @Prop({ required: false, default: 'default', type: String })
-  private type?: string
-  @Prop({ required: false, default: 'default', type: String })
-  private size?: string
-  @Prop({ required: false, default: true, type: Boolean })
-  private shadow?: boolean
-  @Prop({ required: false, default: false, type: Boolean })
-  private disabled?: boolean
-  @Prop({ required: false, default: false, type: Boolean })
-  private plain?: boolean
-  @Prop({ required: false, default: false, type: Boolean })
-  private square?: boolean
-  @Prop({ required: false, default: false, type: Boolean })
-  private opacity?: boolean
-  @Prop({ required: false, default: true, type: Boolean })
-  private round?: boolean
-  @Prop({ required: false, default: false, type: Boolean })
-  private circle?: boolean
+  @Prop({ required: false, default: 'default', type: String }) private type?: string
+  @Prop({ required: false, default: 'default', type: String }) private size?: string
+  @Prop({ required: false, default: true, type: Boolean }) private shadow?: boolean
+  @Prop({ required: false, default: false, type: Boolean }) private disabled?: boolean
+  @Prop({ required: false, default: false, type: Boolean }) private plain?: boolean
+  @Prop({ required: false, default: false, type: Boolean }) private square?: boolean
+  @Prop({ required: false, default: false, type: Boolean }) private opacity?: boolean
+  @Prop({ required: false, default: true, type: Boolean }) private round?: boolean
+  @Prop({ required: false, default: false, type: Boolean }) private circle?: boolean
 }
 </script>

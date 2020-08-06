@@ -1,7 +1,7 @@
 <template>
   <ul class="icon-list">
     <li
-      v-for="(item, key) in icons"
+      v-for="(item,key) in icons"
       :key="key"
       @mouseenter="onMouseenter(key)"
       @mouseleave="onMouseleave(key)"
@@ -9,35 +9,28 @@
       <div class="demo-icon-wrap">
         <ce-icon
           class="icon"
-          :name="item.name | getIconName"
+          :name="item.name.substring(8)"
           :size="item.size"
         ></ce-icon>
-        <span class="name">{{ item.name | getIconName }}</span>
+        <span class="name">{{item.name.substring(8)}}</span>
       </div>
     </li>
   </ul>
 </template>
 
 <script>
-import iconList from '@examples/icon.json'
+const iconList = require('@examples/icon.json')
+
 export default {
-  name: 'ce-icon-demo',
-  filters: {
-    getIconName(value) {
-      return value ? value.split('-')[2] : ''
-    }
-  },
-  props: {
-    icons: {
-      type: Array,
-      default: () => {
-        return iconList.map((e) => {
-          return {
-            name: e,
-            size: 32
-          }
-        })
-      }
+  name: 'ce-icon-demo-zh',
+  data() {
+    return {
+      icons: iconList.map((e) => {
+        return {
+          name: e,
+          size: 32
+        }
+      })
     }
   },
   methods: {
