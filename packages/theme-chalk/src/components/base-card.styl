@@ -1,118 +1,118 @@
 @import '../common/var'
 @import '../mixins/mixin'
 
-@b -base-card
-  display inline-block
-  box-sizing border-box
-  position relative
+@b ce-base-card
+	display inline-block
+	box-sizing border-box
+	position relative
 
-  @when fixed-width
-    width 504px
+	@when fixed-width
+		width 504px
 
-  @e header
-    padding 15px 10px
-    border-bottom 1px solid $--border-color-base
+	@e header
+		padding 15px 10px
+		border-bottom 1px solid $--border-color-base
 
-    @e label
-      font-size $--font-size-small
-      color $--color-danger
-      background-color $--color-danger-light
-      height 48px
-      line-height 48px
-      padding 0px 16px
-      text-align center
-      border-radius 0px 0px 8px 8px
-      position absolute
-      top 0px
+		@e label
+			font-size $--font-size-small
+			color $--color-danger
+			background-color $--color-danger-light
+			height 48px
+			line-height 48px
+			padding 0px 16px
+			text-align center
+			border-radius 0px 0px 8px 8px
+			position absolute
+			top 0px
 
-  @e msg-status
-    position absolute !important
-    top 50%
-    margin-top -14px
-    left -56px
-    z-index 2
+	@e msg-status
+		position absolute !important
+		top 50%
+		margin-top -14px
+		left -56px
+		z-index 2
 
-  @e read-status
-    position absolute !important
-    right 0px
-    bottom -42px
-    margin-top 5px
-    font-size $--font-size-small
-    font-weight $--font-weight-primary
+	@e read-status
+		position absolute !important
+		right 0px
+		bottom -42px
+		margin-top 5px
+		font-size $--font-size-small
+		font-weight $--font-weight-primary
 
-    .is-primary
-      color $--color-primary
+		.is-primary
+			color $--color-primary
 
-    .is-plain
-      color #B6B8BF
+		.is-plain
+			color #B6B8BF
 
-  @when bg
-    width 504px
-    height 464px
+	@when bg
+		width 504px
+		height 464px
 
-  @when overflow
-    padding-right 0
+	@when overflow
+		padding-right 0
 
-    .ce-base-card__footer
-      padding-right 32px
+		.ce-base-card__footer
+			padding-right 32px
 
-    .ce-base-card__content__footer
-      padding-right 32px
+		.ce-base-card__content__footer
+			padding-right 32px
 
-  @when image
-    .ce-base-card__msg-status--loading
-      position absolute !important
-      top 50%
-      margin-top -14px
-      left 50%
-      margin-left -16px
+	@when image
+		.ce-base-card__msg-status--loading
+			position absolute !important
+			top 50%
+			margin-top -14px
+			left 50%
+			margin-left -16px
 
-  @m primary
-    background $--color-primary
-    color $--color-white
+	@m primary
+		background $--color-primary
+		color $--color-white
 
-  @m default
-    color $--color-text-regular
-    background $--color-card-grey
-    color $--color-text-regular
+	@m default
+		color $--color-text-regular
+		background $--color-card-grey
+		color $--color-text-regular
 
-  @m radius
-    border-radius $card-border-radius
+	@m radius
+		border-radius $card-border-radius
 
-  @when always
-    box-shadow $card-box-shadow
+	@when always
+		box-shadow $card-box-shadow
 
-  @when never
-    box-shadow none
+	@when never
+		box-shadow none
 
-  @when hover:hover
-    box-shadow $card-box-shadow
+	@when hover:hover
+		box-shadow $card-box-shadow
 
-  @e body
-    padding 15px 10px
-    font-size $--font-size-base
+	@e body
+		padding 15px 10px
+		font-size $--font-size-base
 
-  @e footer
-    display flex
-    padding 10px
+	@e footer
+		display flex
+		padding 10px
 
-    @when center
-      text-align center
-      justify-content space-between
-      align-items center
+		@when center
+			text-align center
+			justify-content space-between
+			align-items center
 
-    @when reverse
-      justify-content flex-end
+		@when reverse
+			justify-content flex-end
 
-  @e scroll--part
-    width 100%
-    padding-bottom 8px
-    overflow scroll
+	@e scroll--part
+		width 100%
+		padding-bottom 8px
+		overflow scroll
 
-  @e row
-    display flex
-    min-width 2400px
-    font-size 0
+	@e row
+		display flex
+		min-width 2400px
+		font-size 0
 
-    @m gap
-      margin 16px 0 24px 0
+		@m gap
+			margin 16px 0 24px 0

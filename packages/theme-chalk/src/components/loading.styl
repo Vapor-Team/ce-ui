@@ -1,94 +1,94 @@
 @import '../common/var'
 
-@b loading
-  width 36px
-  height 36px
-  // z-index: 0;
-  font-size 0
-  line-height 0
-  position relative
-  vertical-align middle
+@b ce-loading
+	width 36px
+	height 36px
+	// z-index: 0;
+	font-size 0
+	line-height 0
+	position relative
+	vertical-align middle
 
-  .disk
-    position absolute
-    left 0
-    top 50%
-    transform translateY(-50%)
+	.disk
+		position absolute
+		left 0
+		top 50%
+		transform translateY(-50%)
 
-    circle
-      stroke #D6E0FB
-      animation none
-      stroke-width 6
-      stroke-linecap round
+		circle
+			stroke #D6E0FB
+			animation none
+			stroke-width 6
+			stroke-linecap round
 
-  @m circle
-    width 16px
-    height 16px
+	@m circle
+		width 16px
+		height 16px
 
-  @e spinner
-    z-index 1
-    width 100%
-    height 100%
-    position relative
-    display inline-block
-    box-sizing border-box
-    animation ce-rotate 0.8s linear infinite
+	@e spinner
+		z-index 1
+		width 100%
+		height 100%
+		position relative
+		display inline-block
+		box-sizing border-box
+		animation ce-rotate 0.8s linear infinite
 
-    @m circle
-      border-radius 100%
-      border 3px solid transparent
-      border-color $--border-color-light
-      border-top-color $--border-color-base
+		@m circle
+			border-radius 100%
+			border 3px solid transparent
+			border-color $--border-color-light
+			border-top-color $--border-color-base
 
-    @m gradient-circle
-      background-size contain
-      background-image url('https://img.yzcdn.cn/vant/gradient-circle-black.png')
+		@m gradient-circle
+			background-size contain
+			background-image url('https://img.yzcdn.cn/vant/gradient-circle-black.png')
 
-    @m spinner
-      animation-timing-function steps(12)
+		@m spinner
+			animation-timing-function steps(12)
 
-    @m circular
-      animation-duration 2s
+		@m circular
+			animation-duration 2s
 
-  @e circular
-    width 100%
-    height 100%
+	@e circular
+		width 100%
+		height 100%
 
-    circle
-      stroke currentColor
-      stroke-width 6
-      stroke-linecap round
-      animation ce-circular 1.5s ease-in-out infinite
+		circle
+			stroke currentColor
+			stroke-width 6
+			stroke-linecap round
+			animation ce-circular 1.5s ease-in-out infinite
 
-  @m white
-    .ce-loading__spinner--circle
-      border-color rgba(0, 0, 0, 0.1)
-      border-top-color rgba(255, 255, 255, 0.7)
+	@m white
+		.ce-loading__spinner--circle
+			border-color rgba(0, 0, 0, 0.1)
+			border-top-color rgba(255, 255, 255, 0.7)
 
-    .ce-loading__spinner--gradient-circle
-      background-image url('https://img.yzcdn.cn/vant/gradient-circle-white.png')
+		.ce-loading__spinner--gradient-circle
+			background-image url('https://img.yzcdn.cn/vant/gradient-circle-white.png')
 
 @keyframes ce-circular
-  0%
-    stroke-dasharray 1, 200
-    stroke-dashoffset 0
+	0%
+		stroke-dasharray 1, 200
+		stroke-dashoffset 0
 
-  50%
-    stroke-dasharray 90, 150
-    stroke-dashoffset -40
+	50%
+		stroke-dasharray 90, 150
+		stroke-dashoffset -40
 
-  100%
-    stroke-dasharray 90, 150
-    stroke-dashoffset -120
+	100%
+		stroke-dasharray 90, 150
+		stroke-dashoffset -120
 
 @keyframes ce-rotate
-  from
-    transform rotate(0deg)
+	from
+		transform rotate(0deg)
 
-  to
-    transform rotate(360deg)
+	to
+		transform rotate(360deg)
 
-for num in 1 .. 12
-  .ce-loading__spinner--spinner i:nth-of-type({num})
-    opacity 'calc(1 - (0.75 / 12) * (%s - 1))' % num
-    transform rotate('calc(%s * 30deg)' % num)
+for num in (1 .. 12)
+	.ce-loading__spinner--spinner i:nth-of-type({num})
+		opacity 'calc(1 - (0.75 / 12) * (%s - 1))' % num
+		transform rotate('calc(%s * 30deg)' % num)
