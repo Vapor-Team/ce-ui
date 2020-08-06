@@ -5,20 +5,19 @@
 ---
 
 <!-- {.md} -->
-> The icon of CE UI (ce-ui) uses the open source project [ionicons](https://ionicons.com/) 5.x version `svg` resource.
 
-## Icon Demo
+## Icon sample
 
 <!-- {.md} -->
 
 <ce-icon-demo></ce-icon-demo>
 
-## How to use ?
+## How to use
 
 <!-- {.md} -->
 
-Method one:
-Reference by <!-- {.md} -->`ce-icon` tag
+One way：<!-- {.md} -->
+Reference through the <!-- {.md} --> `ce-icon` tag
 
 :::demo
 
@@ -33,18 +32,12 @@ const iconList = require("../../icon-demo.json")
 export default {
 	data() {
 		return {
-			icons: {
-        demo: {
-          name: 'demo',
-          active: true,
-          list: iconList.demo.map((e) => {
-            return {
-              name: e,
-              size: 32
-            }
-          })
+			icons: iconList.map((e) => {
+        return {
+          name: e,
+          size: 32
         }
-      }
+      })
 		}
 	}
 }
@@ -54,9 +47,9 @@ export default {
 ```html
 <template>
   <div class="demo">
-    <ce-icon name="QQ" :size="size"></ce-icon>
+    <ce-icon name="iPhone" :size="size"></ce-icon>
     <ce-icon name="logo" :size="size"></ce-icon>
-    <ce-icon name="wechat" :size="size"></ce-icon>
+    <ce-icon name="delete" :size="size"></ce-icon>
   </div>
 </template>
 
@@ -81,21 +74,20 @@ export default {
 
 :::
 
-## How to use ?
+## code demo
 
 <!-- {.md} -->
 
-Methods Two：<!-- {.md} -->
-Use <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"` to declare the icon. Please copy the corresponding label for the specific icon name
-
-:::demo Font size is handled by `font-size`
+Mode two：<!-- {.md} -->
+Use <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"` to declare the icon. Copy the name of the icon.
+:::demo
 
 ```html
 <template>
   <div class="demo">
-    <i class="ce-icon ce-icon__font size ce-icon--logo"></i>
-    <i class="ce-icon ce-icon__font size ce-icon--logo-npm"></i>
-    <i class="ce-icon ce-icon__font size ce-icon--logo-python"></i>
+    <i class="ce-icon__font size ce-icon-logo"></i>
+    <i class="ce-icon__font size ce-icon-iPhone"></i>
+    <i class="ce-icon__font size ce-icon-delete"></i>
   </div>
 </template>
 
@@ -106,17 +98,16 @@ Use <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"` to declare the icon. Pl
     height 100%
   .size
     font-size 36px
-    margin 0 10px
 </style>
 ```
 
 ```html
 <template>
   <div class="demo">
-    <i class="ce-icon ce-icon__font size ce-icon--logo"></i>
-    <i class="ce-icon ce-icon__font size ce-icon--logo-npm"></i>
-    <i class="ce-icon ce-icon__font size ce-icon--logo-python"></i>
-  </div>
+    <i class="ce-icon__font ce-icon-logo"></i>
+    <i class="ce-icon__font ce-icon-iPhone"></i>
+    <i class="ce-icon__font ce-icon-delete"></i>
+    </div>
 </template>
 
 <style lang='stylus' scoped>
@@ -126,7 +117,6 @@ Use <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"` to declare the icon. Pl
     height 100%
   .size
     font-size 36px
-    margin 0 10px
 </style>
 ```
 
@@ -136,19 +126,20 @@ Use <!-- {.md} -->`class="ce-icon__font ce-icon-iPhone"` to declare the icon. Pl
 
 <!-- {.md} -->
 
-| Parameter | Description                                                                    | Type    | Optional Value | Default Value |
-|-----------|--------------------------------------------------------------------------------|---------|----------------|---------------|
-| name      | Icon name                                                                      | string  | -              | -             |
-| color     | Icon color                                                                     | string  | -              | -             |
-| size      | Icon size                                                                      | number  | -              | -             |
-| symbol    | Whether it is multi-color (turn on the icon will be introduced as `svg` label) | boolean | `true`,`false` | `true`        |
+| param | Instructions | type   | Optional | Default |
+|-------|--------------|--------|----------|---------|
+| name  | Icon Name    | string | -        | -       |
+| color | Icon Color   | string | -        | -       |
+| size  | Icon Size    | number | -        | -       |
+| symbol                                         |
+| Multicolor or not (Open icons with `svg` tags) | ..           | boolean | `true`,`false` | `true`  |
 
 ## Icon Events
 
 <!-- {.md} -->
 
-| Event name | Description       | Callback parameters |
-|------------|-------------------|---------------------|
-| click      | Click event       | (event: Event)      |
-| enter      | Mouse enter event | (event: Event)      |
-| leave      | Mouse leave event | (event: Event)      |
+| event name | Instructions     | callback param |
+|------------|------------------|----------------|
+| click      | click event      | (event: Event) |
+| enter      | mouseenter event | (event: Event) |
+| leave      | mouseleave event | (event: Event) |

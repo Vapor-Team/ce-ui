@@ -14,7 +14,7 @@ const wrapCustomClass = function (render) {
  * Format HTML string
  */
 const convertHtml = function (str) {
-  return str.replace(/(&#x)(\w{4});/gi, ($0) => {
+  return str.replace(/(&#x)(\w{4});/gi, $0 => {
     return String.fromCharCode(
       parseInt(
         encodeURIComponent($0).replace(/(%26%23x)(\w{4})(%3B)/g, '$2'),
@@ -33,7 +33,7 @@ const resolve = function (dir) {
 const handlerArr = function (data, callback, newEle = null) {
   let arr = []
   if (Array.isArray(data)) {
-    arr = data.map((e) => {
+    arr = data.map(e => {
       return callback && callback(e)
     })
     if (newEle) {
