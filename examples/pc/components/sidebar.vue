@@ -1,5 +1,5 @@
 <template>
-  <div class="ce-sidebar col-sm-24 col-md-6 col-lg-4">
+  <div class="ce-sidebar col-sm-5 col-md-5 col-lg-4">
     <nav class="ce-nav">
       <template v-for="(item, index) in list">
         <h2 :key="index + 10" class="ce-nav__title">{{ item.title }}</h2>
@@ -97,7 +97,7 @@ export default {
   margin 32px 0
   padding 0
   max-width 264px
-  min-width 264px
+  min-width 200px
   color #3F536E
   background-color #fff
   border-right 1px solid rgb(236, 236, 236)
