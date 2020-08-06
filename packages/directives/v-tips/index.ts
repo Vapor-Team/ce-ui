@@ -2,7 +2,7 @@
  * @Author: Mark
  * @Date: 2020-06-28 00:53:25
  * @LastEditors: Mark
- * @LastEditTime: 2020-07-12 22:45:30
+ * @LastEditTime: 2020-07-10 00:00:17
  * @Description: v-tips
  * TODO: 待完善
  */
@@ -56,14 +56,14 @@ export default {
           }
         })
 
-        // console.log('bind:el', el)
-        // console.log('bind:binding', binding)
-        // console.log('bind:vnode', vnode)
+        console.log('bind:el', el)
+        console.log('bind:binding', binding)
+        console.log('bind:vnode', vnode)
       },
 
       update: function(el, binding) {
-        // console.log('update:el', el)
-        // console.log('update:binding', binding)
+        console.log('update:el', el)
+        console.log('update:binding', binding)
       },
 
       unbind: function(el, binding) {
@@ -71,8 +71,8 @@ export default {
           popperInstance.destroy()
           popperInstance = null
         }
-        // console.log('unbind:el', el)
-        // console.log('unbind:binding', binding)
+        console.log('unbind:el', el)
+        console.log('unbind:binding', binding)
         const showEvents = ['mouseenter', 'focus']
         const hideEvents = ['mouseleave', 'blur']
 

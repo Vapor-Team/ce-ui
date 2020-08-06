@@ -91,7 +91,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '~@theme/src/mixins/var'
+@import '~@theme/src/common/var'
 
 .ce-sidebar
   margin 32px 0

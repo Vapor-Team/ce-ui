@@ -5,13 +5,11 @@ import App from './App'
 import router from './router'
 import i18n from './i18n'
 import demoBlock from './components/demo-block'
-import Clipboard from 'v-clipboard'
 import CeUi from '@lib/index'
 import '@theme/lib/index.css'
 import '@pc/assets/css/index.styl'
 
 Vue.config.productionTip = false
-Vue.use(Clipboard)
 Vue.use(CeUi)
 
 function importDemos(r) {
