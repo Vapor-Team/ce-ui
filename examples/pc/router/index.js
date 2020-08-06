@@ -2,7 +2,7 @@
  * @Author: Mark
  * @Date: 2019-06-26 00:30:25
  * @LastEditors: Mark
- * @LastEditTime: 2020-07-09 23:43:23
+ * @LastEditTime: 2020-07-13 23:34:19
  * @Description: demo 路由
  */
 import Vue from 'vue'
@@ -105,16 +105,15 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes,
   scrollBehavior(to, from, savedPosition) {
-    if (to.hash) {
-      return {
-        selector: to.hash
-      }
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
     }
   }
 })
 router.beforeEach((to, from, next) => {
-  console.log('to', to)
-  console.log('from', from)
+  // TODO: 待调整路由守卫
   next()
 })
 

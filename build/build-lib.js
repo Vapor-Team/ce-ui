@@ -10,11 +10,12 @@ const tasks = [
   'clean',
   'build:entry',
   'lib',
+  'build:iconfont',
   'build:style',
   'build:locale'
 ]
 
-tasks.forEach(task => {
+tasks.forEach((task) => {
   signale.start(task)
   const interactive = new Signale({
     interactive: true

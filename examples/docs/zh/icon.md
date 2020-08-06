@@ -5,6 +5,7 @@
 ---
 
 <!-- {.md} -->
+> CE UI（ce-ui）的图标使用开源项目 [ionicons](https://ionicons.com/) 5.x 版本 `svg` 资源。
 
 ## 图标示例
 
@@ -32,12 +33,18 @@ const iconList = require("../../icon-demo.json")
 export default {
 	data() {
 		return {
-			icons: iconList.map((e) => {
-        return {
-          name: e,
-          size: 32
+			icons: {
+        demo: {
+          name: 'demo',
+          active: true,
+          list: iconList.demo.map((e) => {
+            return {
+              name: e,
+              size: 32
+            }
+          })
         }
-      })
+      }
 		}
 	}
 }
@@ -47,9 +54,9 @@ export default {
 ```html
 <template>
   <div class="demo">
-    <ce-icon name="iPhone" :size="size"></ce-icon>
+    <ce-icon name="QQ" :size="size"></ce-icon>
     <ce-icon name="logo" :size="size"></ce-icon>
-    <ce-icon name="delete" :size="size"></ce-icon>
+    <ce-icon name="wechat" :size="size"></ce-icon>
   </div>
 </template>
 
@@ -86,9 +93,9 @@ export default {
 ```html
 <template>
   <div class="demo">
-    <i class="ce-icon ce-icon__font size ce-icon-logo"></i>
-    <i class="ce-icon ce-icon__font size ce-icon-iPhone"></i>
-    <i class="ce-icon ce-icon__font size ce-icon-delete"></i>
+    <i class="ce-icon ce-icon__font size ce-icon--logo"></i>
+    <i class="ce-icon ce-icon__font size ce-icon--logo-npm"></i>
+    <i class="ce-icon ce-icon__font size ce-icon--logo-python"></i>
   </div>
 </template>
 
@@ -99,15 +106,16 @@ export default {
     height 100%
   .size
     font-size 36px
+    margin 0 10px
 </style>
 ```
 
 ```html
 <template>
   <div class="demo">
-    <i class="ce-icon ce-icon__font ce-icon-logo"></i>
-    <i class="ce-icon ce-icon__font ce-icon-iPhone"></i>
-    <i class="ce-icon ce-icon__font ce-icon-delete"></i>
+    <i class="ce-icon ce-icon__font size ce-icon--logo"></i>
+    <i class="ce-icon ce-icon__font size ce-icon--logo-npm"></i>
+    <i class="ce-icon ce-icon__font size ce-icon--logo-python"></i>
   </div>
 </template>
 
@@ -118,6 +126,7 @@ export default {
     height 100%
   .size
     font-size 36px
+    margin 0 10px
 </style>
 ```
 
