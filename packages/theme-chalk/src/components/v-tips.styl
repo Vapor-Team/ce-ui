@@ -1,4 +1,4 @@
-.v-tooltip
+.tooltip
   background #333
   color white
   white-space nowrap
@@ -11,30 +11,30 @@
   display none
   opacity 0
 
-.v-tooltip[data-show]
+.tooltip[data-show]
   display inline-block
   opacity 1
   width auto
 
-.v-arrow, .v-arrow::before
+.arrow, .arrow::before
   position absolute
   width 8px
   height 8px
   z-index -1
 
-.v-arrow::before
+.arrow::before
   content ''
   transform rotate(45deg)
   background #333
 
-.v-tooltip[data-popper-placement^='top'] > .v-arrow
+.tooltip[data-popper-placement^='top'] > .arrow
   bottom -4px
 
-.v-tooltip[data-popper-placement^='bottom'] > .v-arrow
+.tooltip[data-popper-placement^='bottom'] > .arrow
   top -4px
 
-.v-tooltip[data-popper-placement^='left'] > .v-arrow
+.tooltip[data-popper-placement^='left'] > .arrow
   right -4px
 
-.v-tooltip[data-popper-placement^='right'] > .v-arrow
+.tooltip[data-popper-placement^='right'] > .arrow
   left -4px

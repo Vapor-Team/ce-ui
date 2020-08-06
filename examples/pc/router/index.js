@@ -2,120 +2,157 @@
  * @Author: Mark
  * @Date: 2019-06-26 00:30:25
  * @LastEditors: Mark
- * @LastEditTime: 2020-07-09 23:43:23
+ * @LastEditTime: 2020-07-09 14:46:20
  * @Description: demo 路由
  */
 import Vue from 'vue'
 import Router from 'vue-router'
 import NavConfig from '@examples/nav.config.json'
+Vue.use(Router)
+function registeredRoute(navConfig) {
+  const routes = []
+  const parentRoutes = {}
+  const addParentRoute = (parentName, lang) => {
+    const file = `${lang === 'zh' ? '' : `-${lang}`}.vue`
+    return {
+      path: `/${lang}/${parentName.toLowerCase()}`,
+      components: require(`../views/${parentName.toLowerCase()}${file}`),
+      children: []
+    }
+  }
+  const addRoute = (parentName, item, lang) => {
+    parentRoutes[`${parentName}-${lang}`].children.push({
+      path: `${item.name.toLowerCase()}`,
+      name: `${item.name}-${lang}`,
+      components: require(`../../docs/${lang}/${item.name.toLowerCase()}.md`)
+    })
+  }
+  for (const lang of Object.keys(navConfig)) {
+    const pageNav = navConfig[lang]
+    for (const pageName in pageNav) {
+      pageNav[pageName].forEach((nav) => {
+        const parentName = nav.name
+        parentRoutes[`${parentName}-${lang}`] =
+          parentRoutes[`${parentName}-${lang}`] ||
+          addParentRoute(parentName, lang)
+        if (nav.groups) {
+          nav.groups.forEach((group) => {
+            group.items.forEach((item) => {
+              addRoute(parentName, item, lang)
+            })
+          })
+        } else if (nav.items) {
+          nav.items.forEach((item) => {
+            addRoute(parentName, item, lang)
+          })
+        }
+      })
+    }
+  }
+  for (const key in parentRoutes) {
+    if (Reflect.has(parentRoutes, key)) {
+      routes.push(parentRoutes[key])
+    }
+  }
+
+  return routes
+}
+console.log(registeredRoute(NavConfig))
+let routes = registeredRoute(NavConfig)
 const navigatorLang = window.navigator.language.slice(0, 2)
 const userLang = localStorage.getItem('ce-ui-language') || navigatorLang || 'zh'
 const navExtendsConfig = [
   {
     path: '/zh',
-    name: 'Home-zh',
-    meta: {
-      lang: 'zh'
-    },
+    name: 'Home',
     components: require('@pc/views/index.vue')
   },
   {
     path: '/en',
     name: 'Home-en',
-    meta: {
-      lang: 'en'
-    },
-    components: require('@pc/views/index.vue')
+    components: require('@pc/views/index-en.vue')
   },
   {
     path: '/',
-    meta: {
-      lang: 'zh'
-    },
     redirect: {
-      name: 'Home-zh'
+      name: userLang === 'zh' ? 'Home' : `Home-${userLang}`
     }
   },
   {
     path: '*',
-    meta: {
-      lang: 'zh'
-    },
     redirect: {
-      name: 'Home-zh'
+      name: userLang === 'zh' ? 'Home' : `Home-${userLang}`
     }
   }
 ]
-
-Vue.use(Router)
-
-function registeredRoute(navConfig, lang) {
-  const addParentRoute = (parentName, lang) => {
-    const _parentName = parentName === 'components' ? 'docs' : parentName
-    return {
-      path: `/${lang}/${_parentName.toLowerCase()}`,
-      meta: {
-        lang
-      },
-      components: require(`../views/${_parentName.toLowerCase()}.vue`),
-      children: []
-    }
-  }
-  const addRoute = (item, lang) => {
-    return {
-      path: `${item.name.toLowerCase()}`,
-      name: `${item.name}-${lang}`,
-      meta: {
-        lang
-      },
-      components: require(`../../docs/${lang}/${item.name.toLowerCase()}.md`)
-    }
-  }
-  return Object.keys(navConfig[lang]).reduce((item, _routerName) => {
-    const ParentRoute = addParentRoute(_routerName, lang)
-    if (Array.isArray(navConfig[lang][_routerName])) {
-      for (const _item of navConfig[lang][_routerName]) {
-        if (Array.isArray(_item.items)) {
-          for (const _item_ of _item.items) {
-            ParentRoute.children.push(addRoute(_item_, lang))
-          }
-        } else if (Array.isArray(_item.groups)) {
-          for (const _item_ of _item.groups) {
-            if (Array.isArray(_item_.items)) {
-              for (const __item__ of _item_.items) {
-                ParentRoute.children.push(addRoute(__item__, lang))
-              }
-            }
-          }
-        }
+routes = routes.concat(navExtendsConfig)
+/**
+ * 路由注册
+ */
+for (const page of routes) {
+  if (page.path === '/zh/guide') {
+    page.children.push({
+      path: '',
+      name: 'Guide',
+      redirect: {
+        name: page.children[0].name
       }
-    }
-    item.push(ParentRoute)
-    return item
-  }, [])
+    })
+  } else if (page.path === '/en/guide') {
+    page.children.push({
+      path: '',
+      name: 'Guide-en',
+      redirect: {
+        name: page.children[0].name
+      }
+    })
+  } else if (page.path === '/zh/docs') {
+    page.children.push({
+      path: '',
+      name: 'Docs',
+      redirect: {
+        name: page.children[0].name
+      }
+    })
+  } else if (page.path === '/en/docs') {
+    page.children.push({
+      path: '',
+      name: 'Docs-en',
+      redirect: {
+        name: page.children[0].name
+      }
+    })
+  } else if (page.path === '/zh/resource') {
+    page.children.push({
+      path: '',
+      name: 'Resource',
+      redirect: {
+        name: page.children[0].name
+      }
+    })
+  } else if (page.path === '/en/resource') {
+    page.children.push({
+      path: '',
+      name: 'Resource-en',
+      redirect: {
+        name: page.children[0].name
+      }
+    })
+  }
 }
-let routes = registeredRoute(NavConfig, userLang)
-routes = [
-  ...registeredRoute(NavConfig, 'zh'),
-  ...registeredRoute(NavConfig, 'en')
-].concat(navExtendsConfig)
 
-const router = new Router({
+export default new Router({
   mode: 'hash', // hash模式
   base: process.env.BASE_URL,
   routes,
+  linkExactActiveClass: '',
+  // root: process.env.serverConfig.portalPrefix,
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
       return {
         selector: to.hash
       }
     }
+    return { x: 0, y: 0 }
   }
 })
-router.beforeEach((to, from, next) => {
-  console.log('to', to)
-  console.log('from', from)
-  next()
-})
-
-export default router

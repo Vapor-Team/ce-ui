@@ -3,7 +3,7 @@
     <c-header></c-header>
     <div class="ce-container row">
       <c-sidebar :list="nav"></c-sidebar>
-      <div class="ce-markdown col-sm-13 col-md-15 col-lg-18">
+      <div class="ce-markdown col-sm-13 col-md-15 col-lg-17">
         <transition name="fade" mode="out-in" @after-leave="afterLeave">
           <router-view class="view"></router-view>
         </transition>
@@ -33,7 +33,7 @@
     flex-wrap wrap
 
 .ce-markdown
-  padding 32px 20px
+  padding 32px 43px 43px
   width 100%
 
   section
@@ -79,7 +79,7 @@ export default {
   },
   data() {
     return {
-      nav: navConfig.zh.components
+      nav: navConfig.en.components
     }
   },
   methods: {

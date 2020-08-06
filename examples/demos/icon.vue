@@ -24,12 +24,7 @@ export default {
   name: 'ce-icon-demo',
   filters: {
     getIconName(value) {
-      return value
-        ? value
-            .split('-')
-            .splice(2)
-            .join('-')
-        : ''
+      return value ? value.split('-')[2] : ''
     }
   },
   props: {

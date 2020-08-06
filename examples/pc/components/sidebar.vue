@@ -24,7 +24,7 @@
           >
             <a class="ce-nav__group" @click="toggleMenu">
               {{ group.title }}
-              <ce-icon class="ce-nav__arrow" name="back-3"></ce-icon>
+              <i class="icon icon-chevron-down"></i>
             </a>
             <ul class="ce-nav__child-items">
               <li
@@ -66,18 +66,12 @@ export default {
       }
     }
   },
-  watch: {
-    $route: 'setLang'
-  },
-  data() {
-    return {
-      lang: 'zh'
+  computed: {
+    lang() {
+      return this.$route.path.split('/')[1] || 'zh'
     }
   },
   methods: {
-    setLang() {
-      this.lang = this.$route.meta.lang
-    },
     toggleMenu(event) {
       const parentNode = event.target.parentNode
       if (parentNode.classList.contains('active')) {
@@ -229,15 +223,14 @@ export default {
 
 .ce-nav__arrow
   position absolute
-  transition all 0.3s linear
-  top 10px
+  top 18px
   right 12px
   width 16px
   opacity 0.25
-  transform rotateZ(180deg)
+  margin -4px 0 0
 
   .active &
-    transform rotateZ(270deg)
+    transform rotate(180deg)
 
 .at-nsc, .at-nsc:focus, .at-nsc:hover, .at-nsc:active, .at-nsc:visited
   color #fff

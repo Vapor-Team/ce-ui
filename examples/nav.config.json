@@ -1,39 +1,30 @@
 {
   "zh": {
-    "guide": [
-      {
-        "title": "品牌",
-        "name": "Guide",
-        "items": [
-          {
-            "title": "色彩",
-            "name": "Color"
-          },
-          {
-            "title": "字体",
-            "name": "Typography"
-          }
-        ]
-      }
-    ],
-    "resource": [
-      {
-        "title": "资源",
-        "name": "Resource",
-        "items": [
-          {
-            "title": "设计资源",
-            "name": "design"
-          }
-        ]
-      }
-    ],
-    "components": [
-      {
+    "guide": [{
+      "title": "品牌",
+      "name": "Guide",
+      "items": [{
+          "title": "色彩",
+          "name": "Color"
+        },
+        {
+          "title": "字体",
+          "name": "Typography"
+        }
+      ]
+    }],
+    "resource": [{
+      "title": "资源",
+      "name": "Resource",
+      "items": [{
+        "title": "设计资源",
+        "name": "design"
+      }]
+    }],
+    "components": [{
         "title": "综述",
         "name": "Docs",
-        "items": [
-          {
+        "items": [{
             "title": "介绍",
             "name": "Introduction"
           },
@@ -58,11 +49,9 @@
       {
         "title": "组件",
         "name": "Docs",
-        "groups": [
-          {
+        "groups": [{
             "title": "基础组件",
-            "items": [
-              {
+            "items": [{
                 "title": "按钮",
                 "name": "Button"
               },
@@ -82,8 +71,7 @@
           },
           {
             "title": "表单组件",
-            "items": [
-              {
+            "items": [{
                 "title": "多选框",
                 "name": "Checkbox"
               },
@@ -123,8 +111,7 @@
           },
           {
             "title": "视图组件",
-            "items": [
-              {
+            "items": [{
                 "title": "警告提示",
                 "name": "Alert"
               },
@@ -184,8 +171,7 @@
           },
           {
             "title": "导航组件",
-            "items": [
-              {
+            "items": [{
                 "title": "面包屑",
                 "name": "Breadcrumb"
               },
@@ -216,40 +202,31 @@
     ]
   },
   "en": {
-    "guide": [
-      {
-        "title": "Brand",
-        "name": "Guide",
-        "items": [
-          {
-            "title": "Color",
-            "name": "Color"
-          },
-          {
-            "title": "Typography",
-            "name": "Typography"
-          }
-        ]
-      }
-    ],
-    "resource": [
-      {
-        "title": "Resource",
-        "name": "Resource",
-        "items": [
-          {
-            "title": "Design",
-            "name": "design"
-          }
-        ]
-      }
-    ],
-    "components": [
-      {
+    "guide": [{
+      "title": "Brand",
+      "name": "Guide",
+      "items": [{
+          "title": "Color",
+          "name": "Color"
+        },
+        {
+          "title": "Typography",
+          "name": "Typography"
+        }
+      ]
+    }],
+    "resource": [{
+      "title": "Resource",
+      "name": "Resource",
+      "items": [{
+        "title": "Design",
+        "name": "design"
+      }]
+    }],
+    "components": [{
         "title": "Overview",
         "name": "Docs",
-        "items": [
-          {
+        "items": [{
             "title": "Introduction",
             "name": "Introduction"
           },
@@ -274,11 +251,9 @@
       {
         "title": "Components",
         "name": "Docs",
-        "groups": [
-          {
+        "groups": [{
             "title": "Base",
-            "items": [
-              {
+            "items": [{
                 "title": "Button",
                 "name": "Button"
               },
@@ -298,8 +273,7 @@
           },
           {
             "title": "Form",
-            "items": [
-              {
+            "items": [{
                 "title": "Checkbox",
                 "name": "Checkbox"
               },
@@ -339,8 +313,7 @@
           },
           {
             "title": "View",
-            "items": [
-              {
+            "items": [{
                 "title": "Alert",
                 "name": "Alert"
               },
@@ -400,8 +373,7 @@
           },
           {
             "title": "Navigation",
-            "items": [
-              {
+            "items": [{
                 "title": "Breadcrumb",
                 "name": "Breadcrumb"
               },
