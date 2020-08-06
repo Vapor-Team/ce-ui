@@ -2,23 +2,106 @@
 @import '../mixins/mixin'
 
 @b tabs-box
-  width 100%
+  padding 20px
+  display flex
+
+  @when row
+    flex-direction row
+
+  @when col
+    flex-direction column
+
+  @when row-reserve
+    flex-direction row-reverse
+
+  @when col-reserve
+    flex-direction column-reverse
 
   @when border
     border 1px solid $tabs-border-color
 
   @when shadow
-    box-shadow 4px 6px $shadow-color
+    box-shadow 0 0 4px $shadow-color
 
-@b tabs-header
-  width 100%
+  @when radius
+    box-shadow 0 0 4px $shadow-color
+    border-radius 4px
+
+@b tabs-content
+  display block
+  flex 1
+
+@b tab-item-content
+  padding 10px
+
+  @when active
+    color $tabs-nav-item-color-active
+
+@b tab-nav-bar-line
+  display block
+  position absolute
+  background-color #ccc
+  z-index 1
+  border-radius 4px
+
+  @when row
+    bottom 0
+    left 0
+    right 0
+    height 2px
+
+  @when col-left
+    bottom 0
+    top 0
+    right 0
+    width 2px
+
+  @when col-right
+    bottom 0
+    top 0
+    left 0
+    width 2px
+
+@b tabs-nav
+  width auto
   display flex
   justify-content flex-start
   align-items center
-  height $tabs-nav-height
-  min-height $tabs-nav-height-sm
+  position relative
+  min-height $tabs-nav-height
+
+  @when row
+    flex-direction row
+
+  @when col
+    flex-direction column
 
   @m item
     padding $tabs-nav-item-padding
     font-size $tabs-nav-font-size
     background-color $tabs-nav-item-bg-color
+    cursor pointer
+
+    @when active
+      color $tabs-nav-item-color-active
+
+  @m nav-bar
+    position absolute
+    border-radius 2px
+    z-index 2
+    transition transform 0.3s linear
+    background-color $tabs-nav-bar-color-active
+
+    @when row
+      height 2px
+      bottom 0
+
+    @when col-left
+      width 4px
+      height 36px
+      right 0
+
+    @when col-right
+      width 4px
+      height 36px
+      left 0
