@@ -9,6 +9,8 @@ import Clipboard from 'v-clipboard'
 import CeUi from '@lib/index'
 import '@theme/lib/index.css'
 import '@pc/assets/css/index.styl'
+import 'highlight.js/styles/github.css'
+import 'github-markdown-css'
 
 Vue.config.productionTip = false
 Vue.use(Clipboard)

@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import { config } from '@lib/ts-utils/package'
+import { LogType } from '@lib/ts-utils/types'
 /**
  * isServer
  */
@@ -9,21 +11,21 @@ const hasOwnProperty = Object.prototype.hasOwnProperty
  * @param string
  * @param options
  */
-export const nameConvert = (string: string, options: { separator?: string; split?: string }) => {
+const nameConvert = (
+  string: string,
+  options: { separator?: string; split?: string }
+) => {
   options = options || {}
   const separator = options.separator || '_'
   const split = options.split || /(?=[A-Z])/
-  return string
-    .split(split)
-    .join(separator)
-    .toLowerCase()
+  return string.split(split).join(separator).toLowerCase()
 }
 /**
  * 对象中是否含有某些属性
  * @param obj
  * @param key
  */
-export const hasOwn = (obj: any, key: string): boolean => {
+const hasOwn = (obj: any, key: string): boolean => {
   return hasOwnProperty.call(obj, key)
 }
 /**
@@ -31,7 +33,7 @@ export const hasOwn = (obj: any, key: string): boolean => {
  * @param to
  * @param _from
  */
-export const extend = (to: any, _from: any): any => {
+const extend = (to: any, _from: any): any => {
   for (let key in _from) {
     to[key] = _from[key]
   }
@@ -41,7 +43,7 @@ export const extend = (to: any, _from: any): any => {
  * 转换成对象
  * @param arr
  */
-export const toObject = (arr: any[]): any => {
+const toObject = (arr: any[]): any => {
   let res = {}
   for (let i = 0; i < arr.length; i++) {
     if (arr[i]) {
@@ -55,14 +57,14 @@ export const toObject = (arr: any[]): any => {
  * isDef
  * @param value
  */
-export const isDef = (value: any): boolean => {
+const isDef = (value: any): boolean => {
   return value !== undefined && value !== null
 }
 /**
  * 是否是一个对象
  * @param x
  */
-export const isObj = (x: any): boolean => {
+const isObj = (x: any): boolean => {
   const type = typeof x
   return x !== null && (type === 'object' || type === 'function')
 }
@@ -71,7 +73,7 @@ export const isObj = (x: any): boolean => {
  * @param object
  * @param path
  */
-export const get = (object: any, path: string) => {
+const get = (object: any, path: string) => {
   const keys = path.split('.')
   let result = object
   keys.forEach((key) => {
@@ -84,7 +86,7 @@ export const get = (object: any, path: string) => {
  * 驼峰转换
  * @param str
  */
-export const camelize = (str: string): string => {
+const camelize = (str: string): string => {
   return str.replace(/-(\w)/g, (_, c) => {
     return c.toUpperCase()
   })
@@ -92,7 +94,7 @@ export const camelize = (str: string): string => {
 /**
  * 是否是android
  */
-export const isAndroid = (): boolean => {
+const isAndroid = (): boolean => {
   return isServer ? false : /android/.test(navigator.userAgent.toLowerCase())
 }
 /**
@@ -101,7 +103,7 @@ export const isAndroid = (): boolean => {
  * @param min
  * @param max
  */
-export const range = (num: number, min: number, max: number): number => {
+const range = (num: number, min: number, max: number): number => {
   return Math.min(Math.max(num, min), max)
 }
 
@@ -110,7 +112,7 @@ export const range = (num: number, min: number, max: number): number => {
  * @param data
  * @param cb
  */
-export const filterData = (
+const filterData = (
   data: { [key: string]: any },
   cb: (key: string) => boolean
 ): { [key: string]: any } => {
@@ -123,25 +125,56 @@ export const filterData = (
   }, {})
 }
 
-export const stripScript = (content: string): string => {
+const stripScript = (content: string): string => {
   const result = content.match(/<(script)>([\s\S]+)<\/\1>/)
   return result && result[2] ? result[2].trim() : ''
 }
 
-export const stripStyle = (content: string): string => {
+const stripStyle = (content: string): string => {
   const result = content.match(/<(style)\s*>([\s\S]+)<\/\1>/)
   return result && result[2] ? result[2].trim() : ''
 }
 
-export const stripTemplate = (content: string): string => {
+const stripTemplate = (content: string): string => {
   content = content.trim()
   if (!content) {
     return content
   }
   return content.replace(/<(script|style)[\s\S]+<\/\1>/g, '').trim()
 }
+/**
+ * 通用log方法
+ * @param type
+ * @param args
+ */
+const log = (type: LogType = 'log', ...args: any[]) => {
+  const args_ = args
+  if (config.noConsole && type === 'log') return
+  if (config.noWarn && type === 'warn') return
+  console[type](...args_)
+}
+
+export {
+  log,
+  hasOwn,
+  extend,
+  toObject,
+  get,
+  range,
+  isObj,
+  isDef,
+  isServer,
+  camelize,
+  nameConvert,
+  isAndroid,
+  stripStyle,
+  filterData,
+  stripScript,
+  stripTemplate
+}
 
 export default {
+  log,
   hasOwn,
   extend,
   toObject,
