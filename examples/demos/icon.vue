@@ -1,56 +1,92 @@
 <template>
-  <ul class="icon-list">
-    <li
-      v-for="(item, key) in icons"
-      :key="key"
-      @mouseenter="onMouseenter(key)"
-      @mouseleave="onMouseleave(key)"
+  <div class="icon-box">
+    <ce-tab
+      @tab-nav-click="onTabNavClick"
+      @tab-nav-enter="onMouseenter1"
+      @tab-nav-leave="onMouseleave1"
+      v-model="currentName"
     >
-      <div class="demo-icon-wrap">
-        <ce-icon
-          class="icon"
-          :name="item.name | getIconName"
-          :size="item.size"
-        ></ce-icon>
-        <span class="name">{{ item.name | getIconName }}</span>
-      </div>
-    </li>
-  </ul>
+      <ce-tab-item v-for="(item, key) in icons" :key="key" :label="item.name">
+        <!-- label -->
+        <!-- <div slot="label">
+          <ce-icon :name="'logo'" :size="36"></ce-icon>
+          <span> {{ item.name }}</span>
+        </div> -->
+        <!-- 内容 -->
+        <template>
+          <ul :class="{ 'icon-list': true }">
+            <li
+              v-for="(_, _key) in item.list"
+              :key="_key"
+              @click.stop="copy(_.name)"
+              @mouseenter="onMouseenter(key, _key)"
+              @mouseleave="onMouseleave(key, _key)"
+            >
+              <div class="demo-icon-wrap">
+                <ce-icon class="icon" :name="_.name" :size="_.size"></ce-icon>
+                <span class="name" v-tips="_.name">{{ _.name }}</span>
+              </div>
+            </li>
+          </ul>
+        </template>
+      </ce-tab-item>
+    </ce-tab>
+  </div>
 </template>
 
 <script>
 import iconList from '@examples/icon.json'
 export default {
   name: 'ce-icon-demo',
-  filters: {
-    getIconName(value) {
-      return value
-        ? value
-            .split('-')
-            .splice(2)
-            .join('-')
-        : ''
-    }
-  },
   props: {
     icons: {
-      type: Array,
+      type: Object,
       default: () => {
-        return iconList.map((e) => {
-          return {
-            name: e,
-            size: 32
+        return Object.keys(iconList).reduce((item, key, index) => {
+          item[key] = {
+            name: key,
+            active: index === 0,
+            list: iconList[key].map((e) => {
+              return {
+                name: e,
+                size: 32
+              }
+            })
           }
-        })
+          return item
+        }, {})
       }
     }
   },
+  data() {
+    return {
+      currentName: 0
+    }
+  },
+  watch: {
+    currentName() {
+      console.log(this.currentName)
+    }
+  },
   methods: {
-    onMouseenter(key) {
-      this.icons[key].size = 64
+    copy(value) {
+      this.$clipboard(value)
     },
-    onMouseleave(key) {
-      this.icons[key].size = 32
+    onMouseenter1(key) {
+      // console.log(key)
+    },
+    onMouseleave1(key) {
+      // console.log(key)
+    },
+    onMouseenter(key, index) {
+      this.icons[key].list[index].size = 64
+    },
+    onMouseleave(key, index) {
+      this.icons[key].list[index].size = 32
+    },
+    onTabNavClick(e) {
+      console.log('调用组件', e)
+      console.log('调用组件1', this.currentName)
     }
   }
 }
@@ -88,13 +124,19 @@ export default {
     color #626673
 
     .icon
-      transition font-size 0.3s linear
+      transition font-size 0.2s linear
 
     .big
       font-size 64px
 
     .name
       font-size 14px
+      text-overflow ellipsis
+      white-space nowrap
+      overflow hidden
+      width 80px
+      overflow hidden
+      display inline-block
 
   .ce-icon
     display block
