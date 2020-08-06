@@ -38,14 +38,10 @@ module.exports = {
     {
       files: [
         '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)',
-        '**/examples/**/*.{vue,js}'
+        '**/tests/unit/**/*.spec.{j,t}s?(x)'
       ],
       env: {
         jest: true
-      },
-      rules: {
-        '@typescript-eslint/explicit-module-boundary-types': 'off'
       }
     }
   ]
