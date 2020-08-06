@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
 const { wrapCustomClass, resolve } = require('./build/utils')
 const { mdLoaderConfig } = require('./build/md-loader')
 const isProduction = process.env.NODE_ENV === 'production'
