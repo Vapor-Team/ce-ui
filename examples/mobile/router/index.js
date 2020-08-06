@@ -6,26 +6,26 @@ Vue.use(Router)
 
 let routes = []
 
-Object.keys(navConf).forEach((header) => {
+Object.keys(navConf).forEach(header => {
   routes = routes.concat(navConf[header])
 })
 
-const addComponent = (router) => {
-  router.forEach((route) => {
+let addComponent = router => {
+  router.forEach(route => {
     if (route.items) {
       addComponent(route.items)
       routes = routes.concat(route.items)
     } else {
       if (route.isMobile === '1') {
         if (route.type === 'pages') {
-          route.component = (r) => {
+          route.component = r => {
             return require.ensure([], () => {
               return r(require(`../pages/${route.name}.vue`))
             })
           }
           return
         }
-        route.component = (r) => {
+        route.component = r => {
           return require.ensure([], () => {
             return r(require(`../../demos/${route.name}.vue`))
           })
@@ -35,7 +35,7 @@ const addComponent = (router) => {
   })
 }
 addComponent(routes)
-const availableRoutes = routes.filter((item) => {
+let availableRoutes = routes.filter(item => {
   return item.path
 })
 export default new Router({

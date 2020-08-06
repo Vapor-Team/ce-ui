@@ -1,11 +1,12 @@
 <template>
   <div id="mobile">
-    <div class="demo-nav" v-show="showNav">
+    <div
+      class="demo-nav"
+      v-show="showNav"
+    >
       <router-link to="/index">返回首页</router-link>
     </div>
-    <router-view
-      :class="{ 'demo-view': true, 'is-inner': showNav }"
-    ></router-view>
+    <router-view :class="{'demo-view':true,'is-inner':showNav}"></router-view>
   </div>
 </template>
 

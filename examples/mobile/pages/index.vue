@@ -5,9 +5,18 @@
         <p class="mobile-demo-menu__title__main">CeUi</p>
         <p class="mobile-demo-menu__title__meta">移动端预览</p>
       </div>
-      <div v-for="title in Object.keys(navConf)" :key="title">
-        <div class="group-container" v-if="title !== '开发指南'">
-          <p class="side-nav-title" v-if="title !== '组件'">{{ title }}</p>
+      <div
+        v-for="title in (Object.keys(navConf))"
+        :key="title"
+      >
+        <div
+          class="group-container"
+          v-if="title !== '开发指南'"
+        >
+          <p
+            class="side-nav-title"
+            v-if="title !== '组件'"
+          >{{title}}</p>
           <div
             class="side-nav-items"
             v-for="nav in navConf[title]"
@@ -17,21 +26,23 @@
               <router-link
                 :class="$route.name === nav.name ? 'active' : ''"
                 v-if="nav.name"
-                :to="{ name: nav.name }"
-                >{{ nav.desc }}</router-link
-              >
-              <p v-else class="side-nav-group">{{ nav.desc }}</p>
+                :to="{name: nav.name}"
+              >{{nav.desc}}</router-link>
+              <p
+                v-else
+                class="side-nav-group"
+              >{{nav.desc}}</p>
               <div
                 v-for="item in nav.items"
                 :key="item.name"
                 class="side-nav-component-wrap"
               >
                 <router-link
-                  :to="{ name: item.name }"
+                  :to="{name: item.name}"
                   :class="$route.name === item.name ? 'active' : ''"
                   class="side-nav-component"
                 >
-                  <span class="en-name">{{ item.desc }}</span>
+                  <span class="en-name">{{item.desc}}</span>
                 </router-link>
               </div>
             </template>

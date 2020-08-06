@@ -1,34 +1,42 @@
 <template>
   <div class="ce-sidebar col-sm-24 col-md-6 col-lg-4">
     <nav class="ce-nav">
-      <template v-for="(item, index) in list">
-        <h2 :key="index + 10" class="ce-nav__title">{{ item.title }}</h2>
-        <ul :key="index" class="ce-nav__items">
+      <template v-for="(item,index) in list">
+        <h2
+          :key="index+10"
+          class="ce-nav__title"
+        >{{ item.title }}</h2>
+        <ul
+          :key="index"
+          class="ce-nav__items"
+        >
           <template v-if="item.items">
             <li
-              v-for="(navItem, key) in item.items"
+              v-for="(navItem,key) in item.items"
               :key="key"
               class="ce-nav__item"
             >
               <router-link
                 class="ce-nav__page"
                 :to="navItem.name.toLowerCase()"
-                >{{ navItem.title }}</router-link
-              >
+              >{{ navItem.title }}</router-link>
             </li>
           </template>
           <li
-            v-for="(group, groupKey) in item.groups"
+            v-for="(group,groupKey) in item.groups"
             :key="groupKey"
             class="ce-nav__item active"
           >
-            <a class="ce-nav__group" @click="toggleMenu">
+            <a
+              class="ce-nav__group"
+              @click="toggleMenu"
+            >
               {{ group.title }}
               <i class="icon icon-chevron-down"></i>
             </a>
             <ul class="ce-nav__child-items">
               <li
-                v-for="(navItem, navItemKey) in group.items"
+                v-for="(navItem,navItemKey) in group.items"
                 :key="navItemKey"
                 class="ce-nav__child-item"
               >
@@ -44,8 +52,7 @@
                   v-else
                   class="ce-nav__component"
                   :to="navItem.name.toLowerCase()"
-                  >{{ navItem.title }}</router-link
-                >
+                >{{ navItem.title }}</router-link>
               </li>
             </ul>
           </li>

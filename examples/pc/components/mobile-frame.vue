@@ -1,12 +1,18 @@
 <template>
   <div class="docs-simulator">
     <div class="nav">
-      <div class="url" @click="openMobileWindow">{{ baseOrigin }}</div>
-      <div class="refresh" @click="refreshIFrame"></div>
+      <div
+        class="url"
+        @click="openMobileWindow"
+      >{{baseOrigin}}</div>
+      <div
+        class="refresh"
+        @click="refreshIFrame"
+      ></div>
     </div>
     <div class="iframe-wrap">
       <iframe
-        :src="baseUrl + 'mobile.html#/index'"
+        :src="baseUrl+'mobile.html#/index'"
         id="mobileIframe"
         frameborder="0"
       ></iframe>
@@ -15,7 +21,7 @@
       name="delete"
       class="docs-simulator__close"
       :size="32"
-      @click="$emit('update:show', false)"
+      @click="$emit('update:show',false)"
     ></ce-icon>
   </div>
 </template>

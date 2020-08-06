@@ -1,14 +1,23 @@
 <template>
   <div class="demo-block">
-    <div class="code-demo" v-if="$slots.demoContent">
+    <div
+      class="code-demo"
+      v-if="$slots.demoContent"
+    >
       <slot name="demoContent"></slot>
     </div>
     <div class="docs-code-wrapper">
       <!-- TODO: 组件 demo 待优化 -->
       <div class="code-container">
         <transition name="fade">
-          <div v-show="isExpand" class="docs-code">
-            <div class="description" v-show="$slots.description">
+          <div
+            v-show="isExpand"
+            class="docs-code"
+          >
+            <div
+              class="description"
+              v-show="$slots.description"
+            >
               <slot name="description"></slot>
             </div>
             <div class="highlight-wrapper">
@@ -25,10 +34,16 @@
       >
         <div class="btn-box">
           <transition name="arrow-text">
-            <ce-icon name="code" :size="16"></ce-icon>
+            <ce-icon
+              name="code"
+              :size="16"
+            ></ce-icon>
           </transition>
           <transition name="arrow-text">
-            <span v-show="showBtn" class="btn-text">{{ btnText }}</span>
+            <span
+              v-show="showBtn"
+              class="btn-text"
+            >{{ btnText }}</span>
           </transition>
         </div>
         <transition name="fade">
@@ -92,7 +107,7 @@ export default {
       const highlight = this.$slots.highlight
       if (highlight && highlight[0]) {
         let code = ''
-        const cur = highlight[0]
+        let cur = highlight[0]
         if (cur.elm && cur.elm.innerText) {
           code = cur.elm.innerText
         }
@@ -104,10 +119,10 @@ export default {
       }
       // since 2.6.2 use code rather than jsfiddle https://blog.codepen.io/documentation/api/prefill/
       const { script, html, style } = this.codepen
-      const resourcesTpl = `<script src="//unpkg.com/vue/dist/vue.js"><${'/'}script>\n<script src="//unpkg.com/ce-ui@${version}/lib/index.js"><${'/'}script>`
+      const resourcesTpl = `<script src="//unpkg.com/vue/dist/vue.js"><\/script>\n<script src="//unpkg.com/ce-ui@${version}/lib/index.js"><\/script>`
       let jsTpl = (script || '').replace(/export default/, 'var Main =').trim()
-      const htmlTpl = `${resourcesTpl}\n<div id="app">\n${html.trim()}\n</div>`
-      const cssTpl = `@import url("//unpkg.com/ce-ui@${version}/lib/theme-chalk/index.css");\n${(
+      let htmlTpl = `${resourcesTpl}\n<div id="app">\n${html.trim()}\n</div>`
+      let cssTpl = `@import url("//unpkg.com/ce-ui@${version}/lib/theme-chalk/index.css");\n${(
         style || ''
       ).trim()}\n`
       jsTpl = jsTpl
@@ -118,8 +133,7 @@ export default {
         css: cssTpl,
         html: htmlTpl
       }
-      const form =
-        document.getElementById('fiddle-form') || document.createElement('form')
+      const form = document.getElementById('fiddle-form') || document.createElement('form')
       while (form.firstChild) {
         form.removeChild(form.firstChild)
       }

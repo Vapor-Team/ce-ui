@@ -102,7 +102,7 @@ $baseWidth = 4.166667%
   padding-left $half-gutter-width
   padding-right $half-gutter-width
 
-for $i in 1 .. 24
+for $i in (1 .. 24)
   .col-{$i}, .col-offset-{$i}
     flex 0 0 auto
     padding-left $half-gutter-width
@@ -114,13 +114,13 @@ for $i in 1 .. 24
 
 .col
   flex-grow 1
-  flex-basis 0%
+  flex-basis 0
   max-width 100%
 
 .col-offset-0
   margin-left 0
 
-for $i in 1 .. 24
+for $i in (1 .. 24)
   .col-{$i}
     flex-basis $baseWidth * $i
     max-width $baseWidth * $i
@@ -130,13 +130,13 @@ for $i in 1 .. 24
     margin-left $baseWidth * $i
 
 /* screen xs */
-@media screen and (max-width $screen-sm-max)
+@media screen and (max-width: $screen-sm-max)
   .col-xs, .col-xs-offset-0
     flex 0 0 auto
     padding-left $half-gutter-width
     padding-right $half-gutter-width
 
-  for $i in 1 .. 24
+  for $i in (1 .. 24)
     .col-xs-{$i}, .col-xs-offset-{$i}
       flex 0 0 auto
       padding-left $half-gutter-width
@@ -148,13 +148,13 @@ for $i in 1 .. 24
 
   .col-xs
     flex-grow 1
-    flex-basis 0%
+    flex-basis 0
     max-width 100%
 
   .col-xs-offset-0
     margin-left 0
 
-  for $i in 1 .. 24
+  for $i in (1 .. 24)
     .col-xs-{$i}
       flex-basis $baseWidth * $i
       max-width $baseWidth * $i
@@ -164,7 +164,7 @@ for $i in 1 .. 24
       margin-left $baseWidth * $i
 
 /* screen sm */
-@media screen and (min-width $screen-sm-min)
+@media screen and (min-width: $screen-sm-min)
   .container
     width $container-sm
 
@@ -173,7 +173,7 @@ for $i in 1 .. 24
     padding-left $half-gutter-width
     padding-right $half-gutter-width
 
-  for $i in 1 .. 24
+  for $i in (1 .. 24)
     .col-sm-{$i}, .col-sm-offset-{$i}
       flex 0 0 auto
       padding-left $half-gutter-width
@@ -185,13 +185,13 @@ for $i in 1 .. 24
 
   .col-sm
     flex-grow 1
-    flex-basis 0%
+    flex-basis 0
     max-width 100%
 
   .col-sm-offset-0
     margin-left 0
 
-  for $i in 1 .. 24
+  for $i in (1 .. 24)
     .col-sm-{$i}
       flex-basis $baseWidth * $i
       max-width $baseWidth * $i
@@ -200,7 +200,7 @@ for $i in 1 .. 24
       margin-left $baseWidth * $i
 
 /* screen md */
-@media screen and (min-width $screen-md-min)
+@media screen and (min-width: $screen-md-min)
   .container
     width $container-md
 
@@ -209,7 +209,7 @@ for $i in 1 .. 24
     padding-left $half-gutter-width
     padding-right $half-gutter-width
 
-  for $i in 1 .. 24
+  for $i in (1 .. 24)
     .col-md-{$i}, .col-md-offset-{$i}
       flex 0 0 auto
       padding-left $half-gutter-width
@@ -221,13 +221,13 @@ for $i in 1 .. 24
 
   .col-md
     flex-grow 1
-    flex-basis 0%
+    flex-basis 0
     max-width 100%
 
   .col-md-offset-0
     margin-left 0
 
-  for $i in 1 .. 24
+  for $i in (1 .. 24)
     .col-md-{$i}
       flex-basis $baseWidth * $i
       max-width $baseWidth * $i
@@ -237,7 +237,7 @@ for $i in 1 .. 24
       margin-left $baseWidth * $i
 
 /* Screen lg */
-@media screen and (min-width $screen-lg-min)
+@media screen and (min-width: $screen-lg-min)
   .container
     width $container-lg
 
@@ -246,7 +246,7 @@ for $i in 1 .. 24
     padding-left $half-gutter-width
     padding-right $half-gutter-width
 
-  for $i in 1 .. 24
+  for $i in (1 .. 24)
     .col-lg-{$i}, .col-lg-offset-{$i}
       flex 0 0 auto
       padding-left $half-gutter-width
@@ -258,10 +258,10 @@ for $i in 1 .. 24
 
   .col-lg
     flex-grow 1
-    flex-basis 0%
+    flex-basis 0
     max-width 100%
 
-  for $i in 1 .. 24
+  for $i in (1 .. 24)
     .col-lg-{$i}
       flex-basis $baseWidth * $i
       max-width $baseWidth * $i

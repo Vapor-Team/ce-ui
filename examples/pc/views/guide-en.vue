@@ -4,7 +4,11 @@
     <div class="ce-container row">
       <c-sidebar :list="nav"></c-sidebar>
       <div class="ce-markdown col-sm-13 col-md-15 col-lg-17">
-        <transition name="fade" mode="out-in" @after-leave="afterLeave">
+        <transition
+          name="fade"
+          mode="out-in"
+          @after-leave="afterLeave"
+        >
           <router-view class="view"></router-view>
         </transition>
       </div>
