@@ -1,10 +1,10 @@
 <p algin="center">
-  <a href="https://travis-ci.org/ElemeFE/element">
+	<a href="https://travis-ci.org/ElemeFE/element">
     <img src="https://travis-ci.org/ElemeFE/element.svg?branch=master">
   </a>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-yellow.svg">
-  </a>
+	<a href="LICENSE">
+		<img src="https://img.shields.io/badge/License-MIT-yellow.svg">
+	</a>
 </p>
 
 # 开发指南
@@ -14,7 +14,6 @@
 ```bash
 npm run init           // 初始化开发环境
 npm run start          // 开启本地项目服务
-npm run iconfont       // 开启本地iconfont样式服务
 npm run style          // 开启本地样式服务
 npm run lint           // eslint检测
 npm run lib            // 构建库
@@ -23,7 +22,6 @@ npm run commit         // 提交commit
 npm run build:docs     // 构建文档页面
 npm run build:entry    // 构建文件
 npm run build:lib      // 构建库
-npm run build:iconfont // 构建iconfont样式库
 npm run build:style    // 构建样式库
 npm run publish:docs   // 发布文档页面
 npm run release        // 发布到线上
@@ -134,9 +132,9 @@ tree ./ -L 8 -I '*svn|*node_module*' -d
       "semi": false, // 句尾是否加;
       "singleQuote": true, // 使用单引号而不是双引号
       "arrowParens": "avoid" // allow paren-less arrow functions 箭头函数的参数使用圆括号
-    }
-  },
-  "editor.codeActionsOnSave": [
+		}
+	},
+	"editor.codeActionsOnSave": [
     "source.organizeImports",
     "source.fixAll.eslint",
     "source.fixAll"
@@ -151,7 +149,7 @@ tree ./ -L 8 -I '*svn|*node_module*' -d
     "other": true,
     "comments": true
   },
-  "[vue]": {
+	"[vue]": {
     "editor.defaultFormatter": "octref.vetur",
     "editor.codeActionsOnSave": [
       "source.organizeImports",
@@ -162,11 +160,11 @@ tree ./ -L 8 -I '*svn|*node_module*' -d
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.codeActionsOnSave": ["source.fixAll"]
   },
-  "stylusSupremacy.insertColons": false, // 是否插入冒号
-  "stylusSupremacy.insertSemicolons": false, // 是否插入分好
-  "stylusSupremacy.insertBraces": false, // 是否插入大括号
-  "stylusSupremacy.insertNewLineAroundImports": true, // import之后是否换行
-  "stylusSupremacy.insertNewLineAroundBlocks": true, // 两个选择器中是否换行
+	"stylusSupremacy.insertColons": false, // 是否插入冒号
+	"stylusSupremacy.insertSemicolons": false, // 是否插入分好
+	"stylusSupremacy.insertBraces": false, // 是否插入大括号
+	"stylusSupremacy.insertNewLineAroundImports": true, // import之后是否换行
+	"stylusSupremacy.insertNewLineAroundBlocks": true, // 两个选择器中是否换行
 ```
 
 ## LICENSE
