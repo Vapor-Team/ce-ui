@@ -28,8 +28,8 @@
 			<li
 				v-for="(item,key) in icons"
 				:key="key"
-				@enter="onMouseenter(key)"
-				@leave="onMouseleave(key)"
+				@mouseenter="onMouseenter(key)"
+				@mouseleave="onMouseleave(key)"
 			>
 				<div class="demo-icon-wrap">
 					<ce-icon :name="item.name.substring(8)" :size="item.size"></ce-icon>
@@ -163,5 +163,5 @@ export default {
 | 事件名称   | 说明         | 回调参数       |
 | ---------- | ------------ | -------------- |
 | click      | 点击事件     | (event: Event) |
-| enter | 鼠标进入事件 | (event: Event) |
-| leave | 鼠标离开事件 | (event: Event) |
+| mouseenter | 鼠标进入事件 | (event: Event) |
+| mouseleave | 鼠标离开事件 | (event: Event) |

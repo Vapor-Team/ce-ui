@@ -4,11 +4,7 @@
       v-if="$slots.content || message"
       slot="body"
     >{{ message }}</span>
-    <slot
-      v-if="$slots.content && !message"
-      name="content"
-      slot="body"
-    ></slot>
+    <slot name="content"></slot>
   </ce-base-card>
 </template>
 <script lang="ts">
