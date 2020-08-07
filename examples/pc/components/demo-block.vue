@@ -25,7 +25,7 @@
       >
         <div class="btn-box">
           <transition name="arrow-text">
-            <ce-icon name="code-slash-sharp" :size="16"></ce-icon>
+            <ce-icon name="code-slash" type="sharp" :size="16"></ce-icon>
           </transition>
           <transition name="arrow-text">
             <span v-show="showBtn" class="btn-text">{{ btnText }}</span>
@@ -35,7 +35,8 @@
           <ce-icon
             v-show="isExpand"
             class="codepen"
-            name="cube-sharp"
+            name="cube"
+            type="sharp"
             :size="16"
             @click="goCodepen"
             v-tips="codepenText"

@@ -1,3 +1,4 @@
 {
-  "demo": ["QQ", "wxchat", "weibo", "logo"]
+  "filled": ["QQ", "wechat", "weibo"],
+  "logo": ["ce-ui"]
 }
