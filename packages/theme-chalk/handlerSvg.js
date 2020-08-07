@@ -2,7 +2,7 @@
  * @Author: Mark
  * @Date: 2020-07-12 21:16:49
  * @LastEditors: Mark
- * @LastEditTime: 2020-07-13 01:54:22
+ * @LastEditTime: 2020-08-07 13:19:18
  * @Description: 分组svg
  */
 
@@ -21,15 +21,17 @@ function getSvg() {
   dirs
     .filter((item) => item !== '.DS_Store')
     .forEach((key) => {
-      fs.readdirSync(path.resolve(__dirname, './src/svg/' + key)).forEach(
-        (item) => {
-          if (key === 'filled' && item.includes('logo')) {
-            data.logo.push(item.replace(/\.svg/, ''))
-          } else {
+      fs.readdirSync(path.resolve(__dirname, './src/svg/' + key))
+        .filter((item) => item !== '.DS_Store')
+        .forEach((item) => {
+          if (key === 'filled') {
             data[key].push(item.replace(/\.svg/, ''))
+          } else if (key === 'logo') {
+            data[key].push(item.match(/(?<=logo-).*?(?=.svg)/)[0])
+          } else {
+            data[key].push(item.replace(new RegExp(`-${key}.svg`), ''))
           }
-        }
-      )
+        })
     })
   fs.writeFileSync(__dirname + '/icon.json', JSON.stringify(data))
   // 分组函数

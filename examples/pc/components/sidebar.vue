@@ -24,7 +24,11 @@
           >
             <a class="ce-nav__group" @click="toggleMenu">
               {{ group.title }}
-              <ce-icon class="ce-nav__arrow" name="back-3"></ce-icon>
+              <ce-icon
+                class="ce-nav__arrow"
+                name="chevron-up"
+                type="outline"
+              ></ce-icon>
             </a>
             <ul class="ce-nav__child-items">
               <li
@@ -234,10 +238,10 @@ export default {
   right 12px
   width 16px
   opacity 0.25
-  transform rotateZ(180deg)
+  transform rotateZ(90deg)
 
   .active &
-    transform rotateZ(270deg)
+    transform rotateZ(180deg)
 
 .at-nsc, .at-nsc:focus, .at-nsc:hover, .at-nsc:active, .at-nsc:visited
   color #fff

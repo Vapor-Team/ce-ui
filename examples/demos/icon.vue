@@ -23,7 +23,12 @@
               @mouseleave="onMouseleave(key, _key)"
             >
               <div class="demo-icon-wrap">
-                <ce-icon class="icon" :name="_.name" :size="_.size"></ce-icon>
+                <ce-icon
+                  class="icon"
+                  :name="_.name"
+                  :type="_.type"
+                  :size="_.size"
+                ></ce-icon>
                 <span class="name" v-tips="_.name">{{ _.name }}</span>
               </div>
             </li>
@@ -49,6 +54,7 @@ export default {
             list: iconList[key].map((e) => {
               return {
                 name: e,
+                type: key,
                 size: 32
               }
             })
@@ -100,7 +106,7 @@ export default {
 
   & li
     float left
-    width 16.66%
+    width 116px
     text-align center
     height 120px
     line-height 120px !important
