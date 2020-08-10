@@ -66,7 +66,7 @@
   width auto
   display flex
   justify-content flex-start
-  align-items center
+  align-items flex-start
   position relative
   min-height $tabs-nav-height
 
@@ -75,6 +75,12 @@
 
   @when col
     flex-direction column
+
+  @when col-left
+    align-items flex-end
+
+  @when col-right
+    align-items flex-start
 
   @m item
     padding $tabs-nav-item-padding
@@ -100,8 +106,10 @@
       width 4px
       height 36px
       right 0
+      transform translateX(1px)
 
     @when col-right
       width 4px
       height 36px
       left 0
+      transform translateX(-1px)
