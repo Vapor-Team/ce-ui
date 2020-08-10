@@ -30,6 +30,13 @@ npm run release        // 发布到线上
 npm run changelog      // 规范commit 提交信息，并自动生成 changelog.md文件，该命令需要全局安装conventional-changelog-cli
 ```
 
+## 将npm包管理修改为yarn包管理
+
+```bash
+yarn 或 yarn install // 安装项目依赖
+yarn add package // 安装项目包
+```
+
 ## 项目结构
 
 - 生成项目结构

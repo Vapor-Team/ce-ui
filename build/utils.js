@@ -1,4 +1,13 @@
 const path = require('path')
+
+const getEnvType = () => {
+  const type = process.env.VUE_APP_BUILD_TYPE
+  return {
+    isDocs: type === 'doc',
+    isLib: type === 'lib',
+    isProduction: process.env.NODE_ENV === 'production'
+  }
+}
 /**
  * 增加 Highlight hljs 的 classname
  */
@@ -45,6 +54,7 @@ const handlerArr = function (data, callback, newEle = null) {
 
 module.exports = {
   resolve,
+  getEnvType,
   handlerArr,
   convertHtml,
   wrapCustomClass

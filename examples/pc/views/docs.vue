@@ -56,7 +56,7 @@
 .fade-enter, .fade-leave-active
   opacity 0
 
-@media screen and (max-width: 768px)
+@media screen and (max-width 768px)
   .wrapper
     .row
       flex-direction row
@@ -65,16 +65,13 @@
 </style>
 
 <script>
-import CHeader from '../components/header'
-import CFooter from '../components/footer'
-import CSidebar from '../components/sidebar'
 import navConfig from '@examples/nav.config.json'
 
 export default {
   components: {
-    CSidebar,
-    CHeader,
-    CFooter
+    CSidebar: () => import('../components/sidebar.vue'),
+    CHeader: () => import('../components/header.vue'),
+    CFooter: () => import('../components/footer.vue')
   },
   data() {
     return {

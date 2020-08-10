@@ -7,7 +7,7 @@ module.exports = {
     const dirs = fs.readdirSync(
       path.resolve(__dirname, '../packages/components/')
     )
-    return dirs.filter(dirName => {
+    return dirs.filter((dirName) => {
       return !excludes.includes(dirName)
     })
   },
@@ -15,7 +15,7 @@ module.exports = {
     const dirs = fs.readdirSync(
       path.resolve(__dirname, '../packages/directives/')
     )
-    return dirs.filter(dirName => {
+    return dirs.filter((dirName) => {
       return !excludes.includes(dirName)
     })
   }

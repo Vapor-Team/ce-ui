@@ -4,31 +4,31 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import i18n from './i18n'
-import demoBlock from './components/demo-block'
 import Clipboard from 'v-clipboard'
 import CeUi from '@lib/index'
 import '@theme/lib/index.css'
 import '@pc/assets/css/index.styl'
 import 'highlight.js/styles/github.css'
 import 'github-markdown-css'
-
 Vue.config.productionTip = false
 Vue.use(Clipboard)
 Vue.use(CeUi)
 
-function importDemos(r) {
+function importDemos(component) {
   // 在遍历的时候多注册一个 demoBlock组件
   return [
-    demoBlock,
-    ...r.keys().map((key) => {
-      return r(key).default
+    import('./components/demo-block.vue'),
+    ...component.keys().map((key) => {
+      return component(key)
     })
   ]
 }
-
-importDemos(require.context('@examples/demos', true, /\.vue$/)).map(
-  (component) => {
-    return Vue.component(component.name, component)
+importDemos(require.context('@examples/demos', true, /\.vue$/, 'lazy')).forEach(
+  (_) => {
+    _.then((component) => {
+      const component_ = component.default
+      Vue.component(component_.name, component_)
+    })
   }
 )
 

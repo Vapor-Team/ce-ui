@@ -150,6 +150,14 @@ const compile = {
    */
   copyFontJS() {
     return gulp.src('./src/components/icon/*.js').pipe(gulp.dest('./lib/icon'))
+  },
+  /**
+   * 处理fontJS
+   */
+  copyFontJSToStatic() {
+    return gulp
+      .src('./src/components/icon/*.js')
+      .pipe(gulp.dest('../../public/js/icon'))
   }
 }
 
@@ -185,7 +193,8 @@ exports.build = gulp.parallel(
   // compileCssToPx, // 构建 px_css
   compile.cssToRelease,
   compile.copyFont,
-  compile.copyFontJS
+  compile.copyFontJS,
+  compile.copyFontJSToStatic
 )
 
 exports.default = gulp.series(

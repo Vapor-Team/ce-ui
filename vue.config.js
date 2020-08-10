@@ -1,6 +1,7 @@
 const { wrapCustomClass, resolve } = require('./build/utils')
 const { mdLoaderConfig } = require('./build/md-loader')
-const isProduction = process.env.NODE_ENV === 'production'
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const { isDocs, isProduction } = require('./build/utils').getEnvType()
 // cdn链接
 const cdn = {
   // cdn：模块名称和模块作用域命名（对应window里面挂载的变量名称）
@@ -64,36 +65,46 @@ module.exports = {
     index: {
       entry: 'examples/pc/main.js',
       template: 'public/index.html',
-      filename: 'index.html',
-      chunks: ['chunk-vendors', 'chunk-common', 'index']
+      filename: 'index.html'
     }
   },
   // 扩展 webpack 配置，使 packages 加入编译
   chainWebpack: (config) => {
     /**
-     * 因为是多页面所以设置时，为html-页面命名
+     * 设置别名
      */
-    config.plugin('html-index').tap((args) => {
-      // 生产环境或本地需要cdn时，才注入cdn
-      if (isProduction) args[0].cdn = cdn
-      return args
-    })
-
     config.resolve.alias
       .set('@examples', resolve('examples'))
       .set('@lib', resolve('packages'))
       .set('@theme', resolve('packages/theme-chalk'))
       .set('@pc', resolve('examples/pc'))
       .set('@mobile', resolve('examples/mobile'))
-    config.module
-      .rule('md')
-      .test(/\.md/)
-      .use('vue-loader')
-      .loader('vue-loader')
-      .end()
-      .use('vue-markdown-loader')
-      .loader('vue-markdown-loader/lib/markdown-compiler')
-      .options(vueMarkdown)
+
+    if (isDocs) {
+      /**
+       * 因为是多页面所以设置时，为html-页面命名
+       */
+      config.plugin('html-index').tap((args) => {
+        // 生产环境或本地需要cdn时，才注入cdn
+        if (isProduction) args[0].cdn = cdn
+        return args
+      })
+      /**
+       * 设置md文档解析
+       */
+      config.module
+        .rule('md')
+        .test(/\.md/)
+        .use('vue-loader')
+        .loader('vue-loader')
+        .end()
+        .use('vue-markdown-loader')
+        .loader('vue-markdown-loader/lib/markdown-compiler')
+        .options(vueMarkdown)
+    }
+    /**
+     * 压缩配置
+     */
     config.optimization.minimizer('terser').tap((args) => {
       args[0].terserOptions.compress.drop_console = true
       args[0].terserOptions.cache = true
@@ -104,10 +115,60 @@ module.exports = {
   },
   configureWebpack: (config) => {
     config.resolve.extensions = ['.ts', '.js', '.vue', '.styl', '.json', '.css']
+
     // 用cdn方式引入，则构建时要忽略相关资源
-    if (isProduction) config.externals = cdn.externals
+    // TODO: 需判断是库还是文档
+    if (isProduction && isDocs) {
+      config.externals = cdn.externals
+      // 开启gizp
+      config.plugins.push(
+        new CompressionWebpackPlugin({
+          filename: '[path].gz[query]',
+          algorithm: 'gzip',
+          test: /\.js$|\.html$|\.json$|\.css/,
+          threshold: 1024,
+          minRatio: 0.8,
+          deleteOriginalAssets: false
+        })
+      )
+      // 开启分离js
+      config.optimization = {
+        splitChunks: {
+          chunks: 'all',
+          maxInitialRequests: Infinity,
+          minSize: 20000,
+          cacheGroups: {
+            vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name(module) {
+                // get the name. E.g. node_modules/packageName/not/this/part.js
+                // or node_modules/packageName
+                const packageName = module.context.match(
+                  /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+                )[1]
+                // npm package names are URL-safe, but some servers don't like @ symbols
+                return `npm.${packageName.replace('@', '')}`
+              }
+            }
+          }
+        }
+      }
+      // 取消webpack警告的性能提示
+      config.performance = {
+        hints: 'warning',
+        //入口起点的最大体积
+        maxEntrypointSize: 50000000,
+        //生成文件的最大体积
+        maxAssetSize: 30000000,
+        //只给出 js 文件的性能提示
+        assetFilter: function (assetFilename) {
+          return assetFilename.endsWith('.js')
+        }
+      }
+    }
   },
   css: {
+    extract: false,
     loaderOptions: {
       css: {
         // 注意：以下配置在 Vue CLI v4 与 v3 之间存在差异,3 => 4变更点

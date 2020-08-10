@@ -2,7 +2,7 @@
  * @Author: Mark
  * @Date: 2019-06-26 00:30:25
  * @LastEditors: Mark
- * @LastEditTime: 2020-07-13 23:34:19
+ * @LastEditTime: 2020-08-10 16:12:18
  * @Description: demo 路由
  */
 import Vue from 'vue'
@@ -17,7 +17,7 @@ const navExtendsConfig = [
     meta: {
       lang: 'zh'
     },
-    components: require('@pc/views/index.vue')
+    component: () => import('../views/index.vue')
   },
   {
     path: '/en',
@@ -25,7 +25,7 @@ const navExtendsConfig = [
     meta: {
       lang: 'en'
     },
-    components: require('@pc/views/index.vue')
+    component: () => import('../views/index.vue')
   },
   {
     path: '/',
@@ -54,21 +54,23 @@ function registeredRoute(navConfig, lang) {
     const _parentName = parentName === 'components' ? 'docs' : parentName
     return {
       path: `/${lang}/${_parentName.toLowerCase()}`,
+      name: `${_parentName.toLowerCase()}-${lang}`,
       meta: {
         lang
       },
-      components: require(`../views/${_parentName.toLowerCase()}.vue`),
+      component: () => import(`../views/${_parentName.toLowerCase()}.vue`),
       children: []
     }
   }
   const addRoute = (item, lang) => {
     return {
       path: `${item.name.toLowerCase()}`,
-      name: `${item.name}-${lang}`,
+      name: `${item.name.toLowerCase()}-${lang}`,
       meta: {
         lang
       },
-      components: require(`../../docs/${lang}/${item.name.toLowerCase()}.md`)
+      component: () =>
+        import(`../../docs/${lang}/${item.name.toLowerCase()}.md`)
     }
   }
   return Object.keys(navConfig[lang]).reduce((item, _routerName) => {
@@ -105,10 +107,14 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes,
   scrollBehavior(to, from, savedPosition) {
+    // 第三个参数 savedPosition 当且仅当 popstate 导航(通过浏览器的 前进/后退 按钮才可以触发)
     if (savedPosition) {
       return savedPosition
     } else {
-      return { x: 0, y: 0 }
+      if (from.meta.keepAlive) {
+        from.meta.savedPosition = document.body.scrollTop
+      }
+      return { x: 0, y: to.meta.savedPosition || 0 }
     }
   }
 })

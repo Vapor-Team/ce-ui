@@ -2,21 +2,21 @@
   <div class="wrapper">
     <c-header></c-header>
     <section class="section section-banner">
-      <div class="container" style="background:#F8FAFF;box-shadow:0 0 0 0;">
+      <div class="container" style="background: #f8faff; box-shadow: 0 0 0 0;">
         <div class="logo">
           <img src="../assets/ce-logo.png" alt />
         </div>
         <h1>{{ $t('docs.welcome') }}</h1>
         <div class="btn-container">
           <div class="btn btn-begin">
-            <router-link :to="{ name: `Introduction-${lang}` }">{{
+            <router-link :to="{ name: `introduction-${lang}` }">{{
               $t('docs.GET_STARTED')
             }}</router-link>
           </div>
           <div class="btn btn-github">
             <a
               href="https://github.com/Vapor-Team/ce-ui"
-              style="color:rgb(2, 200, 247);"
+              style="color: rgb(2, 200, 247);"
               >Github</a
             >
           </div>
@@ -49,7 +49,7 @@
             {{ $t('docs.guideDesc') }}
           </div>
           <div class="btn-readmore">
-            <router-link :to="{ name: 'Guide' }">
+            <router-link :to="{ name: `guide-${lang}` }">
               {{ $t('docs.view') }}
               <i class="icon icon-chevron-right"></i>
             </router-link>
@@ -64,7 +64,7 @@
             {{ $t('docs.componentDesc') }}
           </div>
           <div class="btn-readmore">
-            <router-link :to="{ name: `Docs-${lang}` }">
+            <router-link :to="{ name: `docs-${lang}` }">
               {{ $t('docs.view') }}
               <i class="icon icon-chevron-right"></i>
             </router-link>
@@ -79,7 +79,7 @@
             {{ $t('docs.resourcesDesc') }}
           </div>
           <div class="btn-readmore">
-            <router-link :to="{ name: `Resource-${lang}` }">
+            <router-link :to="{ name: `resource-${lang}` }">
               {{ $t('docs.view') }}
               <i class="icon icon-chevron-right"></i>
             </router-link>
@@ -92,13 +92,10 @@
 </template>
 
 <script>
-import CHeader from '../components/header'
-import CFooter from '../components/footer'
-
 export default {
   components: {
-    CHeader,
-    CFooter
+    CHeader: () => import('../components/header.vue'),
+    CFooter: () => import('../components/footer.vue')
   },
   computed: {
     lang() {

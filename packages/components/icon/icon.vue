@@ -2,7 +2,7 @@
  * @Author: Mark
  * @Date: 2020-07-09 15:26:32
  * @LastEditors: Mark
- * @LastEditTime: 2020-08-07 13:07:10
+ * @LastEditTime: 2020-08-07 15:51:31
  * @Description: icon 组件，组件可自定义svg图标
 -->
 
@@ -30,7 +30,6 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import '@theme/lib/icon/iconfont.min.js'
 import Component from 'vue-class-component'
 import { IconType } from '@lib/ts-utils/types'
 import { Emit, Prop } from 'vue-property-decorator'
