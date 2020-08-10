@@ -81,6 +81,8 @@ module.exports = {
       .set('@mobile', resolve('examples/mobile'))
 
     if (isDocs) {
+      config.plugins.delete('preload')
+      config.plugins.delete('prefetch')
       /**
        * 因为是多页面所以设置时，为html-页面命名
        */
@@ -115,10 +117,10 @@ module.exports = {
   },
   configureWebpack: (config) => {
     config.resolve.extensions = ['.ts', '.js', '.vue', '.styl', '.json', '.css']
-
     // 用cdn方式引入，则构建时要忽略相关资源
     // TODO: 需判断是库还是文档
     if (isProduction && isDocs) {
+      // 移除 prefetch 插件
       config.externals = cdn.externals
       // 开启gizp
       config.plugins.push(
@@ -134,21 +136,31 @@ module.exports = {
       // 开启分离js
       config.optimization = {
         splitChunks: {
-          chunks: 'all',
-          maxInitialRequests: Infinity,
-          minSize: 20000,
+          // 表示选择哪些 chunks 进行分割，可选值有：async，initial和all
+          chunks: 'async',
+          // 表示新分离出的chunk必须大于等于minSize，默认为30000，约30kb。
+          minSize: 30000,
+          // 表示一个模块至少应被minChunks个chunk所包含才能分割。默认为1。
+          minChunks: 1,
+          // 表示按需加载文件时，并行请求的最大数目。默认为5。
+          maxAsyncRequests: 5,
+          // 表示加载入口文件时，并行请求的最大数目。默认为3。
+          maxInitialRequests: 3,
+          // 表示拆分出的chunk的名称连接符。默认为~。如chunk~vendors.js
+          automaticNameDelimiter: '~',
+          // 设置chunk的文件名。默认为true。当为true时，splitChunks基于chunk和cacheGroups的key自动命名。
+          name: true,
+          // cacheGroups 下可以可以配置多个组，每个组根据test设置条件，符合test条件的模块，就分配到该组。模块可以被多个组引用，但最终会根据priority来决定打包到哪个组中。默认将所有来自 node_modules目录的模块打包至vendors组，将两个以上的chunk所共享的模块打包至default组。
           cacheGroups: {
-            vendor: {
+            vendors: {
               test: /[\\/]node_modules[\\/]/,
-              name(module) {
-                // get the name. E.g. node_modules/packageName/not/this/part.js
-                // or node_modules/packageName
-                const packageName = module.context.match(
-                  /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-                )[1]
-                // npm package names are URL-safe, but some servers don't like @ symbols
-                return `npm.${packageName.replace('@', '')}`
-              }
+              priority: -10
+            },
+            //
+            default: {
+              minChunks: 2,
+              priority: -20,
+              reuseExistingChunk: true
             }
           }
         }
