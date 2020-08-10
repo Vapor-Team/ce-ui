@@ -15,6 +15,7 @@
     @tab-nav-enter="onMouseenter"
     @tab-nav-leave="onMouseleave"
     v-model="currentName"
+    :tab-position="'left'"
   >
     <ce-tab-item
       v-for="(item, key) in tabs"
@@ -37,12 +38,12 @@
 export default {
   data() {
     return {
-      currentName: 'tab1',
+      currentName: 'tab01',
       tabs: [
         { label: 'tab', content: 'tab content' },
-        { label: 'tab', content: 'tab content' },
-        { label: 'tab', content: 'tab content' },
-        { label: 'tab', content: 'tab content' }
+        { label: 'tab11', content: 'tab content' },
+        { label: 'tab111', content: 'tab content' },
+        { label: 'tab1111', content: 'tab content' }
       ]
     }
   },
@@ -67,6 +68,7 @@ export default {
     @tab-nav-click="onTabNavClick"
     @tab-nav-enter="onMouseenter"
     @tab-nav-leave="onMouseleave"
+    :tab-position="'left'"
     v-model="currentName"
   >
     <ce-tab-item

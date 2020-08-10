@@ -2,7 +2,7 @@
  * @Author: Mark
  * @Date: 2020-07-12 23:14:10
  * @LastEditors: Mark
- * @LastEditTime: 2020-08-06 23:44:46
+ * @LastEditTime: 2020-08-10 23:54:15
  * @Description: tabs
 -->
 <template>
@@ -142,10 +142,10 @@ export default class Tab extends Vue {
         obj = { 'is-row-reserve': true }
         break
       case 'left':
-        obj = { 'is-col': true }
+        obj = { 'is-col': true, 'is-col-left': true }
         break
       case 'right':
-        obj = { 'is-col': true }
+        obj = { 'is-col': true, 'is-col-right': true }
         break
       default:
         obj = { 'is-row': true }
@@ -208,7 +208,11 @@ export default class Tab extends Vue {
       // 设置nav-bar位置
       const el = this.$refs[`tab-nav-item-${this.currentName}`] as Vue[]
       if (el) this.setTabNavBarStyle(el[0].$el as HTMLElement)
-      else log('error', 'el get failed!')
+      else
+        log(
+          'error',
+          '`el` get failed! Because `currentName` is not in the data !'
+        )
     })
   }
 
