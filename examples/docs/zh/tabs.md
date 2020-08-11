@@ -38,7 +38,7 @@
 export default {
   data() {
     return {
-      currentName: 'tab01',
+      currentName: 'tab0',
       tabs: [
         { label: 'tab', content: 'tab content' },
         { label: 'tab11', content: 'tab content' },

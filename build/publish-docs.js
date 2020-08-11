@@ -3,10 +3,12 @@
 const execSync = require('child_process').execSync
 const VERSION = require('../package.json').version
 const ghPages = require('gh-pages')
-const GIT_COMMIT = execSync('git rev-parse --short HEAD')
+/**
+ * 获取最后一次commit message
+ */
+const GIT_COMMIT = execSync('git show -s --format=%s')
   .toString()
   .replace(/\n/, '')
-
 execSync('npm run build:docs')
 // 如遇提交失败使用该命令
 // execSync("./node_modules/gh-pages/bin/gh-pages-clean")
