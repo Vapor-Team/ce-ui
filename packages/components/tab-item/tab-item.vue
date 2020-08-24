@@ -2,13 +2,13 @@
  * @Author: Mark
  * @Date: 2020-07-12 23:14:10
  * @LastEditors: Mark
- * @LastEditTime: 2020-08-06 21:05:06
+ * @LastEditTime: 2020-08-13 23:12:52
  * @Description: tabs-item
 -->
 <template>
   <div
     v-show="isActive"
-    :class="{ 'ce-tab-item-content': true, 'is-active': isActive }"
+    :class="['ce-tab-item-content', { 'is-active': isActive }]"
   >
     <transition name="fade">
       <div v-show="isActive">

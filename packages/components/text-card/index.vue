@@ -1,14 +1,7 @@
 <template>
   <ce-base-card v-bind="$attrs">
-    <span
-      v-if="$slots.content || message"
-      slot="body"
-    >{{ message }}</span>
-    <slot
-      v-if="$slots.content && !message"
-      name="content"
-      slot="body"
-    ></slot>
+    <span v-if="$slots.content || message" slot="body">{{ message }}</span>
+    <slot v-if="$slots.content && !message" name="content" slot="body"></slot>
   </ce-base-card>
 </template>
 <script lang="ts">

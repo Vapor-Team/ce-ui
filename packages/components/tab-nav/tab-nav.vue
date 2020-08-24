@@ -2,13 +2,13 @@
  * @Author: Mark
  * @Date: 2020-07-12 23:14:10
  * @LastEditors: Mark
- * @LastEditTime: 2020-08-06 20:21:25
+ * @LastEditTime: 2020-08-13 23:15:11
  * @Description: tabs
 -->
 <template>
   <div
     v-show="isShowNode"
-    :class="{ 'ce-tabs-nav--item': true, 'is-active': isActive }"
+    :class="['ce-tabs-nav--item', { 'is-active': isActive }]"
     @click="tabNavClick($event, { ...options })"
     @mouseenter="tabNavEnter($event, { ...options })"
     @mouseleave="tabNavLeave($event, { ...options })"

@@ -12,13 +12,10 @@
 
 使用`message`属性来自定义文字内容。
 
-<!-- {.md} -->
-
-<ce-text-card-demo-zh></ce-text-card-demo-zh>
-
 ::: demo
 
 ```html
+
 <ce-text-card
   class="demo-card"
   message="这是卡片内容"

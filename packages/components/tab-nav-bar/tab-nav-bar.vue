@@ -2,12 +2,12 @@
  * @Author: Mark
  * @Date: 2020-07-12 23:14:10
  * @LastEditors: Mark
- * @LastEditTime: 2020-08-06 23:40:32
+ * @LastEditTime: 2020-08-13 23:15:43
  * @Description: tab-nav-bar
 -->
 <template>
   <div
-    :class="{ 'ce-tabs-nav--nav-bar': true, ...navBarCss }"
+    :class="['ce-tabs-nav--nav-bar', { ...navBarCss }]"
     :style="{ ...navBarStyle }"
   ></div>
 </template>

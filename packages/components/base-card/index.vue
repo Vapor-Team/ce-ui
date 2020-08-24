@@ -1,5 +1,17 @@
 <template>
-  <div :class="cardCSS" @mouseenter="onMouseenter" @mouseleave="onMouseleave">
+  <div
+    :class="[
+      'ce-base-card',
+      cardThemeClass,
+      boxShadow,
+      {
+        'ce-base-card--border': border,
+        'ce-base-card--radius': radius
+      }
+    ]"
+    @mouseenter="onMouseenter"
+    @mouseleave="onMouseleave"
+  >
     <div
       v-if="$slots.header || $slots.title || title || extra || $slots.extra"
       class="ce-base-card__header"
@@ -47,6 +59,7 @@ import { Emit, Prop } from 'vue-property-decorator'
 export default class BaseCard extends Vue {
   @Prop({ required: false, default: 'default', type: String })
   private type?: string
+
   @Prop({
     required: false,
     default: () => {
@@ -55,21 +68,29 @@ export default class BaseCard extends Vue {
     type: Object
   })
   private styles!: CSSStyle
+
   @Prop({ required: false, default: 'always', type: String })
   private shadow?: string
+
   @Prop({ required: false, default: '', type: String }) private extra?: string
+
   @Prop({ required: false, default: '', type: String }) private title?: string
+
   @Prop({ required: false, default: true, type: Boolean })
   private border!: boolean
+
   @Prop({ required: false, default: true, type: Boolean })
   private radius!: boolean
-  private get cardThemeClass() {
-    return 'ce-base-card--' + this.type
+
+  private get cardThemeClass(): string {
+    return `ce-base-card--${this.type}`
   }
-  private get bodyStyles(): {} {
+
+  private get bodyStyles(): CSSStyle {
     const defaultStyles = {}
     return { ...defaultStyles, ...this.styles }
   }
+
   private get boxShadow(): string {
     let css = ''
     switch (this.shadow) {
@@ -88,15 +109,7 @@ export default class BaseCard extends Vue {
     }
     return css
   }
-  private get cardCSS(): { [key: string]: boolean } {
-    return {
-      'ce-base-card': true,
-      'ce-base-card--border': this.border,
-      'ce-base-card--radius': this.radius,
-      [this.cardThemeClass]: true,
-      [this.boxShadow]: true
-    }
-  }
+
   @Emit('enter')
   private onMouseenter(event: MouseEvent): Promise<MouseEvent> {
     if (event instanceof MouseEvent) event.preventDefault()
@@ -104,6 +117,7 @@ export default class BaseCard extends Vue {
       reslove(event)
     })
   }
+
   @Emit('leave')
   private onMouseleave(event: MouseEvent): Promise<MouseEvent> {
     if (event instanceof MouseEvent) event.preventDefault()

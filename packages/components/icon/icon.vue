@@ -2,7 +2,7 @@
  * @Author: Mark
  * @Date: 2020-07-09 15:26:32
  * @LastEditors: Mark
- * @LastEditTime: 2020-08-07 15:51:31
+ * @LastEditTime: 2020-08-13 23:17:23
  * @Description: icon 组件，组件可自定义svg图标
 -->
 
@@ -93,7 +93,7 @@ export default class Icon extends Vue {
     })
   }
 
-  getIcoName(name: string, type: string, prefix = ''): string {
+  private getIcoName(name: string, type: string, prefix = ''): string {
     let str = ''
     if (type === 'filled') str = `#ce-icon--${name}`
     if (type === 'sharp' || type === 'outline') {

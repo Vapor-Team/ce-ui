@@ -2,20 +2,22 @@
  * @Author: Mark
  * @Date: 2020-07-12 23:14:10
  * @LastEditors: Mark
- * @LastEditTime: 2020-08-10 23:54:15
+ * @LastEditTime: 2020-08-13 23:39:54
  * @Description: tabs
 -->
 <template>
   <div
-    :class="{
-      'ce-tabs-box': true,
-      'is-radius': radius,
-      'is-shadow': shadow,
-      'is-border': border,
-      ...tabPositionTabBoxCSS
-    }"
+    :class="[
+      'ce-tabs-box',
+      {
+        'is-radius': radius,
+        'is-shadow': shadow,
+        'is-border': border,
+        ...tabPositionTabBoxCSS
+      }
+    ]"
   >
-    <div :class="{ 'ce-tabs-nav': true, ...tabPositionTabNavCSS }">
+    <div :class="['ce-tabs-nav', { ...tabPositionTabNavCSS }]">
       <ce-tab-nav
         v-for="(item, key) in TabItems"
         :options="{
@@ -25,9 +27,11 @@
         }"
         :key="key"
         :ref="`tab-nav-item-${item.name_}`"
-        @tab-nav-click="onTabNavClick"
-        @tab-nav-enter="onMouseEnter"
-        @tab-nav-leave="onMouseLeave"
+        v-on="{
+          'tab-nav-click': onTabNavClick,
+          'tab-nav-enter': onMouseEnter,
+          'tab-nav-leave': onMouseLeave
+        }"
       >
         <!-- TODO: 待判断性能 -->
         <component
@@ -37,7 +41,7 @@
         ></component>
       </ce-tab-nav>
       <span
-        :class="{ 'ce-tab-nav-bar-line': true, ...tabPositionTabNavBarLineCSS }"
+        :class="['ce-tab-nav-bar-line', { ...tabPositionTabNavBarCSS }]"
       ></span>
       <ce-tab-nav-bar
         :nav-bar-css="tabPositionTabNavBarCSS"
@@ -52,12 +56,16 @@
 <script lang="ts">
 import Vue from 'vue'
 import { TabNavEvent } from './type'
-import Component from 'vue-class-component'
-import { Emit, Prop, Model, ProvideReactive } from 'vue-property-decorator'
-import { CSSStyle, EmptyObject } from '@lib/ts-utils/types'
 import { log } from '@lib/ts-utils/index'
+import Component from 'vue-class-component'
+import { CSSStyle, EmptyObject } from '@lib/ts-utils/types'
+import { Emit, Prop, Model, ProvideReactive } from 'vue-property-decorator'
+
 @Component({
   name: 'Tab',
+  /**
+   * 向子孙组件注入数据
+   */
   inject: []
 })
 export default class Tab extends Vue {
@@ -154,26 +162,6 @@ export default class Tab extends Vue {
     return obj
   }
 
-  private get tabPositionTabNavBarLineCSS(): EmptyObject<boolean> {
-    let obj: EmptyObject<boolean> = {}
-    switch (this.tabPosition) {
-      case 'top':
-      case 'bottom':
-        obj = { 'is-row': true }
-        break
-      case 'left':
-        obj = { 'is-col-left': true }
-        break
-      case 'right':
-        obj = { 'is-col-right': true }
-        break
-      default:
-        obj = { 'is-row': true }
-        break
-    }
-    return obj
-  }
-
   private get tabPositionTabNavBarCSS(): EmptyObject<boolean> {
     let obj: EmptyObject<boolean> = {}
     switch (this.tabPosition) {
@@ -219,6 +207,7 @@ export default class Tab extends Vue {
   updated(): void {
     this.calcItemInstances()
   }
+
   @Emit('tab-nav-click')
   private onTabNavClick(events: TabNavEvent): Promise<TabNavEvent> {
     if (this.currentName === events.name) {

@@ -12,9 +12,7 @@
 
 Use `message` Attribute Customize the top content of the card.
 
-<!-- {.md} -->
 
-<ce-text-card-demo-en></ce-text-card-demo-en>
 
 ::: demo
 
