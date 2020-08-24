@@ -14,7 +14,7 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "clean": "rimraf lib && rimraf packages/*/lib",
     "commit": "git-cz",
-    "init": "npm install && cd ./packages/theme-chalk && npm install",
+    "init": "yarn install && cd ./packages/theme-chalk && yarn install",
     "lib": "vue-cli-service build --target lib --dest lib packages/index.js --mode lib",
     "publish:docs": "node build/publish-docs.js",
     "release": "sh build/release.sh",
@@ -23,9 +23,9 @@
     "start": "npm run build:entry && vue-cli-service serve --mode dev",
     "test": "vue-cli-service test:unit"
   },
-  "main": "lib/ce-ui.common.js",
-  "unpkg": "lib/index.js",
-  "typings": "types/index.d.ts",
+  "main": "lib/ce-ui.umd.js",
+  "unpkg": "lib/ce-ui.umd.js",
+  "types": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git@github.com:Vapor-Team/ce-ui.git"
