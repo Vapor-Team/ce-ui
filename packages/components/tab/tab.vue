@@ -2,7 +2,7 @@
  * @Author: Mark
  * @Date: 2020-07-12 23:14:10
  * @LastEditors: Mark
- * @LastEditTime: 2020-08-13 23:39:54
+ * @LastEditTime: 2020-08-30 22:22:42
  * @Description: tabs
 -->
 <template>
@@ -34,11 +34,9 @@
         }"
       >
         <!-- TODO: 待判断性能 -->
-        <component
-          v-if="item.$slots.label"
-          slot="label"
-          :is="renderSlot(item.$slots.label)"
-        ></component>
+        <template v-if="item.$slots.label" slot="label">
+          <component :is="renderSlot(item.$slots.label)"></component>
+        </template>
       </ce-tab-nav>
       <span
         :class="['ce-tab-nav-bar-line', { ...tabPositionTabNavBarCSS }]"
@@ -306,8 +304,8 @@ export default class Tab extends Vue {
     return Vue.extend({
       render(createElement) {
         return createElement(
-          'div', // 标签名称
-          slot // VNode
+          slot[0].tag, // 标签名称
+          slot[0].children // VNode
         )
       }
     })

@@ -9,8 +9,8 @@
       <ce-tab-item v-for="(item, key) in icons" :key="key" :label="item.name">
         <!-- label -->
         <!-- <div slot="label">
-          <ce-icon :name="'logo'" :size="36"></ce-icon>
-          <span> {{ item.name }}</span>
+          <ce-icon :name="'ce-ui'" type="logo" :size="36"></ce-icon>
+          <span v-if="item.name !== 'logo'"> {{ item.name }}</span>
         </div> -->
         <!-- 内容 -->
         <template>
