@@ -54,6 +54,14 @@ const vueMarkdown = {
   use: mdLoaderConfig
 }
 
+const alias = {
+  '@examples': resolve('examples'),
+  '@lib': resolve('packages'),
+  '@theme': resolve('packages/theme-chalk'),
+  '@pc': resolve('examples/pc'),
+  '@mobile': resolve('examples/mobile')
+}
+
 module.exports = {
   lintOnSave: false,
   publicPath: './',
@@ -73,12 +81,9 @@ module.exports = {
     /**
      * 设置别名
      */
-    config.resolve.alias
-      .set('@examples', resolve('examples'))
-      .set('@lib', resolve('packages'))
-      .set('@theme', resolve('packages/theme-chalk'))
-      .set('@pc', resolve('examples/pc'))
-      .set('@mobile', resolve('examples/mobile'))
+    for (const key of Object.keys(alias)) {
+      config.resolve.alias.set(key, alias[key])
+    }
 
     if (isDocs) {
       config.plugins.delete('preload')

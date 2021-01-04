@@ -4,8 +4,7 @@ module.exports = {
     browser: true,
     node: true,
     mocha: true,
-    jest: true,
-    jquery: true
+    jest: true
   },
   extends: [
     'plugin:vue/essential',
@@ -39,7 +38,8 @@ module.exports = {
       files: [
         '**/__tests__/*.{j,t}s?(x)',
         '**/tests/unit/**/*.spec.{j,t}s?(x)',
-        '**/examples/**/*.{vue,js}'
+        '**/examples/**/*.{vue,js}',
+        '**/packages/locale/index.js'
       ],
       env: {
         jest: true

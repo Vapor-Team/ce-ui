@@ -46,6 +46,7 @@
     "node_modules",
     "packages/components/*.js",
     "packages/utils/*.js",
+    "packages/local/*.js",
     "examples/*",
     "examples/**/*",
     "**/*.test.ts",

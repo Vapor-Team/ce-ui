@@ -20,7 +20,7 @@
     "release": "sh build/release.sh",
     "iconfont": "gulp --gulpfile packages/theme-chalk/gulp-iconfont.js",
     "style": "gulp --gulpfile packages/theme-chalk/gulpfile.js",
-    "start": "npm run build:entry && vue-cli-service serve --mode dev",
+    "start": "yarn run build:entry && vue-cli-service serve --mode dev",
     "test": "vue-cli-service test:unit"
   },
   "main": "lib/ce-ui.umd.js",

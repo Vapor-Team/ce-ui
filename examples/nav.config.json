@@ -77,6 +77,10 @@
               {
                 "title": "图标",
                 "name": "Icon"
+              },
+              {
+                "title": "加载中",
+                "name": "Loading"
               }
             ]
           },
@@ -293,6 +297,10 @@
               {
                 "title": "Icon",
                 "name": "Icon"
+              },
+              {
+                "title": "Loading",
+                "name": "Loading"
               }
             ]
           },
