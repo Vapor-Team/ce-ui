@@ -9,6 +9,7 @@ const cssnano = require('cssnano')
 const presetenv = require('postcss-preset-env')
 const rename = require('gulp-rename')
 const toBem = require('postcss-bem-fix')
+const toNested = require('postcss-nested')
 const bemConfig = {
   defaultNamespace: 'ce', // default namespace to use, none by default
   style: 'suit', // suit or bem, suit by default,
@@ -18,6 +19,7 @@ const bemConfig = {
     descendent: 'e'
   },
   separators: {
+    namespace: '-',
     descendent: '__',
     modifier: '--'
   }
@@ -33,6 +35,7 @@ const compile = {
       .pipe(
         postcss([
           toBem(bemConfig),
+          toNested(),
           pxToViewPort({
             viewportWidth: 750, // (Number) The width of the viewport.
             viewportHeight: 1334, // (Number) The height of the viewport.
@@ -70,6 +73,7 @@ const compile = {
       .pipe(
         postcss([
           toBem(bemConfig),
+          toNested(),
           presetenv(),
           pxToUnits({
             divisor: 1,
@@ -95,6 +99,7 @@ const compile = {
       .pipe(
         postcss([
           toBem(bemConfig),
+          toNested(),
           presetenv(),
           pxToUnits({
             divisor: 1,
@@ -124,6 +129,7 @@ const compile = {
       .pipe(
         postcss([
           toBem(bemConfig),
+          toNested(),
           presetenv(),
           pxToUnits({
             divisor: 1,
