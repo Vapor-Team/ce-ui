@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-logo">
-        <img src="../assets/ce-logo.png" style="width:40px" alt />
+        <img src="../assets/ce-logo.png" style="width: 40px;" alt />
         <div class="footer-logo-word">
           <p>Vapor-Team</p>
           <p>水蒸汽团队</p>
@@ -11,13 +11,19 @@
       <div class="footer-desc">
         <div class="footer-copyright">
           &copy; 2019 by
-          <a href="https://github.com/Vapor-Team" target="_blank"
-            >Vapor&nbsp;Team</a
-          >
+          <a
+            rel="noopener noreferrer"
+            href="https://github.com/Vapor-Team"
+            target="_blank"
+          >Vapor&nbsp;Team</a>
         </div>
       </div>
       <div class="github-logo">
-        <a href="https://github.com/Vapor-Team/ce-ui" target="_blank">Github</a>
+        <a
+          rel="noopener noreferrer"
+          href="https://github.com/Vapor-Team/ce-ui"
+          target="_blank"
+        >Github</a>
       </div>
     </div>
   </footer>
@@ -92,7 +98,7 @@
       height 100%
       text-indent -9999px
 
-@media screen and (max-width: $screen-sm-max)
+@media screen and (max-width $screen-sm-max)
   .footer
     padding 20px 0
 

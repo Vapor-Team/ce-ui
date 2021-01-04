@@ -3,7 +3,7 @@
     <c-header></c-header>
     <div class="ce-container row">
       <c-sidebar :list="nav"></c-sidebar>
-      <div class="ce-markdown col-sm-17 col-md-18 col-lg-19">
+      <div class="ce-markdown col-sm-14 col-md-16 col-lg-18">
         <transition name="fade" mode="out-in" @after-leave="afterLeave">
           <router-view class="view"></router-view>
         </transition>
@@ -33,7 +33,7 @@
     flex-wrap wrap
 
 .ce-markdown
-  padding 32px 20px
+  padding 32px
 
   section
     margin 0 auto

@@ -39,7 +39,7 @@
             type="sharp"
             :size="16"
             @click="goCodepen"
-            v-tips="codepenText"
+            v-tips="{ text: codepenText }"
           ></ce-icon>
         </transition>
       </div>
