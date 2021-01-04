@@ -12,8 +12,8 @@
 <template>
   <ce-tab
     @tab-nav-click="onTabNavClick"
-    @tab-nav-enter="onMouseenter"
-    @tab-nav-leave="onMouseleave"
+    @tab-nav-mouse="onMouseEvent"
+    @tab-nav-leave="onTabNavLeave"
     v-model="currentName"
   >
     <ce-tab-item
@@ -48,13 +48,13 @@ export default {
   },
   methods: {
     onTabNavClick(e) {
-      console.log(e)
+      console.warn('~~🧜🏿‍♀️, [onTabNavClick]', e)
     },
-    onMouseenter(e) {
-      console.log(e)
+    onMouseEvent(e) {
+      console.warn('~~🧜🏿‍♀️, [onMouseEvent]', e)
     },
-    onMouseleave(e) {
-      console.log(e)
+    onTabNavLeave(e) {
+      console.warn('~~🧜🏿‍♀️, [onTabNavLeave]', e)
     }
   }
 }
@@ -65,8 +65,8 @@ export default {
 <template>
   <ce-tab
     @tab-nav-click="onTabNavClick"
-    @tab-nav-enter="onMouseenter"
-    @tab-nav-leave="onMouseleave"
+    @tab-nav-mouse="onMouseEvent"
+    @tab-nav-leave="onTabNavLeave"
     v-model="currentName"
   >
     <ce-tab-item
@@ -101,13 +101,13 @@ export default {
   },
   methods: {
     onTabNavClick(e) {
-      console.log(e)
+      console.warn('~~🧜🏿‍♀️, [onTabNavClick]', e)
     },
-    onMouseenter(e) {
-      console.log(e)
+    onMouseEvent(e) {
+      console.warn('~~🧜🏿‍♀️, [onMouseEvent]', e)
     },
-    onMouseleave(e) {
-      console.log(e)
+    onTabNavLeave(e) {
+      console.warn('~~🧜🏿‍♀️, [onTabNavLeave]', e)
     }
   }
 }
@@ -146,5 +146,5 @@ export default {
 | Event name    | Description               | Callback parameters                          |
 |---------------|---------------------------|----------------------------------------------|
 | tab-nav-click | tab-nav click event       | (event: Event), including selected item data |
-| tab-nav-enter | tab-nav mouse enter event | (event: Event), including selected item data |
-| tab-nav-leave | tab-nav mouse leave event | (event: Event), including selected item data |
+| tab-nav-mouse | tab-nav mouse enter[leave] event | (event: Event), including selected item data |
+| tab-nav-leave | tab-nav item leave event  | (event: Event), including selected item data |

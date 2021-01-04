@@ -12,8 +12,8 @@
 <template>
   <ce-tab
     @tab-nav-click="onTabNavClick"
-    @tab-nav-enter="onMouseenter"
-    @tab-nav-leave="onMouseleave"
+    @tab-nav-mouse="onMouseEvent"
+    @tab-nav-leave="onTabNavLeave"
     v-model="currentName"
     :tab-position="'left'"
   >
@@ -49,13 +49,13 @@ export default {
   },
   methods: {
     onTabNavClick(e) {
-      console.log(e)
+      console.warn('~~🧜🏿‍♀️, [onTabNavClick]', e)
     },
-    onMouseenter(e) {
-      console.log(e)
+    onMouseEvent(e) {
+      console.warn('~~🧜🏿‍♀️, [onMouseenter]', e)
     },
-    onMouseleave(e) {
-      console.log(e)
+    onTabNavLeave(e) {
+      console.warn('~~🧜🏿‍♀️, [onMouseleave]', e)
     }
   }
 }
@@ -66,8 +66,8 @@ export default {
 <template>
   <ce-tab
     @tab-nav-click="onTabNavClick"
-    @tab-nav-enter="onMouseenter"
-    @tab-nav-leave="onMouseleave"
+    @tab-nav-mouse="onMouseEvent"
+    @tab-nav-leave="onTabNavLeave"
     :tab-position="'left'"
     v-model="currentName"
   >
@@ -103,13 +103,13 @@ export default {
   },
   methods: {
     onTabNavClick(e) {
-      console.log(e)
+      console.warn('~~🧜🏿‍♀️, [onTabNavClick]', e)
     },
-    onMouseenter(e) {
-      console.log(e)
+    onMouseEvent(e) {
+      console.warn('~~🧜🏿‍♀️, [onMouseenter]', e)
     },
-    onMouseleave(e) {
-      console.log(e)
+    onTabNavLeave(e) {
+      console.warn('~~🧜🏿‍♀️, [onMouseleave]', e)
     }
   }
 }
@@ -147,5 +147,5 @@ export default {
 | 事件名称      | 说明                | 回调参数                       |
 |---------------|-------------------|----------------------------|
 | tab-nav-click | tab-nav点击事件     | (event: Event), 包含选中项data |
-| tab-nav-enter | tab-nav鼠标进入事件 | (event: Event), 包含选中项data |
-| tab-nav-leave | tab-nav鼠标离开事件 | (event: Event), 包含选中项data |
+| tab-nav-mouse | tab-nav 鼠标进入[离开]事件 | (event: Event), 包含选中项data |
+| tab-nav-leave | tab-nav 离开事件(暂时未实现) | (event: Event), 包含选中项data |

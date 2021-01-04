@@ -2,7 +2,7 @@
  * @Author: Mark
  * @Date: 2020-07-12 23:14:10
  * @LastEditors: Mark
- * @LastEditTime: 2020-08-30 22:22:42
+ * @LastEditTime: 2021-01-04 13:04:11
  * @Description: tabs
 -->
 <template>
@@ -29,8 +29,8 @@
         :ref="`tab-nav-item-${item.name_}`"
         v-on="{
           'tab-nav-click': onTabNavClick,
-          'tab-nav-enter': onMouseEnter,
-          'tab-nav-leave': onMouseLeave
+          'tab-nav-leave': onTabNavLeave,
+          'tab-nav-mouse': onMouseEvent
         }"
       >
         <!-- TODO: 待判断性能 -->
@@ -91,25 +91,30 @@ export default class Tab extends Vue {
   private TabItems: Array<any> = []
   public tabNavBarStyle: CSSStyle = {}
 
-  @Emit('tab-nav-enter')
-  private onMouseEnter(events: TabNavEvent): Promise<TabNavEvent> {
+  // 定义v-model
+  @Model('change', {
+    type: [String, Number]
+  })
+  private readonly value!: string | number
+
+  /**
+   * 向子孙组件注入
+   */
+  @ProvideReactive('currentName') currentName: string | number = this.value
+
+  @Emit('tab-nav-mouse')
+  private onMouseEvent(events: TabNavEvent): Promise<TabNavEvent> {
     return new Promise((reslove) => {
       reslove(events)
     })
   }
 
   @Emit('tab-nav-leave')
-  private onMouseLeave(events: TabNavEvent): Promise<TabNavEvent> {
+  private onTabNavLeave(events: TabNavEvent): Promise<TabNavEvent> {
     return new Promise((reslove) => {
       reslove(events)
     })
   }
-
-  // 定义v-model
-  @Model('change', {
-    type: [String, Number]
-  })
-  readonly value!: string | number
 
   @Emit('change')
   onCurrentNameChange(): string | number {
@@ -179,11 +184,6 @@ export default class Tab extends Vue {
     }
     return obj
   }
-
-  /**
-   * 向子孙组件注入
-   */
-  @ProvideReactive('currentName') currentName: string | number = this.value
 
   mounted(): void {
     /**
