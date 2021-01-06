@@ -15,21 +15,24 @@
 ::: demo
 
 ```html
-
 <ce-text-card
   class="demo-card"
-  message="这是卡片内容"
   :shadow="'never'"
-  ></ce-text-card>
+  message="这是卡片内容"
+></ce-text-card>
 
 <ce-text-card
   class="demo-card"
   message="这是卡片内容"
-  ></ce-text-card>
+></ce-text-card>
 ```
 
 ```html
-<ce-text-card class="demo-card" message="这是卡片内容"></ce-text-card>
+<ce-text-card
+  class="demo-card"
+  :shadow="'never'"
+  message="这是卡片内容"
+></ce-text-card>
 
 <ce-text-card
   class="demo-card"
@@ -43,6 +46,6 @@
 
 <!-- {.md} -->
 
-| 参数      | 说明       | 类型   | 可选值          | 默认值  |
-|-----------|----------|--------|-----------------|---------|
-| message   | 文本内容   | String | -               | -       |
+| 参数    | 说明     | 类型   | 可选值 | 默认值 |
+|---------|--------|--------|--------|--------|
+| message | 文本内容 | String | -      | -      |

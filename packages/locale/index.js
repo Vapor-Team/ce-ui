@@ -1,14 +1,10 @@
-/**
- * Simplified version
- * https://github.com/ElemeFE/element/blob/dev/src/locale/index.js
- */
 import Vue from 'vue'
 import deepmerge from 'deepmerge'
-import defaultLang from './lang/en-US'
+import defaultLang from './lang/zh-CN'
 
 let lang = defaultLang
 let merged = false
-let i18nHandler = function (...args) {
+let i18nHandler = (...args) => {
   const vueI18n = Object.getPrototypeOf(this || Vue).$t
 
   if (typeof vueI18n === 'function' && !!Vue.locale) {
@@ -25,7 +21,7 @@ let i18nHandler = function (...args) {
   }
 }
 
-export const t = function (...args) {
+export const t = (...args) => {
   let value = i18nHandler.apply(this, args)
   if (value !== null && typeof value !== 'undefined') {
     return value
@@ -49,11 +45,11 @@ export const t = function (...args) {
   return ''
 }
 
-export const use = function (l) {
+export const use = (l) => {
   lang = l || lang
 }
 
-export const i18n = function (fn) {
+export const i18n = (fn) => {
   i18nHandler = fn || i18nHandler
 }
 

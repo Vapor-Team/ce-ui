@@ -1,4 +1,4 @@
-const { wrapCustomClass, resolve } = require('./build/utils')
+const { wrapCustomClass, resolve, resolveNodeModule } = require('./build/utils')
 const { mdLoaderConfig } = require('./build/md-loader')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const { isDocs, isProduction } = require('./build/utils').getEnvType()
@@ -15,10 +15,10 @@ const cdn = {
   css: [],
   // cdn的js链接
   js: [
-    '//unpkg.com/vue@2.6.11/dist/vue.min.js', // 访问https://unpkg.com/vue/dist/vue.min.js获取最新版本
-    '//unpkg.com/vue-router@3.3.4/dist/vue-router.min.js',
-    '//unpkg.com/markdown-it@10.0.0/dist/markdown-it.min.js',
-    '//unpkg.com/highlight.js@9.18.1/lib/highlight.js'
+    '//unpkg.com/vue@2.6.12/dist/vue.min.js', // 访问https://unpkg.com/vue/dist/vue.min.js获取最新版本
+    '//unpkg.com/vue-router@3.4.9/dist/vue-router.min.js',
+    '//unpkg.com/markdown-it@12.0.4/dist/markdown-it.min.js',
+    '//unpkg.com/highlight.js@10.5.0/lib/highlight.js'
   ]
 }
 const vueMarkdown = {
@@ -53,11 +53,10 @@ const vueMarkdown = {
   },
   use: mdLoaderConfig
 }
-
 const alias = {
   '@examples': resolve('examples'),
   '@lib': resolve('packages'),
-  '@theme': resolve('packages/theme-chalk'),
+  '@theme': resolveNodeModule('@vapor-team/theme-chalk'),
   '@pc': resolve('examples/pc'),
   '@mobile': resolve('examples/mobile')
 }
@@ -138,40 +137,57 @@ module.exports = {
           deleteOriginalAssets: false
         })
       )
-      // 开启分离js
-      config.optimization = {
-        splitChunks: {
-          // 表示选择哪些 chunks 进行分割，可选值有：async，initial和all
-          chunks: 'async',
-          // 表示新分离出的chunk必须大于等于minSize，默认为30000，约30kb。
-          minSize: 30000,
-          // 表示一个模块至少应被minChunks个chunk所包含才能分割。默认为1。
-          minChunks: 1,
-          // 表示按需加载文件时，并行请求的最大数目。默认为5。
-          maxAsyncRequests: 5,
-          // 表示加载入口文件时，并行请求的最大数目。默认为3。
-          maxInitialRequests: 3,
-          // 表示拆分出的chunk的名称连接符。默认为~。如chunk~vendors.js
-          automaticNameDelimiter: '~',
-          // 设置chunk的文件名。默认为true。当为true时，splitChunks基于chunk和cacheGroups的key自动命名。
-          name: true,
-          // cacheGroups 下可以可以配置多个组，每个组根据test设置条件，符合test条件的模块，就分配到该组。模块可以被多个组引用，但最终会根据priority来决定打包到哪个组中。默认将所有来自 node_modules目录的模块打包至vendors组，将两个以上的chunk所共享的模块打包至default组。
-          cacheGroups: {
-            vendor: {
-              test: /[\\/]node_modules[\\/]/,
-              name(module) {
-                // get the name. E.g. node_modules/packageName/not/this/part.js
-                // or node_modules/packageName
-                const packageName = module.context.match(
-                  /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-                )[1]
-                // npm package names are URL-safe, but some servers don't like @ symbols
-                return `npm.${packageName.replace('@', '')}`
-              }
+
+      // splitChunks
+      config.optimization.splitChunks({
+        // 表示选择哪些 chunks 进行分割，可选值有：async，initial和all
+        chunks: 'async',
+        // 表示新分离出的chunk必须大于等于minSize，80K。
+        maxSize: 80 * 1024,
+        // 表示一个模块至少应被minChunks个chunk所包含才能分割。默认为1。
+        minChunks: 2,
+        // 表示按需加载文件时，并行请求的最大数目。默认为5。
+        maxAsyncRequests: 5,
+        // 表示加载入口文件时，并行请求的最大数目。默认为3。
+        maxInitialRequests: 3,
+        // 表示拆分出的chunk的名称连接符。默认为~。如chunk~vendors.js
+        automaticNameDelimiter: '~',
+        // 设置chunk的文件名。默认为true。当为true时，splitChunks基于chunk和cacheGroups的key自动命名。
+        name: true,
+        // cacheGroups 下可以可以配置多个组，每个组根据test设置条件，符合test条件的模块，就分配到该组。模块可以被多个组引用，但最终会根据priority来决定打包到哪个组中。默认将所有来自 node_modules目录的模块打包至vendors组，将两个以上的chunk所共享的模块打包至default组。
+        cacheGroups: {
+          libs: {
+            test: /[\\/]node_modules[\\/](vue|vuex|vue-router|axios|rxjs|js-cookie|query-string)/,
+            name: 'libs',
+            priority: -10,
+            chunks: 'initial'
+          },
+          element: {
+            test: /[\\/]node_modules[\\/](element-ui)/,
+            name: 'element-ui',
+            priority: -10,
+            chunks: 'initial'
+          },
+          utils: {
+            test: /[\\/]node_modules[\\/](lodash|@sentry)/,
+            name: 'utils',
+            priority: -10,
+            chunks: 'initial'
+          },
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name(module) {
+              // get the name. E.g. node_modules/packageName/not/this/part.js
+              // or node_modules/packageName
+              const packageName = module.context.match(
+                /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+              )[1]
+              // npm package names are URL-safe, but some servers don't like @ symbols
+              return `npm.${packageName.replace('@', '')}`
             }
           }
         }
-      }
+      })
       // 取消webpack警告的性能提示
       config.performance = {
         hints: 'warning',

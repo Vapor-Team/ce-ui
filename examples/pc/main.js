@@ -10,6 +10,9 @@ import '@theme/lib/index.css'
 import '@pc/assets/css/index.styl'
 import 'highlight.js/styles/github.css'
 import 'github-markdown-css'
+import '@vapor-team/iconfont/lib/index.css'
+import '@vapor-team/iconfont/lib/iconfont.min.js'
+
 Vue.config.productionTip = false
 Vue.use(Clipboard)
 Vue.use(CeUi)

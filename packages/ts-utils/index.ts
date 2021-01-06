@@ -1,11 +1,14 @@
+/* eslint-disable no-useless-escape */
 import Vue from 'vue'
 import { config } from '@lib/ts-utils/package'
-import { LogType } from '@lib/ts-utils/types'
+import { LogType, EmptyObject } from '@lib/ts-utils/types'
 /**
  * isServer
  */
 const isServer = Vue.prototype.$isServer
 const hasOwnProperty = Object.prototype.hasOwnProperty
+const SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g
+const MOZ_HACK_REGEXP = /^moz([A-Z])/
 /**
  * 驼峰命名转换
  * @param string
@@ -14,7 +17,7 @@ const hasOwnProperty = Object.prototype.hasOwnProperty
 const nameConvert = (
   string: string,
   options: { separator?: string; split?: string }
-) => {
+): string => {
   options = options || {}
   const separator = options.separator || '_'
   const split = options.split || /(?=[A-Z])/
@@ -25,7 +28,7 @@ const nameConvert = (
  * @param obj
  * @param key
  */
-const hasOwn = (obj: any, key: string): boolean => {
+const hasOwn = (obj: EmptyObject<unknown>, key: string): boolean => {
   return hasOwnProperty.call(obj, key)
 }
 /**
@@ -33,8 +36,11 @@ const hasOwn = (obj: any, key: string): boolean => {
  * @param to
  * @param _from
  */
-const extend = (to: any, _from: any): any => {
-  for (let key in _from) {
+const extend = (
+  to: EmptyObject<unknown>,
+  _from: EmptyObject<unknown>
+): EmptyObject<unknown> => {
+  for (const key in _from) {
     to[key] = _from[key]
   }
   return to
@@ -44,7 +50,7 @@ const extend = (to: any, _from: any): any => {
  * @param arr
  */
 const toObject = (arr: any[]): any => {
-  let res = {}
+  const res = {}
   for (let i = 0; i < arr.length; i++) {
     if (arr[i]) {
       extend(res, arr[i])
@@ -147,15 +153,28 @@ const stripTemplate = (content: string): string => {
  * @param type
  * @param args
  */
-const log = (type: LogType = 'log', ...args: any[]) => {
+const log = (type: LogType = 'log', ...args: any[]): void => {
   const args_ = args
   if (config.noConsole && type === 'log') return
   if (config.noWarn && type === 'warn') return
   console[type](...args_)
 }
 
+const trim = function (str: string): string {
+  return (str || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '')
+}
+
+const camelCase = function (name: string): string {
+  return name
+    .replace(SPECIAL_CHARS_REGEXP, function (_, separator, letter, offset) {
+      return offset ? letter.toUpperCase() : letter
+    })
+    .replace(MOZ_HACK_REGEXP, 'Moz$1')
+}
+
 export {
   log,
+  trim,
   hasOwn,
   extend,
   toObject,
@@ -165,6 +184,7 @@ export {
   isDef,
   isServer,
   camelize,
+  camelCase,
   nameConvert,
   isAndroid,
   stripStyle,
@@ -175,6 +195,7 @@ export {
 
 export default {
   log,
+  trim,
   hasOwn,
   extend,
   toObject,
@@ -184,6 +205,7 @@ export default {
   isDef,
   isServer,
   camelize,
+  camelCase,
   nameConvert,
   isAndroid,
   stripStyle,

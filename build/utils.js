@@ -39,6 +39,14 @@ const convertHtml = function (str) {
 const resolve = function (dir) {
   return path.join(__dirname, '../', dir)
 }
+
+/**
+ * resolve函数
+ */
+const resolveNodeModule = function (dir) {
+  return path.join(__dirname, '../node_modules/', dir)
+}
+
 const handlerArr = function (data, callback, newEle = null) {
   let arr = []
   if (Array.isArray(data)) {
@@ -57,5 +65,6 @@ module.exports = {
   getEnvType,
   handlerArr,
   convertHtml,
-  wrapCustomClass
+  wrapCustomClass,
+  resolveNodeModule
 }
