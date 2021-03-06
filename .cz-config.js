@@ -3,27 +3,27 @@
 module.exports = {
   // 类型
   types: [
-    { value: '✨feat', name: '✨ feat:            一个新的特性' },
-    { value: '🐛fix', name: '🐛 fix:             修复一个Bug' },
-    { value: '📚docs', name: '📚 docs:            变更的只有文档' },
-    { value: '💅style', name: '💅 style:           空格, 分号等格式修复' },
+    { value: '✨ feat', name: '✨ feat:            一个新的特性' },
+    { value: '🐛 fix', name: '🐛 fix:             修复一个Bug' },
+    { value: '📚 docs', name: '📚 docs:            变更的只有文档' },
+    { value: '💅 style', name: '💅 style:           空格, 分号等格式修复' },
     {
-      value: '🛠refactor',
+      value: '🛠 refactor',
       name: '🛠  refactor:        代码重构，注意和特性、修复区分开'
     },
-    { value: '⚡️performance', name: '⚡️ performance:     提升性能' },
-    { value: '🏁test', name: '🏁 test:            添加一个测试' },
-    { value: '🎂release', name: '🎂 release:         发布版本' },
+    { value: '⚡️ performance', name: '⚡️ performance:     提升性能' },
+    { value: '🏁 test', name: '🏁 test:            添加一个测试' },
+    { value: '🎂 release', name: '🎂 release:         发布版本' },
     {
-      value: '🔧tool',
+      value: '🔧 tool',
       name: '🔧 tool:            开发工具变动(构建、脚手架工具等)'
     },
-    { value: '⏪revert', name: '⏪ revert:          代码回退' },
+    { value: '⏪ revert', name: '⏪ revert:          代码回退' },
     {
-      value: '🗯chore',
+      value: '🗯 chore',
       name: '🗯  chore:           更改项目配置文件、更新依赖包等'
     },
-    { value: '💪WIP', name: '💪 WIP:             工作进行中。。。' }
+    { value: '💪 WIP', name: '💪 WIP:             工作进行中。。。' }
   ],
   // 区别模块
   scopes: [

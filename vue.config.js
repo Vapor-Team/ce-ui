@@ -139,7 +139,7 @@ module.exports = {
       )
 
       // splitChunks
-      config.optimization.splitChunks({
+      config.optimization.splitChunks = {
         // 表示选择哪些 chunks 进行分割，可选值有：async，initial和all
         chunks: 'async',
         // 表示新分离出的chunk必须大于等于minSize，80K。
@@ -162,9 +162,9 @@ module.exports = {
             priority: -10,
             chunks: 'initial'
           },
-          element: {
-            test: /[\\/]node_modules[\\/](element-ui)/,
-            name: 'element-ui',
+          'vapor-team': {
+            test: /[\\/]node_modules[\\/](@vapor-team)/,
+            name: '@vapor-team',
             priority: -10,
             chunks: 'initial'
           },
@@ -173,21 +173,9 @@ module.exports = {
             name: 'utils',
             priority: -10,
             chunks: 'initial'
-          },
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name(module) {
-              // get the name. E.g. node_modules/packageName/not/this/part.js
-              // or node_modules/packageName
-              const packageName = module.context.match(
-                /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-              )[1]
-              // npm package names are URL-safe, but some servers don't like @ symbols
-              return `npm.${packageName.replace('@', '')}`
-            }
           }
         }
-      })
+      }
       // 取消webpack警告的性能提示
       config.performance = {
         hints: 'warning',
