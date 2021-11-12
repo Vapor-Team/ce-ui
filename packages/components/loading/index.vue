@@ -1,46 +1,52 @@
 <template>
-  <div :class="b([type, colorType])" :style="style">
-    <span :class="b('spinner', type)">
-      <i v-for="(item, index) in type === 'spinner' ? 12 : 0" :key="index" />
-      <svg
-        v-if="type === 'circular'"
-        :class="b('circular')"
-        viewBox="25 25 50 50"
-      >
-        <circle cx="50" cy="50" r="20" fill="none" />
-      </svg>
-    </span>
-    <svg class="disk" viewBox="25 25 50 50">
-      <circle cx="50" cy="50" r="20" fill="none" />
-    </svg>
-  </div>
+  <transition name="ce-loading-fade" @after-leave="handleAfterLeave">
+    <ce-mask-content
+      v-show="visible"
+      :fullscreen="fullscreen"
+      @mask-event="maskEvent"
+    >
+      <div class="ce-loading">
+        <span v-if="!spinner" class="ce-loading__spinner"></span>
+        <span v-else :class="spinner"></span>
+        <span v-if="text" class="ce-loading__text">{{ text }}</span>
+      </div>
+    </ce-mask-content>
+  </transition>
 </template>
+
 <script lang="ts">
-const DEFAULT_COLOR = '#2150D8'
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import { Emit, Prop } from 'vue-property-decorator'
+import { Emit } from 'vue-property-decorator'
+import { MaskEvent } from '../mask/type'
 
 @Component({
   name: 'Loading'
 })
 export default class Loading extends Vue {
-  @Prop({ required: false, default: '#222', type: String })
-  private size?: string
-  @Prop({ required: false, default: 'circular', type: String })
-  private color?: string
-  @Prop({ required: false, default: DEFAULT_COLOR, type: String })
-  private type?: string
-  get colorType(): string {
-    const { color } = this
-    return color === 'white' || color === 'black' ? color : ''
+  private customClass?: string = ''
+  private fullscreen?: boolean = false
+  private text?: string = ''
+  private visible = false
+  private spinner = null
+  private background = null
+
+  @Emit('mask-event')
+  maskEvent(events: MaskEvent): Promise<MaskEvent> {
+    return new Promise((reslove) => {
+      reslove(events)
+    })
   }
-  style(): any {
-    return {
-      color: this.color === 'black' ? DEFAULT_COLOR : this.color,
-      width: this.size,
-      height: this.size
-    }
+
+  @Emit('end')
+  private handleAfterLeave(events: unknown): Promise<unknown> {
+    return new Promise((reslove) => {
+      reslove(events)
+    })
+  }
+
+  public setText(text: string): void {
+    this.text = text
   }
 }
 </script>

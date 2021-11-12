@@ -1,3 +1,3 @@
 import VTips from './v-tips'
-
-export { VTips }
+import VLoading from './v-loading'
+export { VTips, VLoading }

@@ -5,6 +5,7 @@ import BaseCard_ from "./base-card"
 import Button_ from "./button"
 import Icon_ from "./icon"
 import Loading_ from "./loading"
+import Mask_ from "./mask"
 import Tab_ from "./tab"
 import TabItem_ from "./tab-item"
 import TabNav_ from "./tab-nav"
@@ -14,6 +15,7 @@ export const BaseCard = CreateComponents(BaseCard_)
 export const Button = CreateComponents(Button_)
 export const Icon = CreateComponents(Icon_)
 export const Loading = CreateComponents(Loading_)
+export const Mask = CreateComponents(Mask_)
 export const Tab = CreateComponents(Tab_)
 export const TabItem = CreateComponents(TabItem_)
 export const TabNav = CreateComponents(TabNav_)
@@ -24,6 +26,7 @@ export default {
   Button,
   Icon,
   Loading,
+  Mask,
   Tab,
   TabItem,
   TabNav,

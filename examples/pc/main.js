@@ -6,12 +6,15 @@ import router from './router'
 import i18n from './i18n'
 import Clipboard from 'v-clipboard'
 import CeUi from '@lib/index'
+// 导入样式库
 import '@theme/lib/index.css'
 import '@pc/assets/css/index.styl'
 import 'highlight.js/styles/github.css'
 import 'github-markdown-css'
+// 导入iconfont样式
 import '@vapor-team/iconfont/lib/index.css'
-import '@vapor-team/iconfont/lib/iconfont.min.js'
+// 导入iconfont JS
+import '@vapor-team/iconfont'
 
 Vue.config.productionTip = false
 Vue.use(Clipboard)

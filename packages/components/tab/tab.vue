@@ -2,7 +2,7 @@
  * @Author: Mark
  * @Date: 2020-07-12 23:14:10
  * @LastEditors: Mark
- * @LastEditTime: 2021-01-04 13:04:11
+ * @LastEditTime: 2021-06-09 20:24:32
  * @Description: tabs
 -->
 <template>
@@ -29,7 +29,7 @@
         :ref="`tab-nav-item-${item.name_}`"
         v-on="{
           'tab-nav-click': onTabNavClick,
-          'tab-nav-leave': onTabNavLeave,
+          'tab-before-leave': onTabBeforeLeave,
           'tab-nav-mouse': onMouseEvent
         }"
       >
@@ -109,8 +109,8 @@ export default class Tab extends Vue {
     })
   }
 
-  @Emit('tab-nav-leave')
-  private onTabNavLeave(events: TabNavEvent): Promise<TabNavEvent> {
+  @Emit('tab-before-leave')
+  private onTabBeforeLeave(events: TabNavEvent): Promise<TabNavEvent> {
     return new Promise((reslove) => {
       reslove(events)
     })

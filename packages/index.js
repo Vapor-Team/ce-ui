@@ -1,10 +1,10 @@
 /* eslint-disable */
 // This file is auto gererated by build/build-entry.js
-import { BaseCard, Button, Icon, Loading, Tab, TabItem, TabNav, TabNavBar, TextCard } from './components'
-import { VTips } from './directives'
+import { BaseCard, Button, Icon, Loading, Mask, Tab, TabItem, TabNav, TabNavBar, TextCard } from './components'
+import { VLoading, VTips } from './directives'
 const version = '0.0.1'
-const components = [ BaseCard, Button, Icon, Loading, Tab, TabItem, TabNav, TabNavBar, TextCard ]
-const directives = [ VTips ]
+const components = [ BaseCard, Button, Icon, Loading, Mask, Tab, TabItem, TabNav, TabNavBar, TextCard ]
+const directives = [ VLoading, VTips ]
 const install = Vue => {
   components.forEach(Component => {
     Vue.use(Component)
@@ -24,11 +24,13 @@ export {
   Button,
   Icon,
   Loading,
+  Mask,
   Tab,
   TabItem,
   TabNav,
   TabNavBar,
   TextCard,
+  VLoading,
   VTips
 }
 export default {
@@ -38,10 +40,12 @@ export default {
   Button,
   Icon,
   Loading,
+  Mask,
   Tab,
   TabItem,
   TabNav,
   TabNavBar,
   TextCard,
+  VLoading,
   VTips
 }

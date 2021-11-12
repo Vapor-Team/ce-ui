@@ -2,7 +2,7 @@
  * @Author: Mark
  * @Date: 2020-07-09 15:26:32
  * @LastEditors: Mark
- * @LastEditTime: 2020-08-13 23:17:23
+ * @LastEditTime: 2021-03-09 14:01:46
  * @Description: icon 组件，组件可自定义svg图标
 -->
 
@@ -15,15 +15,12 @@
     @mouseleave="onMouseleave($event)"
   >
     <svg v-if="!isNormal" class="ce-icon__symbol" aria-hidden="true">
-      <use
-        v-if="symbol && !$slots.default"
-        :xlink:href="getIcoName(name, type, '#')"
-      />
+      <use v-if="symbol && !$slots.default" :xlink:href="getIcoName" />
       <slot v-else></slot>
     </svg>
     <i
       v-if="isNormal"
-      :class="['ce-icon__font', getIcoName(name, type)]"
+      :class="['ce-icon__font', getIcoName]"
       :style="{ color }"
     ></i>
   </span>
@@ -43,25 +40,36 @@ export default class Icon extends Vue {
    */
   @Prop({ required: false, default: true, type: Boolean })
   private symbol!: boolean
+
   /**
    * icon-name
    */
   @Prop({ required: false, type: String, default: '' }) private name!: string
+
   /**
    * font-size
    */
   @Prop({ required: false, default: 16, type: Number || String })
   private size?: number | string
+
   /**
    * font-color
    */
   @Prop({ required: false, default: '#222', type: String })
   private color?: string
+
   /**
    * icon-type
    */
   @Prop({ required: false, default: 'outline', type: String })
   private type?: IconType
+
+  /**
+   * prefix 自定义时使用
+   */
+  @Prop({ required: false, default: '', type: String })
+  private prefix?: string
+
   /**
    * is-normal
    */
@@ -93,14 +101,15 @@ export default class Icon extends Vue {
     })
   }
 
-  private getIcoName(name: string, type: string, prefix = ''): string {
+  private get getIcoName(): string {
     let str = ''
-    if (type === 'filled') str = `#ce-icon--${name}`
-    if (type === 'sharp' || type === 'outline') {
-      str = `#ce-icon--${name}-${type}`
+    let prefixName = this.prefix ? this.prefix : 'ce-icon--'
+    if (this.type === 'filled') str = `#${prefixName}${this.name}`
+    if (this.type === 'sharp' || this.type === 'outline') {
+      str = `#${prefixName}${this.name}-${this.type}`
     }
-    if (type === 'logo') {
-      str = `${prefix}ce-icon--${type}-${name}`
+    if (this.type === 'logo') {
+      str = `#${prefixName}${this.type}-${this.name}`
     }
     return str
   }

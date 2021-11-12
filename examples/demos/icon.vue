@@ -1,11 +1,6 @@
 <template>
   <div class="icon-box">
-    <ce-tab
-      @tab-nav-click="onTabNavClick"
-      @tab-nav-enter="onMouseenter1"
-      @tab-nav-leave="onMouseleave1"
-      v-model="currentName"
-    >
+    <ce-tab @tab-nav-click="onTabNavClick" v-model="currentName">
       <ce-tab-item v-for="(item, key) in icons" :key="key" :label="item.name">
         <!-- label -->
         <!-- <div slot="label">
@@ -29,7 +24,14 @@
                   :type="_.type"
                   :size="_.size"
                 ></ce-icon>
-                <span class="name" v-tips="_.name">{{ _.name }}</span>
+                <span
+                  class="name"
+                  v-tips="{
+                    placement: 'auto',
+                    text: _.name
+                  }"
+                  >{{ _.name }}</span
+                >
               </div>
             </li>
           </ul>
@@ -78,12 +80,6 @@ export default {
     copy(value) {
       this.$clipboard(value)
     },
-    onMouseenter1(key) {
-      // console.log(key)
-    },
-    onMouseleave1(key) {
-      // console.log(key)
-    },
     onMouseenter(key, index) {
       this.icons[key].list[index].size = 64
     },
@@ -130,6 +126,8 @@ export default {
     color #626673
 
     .icon
+      display block
+      margin-bottom 15px
       transition font-size 0.2s linear
 
     .big
@@ -143,8 +141,4 @@ export default {
       width 80px
       overflow hidden
       display inline-block
-
-  .ce-icon
-    display block
-    margin-bottom 15px
 </style>
